@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+	  <Authors>DustyPig.tv</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>TMDB apis used by DustyPig clients. This is NOT a comprehensive api library for TMDB</Description>
+    <Copyright>DustyPig.tv</Copyright>
+    <PackageProjectUrl>https://github.com/dustypigtv/DustyPig.TMDB</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dustypigtv/DustyPig.TMDB.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591,1573</NoWarn>
+
+	  <!-- Leave the revision zero, it will be updated by github actions -->
+	  <Version>3.0.0.0</Version>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DustyPig.REST" Version="3.0.0.1" />
+  </ItemGroup>
+
+
+</Project>
