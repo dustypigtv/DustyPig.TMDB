@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
 	  <Authors>DustyPig.tv</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>TMDB apis used by DustyPig clients. This is NOT a comprehensive api library for TMDB</Description>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DustyPig.REST" Version="3.0.0.1" />
+    <PackageReference Include="DustyPig.REST" Version="3.0.0.2" />
   </ItemGroup>
 
 

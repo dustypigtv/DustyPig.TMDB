@@ -3,11 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DustyPig.TMDB", "DustyPig.TMDB\DustyPig.TMDB.csproj", "{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DustyPig.TMDB", "DustyPig.TMDB\DustyPig.TMDB.csproj", "{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7AAE4ECB-2283-4D50-BEEE-D4698B9725E7}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DustyPig.TMDB.Tests", "DustyPig.TMDB.Tests\DustyPig.TMDB.Tests.csproj", "{95946CDE-B33C-4B29-A31A-08D319BE9C75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{9CF05141-59DF-45E7-85F4-D36014D174FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{1866D97F-5B7C-4CB5-9537-EFD73FBF3381}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\auto_build.yml = .github\workflows\auto_build.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
 Global
@@ -20,9 +30,17 @@ Global
 		{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9CF05141-59DF-45E7-85F4-D36014D174FA} = {7AAE4ECB-2283-4D50-BEEE-D4698B9725E7}
+		{1866D97F-5B7C-4CB5-9537-EFD73FBF3381} = {9CF05141-59DF-45E7-85F4-D36014D174FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76B0911E-B321-4527-A3A6-B0304760A0F4}
