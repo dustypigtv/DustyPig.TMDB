@@ -79,6 +79,86 @@ namespace DustyPig.TMDB
             return ret;
         }
 
+
+        public async Task<Response<List<SearchResult>>> SearchMoviesAsync(string query, int year = 0, CancellationToken cancellationToken = default)
+        {
+            //This can return multiple pages, but in Dusty Pig only return the first page
+
+            string url = "search/movie?language=en-US&include_adult=false";
+            if (year > 0)
+                url += $"&year={year}";
+
+            var response = await GetAsync<InternalSearchResults>($"{url}&query={WebUtility.UrlEncode(query)}", cancellationToken).ConfigureAwait(false);
+            if (!response.Success)
+                return new Response<List<SearchResult>> { Error = response.Error };
+
+            if (response.Data == null)
+                response.Data = new InternalSearchResults();
+
+            if (response.Data.Results == null)
+                response.Data.Results = new List<InternalSearchResult>();
+
+
+            response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.Title));
+
+            var ret = new Response<List<SearchResult>> { Success = true, Data = new List<SearchResult>() };
+
+            foreach (var result in response.Data.Results)
+            {
+                var newItem = new SearchResult
+                {
+                    Id = result.Id,
+                    IsMovie = true,
+                    PosterPath = result.PosterPath,
+                    Title = AddYearToMovieTitle(result.Title, result.ReleaseDate)
+                };
+ 
+                ret.Data.Add(newItem);
+            }
+
+            return ret;
+        }
+
+
+        public async Task<Response<List<SearchResult>>> SearchSeriesAsync(string query, int year = 0, CancellationToken cancellationToken = default)
+        {
+            //This can return multiple pages, but in Dusty Pig only return the first page
+
+            string url = "search/tv?language=en-US&include_adult=false";
+            if (year > 0)
+                url += $"&first_air_date_year={year}";
+
+            var response = await GetAsync<InternalSearchResults>($"{url}&query={WebUtility.UrlEncode(query)}", cancellationToken).ConfigureAwait(false);
+            if (!response.Success)
+                return new Response<List<SearchResult>> { Error = response.Error };
+
+            if (response.Data == null)
+                response.Data = new InternalSearchResults();
+
+            if (response.Data.Results == null)
+                response.Data.Results = new List<InternalSearchResult>();
+
+
+            response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.Name));
+
+            var ret = new Response<List<SearchResult>> { Success = true, Data = new List<SearchResult>() };
+
+            foreach (var result in response.Data.Results)
+            {
+                var newItem = new SearchResult
+                {
+                    Id = result.Id,
+                    IsMovie = false,
+                    PosterPath = result.PosterPath,
+                    Title = result.Name
+                };
+
+                ret.Data.Add(newItem);
+            }
+
+            return ret;
+        }
+
         public async Task<Response<Movie>> GetMovieAsync(int id, CancellationToken cancellationToken = default)
         {
             var ret = await GetAsync<Movie>($"movie/{id}?append_to_response=credits,releases", cancellationToken).ConfigureAwait(false);
