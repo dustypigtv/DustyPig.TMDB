@@ -159,14 +159,9 @@ namespace DustyPig.TMDB
             return ret;
         }
 
-        public async Task<Response<Movie>> GetMovieAsync(int id, CancellationToken cancellationToken = default)
-        {
-            var ret = await GetAsync<Movie>($"movie/{id}?append_to_response=credits,releases", cancellationToken).ConfigureAwait(false);
-            if (ret.Success)
-                ret.Data.Title = AddYearToMovieTitle(ret.Data.Title, ret.Data.ReleaseDate);
-
-            return ret;
-        }
+        public Task<Response<Movie>> GetMovieAsync(int id, CancellationToken cancellationToken = default) =>
+            GetAsync<Movie>($"movie/{id}?append_to_response=credits,releases", cancellationToken);
+            
 
 
         public Task<Response<ExternalIds>> GetMovieExternalIdsAsync(int id, CancellationToken cancellationToken = default) =>
