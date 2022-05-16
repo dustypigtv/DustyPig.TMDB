@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace DustyPig.TMDB.Models
@@ -26,5 +27,8 @@ namespace DustyPig.TMDB.Models
         public ContentRatings ContentRatings { get; set; }
 
         public double Popularity { get; set; }
+
+        [JsonProperty("first_air_date")]
+        public DateTime? FirstAirDate { get; set; }
     }
 }
