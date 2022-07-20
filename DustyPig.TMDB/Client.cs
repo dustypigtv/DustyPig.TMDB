@@ -15,6 +15,18 @@ namespace DustyPig.TMDB
 
         private static readonly REST.Client _client = new REST.Client() { BaseAddress = new Uri(API_BASE_ADDRESS) };
 
+        public static bool IncludeRawContentInResponse
+        {
+            get => _client.IncludeRawContentInResponse;
+            set => _client.IncludeRawContentInResponse = value;
+        }
+
+        public static bool AutoThrowIfError
+        {
+            get => _client.AutoThrowIfError;
+            set => _client.AutoThrowIfError = value;
+        }
+
         public Client() { }
 
         public Client(string apiKey) => APIKey = apiKey;
@@ -44,7 +56,13 @@ namespace DustyPig.TMDB
 
             var response = await GetAsync<InternalSearchResults>($"search/multi?language=en-US&include_adult=false&query={WebUtility.UrlEncode(query)}", cancellationToken).ConfigureAwait(false);
             if (!response.Success)
-                return new Response<List<SearchResult>> { Error = response.Error };
+                return new Response<List<SearchResult>>
+                {
+                    Error = response.Error,
+                    RawContent = response.RawContent,
+                    ReasonPhrase = response.ReasonPhrase,
+                    StatusCode = response.StatusCode
+                };
 
             if (response.Data == null)
                 response.Data = new InternalSearchResults();
@@ -58,7 +76,14 @@ namespace DustyPig.TMDB
             response.Data.Results.RemoveAll(item => item.MediaType == "tv" && string.IsNullOrWhiteSpace(item.Name));
             response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.PosterPath));
 
-            var ret = new Response<List<SearchResult>> { Success = true, Data = new List<SearchResult>() };
+            var ret = new Response<List<SearchResult>> 
+            { 
+                Success = true, 
+                Data = new List<SearchResult>(),
+                RawContent = response.RawContent,
+                ReasonPhrase = response.ReasonPhrase,
+                StatusCode = response.StatusCode
+            };
 
             foreach (var result in response.Data.Results)
             {
@@ -90,7 +115,13 @@ namespace DustyPig.TMDB
 
             var response = await GetAsync<InternalSearchResults>($"{url}&query={WebUtility.UrlEncode(query)}", cancellationToken).ConfigureAwait(false);
             if (!response.Success)
-                return new Response<List<SearchResult>> { Error = response.Error };
+                return new Response<List<SearchResult>>
+                {
+                    Error = response.Error,
+                    RawContent = response.RawContent,
+                    ReasonPhrase = response.ReasonPhrase,
+                    StatusCode = response.StatusCode
+                };
 
             if (response.Data == null)
                 response.Data = new InternalSearchResults();
@@ -101,7 +132,14 @@ namespace DustyPig.TMDB
 
             response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.Title));
 
-            var ret = new Response<List<SearchResult>> { Success = true, Data = new List<SearchResult>() };
+            var ret = new Response<List<SearchResult>> 
+            {
+                Success = true, 
+                Data = new List<SearchResult>(),
+                RawContent = response.RawContent,
+                ReasonPhrase = response.ReasonPhrase,
+                StatusCode = response.StatusCode
+            };
 
             foreach (var result in response.Data.Results)
             {
@@ -130,7 +168,13 @@ namespace DustyPig.TMDB
 
             var response = await GetAsync<InternalSearchResults>($"{url}&query={WebUtility.UrlEncode(query)}", cancellationToken).ConfigureAwait(false);
             if (!response.Success)
-                return new Response<List<SearchResult>> { Error = response.Error };
+                return new Response<List<SearchResult>>
+                {
+                    Error = response.Error,
+                    RawContent = response.RawContent,
+                    ReasonPhrase = response.ReasonPhrase,
+                    StatusCode = response.StatusCode
+                };
 
             if (response.Data == null)
                 response.Data = new InternalSearchResults();
@@ -141,7 +185,14 @@ namespace DustyPig.TMDB
 
             response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.Name));
 
-            var ret = new Response<List<SearchResult>> { Success = true, Data = new List<SearchResult>() };
+            var ret = new Response<List<SearchResult>> 
+            {
+                Success = true, 
+                Data = new List<SearchResult>(),
+                RawContent = response.RawContent,
+                ReasonPhrase = response.ReasonPhrase,
+                StatusCode = response.StatusCode
+            };
 
             foreach (var result in response.Data.Results)
             {

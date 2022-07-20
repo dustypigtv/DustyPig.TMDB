@@ -19,6 +19,11 @@ namespace DustyPig.TMDB.Tests
             return key;
         }
 
-        public static Client CreateClient() => new Client(GetKey());
+        public static Client CreateClient()
+        {
+            Client.IncludeRawContentInResponse = true;
+            Client.AutoThrowIfError = true;
+            return new Client(GetKey());
+        }
     }
 }
