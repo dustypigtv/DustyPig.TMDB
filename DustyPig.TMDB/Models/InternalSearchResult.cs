@@ -10,6 +10,9 @@ namespace DustyPig.TMDB.Models
         [JsonProperty("poster_path")]
         public string PosterPath { get; set; }
 
+        [JsonProperty("backdrop_path")]
+        public string BackdropPath { get; set; }
+
         [JsonProperty("release_date")]
         public DateTime? ReleaseDate { get; set; }
 

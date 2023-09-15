@@ -92,6 +92,7 @@ namespace DustyPig.TMDB
                     Id = result.Id,
                     IsMovie = result.MediaType == "movie",
                     PosterPath = result.PosterPath,
+                    BackdropPath = result.BackdropPath,
                     Title = result.MediaType == "movie" ? result.Title : result.Name
                 };
 
@@ -148,6 +149,7 @@ namespace DustyPig.TMDB
                     Id = result.Id,
                     IsMovie = true,
                     PosterPath = result.PosterPath,
+                    BackdropPath = result.BackdropPath,
                     Title = AddYearToMovieTitle(result.Title, result.ReleaseDate)
                 };
  
@@ -201,6 +203,7 @@ namespace DustyPig.TMDB
                     Id = result.Id,
                     IsMovie = false,
                     PosterPath = result.PosterPath,
+                    BackdropPath = result.BackdropPath,
                     Title = result.Name
                 };
 
