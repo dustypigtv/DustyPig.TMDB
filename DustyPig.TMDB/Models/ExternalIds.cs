@@ -6,6 +6,6 @@
 
         public string IMDB_ID { get; set; }
 
-        public int TVDB_ID { get; set; }
+        public int? TVDB_ID { get; set; }
     }
 }

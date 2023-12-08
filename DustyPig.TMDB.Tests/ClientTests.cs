@@ -61,7 +61,7 @@ namespace DustyPig.TMDB.Tests
         [TestMethod]
         public async Task GetEpisodeExternalIds()
         {
-            var ret = await _client.GetEpisodeExternalIdsAsync(2473, 1, 1).ConfigureAwait(false);
+            var ret = await _client.GetEpisodeExternalIdsAsync(203, 4, 6).ConfigureAwait(false);
             ret.ThrowIfError();
         }
 
