@@ -4,6 +4,6 @@ namespace DustyPig.TMDB.Models
 {
     public class Releases
     {
-        public List<Country> Countries { get; set; } = new List<Country>();
+        public List<Country> Countries { get; set; }
     }
 }

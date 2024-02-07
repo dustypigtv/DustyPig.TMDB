@@ -1,16 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models
 {
     public class ErrorResponse
     {
-        [JsonProperty("success")]
         public bool Success { get; set; }
 
-        [JsonProperty("status_code")]
+        [JsonPropertyName("status_code")]
         public long StatusCode { get; set; }
 
-        [JsonProperty("status_message")]
+        [JsonPropertyName("status_message")]
         public string StatusMessage { get; set; }
     }
 }

@@ -2,36 +2,50 @@
 using DustyPig.TMDB.Models;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DustyPig.TMDB
 {
-    public class Client
+    public class Client : IDisposable
     {
         private const string API_BASE_ADDRESS = "https://api.themoviedb.org/3/";
 
-        private static readonly REST.Client _client = new REST.Client() { BaseAddress = new Uri(API_BASE_ADDRESS) };
+        private readonly REST.Client _client = new() { BaseAddress = new Uri(API_BASE_ADDRESS) };
 
-        public static bool IncludeRawContentInResponse
+        
+        
+        public Client() { }
+
+        public Client(string apiKey) => APIKey = apiKey;
+
+        public void Dispose()
+        {
+            _client.Dispose();
+            GC.SuppressFinalize(this);
+        }
+
+
+
+
+        public bool IncludeRawContentInResponse
         {
             get => _client.IncludeRawContentInResponse;
             set => _client.IncludeRawContentInResponse = value;
         }
 
-        public static bool AutoThrowIfError
+        public bool AutoThrowIfError
         {
             get => _client.AutoThrowIfError;
             set => _client.AutoThrowIfError = value;
         }
 
-        public Client() { }
-
-        public Client(string apiKey) => APIKey = apiKey;
-
-
+        
         public string APIKey { get; set; }
 
 
@@ -45,9 +59,9 @@ namespace DustyPig.TMDB
 
         private Task<Response<T>> GetAsync<T>(string url, CancellationToken cancellationToken)
         {
-            string c = url.Contains("?") ? "&" : "?";
+            string c = url.Contains('?') ? "&" : "?";
             url += c + "api_key=" + APIKey;
-            return _client.GetAsync<T>(url, null, null, cancellationToken);
+            return _client.GetAsync<T>(url, null, cancellationToken);
         }
 
         public async Task<Response<List<SearchResult>>> SearchAsync(string query, CancellationToken cancellationToken = default)
@@ -64,11 +78,8 @@ namespace DustyPig.TMDB
                     StatusCode = response.StatusCode
                 };
 
-            if (response.Data == null)
-                response.Data = new InternalSearchResults();
-
-            if (response.Data.Results == null)
-                response.Data.Results = new List<InternalSearchResult>();
+            response.Data ??= new InternalSearchResults();
+            response.Data.Results ??= [];
 
 
             response.Data.Results.RemoveAll(item => !(new string[] { "movie", "tv" }.Contains(item.MediaType)));
@@ -76,10 +87,10 @@ namespace DustyPig.TMDB
             response.Data.Results.RemoveAll(item => item.MediaType == "tv" && string.IsNullOrWhiteSpace(item.Name));
             response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.PosterPath));
 
-            var ret = new Response<List<SearchResult>> 
-            { 
-                Success = true, 
-                Data = new List<SearchResult>(),
+            var ret = new Response<List<SearchResult>>
+            {
+                Success = true,
+                Data = [],
                 RawContent = response.RawContent,
                 ReasonPhrase = response.ReasonPhrase,
                 StatusCode = response.StatusCode
@@ -124,19 +135,15 @@ namespace DustyPig.TMDB
                     StatusCode = response.StatusCode
                 };
 
-            if (response.Data == null)
-                response.Data = new InternalSearchResults();
-
-            if (response.Data.Results == null)
-                response.Data.Results = new List<InternalSearchResult>();
-
+            response.Data ??= new InternalSearchResults();
+            response.Data.Results ??= [];
 
             response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.Title));
 
-            var ret = new Response<List<SearchResult>> 
+            var ret = new Response<List<SearchResult>>
             {
-                Success = true, 
-                Data = new List<SearchResult>(),
+                Success = true,
+                Data = [],
                 RawContent = response.RawContent,
                 ReasonPhrase = response.ReasonPhrase,
                 StatusCode = response.StatusCode
@@ -152,7 +159,7 @@ namespace DustyPig.TMDB
                     BackdropPath = result.BackdropPath,
                     Title = AddYearToMovieTitle(result.Title, result.ReleaseDate)
                 };
- 
+
                 ret.Data.Add(newItem);
             }
 
@@ -178,19 +185,16 @@ namespace DustyPig.TMDB
                     StatusCode = response.StatusCode
                 };
 
-            if (response.Data == null)
-                response.Data = new InternalSearchResults();
-
-            if (response.Data.Results == null)
-                response.Data.Results = new List<InternalSearchResult>();
+            response.Data ??= new InternalSearchResults();
+            response.Data.Results ??= [];
 
 
             response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.Name));
 
-            var ret = new Response<List<SearchResult>> 
+            var ret = new Response<List<SearchResult>>
             {
-                Success = true, 
-                Data = new List<SearchResult>(),
+                Success = true,
+                Data = [],
                 RawContent = response.RawContent,
                 ReasonPhrase = response.ReasonPhrase,
                 StatusCode = response.StatusCode
@@ -215,7 +219,7 @@ namespace DustyPig.TMDB
 
         public Task<Response<Movie>> GetMovieAsync(int id, CancellationToken cancellationToken = default) =>
             GetAsync<Movie>($"movie/{id}?append_to_response=credits,releases", cancellationToken);
-            
+
 
 
         public Task<Response<ExternalIds>> GetMovieExternalIdsAsync(int id, CancellationToken cancellationToken = default) =>
@@ -241,5 +245,6 @@ namespace DustyPig.TMDB
 
         public Task<Response<ExternalIds>> GetEpisodeExternalIdsAsync(int id, int season, int number, CancellationToken cancellationToken = default) =>
             GetAsync<ExternalIds>($"tv/{id}/season/{season}/episode/{number}/external_ids", cancellationToken);
+
     }
 }

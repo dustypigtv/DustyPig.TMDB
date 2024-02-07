@@ -1,15 +1,15 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models
 {
     public class Credits
     {
-        public List<Cast> Cast { get; set; } = new List<Cast>();
+        public List<Cast> Cast { get; set; }
 
-        public List<Crew> Crew { get; set; } = new List<Crew>();
+        public List<Crew> Crew { get; set; }
 
-        [JsonProperty("guest_stars")]
-        public List<Cast> GuestStars { get; set; } = new List<Cast>();
+        [JsonPropertyName("guest_stars")]
+        public List<Cast> GuestStars { get; set; }
     }
 }

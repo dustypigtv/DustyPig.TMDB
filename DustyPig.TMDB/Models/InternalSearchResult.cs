@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models
 {
@@ -7,13 +7,14 @@ namespace DustyPig.TMDB.Models
     {
         public int Id { get; set; }
 
-        [JsonProperty("poster_path")]
+        [JsonPropertyName("poster_path")]
         public string PosterPath { get; set; }
 
-        [JsonProperty("backdrop_path")]
+        [JsonPropertyName("backdrop_path")]
         public string BackdropPath { get; set; }
 
-        [JsonProperty("release_date")]
+        [JsonPropertyName("release_date")]
+        [JsonConverter(typeof(EmptyStringDateTimeConverter))]
         public DateTime? ReleaseDate { get; set; }
 
         // Movies return Title
@@ -22,7 +23,7 @@ namespace DustyPig.TMDB.Models
         // Series returns Name
         public string Name { get; set; }
 
-        [JsonProperty("media_type")]
+        [JsonPropertyName("media_type")]
         public string MediaType { get; set; }
     }
 }

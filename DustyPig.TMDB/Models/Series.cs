@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models
 {
@@ -8,27 +8,28 @@ namespace DustyPig.TMDB.Models
     {
         public int Id { get; set; }
 
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Title { get; set; }
 
-        public List<Genre> Genres { get; set; } = new List<Genre>();
+        public List<Genre> Genres { get; set; }
 
         public Credits Credits { get; set; }
 
         public string Overview { get; set; }
 
-        [JsonProperty("poster_path")]
+        [JsonPropertyName("poster_path")]
         public string PosterPath { get; set; }
 
-        [JsonProperty("backdrop_path")]
+        [JsonPropertyName("backdrop_path")]
         public string BackdropPath { get; set; }
 
-        [JsonProperty("content_ratings")]
+        [JsonPropertyName("content_ratings")]
         public ContentRatings ContentRatings { get; set; }
 
         public double Popularity { get; set; }
 
-        [JsonProperty("first_air_date")]
+        [JsonPropertyName("first_air_date")]
+        [JsonConverter(typeof(EmptyStringDateTimeConverter))]
         public DateTime? FirstAirDate { get; set; }
     }
 }

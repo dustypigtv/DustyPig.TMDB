@@ -1,24 +1,25 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models
 {
     public class Movie
     {
-        public List<Genre> Genres { get; set; } = new List<Genre>();
+        public List<Genre> Genres { get; set; } = [];
 
         public int Id { get; set; }
 
         public string Overview { get; set; }
 
-        [JsonProperty("poster_path")]
+        [JsonPropertyName("poster_path")]
         public string PosterPath { get; set; }
 
-        [JsonProperty("backdrop_path")]
+        [JsonPropertyName("backdrop_path")]
         public string BackdropPath { get; set; }
 
-        [JsonProperty("release_date")]
+        [JsonPropertyName("release_date")]
+        [JsonConverter(typeof(EmptyStringDateTimeConverter))]
         public DateTime? ReleaseDate { get; set; }
 
         public string Title { get; set; }

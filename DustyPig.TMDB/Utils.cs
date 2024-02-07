@@ -1,9 +1,11 @@
-﻿namespace DustyPig.TMDB
+﻿using System;
+
+namespace DustyPig.TMDB
 {
     public static class Utils
     {
         // ***** Kept for backwards compatibility *****
-        
+
         private const string IMAGE_BASE_LARGE = "https://image.tmdb.org/t/p/original";
         private const string IMAGE_BASE_SMALL = "https://image.tmdb.org/t/p/w185";
 
@@ -19,6 +21,9 @@
         }
 
         //*********************************************
+
+
+
 
 
         private const string ORIGINAL_BASE = "https://image.tmdb.org/t/p/original";
@@ -46,5 +51,31 @@
 
             return fullSize ? ORIGINAL_BASE + path : BACKDROP_BASE_SMALL + path;
         }
+
+
+
+
+
+
+
+        //Exports Documentation:
+        //https://developer.themoviedb.org/docs/daily-id-exports
+
+        private const string EXPORT_MOVIES_ROOT = "http://files.tmdb.org/p/exports/movie_ids_";
+        private const string EXPORT_SERIES_ROOT = "http://files.tmdb.org/p/exports/tv_series_ids_";
+
+        private const string EXPORT_SUFFIX = ".json.gz";
+
+        private static string BuildExportUrl(string root, DateTime date)
+        {
+            //05_15_2023
+            string dateString = date.ToString("MM_dd_yyyy");
+            
+            return $"{root}{dateString}{EXPORT_SUFFIX}";
+        }
+
+        public static string GetExportedMoviesUrl(DateTime date) => BuildExportUrl(EXPORT_MOVIES_ROOT, date);
+
+        public static string GetExportedSeriesUrl(DateTime date) => BuildExportUrl(EXPORT_SERIES_ROOT, date);
     }
 }
