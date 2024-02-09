@@ -2,11 +2,8 @@
 using DustyPig.TMDB.Models;
 using System;
 using System.Collections.Generic;
-using System.IO.Compression;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -82,10 +79,15 @@ namespace DustyPig.TMDB
             response.Data.Results ??= [];
 
 
-            response.Data.Results.RemoveAll(item => !(new string[] { "movie", "tv" }.Contains(item.MediaType)));
+            response.Data.Results.RemoveAll(item => !(new string[] { "movie", "tv", "person" }.Contains(item.MediaType)));
             response.Data.Results.RemoveAll(item => item.MediaType == "movie" && string.IsNullOrWhiteSpace(item.Title));
             response.Data.Results.RemoveAll(item => item.MediaType == "tv" && string.IsNullOrWhiteSpace(item.Name));
-            response.Data.Results.RemoveAll(item => string.IsNullOrWhiteSpace(item.PosterPath));
+            response.Data.Results.RemoveAll(item => item.MediaType == "person" && string.IsNullOrWhiteSpace(item.Name));
+
+            //Removes common garbage
+            response.Data.Results.RemoveAll(item => (new string[] { "movie", "tv" }.Contains(item.MediaType)) && string.IsNullOrWhiteSpace(item.PosterPath));
+
+
 
             var ret = new Response<List<SearchResult>>
             {
@@ -101,13 +103,19 @@ namespace DustyPig.TMDB
                 var newItem = new SearchResult
                 {
                     Id = result.Id,
-                    IsMovie = result.MediaType == "movie",
+                    SearchResultType = result.MediaType switch
+                    {
+                        "tv" => SearchResultTypes.Series,
+                        "person" => SearchResultTypes.Person,
+                        _ => SearchResultTypes.Movie
+                    },
                     PosterPath = result.PosterPath,
                     BackdropPath = result.BackdropPath,
+                    ProfilePath = result.ProfilePath,
                     Title = result.MediaType == "movie" ? result.Title : result.Name
                 };
 
-                if (newItem.IsMovie)
+                if (newItem.SearchResultType == SearchResultTypes.Movie)
                     newItem.Title = AddYearToMovieTitle(newItem.Title, result.ReleaseDate);
 
                 ret.Data.Add(newItem);
@@ -154,7 +162,7 @@ namespace DustyPig.TMDB
                 var newItem = new SearchResult
                 {
                     Id = result.Id,
-                    IsMovie = true,
+                    SearchResultType = SearchResultTypes.Movie,
                     PosterPath = result.PosterPath,
                     BackdropPath = result.BackdropPath,
                     Title = AddYearToMovieTitle(result.Title, result.ReleaseDate)
@@ -205,7 +213,7 @@ namespace DustyPig.TMDB
                 var newItem = new SearchResult
                 {
                     Id = result.Id,
-                    IsMovie = false,
+                    SearchResultType =  SearchResultTypes.Series,
                     PosterPath = result.PosterPath,
                     BackdropPath = result.BackdropPath,
                     Title = result.Name

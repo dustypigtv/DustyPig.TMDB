@@ -24,7 +24,7 @@ namespace DustyPig.TMDB.Tests
             return new Client(GetKey())
             {
                 IncludeRawContentInResponse = true,
-                AutoThrowIfError = true
+                AutoThrowIfError = false
             };
         }
     }

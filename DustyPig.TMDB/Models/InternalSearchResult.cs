@@ -25,5 +25,9 @@ namespace DustyPig.TMDB.Models
 
         [JsonPropertyName("media_type")]
         public string MediaType { get; set; }
+
+        [JsonPropertyName("profile_path")]
+        public string ProfilePath { get; set; }
+
     }
 }
