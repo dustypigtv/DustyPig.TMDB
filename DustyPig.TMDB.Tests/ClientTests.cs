@@ -65,6 +65,11 @@ namespace DustyPig.TMDB.Tests
             ret.ThrowIfError();
         }
 
-
+        [TestMethod]
+        public async Task GetPerson()
+        {
+            var ret = await _client.GetPersonAsync(3).ConfigureAwait(false);
+            ret.ThrowIfError();
+        }
     }
 }

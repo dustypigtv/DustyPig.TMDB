@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models
 {
-    class InternalSearchResult
+    internal class InternalSearchResult
     {
         public int Id { get; set; }
 
