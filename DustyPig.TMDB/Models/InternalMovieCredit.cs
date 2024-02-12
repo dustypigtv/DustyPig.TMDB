@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace DustyPig.TMDB.Models
 {
     internal class InternalMovieCredit : InternalPersonCreditBase
-    { 
+    {
         public string Title { get; set; }
 
         [JsonPropertyName("release_date")]

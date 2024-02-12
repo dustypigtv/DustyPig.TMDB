@@ -70,7 +70,7 @@ namespace DustyPig.TMDB
         {
             //05_15_2023
             string dateString = date.ToString("MM_dd_yyyy");
-            
+
             return $"{root}{dateString}{EXPORT_SUFFIX}";
         }
 

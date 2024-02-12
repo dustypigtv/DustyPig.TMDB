@@ -19,8 +19,8 @@ namespace DustyPig.TMDB
 
         private readonly REST.Client _client = new() { BaseAddress = new Uri(API_BASE_ADDRESS) };
 
-        
-        
+
+
         public Client() { }
 
         public Client(string apiKey) => APIKey = apiKey;
@@ -40,10 +40,10 @@ namespace DustyPig.TMDB
             set => _client.IncludeRawContentInResponse = value;
         }
 
-        
+
         public string APIKey { get; set; }
 
-        
+
 
         private static string AddYearToMovieTitle(string title, DateTime? released)
         {

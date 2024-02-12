@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models
 {
@@ -17,6 +16,6 @@ namespace DustyPig.TMDB.Models
         public string Biography { get; set; }
 
         public List<PersonCredit> Credits { get; set; }
-        
+
     }
 }

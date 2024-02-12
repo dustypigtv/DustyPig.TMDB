@@ -21,7 +21,7 @@ namespace DustyPig.TMDB.Models
         public int CompareTo(PersonCredit other)
         {
             var ret = -Popularity.CompareTo(other.Popularity);
-            if(ret == 0)
+            if (ret == 0)
                 ret = TItle.CompareTo(other.TItle);
             return ret;
         }
