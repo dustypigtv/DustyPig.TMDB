@@ -4,6 +4,6 @@ namespace DustyPig.TMDB.Models.Movie;
 
 public class AddRatingRequest
 {
-    [JsonPropertyName("value")]
-    public float Value { get; set; }
+	[JsonPropertyName("value")]
+	public float Value { get; set; }
 }

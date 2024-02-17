@@ -5,19 +5,19 @@ namespace DustyPig.TMDB.Models.TvSeries;
 
 public class KeywordsResponse
 {
-    public class ResultsObject
-    {
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+	public class ResultsObject
+	{
+		[JsonPropertyName("name")]
+		public string Name { get; set; }
 
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-    }
+		[JsonPropertyName("id")]
+		public int Id { get; set; }
+	}
 
 
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
+	[JsonPropertyName("id")]
+	public int Id { get; set; }
 
-    [JsonPropertyName("results")]
-    public List<ResultsObject> Results { get; set; } = [];
+	[JsonPropertyName("results")]
+	public List<ResultsObject> Results { get; set; } = [];
 }

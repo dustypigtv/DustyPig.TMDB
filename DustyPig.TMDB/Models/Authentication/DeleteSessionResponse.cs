@@ -4,6 +4,6 @@ namespace DustyPig.TMDB.Models.Authentication;
 
 public class DeleteSessionResponse
 {
-    [JsonPropertyName("success")]
-    public bool Success { get; set; }
+	[JsonPropertyName("success")]
+	public bool Success { get; set; }
 }

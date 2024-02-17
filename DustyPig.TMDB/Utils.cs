@@ -16,7 +16,7 @@ public static class Utils
             throw new ArgumentException("EnumerationValue must be of Enum type", nameof(value));
 
         var flags = type.GetCustomAttribute<FlagsAttribute>(false);
-        if (flags == null)
+        if(flags == null)
         {
             MemberInfo[] memberInfos = type.GetMember(value.ToString());
             if (memberInfos != null && memberInfos.Length > 0)
@@ -59,22 +59,22 @@ public static class Utils
 
     internal static DateOnly? TmdbToDateOnly(this string self)
     {
-        if (DateOnly.TryParse(self, out DateOnly dateOnly))
+        if(DateOnly.TryParse(self, out DateOnly dateOnly))
             return dateOnly;
         return null;
     }
 
     internal static string DateOnlyToTmdb(this DateOnly? self) => self?.ToString("yyyy-MM-dd");
 
-
-
+    
+    
     internal static DateTime? TmdbToDateTime(this string self)
     {
         if (DateTime.TryParse(self, out DateTime dateTime))
             return dateTime;
         return null;
     }
-
+    
     internal static string DateTimeToTmdb(this DateTime? self) => self?.ToUniversalTime().ToString("yyyy-MM-dd hh\\:mm\\:ss UTC");
 
 

@@ -4,12 +4,12 @@ namespace DustyPig.TMDB.Models.Movie;
 
 public class ExternalIdsResponse
 {
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
+	[JsonPropertyName("id")]
+	public int Id { get; set; }
 
-    [JsonPropertyName("imdb_id")]
-    public string ImdbId { get; set; }
+	[JsonPropertyName("imdb_id")]
+	public string ImdbId { get; set; }
 
-    [JsonPropertyName("facebook_id")]
-    public string FacebookId { get; set; }
+	[JsonPropertyName("facebook_id")]
+	public string FacebookId { get; set; }
 }

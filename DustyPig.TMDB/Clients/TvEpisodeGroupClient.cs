@@ -8,14 +8,14 @@ namespace DustyPig.TMDB.Clients;
 
 internal class TvEpisodeGroupClient : ITvEpisodeGroup
 {
-    private readonly Client _client;
+	private readonly Client _client;
 
-    internal TvEpisodeGroupClient(Client client) => _client = client;
+	internal TvEpisodeGroupClient(Client client) => _client = client;
 
 
-    /// <summary>
-    /// Get the details of a TV episode group.
-    /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(string tvEpisodeGroupId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<DetailsResponse>($"/3/tv/episode_group/{tvEpisodeGroupId}", null, cancellationToken);
+	/// <summary>
+	/// Get the details of a TV episode group.
+	/// </summary>
+	public Task<Response<DetailsResponse>> GetDetailsAsync(string tvEpisodeGroupId, CancellationToken cancellationToken = default) =>
+		_client.GetAsync<DetailsResponse>($"/3/tv/episode_group/{tvEpisodeGroupId}", null, cancellationToken);
 }

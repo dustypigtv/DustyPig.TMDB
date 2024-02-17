@@ -5,16 +5,16 @@ namespace DustyPig.TMDB.Models.Genre;
 
 public class MovieListResponse
 {
-    public class GenresObject
-    {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
+	public class GenresObject
+	{
+		[JsonPropertyName("id")]
+		public int Id { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-    }
+		[JsonPropertyName("name")]
+		public string Name { get; set; }
+	}
 
 
-    [JsonPropertyName("genres")]
-    public List<GenresObject> Genres { get; set; } = [];
+	[JsonPropertyName("genres")]
+	public List<GenresObject> Genres { get; set; } = [];
 }

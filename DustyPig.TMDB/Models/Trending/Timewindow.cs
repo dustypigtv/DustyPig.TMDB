@@ -4,9 +4,9 @@ namespace DustyPig.TMDB.Models.Trending;
 
 public enum Timewindow
 {
-    [Description("day")]
-    Day,
+	[Description("day")]
+	Day,
 
-    [Description("week")]
-    Week
+	[Description("week")]
+	Week
 }

@@ -4,12 +4,12 @@ namespace DustyPig.TMDB.Models.List;
 
 public class CreateRequest
 {
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
+	[JsonPropertyName("name")]
+	public string Name { get; set; }
 
-    [JsonPropertyName("description")]
-    public string Description { get; set; }
+	[JsonPropertyName("description")]
+	public string Description { get; set; }
 
-    [JsonPropertyName("language")]
-    public string Language { get; set; } = "en-US";
+	[JsonPropertyName("language")]
+	public string Language { get; set; } = "en-US";
 }

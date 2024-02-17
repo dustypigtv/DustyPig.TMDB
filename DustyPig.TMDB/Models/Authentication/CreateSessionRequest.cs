@@ -4,6 +4,6 @@ namespace DustyPig.TMDB.Models.Authentication;
 
 public class CreateSessionRequest
 {
-    [JsonPropertyName("request_token")]
-    public string RequestToken { get; set; }
+	[JsonPropertyName("request_token")]
+	public string RequestToken { get; set; }
 }
