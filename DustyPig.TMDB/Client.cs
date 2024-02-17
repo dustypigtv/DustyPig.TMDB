@@ -32,7 +32,7 @@ public class Client : IDisposable
         RetryCount = 9,
         RetryDelay = 100
     };
-    
+
     private AuthTypes _authType = AuthTypes.None;
     private string _authKey = null;
 
@@ -41,7 +41,7 @@ public class Client : IDisposable
     public Client() { }
 
     public Client(AuthTypes authType, string authKey) => SetAuth(authType, authKey);
-    
+
 
     public void Dispose()
     {
@@ -80,7 +80,7 @@ public class Client : IDisposable
     public string AuthKey => _authKey;
 
     public IEndpoints Endpoints => new Endpoints(this);
-    
+
 
 
     public void SetAuth(AuthTypes authType, string authKey)
@@ -89,7 +89,7 @@ public class Client : IDisposable
         _authKey = authKey;
     }
 
-    static string AddQueryParameter(string subUrl, string key, string value)
+    private static string AddQueryParameter(string subUrl, string key, string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             return subUrl;
@@ -98,11 +98,11 @@ public class Client : IDisposable
         return subUrl + $"{key}={Uri.EscapeDataString(value)}";
     }
 
-    static string AddQueryParameters(string subUrl, IReadOnlyDictionary<string, object> queryParams)
+    private static string AddQueryParameters(string subUrl, IReadOnlyDictionary<string, object> queryParams)
     {
         if (queryParams != null)
             foreach (var kvp in queryParams)
-                if(kvp.Value != null)
+                if (kvp.Value != null)
                     subUrl = AddQueryParameter(subUrl, kvp.Key, kvp.Value.ToString());
         return subUrl;
     }

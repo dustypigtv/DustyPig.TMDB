@@ -4,6 +4,6 @@ namespace DustyPig.TMDB.Models.List;
 
 public class RemoveMovieRequest
 {
-	[JsonPropertyName("media_id")]
-	public int MediaId { get; set; }
+    [JsonPropertyName("media_id")]
+    public int MediaId { get; set; }
 }

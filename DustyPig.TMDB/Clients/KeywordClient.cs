@@ -9,23 +9,23 @@ namespace DustyPig.TMDB.Clients;
 
 internal class KeywordClient : IKeyword
 {
-	private readonly Client _client;
+    private readonly Client _client;
 
-	internal KeywordClient(Client client) => _client = client;
+    internal KeywordClient(Client client) => _client = client;
 
 
-	public Task<Response<DetailsResponse>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
-		_client.GetAsync<DetailsResponse>($"/3/keyword/{keywordId}", null, cancellationToken);
+    public Task<Response<DetailsResponse>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<DetailsResponse>($"/3/keyword/{keywordId}", null, cancellationToken);
 
-	public Task<Response<MoviesResponse>> GetMoviesAsync(string keywordId, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
-	{
-		var queryParams = new Dictionary<string, object>
-		{
-			{ "page", page },
-			{ "include_adult", includeAdult },
-			{ "language", language }
-		};
+    public Task<Response<MoviesResponse>> GetMoviesAsync(string keywordId, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
+    {
+        var queryParams = new Dictionary<string, object>
+        {
+            { "page", page },
+            { "include_adult", includeAdult },
+            { "language", language }
+        };
 
-		return _client.GetAsync<MoviesResponse>($"/3/keyword/{keywordId}/movies", queryParams, cancellationToken);
-	}
+        return _client.GetAsync<MoviesResponse>($"/3/keyword/{keywordId}/movies", queryParams, cancellationToken);
+    }
 }

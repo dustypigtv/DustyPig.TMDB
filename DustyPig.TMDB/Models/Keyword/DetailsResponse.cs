@@ -4,9 +4,9 @@ namespace DustyPig.TMDB.Models.Keyword;
 
 public class DetailsResponse
 {
-	[JsonPropertyName("id")]
-	public int Id { get; set; }
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
 
-	[JsonPropertyName("name")]
-	public string Name { get; set; }
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
 }
