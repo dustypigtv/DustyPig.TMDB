@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.TvSeries;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get a list of TV shows airing today.
     /// </summary>
-    public Task<Response<AiringTodayResponse>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<AiringTodayResponse>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -68,7 +69,7 @@ internal class TvSeriesClient : ITvSeries
             { "timezone", timezone }
         };
 
-        return _client.GetAsync<AiringTodayResponse>("/3/tv/airing_today", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<AiringTodayResponse>>("/3/tv/airing_today", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -182,7 +183,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
     /// </summary>
-    public Task<Response<OnTheAirResponse>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<OnTheAirResponse>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -191,13 +192,13 @@ internal class TvSeriesClient : ITvSeries
             { "timezone", timezone }
         };
 
-        return _client.GetAsync<OnTheAirResponse>("/3/tv/on_the_air", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<OnTheAirResponse>>("/3/tv/on_the_air", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of TV shows ordered by popularity.
     /// </summary>
-    public Task<Response<PopularResponse>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -205,10 +206,10 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<PopularResponse>("/3/tv/popular", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<PopularResponse>>("/3/tv/popular", queryParams, cancellationToken);
     }
 
-    public Task<Response<RecommendationsResponse>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<RecommendationsResponse>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -216,7 +217,7 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<RecommendationsResponse>($"/3/tv/{seriesId}/recommendations", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<RecommendationsResponse>>($"/3/tv/{seriesId}/recommendations", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -242,7 +243,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<SimilarResponse>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<SimilarResponse>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -250,13 +251,13 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<SimilarResponse>($"/3/tv/{seriesId}/similar", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<SimilarResponse>>($"/3/tv/{seriesId}/similar", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of TV shows ordered by rating.
     /// </summary>
-    public Task<Response<TopRatedResponse>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TopRatedResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -264,7 +265,7 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<TopRatedResponse>("/3/tv/top_rated", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TopRatedResponse>>("/3/tv/top_rated", queryParams, cancellationToken);
     }
 
     /// <summary>

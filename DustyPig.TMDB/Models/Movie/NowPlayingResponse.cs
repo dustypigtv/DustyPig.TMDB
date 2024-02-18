@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movie;
 
-public class NowPlayingResponse
+public class NowPlayingResponse : PagedResult<NowPlayingResponse.ResultsObject>
 {
     public class DatesObject
     {
@@ -65,16 +65,4 @@ public class NowPlayingResponse
 
     [JsonPropertyName("dates")]
     public DatesObject Dates { get; set; }
-
-    [JsonPropertyName("page")]
-    public int Page { get; set; }
-
-    [JsonPropertyName("results")]
-    public List<ResultsObject> Results { get; set; } = [];
-
-    [JsonPropertyName("total_pages")]
-    public int TotalPages { get; set; }
-
-    [JsonPropertyName("total_results")]
-    public int TotalResults { get; set; }
 }
