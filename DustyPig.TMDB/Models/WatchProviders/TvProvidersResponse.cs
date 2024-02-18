@@ -5,25 +5,25 @@ namespace DustyPig.TMDB.Models.WatchProviders;
 
 public class TvProvidersResponse
 {
-	public class ResultsObject
-	{
-		[JsonPropertyName("display_priorities")]
-		public Dictionary<string, int> DisplayPriorities { get; set; } = [];
+    public class ResultsObject
+    {
+        [JsonPropertyName("display_priorities")]
+        public Dictionary<string, int> DisplayPriorities { get; set; } = [];
 
-		[JsonPropertyName("display_priority")]
-		public int DisplayPriority { get; set; }
+        [JsonPropertyName("display_priority")]
+        public int DisplayPriority { get; set; }
 
-		[JsonPropertyName("logo_path")]
-		public string LogoPath { get; set; }
+        [JsonPropertyName("logo_path")]
+        public string LogoPath { get; set; }
 
-		[JsonPropertyName("provider_name")]
-		public string ProviderName { get; set; }
+        [JsonPropertyName("provider_name")]
+        public string ProviderName { get; set; }
 
-		[JsonPropertyName("provider_id")]
-		public int ProviderId { get; set; }
-	}
+        [JsonPropertyName("provider_id")]
+        public int ProviderId { get; set; }
+    }
 
 
-	[JsonPropertyName("results")]
-	public List<ResultsObject> Results { get; set; } = [];
+    [JsonPropertyName("results")]
+    public List<ResultsObject> Results { get; set; } = [];
 }

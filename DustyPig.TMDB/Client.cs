@@ -32,7 +32,7 @@ public class Client : IDisposable
         RetryCount = 9,
         RetryDelay = 100
     };
-    
+
     private AuthTypes _authType = AuthTypes.None;
     private string _authKey = null;
 
@@ -41,7 +41,7 @@ public class Client : IDisposable
     public Client() { }
 
     public Client(AuthTypes authType, string authKey) => SetAuth(authType, authKey);
-    
+
 
     public void Dispose()
     {
@@ -80,7 +80,7 @@ public class Client : IDisposable
     public string AuthKey => _authKey;
 
     public IEndpoints Endpoints => new Endpoints(this);
-    
+
 
 
     public void SetAuth(AuthTypes authType, string authKey)
@@ -102,7 +102,7 @@ public class Client : IDisposable
     {
         if (queryParams != null)
             foreach (var kvp in queryParams)
-                if(kvp.Value != null)
+                if (kvp.Value != null)
                     subUrl = AddQueryParameter(subUrl, kvp.Key, kvp.Value.ToString());
         return subUrl;
     }
