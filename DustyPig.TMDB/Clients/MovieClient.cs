@@ -143,7 +143,7 @@ internal class MovieClient : IMovie
     /// Get a list of movies that are currently in theatres.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<NowPlayingResponse>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithDates<NowPlayingResponse>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -152,7 +152,7 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<NowPlayingResponse>("/3/movie/now_playing", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithDates<NowPlayingResponse>>("/3/movie/now_playing", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -242,7 +242,7 @@ internal class MovieClient : IMovie
     /// Get a list of movies that are being released soon.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<UpcomingResponse>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithDates<UpcomingResponse>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -251,7 +251,7 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<UpcomingResponse>("/3/movie/upcoming", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithDates<UpcomingResponse>>("/3/movie/upcoming", queryParams, cancellationToken);
     }
 
     public Task<Response<VideosResponse>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
