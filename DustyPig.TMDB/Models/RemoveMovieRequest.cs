@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.List;
+namespace DustyPig.TMDB.Models;
 
 public class RemoveMovieRequest
 {
