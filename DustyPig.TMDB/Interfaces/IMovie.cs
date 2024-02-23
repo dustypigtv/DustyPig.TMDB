@@ -62,7 +62,7 @@ public interface IMovie
     /// Get a list of movies that are currently in theatres.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDates<NowPlayingResponse>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<NowPlayingResponse>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of movies ordered by popularity.
@@ -102,7 +102,7 @@ public interface IMovie
     /// Get a list of movies that are being released soon.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDates<UpcomingResponse>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<UpcomingResponse>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     public Task<Response<VideosResponse>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
 
