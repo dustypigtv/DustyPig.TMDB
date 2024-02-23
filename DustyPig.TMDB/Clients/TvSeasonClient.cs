@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.TvSeason;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ internal class TvSeasonClient : ITvSeason
     /// <summary>
     /// Get the rating, watchlist and favourite status.
     /// </summary>
-    public Task<Response<AccountStatesResponse>> GetAccountStatesAsync(int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<AccountStatesResponse>>> GetAccountStatesAsync(int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -26,7 +27,7 @@ internal class TvSeasonClient : ITvSeason
             { "session_id", sessionId }
         };
 
-        return _client.GetAsync<AccountStatesResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/account_states", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<AccountStatesResponse>>($"/3/tv/{seriesId}/season/{seasonNumber}/account_states", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -113,7 +114,7 @@ internal class TvSeasonClient : ITvSeason
     /// Get the videos that belong to a TV season.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<VideosResponse>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -121,19 +122,19 @@ internal class TvSeasonClient : ITvSeason
             { "language", language }
         };
 
-        return _client.GetAsync<VideosResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/videos", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<VideosResponse>>($"/3/tv/{seriesId}/season/{seasonNumber}/videos", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV season.
     /// </summary>
-    public Task<Response<WatchProvidersResponse>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<WatchProvidersResponse>>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<WatchProvidersResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/watch/providers", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<WatchProvidersResponse>>($"/3/tv/{seriesId}/season/{seasonNumber}/watch/providers", queryParams, cancellationToken);
     }
 }

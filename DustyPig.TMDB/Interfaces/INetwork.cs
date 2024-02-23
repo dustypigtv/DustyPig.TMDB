@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Network;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ public interface INetwork
     /// <summary>
     /// Get the alternative names of a network.
     /// </summary>
-    public Task<Response<AlternativeNamesResponse>> GetAlternativeNamesAsync(int networkId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<AlternativeNamesResponse>>> GetAlternativeNamesAsync(int networkId, CancellationToken cancellationToken = default);
 
     public Task<Response<DetailsResponse>> GetDetailsAsync(int networkId, CancellationToken cancellationToken = default);
 

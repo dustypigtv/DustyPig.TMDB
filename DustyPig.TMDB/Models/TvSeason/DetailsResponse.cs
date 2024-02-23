@@ -155,7 +155,7 @@ public class DetailsResponse
     public float VoteAverage { get; set; }
 
     [JsonPropertyName("account_states")]
-    public AccountStatesResponse AccountStates { get; set; }
+    public ListResultWithId<AccountStatesResponse> AccountStates { get; set; }
 
     [JsonPropertyName("aggregate_credits")]
     public AggregateCreditsResponse AggregateCredits { get; set; }
@@ -173,5 +173,5 @@ public class DetailsResponse
     public TranslationsResponse Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public VideosResponse Videos { get; set; }
+    public ListResultWithId<VideosResponse> Videos { get; set; }
 }

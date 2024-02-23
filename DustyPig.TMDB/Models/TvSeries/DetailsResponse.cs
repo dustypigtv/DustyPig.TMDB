@@ -262,19 +262,19 @@ public class DetailsResponse
     public AggregateCreditsResponse AggregateCredits { get; set; }
 
     [JsonPropertyName("alternative_titles")]
-    public AlternativeTitlesResponse AlternativeTitles { get; set; }
+    public ListResultWithId<AlternativeTitlesResponse> AlternativeTitles { get; set; }
 
     [JsonPropertyName("changes")]
     public ChangesResponse Changes { get; set; }
 
     [JsonPropertyName("content_ratings")]
-    public ContentRatingsResponse ContentRatings { get; set; }
+    public ListResultWithId<ContentRatingsResponse> ContentRatings { get; set; }
 
     [JsonPropertyName("credits")]
     public CreditsResponse Credits { get; set; }
 
     [JsonPropertyName("episode_groups")]
-    public EpisodeGroupsResponse EpisodeGroups { get; set; }
+    public ListResultWithId<EpisodeGroupsResponse> EpisodeGroups { get; set; }
 
     [JsonPropertyName("external_ids")]
     public ExternalIdsResponse ExternalIds { get; set; }
@@ -283,7 +283,7 @@ public class DetailsResponse
     public ImagesResponse Images { get; set; }
 
     [JsonPropertyName("keywords")]
-    public KeywordsResponse Keywords { get; set; }
+    public ListResultWithId<KeywordsResponse> Keywords { get; set; }
 
     [JsonPropertyName("lists")]
     public PagedResultWithId<ListsResponse> Lists { get; set; }
@@ -295,7 +295,7 @@ public class DetailsResponse
     public PagedResultWithId<ReviewsResponse> Reviews { get; set; }
 
     [JsonPropertyName("screened_theatrically")]
-    public ScreenedTheatricallyResponse ScreenedTheatrically { get; set; }
+    public ListResultWithId<ScreenedTheatricallyResponse> ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
     public PagedResult<SimilarResponse> Similar { get; set; }
@@ -304,5 +304,5 @@ public class DetailsResponse
     public TranslationsResponse Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public VideosResponse Videos { get; set; }
+    public ListResultWithId<VideosResponse> Videos { get; set; }
 }

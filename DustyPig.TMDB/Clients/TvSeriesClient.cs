@@ -75,8 +75,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.
     /// </summary>
-    public Task<Response<AlternativeTitlesResponse>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<AlternativeTitlesResponse>($"/3/tv/{seriesId}/alternative_titles", null, cancellationToken);
+    public Task<Response<ListResultWithId<AlternativeTitlesResponse>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<AlternativeTitlesResponse>>($"/3/tv/{seriesId}/alternative_titles", null, cancellationToken);
 
     /// <summary>
     /// Get the recent changes for a TV show.
@@ -96,8 +96,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the content ratings that have been added to a TV show.
     /// </summary>
-    public Task<Response<ContentRatingsResponse>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ContentRatingsResponse>($"/3/tv/{seriesId}/content_ratings", null, cancellationToken);
+    public Task<Response<ListResultWithId<ContentRatingsResponse>>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<ContentRatingsResponse>>($"/3/tv/{seriesId}/content_ratings", null, cancellationToken);
 
     /// <summary>
     /// Get the latest season credits of a TV show.
@@ -130,8 +130,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the episode groups that have been added to a TV show.
     /// </summary>
-    public Task<Response<EpisodeGroupsResponse>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<EpisodeGroupsResponse>($"/3/tv/{seriesId}/episode_groups", null, cancellationToken);
+    public Task<Response<ListResultWithId<EpisodeGroupsResponse>>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<EpisodeGroupsResponse>>($"/3/tv/{seriesId}/episode_groups", null, cancellationToken);
 
     /// <summary>
     /// Get a list of external IDs that have been added to a TV show.
@@ -157,8 +157,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get a list of keywords that have been added to a TV show.
     /// </summary>
-    public Task<Response<KeywordsResponse>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<KeywordsResponse>($"/3/tv/{seriesId}/keywords", null, cancellationToken);
+    public Task<Response<ListResultWithId<KeywordsResponse>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<KeywordsResponse>>($"/3/tv/{seriesId}/keywords", null, cancellationToken);
 
     /// <summary>
     /// Get the newest TV show ID.
@@ -237,8 +237,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the seasons and episodes that have screened theatrically.
     /// </summary>
-    public Task<Response<ScreenedTheatricallyResponse>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ScreenedTheatricallyResponse>($"/3/tv/{seriesId}/screened_theatrically", null, cancellationToken);
+    public Task<Response<ListResultWithId<ScreenedTheatricallyResponse>>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<ScreenedTheatricallyResponse>>($"/3/tv/{seriesId}/screened_theatrically", null, cancellationToken);
 
     /// <summary>
     /// Get the similar TV shows.
@@ -278,7 +278,7 @@ internal class TvSeriesClient : ITvSeries
     /// Get the videos that belong to a TV show.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<VideosResponse>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -286,12 +286,12 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<VideosResponse>($"/3/tv/{seriesId}/videos", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<VideosResponse>>($"/3/tv/{seriesId}/videos", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV show.
     /// </summary>
-    public Task<Response<WatchProvidersResponse>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<WatchProvidersResponse>($"/3/tv/{seriesId}/watch/providers", null, cancellationToken);
+    public Task<Response<ListResultWithId<WatchProvidersResponse>>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<WatchProvidersResponse>>($"/3/tv/{seriesId}/watch/providers", null, cancellationToken);
 }

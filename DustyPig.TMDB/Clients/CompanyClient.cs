@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Company;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ internal class CompanyClient : ICompany
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<AlternativeNamesResponse>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<AlternativeNamesResponse>($"/3/company/{companyId}/alternative_names", null, cancellationToken);
+    public Task<Response<ListResultWithId<AlternativeNamesResponse>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<AlternativeNamesResponse>>($"/3/company/{companyId}/alternative_names", null, cancellationToken);
 
     /// <summary>
     /// Get the company details by ID.

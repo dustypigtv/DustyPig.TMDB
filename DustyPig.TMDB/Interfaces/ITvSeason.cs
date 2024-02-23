@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.TvSeason;
 using System;
 using System.Threading;
@@ -11,7 +12,7 @@ public interface ITvSeason
     /// <summary>
     /// Get the rating, watchlist and favourite status.
     /// </summary>
-    public Task<Response<AccountStatesResponse>> GetAccountStatesAsync(int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<AccountStatesResponse>>> GetAccountStatesAsync(int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV season.
@@ -51,10 +52,10 @@ public interface ITvSeason
     /// Get the videos that belong to a TV season.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<VideosResponse>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV season.
     /// </summary>
-    public Task<Response<WatchProvidersResponse>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<WatchProvidersResponse>>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 }

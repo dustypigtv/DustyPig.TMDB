@@ -160,7 +160,7 @@ public class DetailsResponse
     public PagedResult<RecommendationsResponse> Recommendations { get; set; }
 
     [JsonPropertyName("release_dates")]
-    public ReleaseDatesResponse ReleaseDates { get; set; }
+    public ListResultWithId<ReleaseDatesResponse> ReleaseDates { get; set; }
 
     [JsonPropertyName("reviews")]
     public PagedResultWithId<ReviewsResponse> Reviews { get; set; }
@@ -172,5 +172,5 @@ public class DetailsResponse
     public TranslationsResponse Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public VideosResponse Videos { get; set; }
+    public ListResultWithId<VideosResponse> Videos { get; set; }
 }

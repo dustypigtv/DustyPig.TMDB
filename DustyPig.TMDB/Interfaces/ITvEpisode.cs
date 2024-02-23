@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.TvEpisode;
 using System.Threading;
 using System.Threading.Tasks;
@@ -50,5 +51,5 @@ public interface ITvEpisode
     /// Get the videos that belong to a TV episode.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<VideosResponse>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 }

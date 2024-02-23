@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Company;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ public interface ICompany
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<AlternativeNamesResponse>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<AlternativeNamesResponse>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the company details by ID.

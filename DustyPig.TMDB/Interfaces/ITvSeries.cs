@@ -32,7 +32,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.
     /// </summary>
-    public Task<Response<AlternativeTitlesResponse>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<AlternativeTitlesResponse>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the recent changes for a TV show.
@@ -42,7 +42,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the content ratings that have been added to a TV show.
     /// </summary>
-    public Task<Response<ContentRatingsResponse>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<ContentRatingsResponse>>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the latest season credits of a TV show.
@@ -58,7 +58,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the episode groups that have been added to a TV show.
     /// </summary>
-    public Task<Response<EpisodeGroupsResponse>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<EpisodeGroupsResponse>>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of external IDs that have been added to a TV show.
@@ -74,7 +74,7 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of keywords that have been added to a TV show.
     /// </summary>
-    public Task<Response<KeywordsResponse>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<KeywordsResponse>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the newest TV show ID.
@@ -106,7 +106,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the seasons and episodes that have screened theatrically.
     /// </summary>
-    public Task<Response<ScreenedTheatricallyResponse>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<ScreenedTheatricallyResponse>>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the similar TV shows.
@@ -127,10 +127,10 @@ public interface ITvSeries
     /// Get the videos that belong to a TV show.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<VideosResponse>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV show.
     /// </summary>
-    public Task<Response<WatchProvidersResponse>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<WatchProvidersResponse>>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default);
 }

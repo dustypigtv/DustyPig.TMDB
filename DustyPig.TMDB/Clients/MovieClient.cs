@@ -185,8 +185,8 @@ internal class MovieClient : IMovie
     /// <summary>
     /// Get the release dates and certifications for a movie.
     /// </summary>
-    public Task<Response<ReleaseDatesResponse>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ReleaseDatesResponse>($"/3/movie/{movieId}/release_dates", null, cancellationToken);
+    public Task<Response<ListResultWithId<ReleaseDatesResponse>>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<ReleaseDatesResponse>>($"/3/movie/{movieId}/release_dates", null, cancellationToken);
 
     /// <summary>
     /// Get the user reviews for a movie.
@@ -254,19 +254,19 @@ internal class MovieClient : IMovie
         return _client.GetAsync<UpcomingResponse>("/3/movie/upcoming", queryParams, cancellationToken);
     }
 
-    public Task<Response<VideosResponse>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<VideosResponse>($"/3/movie/{movieId}/videos", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<VideosResponse>>($"/3/movie/{movieId}/videos", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the list of streaming providers we have for a movie.
     /// </summary>
-    public Task<Response<WatchProvidersResponse>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<WatchProvidersResponse>($"/3/movie/{movieId}/watch/providers", null, cancellationToken);
+    public Task<Response<ListResultWithId<WatchProvidersResponse>>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<WatchProvidersResponse>>($"/3/movie/{movieId}/watch/providers", null, cancellationToken);
 }

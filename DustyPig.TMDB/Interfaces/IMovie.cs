@@ -75,7 +75,7 @@ public interface IMovie
     /// <summary>
     /// Get the release dates and certifications for a movie.
     /// </summary>
-    public Task<Response<ReleaseDatesResponse>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<ReleaseDatesResponse>>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the user reviews for a movie.
@@ -104,10 +104,10 @@ public interface IMovie
     /// <param name="region">ISO-3166-1 code</param>
     public Task<Response<UpcomingResponse>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<VideosResponse>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for a movie.
     /// </summary>
-    public Task<Response<WatchProvidersResponse>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<WatchProvidersResponse>>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default);
 }

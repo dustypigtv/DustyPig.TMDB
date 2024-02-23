@@ -136,5 +136,5 @@ public class DetailsResponse
     public TranslationsResponse Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public VideosResponse Videos { get; set; }
+    public ListResultWithId<VideosResponse> Videos { get; set; }
 }
