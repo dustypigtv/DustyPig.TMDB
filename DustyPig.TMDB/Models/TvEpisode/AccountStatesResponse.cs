@@ -1,16 +1,10 @@
+using DustyPig.TMDB.JsonHelpers;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvEpisode;
 
 public class AccountStatesResponse
 {
-    public class RatedObject
-    {
-        [JsonPropertyName("value")]
-        public int Value { get; set; }
-    }
-
-
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
@@ -18,7 +12,9 @@ public class AccountStatesResponse
     public bool Favorite { get; set; }
 
     [JsonPropertyName("rated")]
-    public RatedObject Rated { get; set; }
+    [JsonConverter(typeof(RatedConverter))]
+    public float? Rated { get; set; }
+
 
     [JsonPropertyName("watchlist")]
     public bool Watchlist { get; set; }

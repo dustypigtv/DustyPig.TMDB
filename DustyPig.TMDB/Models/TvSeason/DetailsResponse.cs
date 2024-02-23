@@ -130,13 +130,6 @@ public class DetailsResponse
     {
         public class ResultsObject
         {
-            public class RatedObject
-            {
-                [JsonPropertyName("value")]
-                public int Value { get; set; }
-            }
-
-
             [JsonPropertyName("id")]
             public int Id { get; set; }
 
@@ -144,7 +137,8 @@ public class DetailsResponse
             public int EpisodeNumber { get; set; }
 
             [JsonPropertyName("rated")]
-            public RatedObject Rated { get; set; }
+            [JsonConverter(typeof(RatedConverter))]
+            public float? Rated { get; set; }
         }
 
 

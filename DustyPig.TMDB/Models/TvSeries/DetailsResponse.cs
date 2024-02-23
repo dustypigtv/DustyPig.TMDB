@@ -161,18 +161,12 @@ public class DetailsResponse
 
     public class AppendAccountStatesObject
     {
-        public class RatedObject
-        {
-            [JsonPropertyName("value")]
-            public int Value { get; set; }
-        }
-
-
         [JsonPropertyName("favorite")]
         public bool Favorite { get; set; }
 
         [JsonPropertyName("rated")]
-        public RatedObject Rated { get; set; }
+        [JsonConverter(typeof(RatedConverter))]
+        public float? Rated { get; set; }
 
         [JsonPropertyName("watchlist")]
         public bool Watchlist { get; set; }
