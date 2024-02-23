@@ -7,91 +7,18 @@ namespace DustyPig.TMDB.Models.TvEpisode;
 
 public class DetailsResponse
 {
-    public class CrewObject
-    {
-        [JsonPropertyName("department")]
-        public string Department { get; set; }
-
-        [JsonPropertyName("job")]
-        public string Job { get; set; }
-
-        [JsonPropertyName("credit_id")]
-        public string CreditId { get; set; }
-
-        [JsonPropertyName("adult")]
-        public bool Adult { get; set; }
-
-        [JsonPropertyName("gender")]
-        public int Gender { get; set; }
-
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("known_for_department")]
-        public string KnownForDepartment { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("original_name")]
-        public string OriginalName { get; set; }
-
-        [JsonPropertyName("popularity")]
-        public float Popularity { get; set; }
-
-        [JsonPropertyName("profile_path")]
-        public string ProfilePath { get; set; }
-    }
-
-    public class GuestStarsObject
-    {
-        [JsonPropertyName("character")]
-        public string Character { get; set; }
-
-        [JsonPropertyName("credit_id")]
-        public string CreditId { get; set; }
-
-        [JsonPropertyName("order")]
-        public int Order { get; set; }
-
-        [JsonPropertyName("adult")]
-        public bool Adult { get; set; }
-
-        [JsonPropertyName("gender")]
-        public int Gender { get; set; }
-
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("known_for_department")]
-        public string KnownForDepartment { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("original_name")]
-        public string OriginalName { get; set; }
-
-        [JsonPropertyName("popularity")]
-        public float Popularity { get; set; }
-
-        [JsonPropertyName("profile_path")]
-        public string ProfilePath { get; set; }
-    }
-
-
     [JsonPropertyName("air_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
     public DateOnly? AirDate { get; set; }
 
     [JsonPropertyName("crew")]
-    public List<CrewObject> Crew { get; set; } = [];
+    public List<CrewObject2> Crew { get; set; } = [];
 
     [JsonPropertyName("episode_number")]
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<GuestStarsObject> GuestStars { get; set; } = [];
+    public List<GuestStarsObject2> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }

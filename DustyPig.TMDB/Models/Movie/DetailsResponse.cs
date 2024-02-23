@@ -7,58 +7,6 @@ namespace DustyPig.TMDB.Models.Movie;
 
 public class DetailsResponse
 {
-    public class GenresObject
-    {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-    }
-
-    public class ProductionCompaniesObject
-    {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("logo_path")]
-        public string LogoPath { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("origin_country")]
-        public string OriginCountry { get; set; }
-    }
-
-    public class ProductionCountriesObject
-    {
-        /// <summary>
-        /// ISO-3166-1 2 letter country code. E.g. &quot;US&quot;
-        /// </summary>
-        [JsonPropertyName("iso_3166_1")]
-        public string CountryCode { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-    }
-
-    public class SpokenLanguagesObject
-    {
-        [JsonPropertyName("english_name")]
-        public string EnglishName { get; set; }
-
-        /// <summary>
-        /// ISO-639-1 2 letter language code. E.g. &quot;en&quot;
-        /// </summary>
-        [JsonPropertyName("iso_639_1")]
-        public string LanguageCode { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-    }
-
-
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
 

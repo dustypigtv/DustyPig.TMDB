@@ -7,59 +7,6 @@ namespace DustyPig.TMDB.Models.TvSeries;
 
 public class LatestResponse
 {
-    public class LastEpisodeToAirObject
-    {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("overview")]
-        public string Overview { get; set; }
-
-        [JsonPropertyName("vote_average")]
-        public float VoteAverage { get; set; }
-
-        [JsonPropertyName("vote_count")]
-        public int VoteCount { get; set; }
-
-        [JsonPropertyName("air_date")]
-        [JsonConverter(typeof(StringToDateOnlyConverter))]
-        public DateOnly? AirDate { get; set; }
-
-        [JsonPropertyName("episode_number")]
-        public int EpisodeNumber { get; set; }
-
-        [JsonPropertyName("production_code")]
-        public string ProductionCode { get; set; }
-
-        [JsonPropertyName("season_number")]
-        public int SeasonNumber { get; set; }
-
-        [JsonPropertyName("show_id")]
-        public int ShowId { get; set; }
-    }
-
-    public class SeasonsObject
-    {
-        [JsonPropertyName("episode_count")]
-        public int EpisodeCount { get; set; }
-
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("overview")]
-        public string Overview { get; set; }
-
-        [JsonPropertyName("season_number")]
-        public int SeasonNumber { get; set; }
-    }
-
-
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
 
@@ -81,7 +28,7 @@ public class LatestResponse
     public DateOnly? LastAirDate { get; set; }
 
     [JsonPropertyName("last_episode_to_air")]
-    public LastEpisodeToAirObject LastEpisodeToAir { get; set; }
+    public LastEpisodeToAirObject2 LastEpisodeToAir { get; set; }
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
@@ -108,7 +55,7 @@ public class LatestResponse
     public int Popularity { get; set; }
 
     [JsonPropertyName("seasons")]
-    public List<SeasonsObject> Seasons { get; set; } = [];
+    public List<SeasonsObject2> Seasons { get; set; } = [];
 
     [JsonPropertyName("status")]
     public string Status { get; set; }

@@ -5,37 +5,21 @@ namespace DustyPig.TMDB.Models.Movie;
 
 public class WatchProvidersResponse
 {
-    public class Provider
-    {
-        [JsonPropertyName("logo_path")]
-        public string LogoPath { get; set; }
-
-        [JsonPropertyName("provider_id")]
-        public int ProviderId { get; set; }
-
-        [JsonPropertyName("provider_name")]
-        public string ProviderName { get; set; }
-
-        [JsonPropertyName("display_priority")]
-        public int DisplayPriority { get; set; }
-    }
-
-
     [JsonPropertyName("ads")]
-    public List<Provider> Ads { get; set; } = [];
+    public List<ProviderObject> Ads { get; set; } = [];
 
     [JsonPropertyName("buy")]
-    public List<Provider> Buy { get; set; } = [];
+    public List<ProviderObject> Buy { get; set; } = [];
 
     [JsonPropertyName("flatrate")]
-    public List<Provider> Flatrate { get; set; } = [];
+    public List<ProviderObject> Flatrate { get; set; } = [];
 
     [JsonPropertyName("free")]
-    public List<Provider> Free { get; set; } = [];
+    public List<ProviderObject> Free { get; set; } = [];
 
     [JsonPropertyName("link")]
     public string Link { get; set; }
 
     [JsonPropertyName("rent")]
-    public List<Provider> Rent { get; set; } = [];
+    public List<ProviderObject> Rent { get; set; } = [];
 }
