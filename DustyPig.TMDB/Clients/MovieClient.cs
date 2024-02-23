@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Movie;
 using System;
 using System.Collections.Generic;
@@ -158,7 +159,7 @@ internal class MovieClient : IMovie
     /// Get a list of movies ordered by popularity.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PopularResponse>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -167,10 +168,10 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<PopularResponse>("/3/movie/popular", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<PopularResponse>>("/3/movie/popular", queryParams, cancellationToken);
     }
 
-    public Task<Response<RecommendationsResponse>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<RecommendationsResponse>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -178,7 +179,7 @@ internal class MovieClient : IMovie
             { "language", language }
         };
 
-        return _client.GetAsync<RecommendationsResponse>($"/3/movie/{movieId}/recommendations", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<RecommendationsResponse>>($"/3/movie/{movieId}/recommendations", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -204,7 +205,7 @@ internal class MovieClient : IMovie
     /// <summary>
     /// Get the similar movies based on genres and keywords.
     /// </summary>
-    public Task<Response<SimilarResponse>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<SimilarResponse>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -212,14 +213,14 @@ internal class MovieClient : IMovie
             { "language", language }
         };
 
-        return _client.GetAsync<SimilarResponse>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<SimilarResponse>>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of movies ordered by rating.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<TopRatedResponse>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TopRatedResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -228,7 +229,7 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<TopRatedResponse>("/3/movie/top_rated", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TopRatedResponse>>("/3/movie/top_rated", queryParams, cancellationToken);
     }
 
     /// <summary>

@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Movie;
 using System;
 using System.Threading;
@@ -67,9 +68,9 @@ public interface IMovie
     /// Get a list of movies ordered by popularity.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PopularResponse>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<RecommendationsResponse>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<RecommendationsResponse>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the release dates and certifications for a movie.
@@ -84,13 +85,13 @@ public interface IMovie
     /// <summary>
     /// Get the similar movies based on genres and keywords.
     /// </summary>
-    public Task<Response<SimilarResponse>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<SimilarResponse>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of movies ordered by rating.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<TopRatedResponse>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TopRatedResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations for a movie.

@@ -289,7 +289,7 @@ public class DetailsResponse
     public ListsResponse Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public RecommendationsResponse Recommendations { get; set; }
+    public PagedResult<RecommendationsResponse> Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
     public ReviewsResponse Reviews { get; set; }
@@ -298,7 +298,7 @@ public class DetailsResponse
     public ScreenedTheatricallyResponse ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public SimilarResponse Similar { get; set; }
+    public PagedResult<SimilarResponse> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }
