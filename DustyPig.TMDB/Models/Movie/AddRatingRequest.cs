@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models;
+namespace DustyPig.TMDB.Models.Movie;
 
 public class AddRatingRequest
 {

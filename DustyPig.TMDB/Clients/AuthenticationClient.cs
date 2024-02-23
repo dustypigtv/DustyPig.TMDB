@@ -1,6 +1,5 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Authentication;
 using System.Threading;
 using System.Threading.Tasks;

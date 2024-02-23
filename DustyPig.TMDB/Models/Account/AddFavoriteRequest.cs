@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models;
+namespace DustyPig.TMDB.Models.Account;
 
-public class AddToWatchlistRequest
+public class AddFavoriteRequest
 {
     [JsonPropertyName("media_type")]
     public string MediaType { get; set; }
@@ -10,6 +10,6 @@ public class AddToWatchlistRequest
     [JsonPropertyName("media_id")]
     public int MediaId { get; set; }
 
-    [JsonPropertyName("watchlist")]
-    public bool Watchlist { get; set; }
+    [JsonPropertyName("favorite")]
+    public bool Favorite { get; set; }
 }
