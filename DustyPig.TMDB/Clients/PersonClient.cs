@@ -105,19 +105,6 @@ internal class PersonClient : IPerson
     }
 
     /// <summary>
-    /// Get the tagged images for a person.
-    /// </summary>
-    public Task<Response<PagedResultWithId<TaggedImagesResponse>>> GetTaggedImagesAsync(int personId, int page = 1, CancellationToken cancellationToken = default)
-    {
-        var queryParams = new Dictionary<string, object>
-        {
-            { "page", page }
-        };
-
-        return _client.GetAsync<PagedResultWithId<TaggedImagesResponse>>($"/3/person/{personId}/tagged_images", queryParams, cancellationToken);
-    }
-
-    /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
     public Task<Response<TranslationsResponse>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default) =>

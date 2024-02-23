@@ -17,16 +17,4 @@ internal class KeywordClient : IKeyword
 
     public Task<Response<DetailsResponse>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
         _client.GetAsync<DetailsResponse>($"/3/keyword/{keywordId}", null, cancellationToken);
-
-    public Task<Response<PagedResultWithId<MoviesResponse>>> GetMoviesAsync(string keywordId, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
-    {
-        var queryParams = new Dictionary<string, object>
-        {
-            { "page", page },
-            { "include_adult", includeAdult },
-            { "language", language }
-        };
-
-        return _client.GetAsync<PagedResultWithId<MoviesResponse>>($"/3/keyword/{keywordId}/movies", queryParams, cancellationToken);
-    }
 }

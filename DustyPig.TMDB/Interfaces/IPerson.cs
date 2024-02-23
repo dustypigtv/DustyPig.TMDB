@@ -51,11 +51,6 @@ public interface IPerson
     public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get the tagged images for a person.
-    /// </summary>
-    public Task<Response<PagedResultWithId<TaggedImagesResponse>>> GetTaggedImagesAsync(int personId, int page = 1, CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
     public Task<Response<TranslationsResponse>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default);

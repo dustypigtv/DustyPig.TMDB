@@ -59,9 +59,6 @@ public class DetailsResponse
     [JsonPropertyName("movie_credits")]
     public MovieCreditsResponse MovieCredits { get; set; }
 
-    [JsonPropertyName("tagged_images")]
-    public PagedResultWithId<TaggedImagesResponse> TaggedImages { get; set; }
-
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }
 
