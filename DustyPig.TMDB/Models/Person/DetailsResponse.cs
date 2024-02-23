@@ -60,7 +60,7 @@ public class DetailsResponse
     public MovieCreditsResponse MovieCredits { get; set; }
 
     [JsonPropertyName("tagged_images")]
-    public TaggedImagesResponse TaggedImages { get; set; }
+    public PagedResultWithId<TaggedImagesResponse> TaggedImages { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }

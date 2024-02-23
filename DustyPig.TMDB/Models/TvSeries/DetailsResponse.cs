@@ -286,13 +286,13 @@ public class DetailsResponse
     public KeywordsResponse Keywords { get; set; }
 
     [JsonPropertyName("lists")]
-    public ListsResponse Lists { get; set; }
+    public PagedResultWithId<ListsResponse> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
     public PagedResult<RecommendationsResponse> Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
-    public ReviewsResponse Reviews { get; set; }
+    public PagedResultWithId<ReviewsResponse> Reviews { get; set; }
 
     [JsonPropertyName("screened_theatrically")]
     public ScreenedTheatricallyResponse ScreenedTheatrically { get; set; }

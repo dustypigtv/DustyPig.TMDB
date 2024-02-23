@@ -128,7 +128,7 @@ internal class MovieClient : IMovie
     /// <summary>
     /// Get the lists that a movie has been added to.
     /// </summary>
-    public Task<Response<ListsResponse>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<ListsResponse>>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -136,7 +136,7 @@ internal class MovieClient : IMovie
             { "language", language }
         };
 
-        return _client.GetAsync<ListsResponse>($"/3/movie/{movieId}/lists", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<ListsResponse>>($"/3/movie/{movieId}/lists", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -191,7 +191,7 @@ internal class MovieClient : IMovie
     /// <summary>
     /// Get the user reviews for a movie.
     /// </summary>
-    public Task<Response<ReviewsResponse>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<ReviewsResponse>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -199,7 +199,7 @@ internal class MovieClient : IMovie
             { "language", language }
         };
 
-        return _client.GetAsync<ReviewsResponse>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<ReviewsResponse>>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
     }
 
     /// <summary>

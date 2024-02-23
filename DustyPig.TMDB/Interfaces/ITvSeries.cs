@@ -84,7 +84,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the lists that a TV series has been added to.
     /// </summary>
-    public Task<Response<ListsResponse>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<ListsResponse>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
@@ -101,7 +101,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the reviews that have been added to a TV show.
     /// </summary>
-    public Task<Response<ReviewsResponse>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<ReviewsResponse>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the seasons and episodes that have screened theatrically.

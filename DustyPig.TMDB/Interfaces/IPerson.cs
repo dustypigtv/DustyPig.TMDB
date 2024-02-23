@@ -53,7 +53,7 @@ public interface IPerson
     /// <summary>
     /// Get the tagged images for a person.
     /// </summary>
-    public Task<Response<TaggedImagesResponse>> GetTaggedImagesAsync(int personId, int page = 1, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<TaggedImagesResponse>>> GetTaggedImagesAsync(int personId, int page = 1, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that belong to a person.
