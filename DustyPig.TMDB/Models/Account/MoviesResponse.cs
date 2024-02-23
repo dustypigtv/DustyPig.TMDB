@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class FavoriteMoviesResponse
+public class MoviesResponse
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

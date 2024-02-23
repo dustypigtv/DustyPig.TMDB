@@ -7,15 +7,6 @@ namespace DustyPig.TMDB.Models.Movie;
 
 public class NowPlayingResponse
 {
-    public class DatesObject
-    {
-        [JsonPropertyName("maximum")]
-        public string Maximum { get; set; }
-
-        [JsonPropertyName("minimum")]
-        public string Minimum { get; set; }
-    }
-
     public class ResultsObject
     {
         [JsonPropertyName("adult")]
@@ -64,7 +55,7 @@ public class NowPlayingResponse
 
 
     [JsonPropertyName("dates")]
-    public DatesObject Dates { get; set; }
+    public DateRange Dates { get; set; }
 
     [JsonPropertyName("page")]
     public int Page { get; set; }

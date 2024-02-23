@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.Account;
+namespace DustyPig.TMDB.Models.List;
 
-public class AddToWatchlistResponse
+public class StatusResponse
 {
     [JsonPropertyName("status_code")]
     public int StatusCode { get; set; }

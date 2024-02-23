@@ -16,20 +16,20 @@ internal class AuthenticationClient : IAuthentication
     public Task<Response<CreateGuestSessionResponse>> GetCreateGuestSessionAsync(CancellationToken cancellationToken = default) =>
         _client.GetAsync<CreateGuestSessionResponse>("/3/authentication/guest_session/new", null, cancellationToken);
 
-    public Task<Response<CreateRequestTokenResponse>> GetCreateRequestTokenAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CreateRequestTokenResponse>("/3/authentication/token/new", null, cancellationToken);
+    public Task<Response<TokenResponse>> GetCreateRequestTokenAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<TokenResponse>("/3/authentication/token/new", null, cancellationToken);
 
     public Task<Response<CreateSessionResponse>> CreateSessionAsync(CreateSessionRequest postData, CancellationToken cancellationToken = default) =>
         _client.PostAsync<CreateSessionResponse>("/3/authentication/session/new", null, postData, cancellationToken);
 
-    public Task<Response<CreateSessionFromV4TokenResponse>> CreateSessionFromV4TokenAsync(CreateSessionFromV4TokenRequest postData, CancellationToken cancellationToken = default) =>
-        _client.PostAsync<CreateSessionFromV4TokenResponse>("/3/authentication/session/convert/4", null, postData, cancellationToken);
+    public Task<Response<CreateSessionResponse>> CreateSessionFromV4TokenAsync(CreateSessionFromV4TokenRequest postData, CancellationToken cancellationToken = default) =>
+        _client.PostAsync<CreateSessionResponse>("/3/authentication/session/convert/4", null, postData, cancellationToken);
 
     /// <summary>
     /// This method allows an application to validate a request token by entering a username and password.
     /// </summary>
-    public Task<Response<CreateSessionWithLoginResponse>> CreateSessionWithLoginAsync(CreateSessionWithLoginRequest postData, CancellationToken cancellationToken = default) =>
-        _client.PostAsync<CreateSessionWithLoginResponse>("/3/authentication/token/validate_with_login", null, postData, cancellationToken);
+    public Task<Response<TokenResponse>> CreateSessionWithLoginAsync(CreateSessionWithLoginRequest postData, CancellationToken cancellationToken = default) =>
+        _client.PostAsync<TokenResponse>("/3/authentication/token/validate_with_login", null, postData, cancellationToken);
 
     public Task<Response<DeleteSessionResponse>> DeleteDeleteSessionAsync(CancellationToken cancellationToken = default) =>
         _client.DeleteAsync<DeleteSessionResponse>("/3/authentication/session", null, cancellationToken);

@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.List;
+namespace DustyPig.TMDB.Models.Account;
 
-public class RemoveMovieResponse
+public class StatusResponse
 {
     [JsonPropertyName("status_code")]
     public int StatusCode { get; set; }
