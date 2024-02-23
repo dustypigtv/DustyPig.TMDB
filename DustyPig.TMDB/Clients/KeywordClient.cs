@@ -1,6 +1,5 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Keyword;
 using System.Collections.Generic;
 using System.Threading;
@@ -18,7 +17,7 @@ internal class KeywordClient : IKeyword
     public Task<Response<DetailsResponse>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
         _client.GetAsync<DetailsResponse>($"/3/keyword/{keywordId}", null, cancellationToken);
 
-    public Task<Response<PagedResultWithId<MoviesResponse>>> GetMoviesAsync(string keywordId, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<MoviesResponse>> GetMoviesAsync(string keywordId, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -27,6 +26,6 @@ internal class KeywordClient : IKeyword
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<MoviesResponse>>($"/3/keyword/{keywordId}/movies", queryParams, cancellationToken);
+        return _client.GetAsync<MoviesResponse>($"/3/keyword/{keywordId}/movies", queryParams, cancellationToken);
     }
 }

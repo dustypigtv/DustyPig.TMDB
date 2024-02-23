@@ -56,7 +56,7 @@ public interface IMovie
     /// <summary>
     /// Get the lists that a movie has been added to.
     /// </summary>
-    public Task<Response<PagedResultWithId<ListsResponse>>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListsResponse>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of movies that are currently in theatres.
@@ -80,7 +80,7 @@ public interface IMovie
     /// <summary>
     /// Get the user reviews for a movie.
     /// </summary>
-    public Task<Response<PagedResultWithId<ReviewsResponse>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ReviewsResponse>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the similar movies based on genres and keywords.
