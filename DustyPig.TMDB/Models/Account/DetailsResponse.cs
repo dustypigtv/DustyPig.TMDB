@@ -1,11 +1,34 @@
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models;
+namespace DustyPig.TMDB.Models.Account;
 
-public class AccountDetails
+public class DetailsResponse
 {
+    public class AvatarObject
+    {
+        public class GravatarObject
+        {
+            [JsonPropertyName("hash")]
+            public string Hash { get; set; }
+        }
+
+        public class TmdbObject
+        {
+            [JsonPropertyName("avatar_path")]
+            public string AvatarPath { get; set; }
+        }
+
+
+        [JsonPropertyName("gravatar")]
+        public GravatarObject Gravatar { get; set; }
+
+        [JsonPropertyName("tmdb")]
+        public TmdbObject Tmdb { get; set; }
+    }
+
+
     [JsonPropertyName("avatar")]
-    public Avatar Avatar { get; set; }
+    public AvatarObject Avatar { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

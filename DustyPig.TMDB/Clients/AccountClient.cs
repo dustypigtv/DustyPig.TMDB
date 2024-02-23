@@ -35,14 +35,14 @@ internal class AccountClient : IAccount
         return _client.PostAsync<AddToWatchlistResponse>($"/3/account/{accountId}/watchlist", queryParams, postData, cancellationToken);
     }
 
-    public Task<Response<AccountDetails>> GetDetailsAsync(int accountId, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<DetailsResponse>> GetDetailsAsync(int accountId, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "session_id", sessionId }
         };
 
-        return _client.GetAsync<AccountDetails>($"/3/account/{accountId}", queryParams, cancellationToken);
+        return _client.GetAsync<DetailsResponse>($"/3/account/{accountId}", queryParams, cancellationToken);
     }
 
     public Task<Response<PagedResult<FavoriteMoviesResponse>>> GetFavoriteMoviesAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
