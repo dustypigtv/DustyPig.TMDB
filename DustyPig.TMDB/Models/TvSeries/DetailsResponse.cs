@@ -679,123 +679,171 @@ public class DetailsResponse
 
     public class AppendListsObject
     {
-        [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public class ResultsObject
+        {
+            [JsonPropertyName("description")]
+            public string Description { get; set; }
 
-        [JsonPropertyName("favorite_count")]
-        public int FavoriteCount { get; set; }
+            [JsonPropertyName("favorite_count")]
+            public int FavoriteCount { get; set; }
 
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
+            [JsonPropertyName("id")]
+            public int Id { get; set; }
 
-        [JsonPropertyName("item_count")]
-        public int ItemCount { get; set; }
+            [JsonPropertyName("item_count")]
+            public int ItemCount { get; set; }
 
-        /// <summary>
-        /// ISO-639-1 2 letter language code. E.g. &quot;en&quot;
-        /// </summary>
-        [JsonPropertyName("iso_639_1")]
-        public string LanguageCode { get; set; }
+            /// <summary>
+            /// ISO-639-1 2 letter language code. E.g. &quot;en&quot;
+            /// </summary>
+            [JsonPropertyName("iso_639_1")]
+            public string LanguageCode { get; set; }
 
-        /// <summary>
-        /// ISO-3166-1 2 letter country code. E.g. &quot;US&quot;
-        /// </summary>
-        [JsonPropertyName("iso_3166_1")]
-        public string CountryCode { get; set; }
+            /// <summary>
+            /// ISO-3166-1 2 letter country code. E.g. &quot;US&quot;
+            /// </summary>
+            [JsonPropertyName("iso_3166_1")]
+            public string CountryCode { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+        }
+
+
+        [JsonPropertyName("page")]
+        public int Page { get; set; }
+
+        [JsonPropertyName("results")]
+        public List<ResultsObject> Results { get; set; } = [];
+
+        [JsonPropertyName("total_pages")]
+        public int TotalPages { get; set; }
+
+        [JsonPropertyName("total_results")]
+        public int TotalResults { get; set; }
     }
 
     public class AppendRecommendationsObject
     {
-        [JsonPropertyName("adult")]
-        public bool Adult { get; set; }
+        public class ResultsObject
+        {
+            [JsonPropertyName("adult")]
+            public bool Adult { get; set; }
 
-        [JsonPropertyName("backdrop_path")]
-        public string BackdropPath { get; set; }
+            [JsonPropertyName("backdrop_path")]
+            public string BackdropPath { get; set; }
 
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
+            [JsonPropertyName("id")]
+            public int Id { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
 
-        [JsonPropertyName("original_language")]
-        public string OriginalLanguage { get; set; }
+            [JsonPropertyName("original_language")]
+            public string OriginalLanguage { get; set; }
 
-        [JsonPropertyName("original_name")]
-        public string OriginalName { get; set; }
+            [JsonPropertyName("original_name")]
+            public string OriginalName { get; set; }
 
-        [JsonPropertyName("overview")]
-        public string Overview { get; set; }
+            [JsonPropertyName("overview")]
+            public string Overview { get; set; }
 
-        [JsonPropertyName("poster_path")]
-        public string PosterPath { get; set; }
+            [JsonPropertyName("poster_path")]
+            public string PosterPath { get; set; }
 
-        [JsonPropertyName("media_type")]
-        public string MediaType { get; set; }
+            [JsonPropertyName("media_type")]
+            public string MediaType { get; set; }
 
-        [JsonPropertyName("genre_ids")]
-        public List<int> GenreIds { get; set; } = [];
+            [JsonPropertyName("genre_ids")]
+            public List<int> GenreIds { get; set; } = [];
 
-        [JsonPropertyName("popularity")]
-        public float Popularity { get; set; }
+            [JsonPropertyName("popularity")]
+            public float Popularity { get; set; }
 
-        [JsonPropertyName("first_air_date")]
-        [JsonConverter(typeof(StringToDateOnlyConverter))]
-        public DateOnly? FirstAirDate { get; set; }
+            [JsonPropertyName("first_air_date")]
+            [JsonConverter(typeof(StringToDateOnlyConverter))]
+            public DateOnly? FirstAirDate { get; set; }
 
-        [JsonPropertyName("vote_average")]
-        public float VoteAverage { get; set; }
+            [JsonPropertyName("vote_average")]
+            public float VoteAverage { get; set; }
 
-        [JsonPropertyName("vote_count")]
-        public int VoteCount { get; set; }
+            [JsonPropertyName("vote_count")]
+            public int VoteCount { get; set; }
 
-        [JsonPropertyName("origin_country")]
-        public List<string> OriginCountry { get; set; } = [];
+            [JsonPropertyName("origin_country")]
+            public List<string> OriginCountry { get; set; } = [];
+        }
+
+
+        [JsonPropertyName("page")]
+        public int Page { get; set; }
+
+        [JsonPropertyName("results")]
+        public List<ResultsObject> Results { get; set; } = [];
+
+        [JsonPropertyName("total_pages")]
+        public int TotalPages { get; set; }
+
+        [JsonPropertyName("total_results")]
+        public int TotalResults { get; set; }
     }
 
     public class AppendReviewsObject
     {
-        public class AuthorDetailsObject
+        public class ResultsObject
         {
-            [JsonPropertyName("name")]
-            public string Name { get; set; }
+            public class AuthorDetailsObject
+            {
+                [JsonPropertyName("name")]
+                public string Name { get; set; }
 
-            [JsonPropertyName("username")]
-            public string Username { get; set; }
+                [JsonPropertyName("username")]
+                public string Username { get; set; }
 
-            [JsonPropertyName("avatar_path")]
-            public string AvatarPath { get; set; }
+                [JsonPropertyName("avatar_path")]
+                public string AvatarPath { get; set; }
 
-            [JsonPropertyName("rating")]
-            public float? Rating { get; set; }
+                [JsonPropertyName("rating")]
+                public float? Rating { get; set; }
+            }
+
+
+            [JsonPropertyName("author")]
+            public string Author { get; set; }
+
+            [JsonPropertyName("author_details")]
+            public AuthorDetailsObject AuthorDetails { get; set; }
+
+            [JsonPropertyName("content")]
+            public string Content { get; set; }
+
+            [JsonPropertyName("created_at")]
+            [JsonConverter(typeof(StringToDateTimeConverter))]
+            public DateTime? CreatedAt { get; set; }
+
+            [JsonPropertyName("id")]
+            public string Id { get; set; }
+
+            [JsonPropertyName("updated_at")]
+            [JsonConverter(typeof(StringToDateTimeConverter))]
+            public DateTime? UpdatedAt { get; set; }
+
+            [JsonPropertyName("url")]
+            public string Url { get; set; }
         }
 
 
-        [JsonPropertyName("author")]
-        public string Author { get; set; }
+        [JsonPropertyName("page")]
+        public int Page { get; set; }
 
-        [JsonPropertyName("author_details")]
-        public AuthorDetailsObject AuthorDetails { get; set; }
+        [JsonPropertyName("results")]
+        public List<ResultsObject> Results { get; set; } = [];
 
-        [JsonPropertyName("content")]
-        public string Content { get; set; }
+        [JsonPropertyName("total_pages")]
+        public int TotalPages { get; set; }
 
-        [JsonPropertyName("created_at")]
-        [JsonConverter(typeof(StringToDateTimeConverter))]
-        public DateTime? CreatedAt { get; set; }
-
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
-
-        [JsonPropertyName("updated_at")]
-        [JsonConverter(typeof(StringToDateTimeConverter))]
-        public DateTime? UpdatedAt { get; set; }
-
-        [JsonPropertyName("url")]
-        public string Url { get; set; }
+        [JsonPropertyName("total_results")]
+        public int TotalResults { get; set; }
     }
 
     public class AppendScreenedTheatricallyObject
@@ -819,48 +867,64 @@ public class DetailsResponse
 
     public class AppendSimilarObject
     {
-        [JsonPropertyName("adult")]
-        public bool Adult { get; set; }
+        public class ResultsObject
+        {
+            [JsonPropertyName("adult")]
+            public bool Adult { get; set; }
 
-        [JsonPropertyName("backdrop_path")]
-        public string BackdropPath { get; set; }
+            [JsonPropertyName("backdrop_path")]
+            public string BackdropPath { get; set; }
 
-        [JsonPropertyName("genre_ids")]
-        public List<int> GenreIds { get; set; } = [];
+            [JsonPropertyName("genre_ids")]
+            public List<int> GenreIds { get; set; } = [];
 
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
+            [JsonPropertyName("id")]
+            public int Id { get; set; }
 
-        [JsonPropertyName("origin_country")]
-        public List<string> OriginCountry { get; set; } = [];
+            [JsonPropertyName("origin_country")]
+            public List<string> OriginCountry { get; set; } = [];
 
-        [JsonPropertyName("original_language")]
-        public string OriginalLanguage { get; set; }
+            [JsonPropertyName("original_language")]
+            public string OriginalLanguage { get; set; }
 
-        [JsonPropertyName("original_name")]
-        public string OriginalName { get; set; }
+            [JsonPropertyName("original_name")]
+            public string OriginalName { get; set; }
 
-        [JsonPropertyName("overview")]
-        public string Overview { get; set; }
+            [JsonPropertyName("overview")]
+            public string Overview { get; set; }
 
-        [JsonPropertyName("popularity")]
-        public float Popularity { get; set; }
+            [JsonPropertyName("popularity")]
+            public float Popularity { get; set; }
 
-        [JsonPropertyName("poster_path")]
-        public string PosterPath { get; set; }
+            [JsonPropertyName("poster_path")]
+            public string PosterPath { get; set; }
 
-        [JsonPropertyName("first_air_date")]
-        [JsonConverter(typeof(StringToDateOnlyConverter))]
-        public DateOnly? FirstAirDate { get; set; }
+            [JsonPropertyName("first_air_date")]
+            [JsonConverter(typeof(StringToDateOnlyConverter))]
+            public DateOnly? FirstAirDate { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
 
-        [JsonPropertyName("vote_average")]
-        public float VoteAverage { get; set; }
+            [JsonPropertyName("vote_average")]
+            public float VoteAverage { get; set; }
 
-        [JsonPropertyName("vote_count")]
-        public int VoteCount { get; set; }
+            [JsonPropertyName("vote_count")]
+            public int VoteCount { get; set; }
+        }
+
+
+        [JsonPropertyName("page")]
+        public int Page { get; set; }
+
+        [JsonPropertyName("results")]
+        public List<ResultsObject> Results { get; set; } = [];
+
+        [JsonPropertyName("total_pages")]
+        public int TotalPages { get; set; }
+
+        [JsonPropertyName("total_results")]
+        public int TotalResults { get; set; }
     }
 
     public class AppendTranslationsObject
@@ -1084,19 +1148,19 @@ public class DetailsResponse
     public AppendKeywordsObject Keywords { get; set; }
 
     [JsonPropertyName("lists")]
-    public PagedResult<AppendListsObject> Lists { get; set; }
+    public AppendListsObject Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<AppendRecommendationsObject> Recommendations { get; set; }
+    public AppendRecommendationsObject Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
-    public PagedResult<AppendReviewsObject> Reviews { get; set; }
+    public AppendReviewsObject Reviews { get; set; }
 
     [JsonPropertyName("screened_theatrically")]
     public AppendScreenedTheatricallyObject ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<AppendSimilarObject> Similar { get; set; }
+    public AppendSimilarObject Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public AppendTranslationsObject Translations { get; set; }

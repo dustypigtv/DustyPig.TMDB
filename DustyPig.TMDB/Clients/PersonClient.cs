@@ -1,6 +1,5 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Person;
 using System;
 using System.Collections.Generic;
@@ -93,7 +92,7 @@ internal class PersonClient : IPerson
     /// <summary>
     /// Get a list of people ordered by popularity.
     /// </summary>
-    public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PopularResponse>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -101,7 +100,7 @@ internal class PersonClient : IPerson
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<PopularResponse>>("/3/person/popular", queryParams, cancellationToken);
+        return _client.GetAsync<PopularResponse>("/3/person/popular", queryParams, cancellationToken);
     }
 
     /// <summary>

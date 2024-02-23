@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Person;
 using System;
 using System.Threading;
@@ -48,7 +47,7 @@ public interface IPerson
     /// <summary>
     /// Get a list of people ordered by popularity.
     /// </summary>
-    public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PopularResponse>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the tagged images for a person.

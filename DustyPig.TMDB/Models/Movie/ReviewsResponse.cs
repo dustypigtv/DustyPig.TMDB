@@ -1,10 +1,11 @@
 using DustyPig.TMDB.JsonHelpers;
 using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movie;
 
-public class ReviewsResponse : PagedResult<ReviewsResponse.ResultsObject>
+public class ReviewsResponse
 {
     public class ResultsObject
     {
@@ -48,4 +49,16 @@ public class ReviewsResponse : PagedResult<ReviewsResponse.ResultsObject>
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
+
+    [JsonPropertyName("page")]
+    public int Page { get; set; }
+
+    [JsonPropertyName("results")]
+    public List<ResultsObject> Results { get; set; } = [];
+
+    [JsonPropertyName("total_pages")]
+    public int TotalPages { get; set; }
+
+    [JsonPropertyName("total_results")]
+    public int TotalResults { get; set; }
 }

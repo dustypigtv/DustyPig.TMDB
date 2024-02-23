@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.TvSeries;
 using System;
 using System.Threading;
@@ -27,7 +26,7 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of TV shows airing today.
     /// </summary>
-    public Task<Response<PagedResult<AiringTodayResponse>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<AiringTodayResponse>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.
@@ -89,14 +88,14 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
     /// </summary>
-    public Task<Response<PagedResult<OnTheAirResponse>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<OnTheAirResponse>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by popularity.
     /// </summary>
-    public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PopularResponse>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<PagedResult<RecommendationsResponse>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<RecommendationsResponse>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the reviews that have been added to a TV show.
@@ -111,12 +110,12 @@ public interface ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<PagedResult<SimilarResponse>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<SimilarResponse>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by rating.
     /// </summary>
-    public Task<Response<PagedResult<TopRatedResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<TopRatedResponse>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that have been added to a TV show.

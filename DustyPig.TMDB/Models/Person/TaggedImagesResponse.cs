@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Person;
 
-public class TaggedImagesResponse : PagedResult<TaggedImagesResponse.ResultsObject>
+public class TaggedImagesResponse
 {
     public class ResultsObject
     {
@@ -99,4 +99,16 @@ public class TaggedImagesResponse : PagedResult<TaggedImagesResponse.ResultsObje
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
+
+    [JsonPropertyName("page")]
+    public int Page { get; set; }
+
+    [JsonPropertyName("results")]
+    public List<ResultsObject> Results { get; set; } = [];
+
+    [JsonPropertyName("total_pages")]
+    public int TotalPages { get; set; }
+
+    [JsonPropertyName("total_results")]
+    public int TotalResults { get; set; }
 }
