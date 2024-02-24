@@ -27,7 +27,7 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of TV shows airing today.
     /// </summary>
-    public Task<Response<PagedResult<TvSeriesResponse>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Models.TvSeries.TvSeriesResponse>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.
@@ -89,12 +89,12 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
     /// </summary>
-    public Task<Response<PagedResult<TvSeriesResponse>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Models.TvSeries.TvSeriesResponse>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by popularity.
     /// </summary>
-    public Task<Response<PagedResult<TvSeriesResponse>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Models.TvSeries.TvSeriesResponse>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     public Task<Response<PagedResult<RecommendationsResponse>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
@@ -111,12 +111,12 @@ public interface ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<PagedResult<SimilarResponse>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Models.Common.TvSeriesResponse>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by rating.
     /// </summary>
-    public Task<Response<PagedResult<TvSeriesResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Models.TvSeries.TvSeriesResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that have been added to a TV show.

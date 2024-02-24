@@ -146,7 +146,7 @@ public class DetailsResponse
     public ListResultWithId<ScreenedTheatricallyResponse> ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<SimilarResponse> Similar { get; set; }
+    public PagedResult<Models.Common.TvSeriesResponse> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }

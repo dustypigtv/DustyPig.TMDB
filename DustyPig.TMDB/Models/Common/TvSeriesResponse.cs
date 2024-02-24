@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.Search;
+namespace DustyPig.TMDB.Models.Common;
 
-public class TvResponse
+public class TvSeriesResponse
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
