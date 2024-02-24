@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-public class TvSeriesListsClient : ITvSeriesLists
+internal class TvSeriesListsClient : ITvSeriesLists
 {
     private readonly Client _client;
 
