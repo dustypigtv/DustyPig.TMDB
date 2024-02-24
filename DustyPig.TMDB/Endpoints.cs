@@ -13,47 +13,47 @@ internal class Endpoints : IEndpoints
 
     public IAuthentication Authentication => new AuthenticationClient(_client);
 
-    public ICertification Certification => new CertificationClient(_client);
+    public ICertifications Certification => new CertificationsClient(_client);
 
     public IChanges Changes => new ChangesClient(_client);
 
-    public ICollection Collection => new CollectionClient(_client);
+    public ICollections Collection => new CollectionsClient(_client);
 
-    public ICompany Company => new CompanyClient(_client);
+    public ICompanies Company => new CompaniesClient(_client);
 
     public IConfiguration Configuration => new ConfigurationClient(_client);
 
-    public ICredit Credit => new CreditClient(_client);
+    public ICredits Credit => new CreditsClient(_client);
 
     public IDiscover Discover => new DiscoverClient(_client);
 
     public IFind Find => new FindClient(_client);
 
-    public IGenre Genre => new GenreClient(_client);
+    public IGenres Genre => new GenresClient(_client);
 
-    public IGuestSession GuestSession => new GuestSessionClient(_client);
+    public IGuestSessions GuestSession => new GuestSessionsClient(_client);
 
-    public IKeyword Keyword => new KeywordClient(_client);
+    public IKeywords Keyword => new KeywordsClient(_client);
 
-    public IList List => new ListClient(_client);
+    public ILists List => new ListsClient(_client);
 
-    public IMovie Movie => new MovieClient(_client);
+    public IMovies Movie => new MoviesClient(_client);
 
-    public INetwork Network => new NetworkClient(_client);
+    public INetworks Network => new NetworksClient(_client);
 
-    public IPerson Person => new PersonClient(_client);
+    public IPeople Person => new PeopleClient(_client);
 
-    public IReview Review => new ReviewClient(_client);
+    public IReviews Review => new ReviewsClient(_client);
 
     public ISearch Search => new SearchClient(_client);
 
     public ITrending Trending => new TrendingClient(_client);
 
-    public ITvEpisode TvEpisode => new TvEpisodeClient(_client);
+    public ITvEpisodes TvEpisode => new TvEpisodesClient(_client);
 
-    public ITvEpisodeGroup TvEpisodeGroup => new TvEpisodeGroupClient(_client);
+    public ITvEpisodeGroups TvEpisodeGroup => new TvEpisodeGroupsClient(_client);
 
-    public ITvSeason TvSeason => new TvSeasonClient(_client);
+    public ITvSeasons TvSeason => new TvSeasonsClient(_client);
 
     public ITvSeries TvSeries => new TvSeriesClient(_client);
 

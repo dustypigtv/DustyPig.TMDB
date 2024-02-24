@@ -6,47 +6,47 @@ public interface IEndpoints
 
     public IAuthentication Authentication { get; }
 
-    public ICertification Certification { get; }
+    public ICertifications Certification { get; }
 
     public IChanges Changes { get; }
 
-    public ICollection Collection { get; }
+    public ICollections Collection { get; }
 
-    public ICompany Company { get; }
+    public ICompanies Company { get; }
 
     public IConfiguration Configuration { get; }
 
-    public ICredit Credit { get; }
+    public ICredits Credit { get; }
 
     public IDiscover Discover { get; }
 
     public IFind Find { get; }
 
-    public IGenre Genre { get; }
+    public IGenres Genre { get; }
 
-    public IGuestSession GuestSession { get; }
+    public IGuestSessions GuestSession { get; }
 
-    public IKeyword Keyword { get; }
+    public IKeywords Keyword { get; }
 
-    public IList List { get; }
+    public ILists List { get; }
 
-    public IMovie Movie { get; }
+    public IMovies Movie { get; }
 
-    public INetwork Network { get; }
+    public INetworks Network { get; }
 
-    public IPerson Person { get; }
+    public IPeople Person { get; }
 
-    public IReview Review { get; }
+    public IReviews Review { get; }
 
     public ISearch Search { get; }
 
     public ITrending Trending { get; }
 
-    public ITvEpisode TvEpisode { get; }
+    public ITvEpisodes TvEpisode { get; }
 
-    public ITvEpisodeGroup TvEpisodeGroup { get; }
+    public ITvEpisodeGroups TvEpisodeGroup { get; }
 
-    public ITvSeason TvSeason { get; }
+    public ITvSeasons TvSeason { get; }
 
     public ITvSeries TvSeries { get; }
 
