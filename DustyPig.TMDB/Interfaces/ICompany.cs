@@ -16,7 +16,7 @@ public interface ICompany
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the company logos by id.

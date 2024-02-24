@@ -16,6 +16,6 @@ internal class CreditClient : ICredit
     /// <summary>
     /// Get a movie or TV credit details by ID.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(string creditId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<DetailsResponse>($"/3/credit/{creditId}", null, cancellationToken);
+    public Task<Response<Details>> GetDetailsAsync(string creditId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Details>($"/3/credit/{creditId}", null, cancellationToken);
 }

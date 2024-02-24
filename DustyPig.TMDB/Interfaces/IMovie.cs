@@ -23,22 +23,22 @@ public interface IMovie
     /// Get the alternative titles for a movie.
     /// </summary>
     /// <param name="country">specify a ISO-3166-1 value to filter the results</param>
-    public Task<Response<AlternativeTitlesResponse>> GetAlternativeTitlesAsync(int movieId, string country = null, CancellationToken cancellationToken = default);
+    public Task<Response<AlternativeTitle>> GetAlternativeTitlesAsync(int movieId, string country = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the recent changes for a movie.
     /// </summary>
     public Task<Response<CommonChanges>> GetChangesAsync(int movieId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<CreditsResponse>> GetCreditsAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Credits>> GetCreditsAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the top level details of a movie by ID.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int movieId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(int movieId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<ExternalIdsResponse>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a movie.
@@ -53,12 +53,12 @@ public interface IMovie
     */
     public Task<Response<Models.Common.CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<KeywordsResponse>> GetKeywordsAsync(string movieId, CancellationToken cancellationToken = default);
+    public Task<Response<KeywordsList>> GetKeywordsAsync(string movieId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the newest movie ID.
     /// </summary>
-    public Task<Response<LatestResponse>> GetLatestAsync(CancellationToken cancellationToken = default);
+    public Task<Response<Latest>> GetLatestAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the lists that a movie has been added to.
@@ -82,12 +82,12 @@ public interface IMovie
     /// <summary>
     /// Get the release dates and certifications for a movie.
     /// </summary>
-    public Task<Response<ListResultWithId<ReleaseDatesResponse>>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<Releases>>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the user reviews for a movie.
     /// </summary>
-    public Task<Response<PagedResultWithId<ReviewsResponse>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<Reviews>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the similar movies based on genres and keywords.
@@ -103,7 +103,7 @@ public interface IMovie
     /// <summary>
     /// Get the translations for a movie.
     /// </summary>
-    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of movies that are being released soon.

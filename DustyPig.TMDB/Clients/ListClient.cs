@@ -18,7 +18,7 @@ internal class ListClient : IList
     /// <summary>
     /// Add a movie to a list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddMovieAsync(MediaIdRequest postData, int listId, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> AddMovieAsync(MediaIdObject postData, int listId, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -31,7 +31,7 @@ internal class ListClient : IList
     /// <summary>
     /// Use this method to check if an item has already been added to the list.
     /// </summary>
-    public Task<Response<CheckItemStatusResponse>> GetCheckItemStatusAsync(int listId, string language = "en-US", int? movieId = null, CancellationToken cancellationToken = default)
+    public Task<Response<ItemStatus>> GetCheckItemStatusAsync(int listId, string language = "en-US", int? movieId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -39,7 +39,7 @@ internal class ListClient : IList
             { "movie_id", movieId }
         };
 
-        return _client.GetAsync<CheckItemStatusResponse>($"/3/list/{listId}/item_status", queryParams, cancellationToken);
+        return _client.GetAsync<ItemStatus>($"/3/list/{listId}/item_status", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ internal class ListClient : IList
         return _client.PostAsync<CreateResponse>("/3/list", queryParams, postData, cancellationToken);
     }
 
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int listId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Details>> GetDetailsAsync(int listId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -74,13 +74,13 @@ internal class ListClient : IList
             { "language", language }
         };
 
-        return _client.GetAsync<DetailsResponse>($"/3/list/{listId}", queryParams, cancellationToken);
+        return _client.GetAsync<Details>($"/3/list/{listId}", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Remove a movie from a list.
     /// </summary>
-    public Task<Response<CommonStatus>> RemoveMovieAsync(MediaIdRequest postData, int listId, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> RemoveMovieAsync(MediaIdObject postData, int listId, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

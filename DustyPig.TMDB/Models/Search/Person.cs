@@ -1,0 +1,35 @@
+using DustyPig.TMDB.Models.Common;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace DustyPig.TMDB.Models.Search;
+
+public class Person
+{
+    [JsonPropertyName("adult")]
+    public bool Adult { get; set; }
+
+    [JsonPropertyName("gender")]
+    public int Gender { get; set; }
+
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("known_for_department")]
+    public string KnownForDepartment { get; set; }
+
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
+    [JsonPropertyName("original_name")]
+    public string OriginalName { get; set; }
+
+    [JsonPropertyName("popularity")]
+    public float Popularity { get; set; }
+
+    [JsonPropertyName("profile_path")]
+    public string ProfilePath { get; set; }
+
+    [JsonPropertyName("known_for")]
+    public List<CommonMedia> KnownFor { get; set; } = [];
+}

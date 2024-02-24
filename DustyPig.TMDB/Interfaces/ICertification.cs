@@ -10,7 +10,7 @@ public interface ICertification
     /// <summary>
     /// Get an up to date list of the officially supported movie certifications on TMDB.
     /// </summary>
-    public Task<Response<CertificationResponse>> GetMovieCertificationsAsync(CancellationToken cancellationToken = default);
+    public Task<Response<CertificationsList>> GetMovieCertificationsAsync(CancellationToken cancellationToken = default);
 
-    public Task<Response<CertificationResponse>> GetTvCertificationsAsync(CancellationToken cancellationToken = default);
+    public Task<Response<CertificationsList>> GetTvCertificationsAsync(CancellationToken cancellationToken = default);
 }

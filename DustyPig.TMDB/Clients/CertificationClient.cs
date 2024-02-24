@@ -16,9 +16,9 @@ internal class CertificationClient : ICertification
     /// <summary>
     /// Get an up to date list of the officially supported movie certifications on TMDB.
     /// </summary>
-    public Task<Response<CertificationResponse>> GetMovieCertificationsAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CertificationResponse>("/3/certification/movie/list", null, cancellationToken);
+    public Task<Response<CertificationsList>> GetMovieCertificationsAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CertificationsList>("/3/certification/movie/list", null, cancellationToken);
 
-    public Task<Response<CertificationResponse>> GetTvCertificationsAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CertificationResponse>("/3/certification/tv/list", null, cancellationToken);
+    public Task<Response<CertificationsList>> GetTvCertificationsAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CertificationsList>("/3/certification/tv/list", null, cancellationToken);
 }

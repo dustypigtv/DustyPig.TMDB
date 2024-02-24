@@ -21,26 +21,26 @@ public interface ITvEpisode
     /// <summary>
     /// Get the recent changes for a TV episode.
     /// </summary>
-    public Task<Response<ChangesResponse>> GetChangesAsync(int episodeId, CancellationToken cancellationToken = default);
+    public Task<Response<ChangeList>> GetChangesAsync(int episodeId, CancellationToken cancellationToken = default);
 
-    public Task<Response<CreditsResponse>> GetCreditsAsync(int episodeNumber, int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Credits>> GetCreditsAsync(int episodeNumber, int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Query the details of a TV episode.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int episodeNumber, int seasonNumber, int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(int episodeNumber, int seasonNumber, int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of external IDs that have been added to a TV episode.
     /// </summary>
-    public Task<Response<ExternalIdsResponse>> GetExternalIdsAsync(string episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(string episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a TV episode.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<ImagesResponse>> GetImagesAsync(int episodeNumber, int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Images>> GetImagesAsync(int episodeNumber, int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that have been added to a TV episode.

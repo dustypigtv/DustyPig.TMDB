@@ -48,14 +48,14 @@ internal class MovieClient : IMovie
     /// Get the alternative titles for a movie.
     /// </summary>
     /// <param name="country">specify a ISO-3166-1 value to filter the results</param>
-    public Task<Response<AlternativeTitlesResponse>> GetAlternativeTitlesAsync(int movieId, string country = null, CancellationToken cancellationToken = default)
+    public Task<Response<AlternativeTitle>> GetAlternativeTitlesAsync(int movieId, string country = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "country", country }
         };
 
-        return _client.GetAsync<AlternativeTitlesResponse>($"/3/movie/{movieId}/alternative_titles", queryParams, cancellationToken);
+        return _client.GetAsync<AlternativeTitle>($"/3/movie/{movieId}/alternative_titles", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -73,21 +73,21 @@ internal class MovieClient : IMovie
         return _client.GetAsync<CommonChanges>($"/3/movie/{movieId}/changes", queryParams, cancellationToken);
     }
 
-    public Task<Response<CreditsResponse>> GetCreditsAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Credits>> GetCreditsAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<CreditsResponse>($"/3/movie/{movieId}/credits", queryParams, cancellationToken);
+        return _client.GetAsync<Credits>($"/3/movie/{movieId}/credits", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the top level details of a movie by ID.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int movieId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Details>> GetDetailsAsync(int movieId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -95,11 +95,11 @@ internal class MovieClient : IMovie
             { "language", language }
         };
 
-        return _client.GetAsync<DetailsResponse>($"/3/movie/{movieId}", queryParams, cancellationToken);
+        return _client.GetAsync<Details>($"/3/movie/{movieId}", queryParams, cancellationToken);
     }
 
-    public Task<Response<ExternalIdsResponse>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ExternalIdsResponse>($"/3/movie/{movieId}/external_ids", null, cancellationToken);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ExternalIds>($"/3/movie/{movieId}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the images that belong to a movie.
@@ -130,14 +130,14 @@ internal class MovieClient : IMovie
         return _client.GetAsync<Models.Common.CommonImages2>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
     }
 
-    public Task<Response<KeywordsResponse>> GetKeywordsAsync(string movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<KeywordsResponse>($"/3/movie/{movieId}/keywords", null, cancellationToken);
+    public Task<Response<KeywordsList>> GetKeywordsAsync(string movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<KeywordsList>($"/3/movie/{movieId}/keywords", null, cancellationToken);
 
     /// <summary>
     /// Get the newest movie ID.
     /// </summary>
-    public Task<Response<LatestResponse>> GetLatestAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<LatestResponse>("/3/movie/latest", null, cancellationToken);
+    public Task<Response<Latest>> GetLatestAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Latest>("/3/movie/latest", null, cancellationToken);
 
     /// <summary>
     /// Get the lists that a movie has been added to.
@@ -199,13 +199,13 @@ internal class MovieClient : IMovie
     /// <summary>
     /// Get the release dates and certifications for a movie.
     /// </summary>
-    public Task<Response<ListResultWithId<ReleaseDatesResponse>>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<ReleaseDatesResponse>>($"/3/movie/{movieId}/release_dates", null, cancellationToken);
+    public Task<Response<ListResultWithId<Releases>>> GetReleaseDatesAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<Releases>>($"/3/movie/{movieId}/release_dates", null, cancellationToken);
 
     /// <summary>
     /// Get the user reviews for a movie.
     /// </summary>
-    public Task<Response<PagedResultWithId<ReviewsResponse>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<Reviews>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -213,7 +213,7 @@ internal class MovieClient : IMovie
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<ReviewsResponse>>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<Reviews>>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -249,8 +249,8 @@ internal class MovieClient : IMovie
     /// <summary>
     /// Get the translations for a movie.
     /// </summary>
-    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<TranslationData>>($"/3/movie/{movieId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<Translation>>($"/3/movie/{movieId}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get a list of movies that are being released soon.

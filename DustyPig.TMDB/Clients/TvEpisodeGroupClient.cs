@@ -16,6 +16,6 @@ internal class TvEpisodeGroupClient : ITvEpisodeGroup
     /// <summary>
     /// Get the details of a TV episode group.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(string tvEpisodeGroupId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<DetailsResponse>($"/3/tv/episode_group/{tvEpisodeGroupId}", null, cancellationToken);
+    public Task<Response<Details>> GetDetailsAsync(string tvEpisodeGroupId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Details>($"/3/tv/episode_group/{tvEpisodeGroupId}", null, cancellationToken);
 }

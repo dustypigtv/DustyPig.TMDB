@@ -23,8 +23,8 @@ internal class CompanyClient : ICompany
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<DetailsResponse>($"/3/company/{companyId}", null, cancellationToken);
+    public Task<Response<Details>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Details>($"/3/company/{companyId}", null, cancellationToken);
 
     /// <summary>
     /// Get the company logos by id.

@@ -47,14 +47,14 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
     /// </summary>
-    public Task<Response<AggregateCreditsResponse>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<AggregateCreditsResponse>($"/3/tv/{seriesId}/aggregate_credits", queryParams, cancellationToken);
+        return _client.GetAsync<AggregateCredits>($"/3/tv/{seriesId}/aggregate_credits", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -96,27 +96,27 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the content ratings that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<ContentRatingsResponse>>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<ContentRatingsResponse>>($"/3/tv/{seriesId}/content_ratings", null, cancellationToken);
+    public Task<Response<ListResultWithId<ContentRating>>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<ContentRating>>($"/3/tv/{seriesId}/content_ratings", null, cancellationToken);
 
     /// <summary>
     /// Get the latest season credits of a TV show.
     /// </summary>
-    public Task<Response<CreditsResponse>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Credits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<CreditsResponse>($"/3/tv/{seriesId}/credits", queryParams, cancellationToken);
+        return _client.GetAsync<Credits>($"/3/tv/{seriesId}/credits", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the details of a TV show.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Details>> GetDetailsAsync(int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -124,20 +124,20 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<DetailsResponse>($"/3/tv/{seriesId}", queryParams, cancellationToken);
+        return _client.GetAsync<Details>($"/3/tv/{seriesId}", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the episode groups that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<EpisodeGroupsResponse>>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<EpisodeGroupsResponse>>($"/3/tv/{seriesId}/episode_groups", null, cancellationToken);
+    public Task<Response<ListResultWithId<EpisodeGroup>>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<EpisodeGroup>>($"/3/tv/{seriesId}/episode_groups", null, cancellationToken);
 
     /// <summary>
     /// Get a list of external IDs that have been added to a TV show.
     /// </summary>
-    public Task<Response<ExternalIdsResponse>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ExternalIdsResponse>($"/3/tv/{seriesId}/external_ids", null, cancellationToken);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ExternalIds>($"/3/tv/{seriesId}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the images that belong to a TV series.
@@ -163,13 +163,13 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the newest TV show ID.
     /// </summary>
-    public Task<Response<LatestResponse>> GetLatestAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<LatestResponse>("/3/tv/latest", null, cancellationToken);
+    public Task<Response<Latest>> GetLatestAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Latest>("/3/tv/latest", null, cancellationToken);
 
     /// <summary>
     /// Get the lists that a TV series has been added to.
     /// </summary>
-    public Task<Response<PagedResultWithId<ListsResponse>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<Lists>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -177,7 +177,7 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<ListsResponse>>($"/3/tv/{seriesId}/lists", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<Lists>>($"/3/tv/{seriesId}/lists", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -223,7 +223,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the reviews that have been added to a TV show.
     /// </summary>
-    public Task<Response<PagedResultWithId<ReviewsResponse>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<Review>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -231,14 +231,14 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<ReviewsResponse>>($"/3/tv/{seriesId}/reviews", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<Review>>($"/3/tv/{seriesId}/reviews", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the seasons and episodes that have screened theatrically.
     /// </summary>
-    public Task<Response<ListResultWithId<ScreenedTheatricallyResponse>>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<ScreenedTheatricallyResponse>>($"/3/tv/{seriesId}/screened_theatrically", null, cancellationToken);
+    public Task<Response<ListResultWithId<ScreenedTheatrically>>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<ScreenedTheatrically>>($"/3/tv/{seriesId}/screened_theatrically", null, cancellationToken);
 
     /// <summary>
     /// Get the similar TV shows.
@@ -271,8 +271,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the translations that have been added to a TV show.
     /// </summary>
-    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<TranslationData>>($"/3/tv/{seriesId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<Translation>>($"/3/tv/{seriesId}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the videos that belong to a TV show.

@@ -17,7 +17,7 @@ public interface IConfiguration
     /// <summary>
     /// Query the API configuration details.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of the jobs and departments we use on TMDB.
@@ -37,5 +37,5 @@ public interface IConfiguration
     /// <summary>
     /// Get the list of timezones used throughout TMDB.
     /// </summary>
-    public Task<Response<List<TimezonesResponse>>> GetTimezonesAsync(CancellationToken cancellationToken = default);
+    public Task<Response<List<TimeZones>>> GetTimezonesAsync(CancellationToken cancellationToken = default);
 }

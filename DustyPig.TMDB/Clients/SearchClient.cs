@@ -18,7 +18,7 @@ internal class SearchClient : ISearch
     /// <summary>
     /// Search for collections by their original, translated and alternative names.
     /// </summary>
-    public Task<Response<PagedResult<CollectionResponse>>> GetCollectionAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Collection>>> GetCollectionAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -29,7 +29,7 @@ internal class SearchClient : ISearch
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResult<CollectionResponse>>("/3/search/collection", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Collection>>("/3/search/collection", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ internal class SearchClient : ISearch
     /// <summary>
     /// Use multi search when you want to search for movies, TV shows and people in a single request.
     /// </summary>
-    public Task<Response<PagedResult<MultiResponse>>> GetMultiAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MultiObject>>> GetMultiAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -92,13 +92,13 @@ internal class SearchClient : ISearch
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<MultiResponse>>("/3/search/multi", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MultiObject>>("/3/search/multi", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Search for people by their name and also known as names.
     /// </summary>
-    public Task<Response<PagedResult<PersonResponse>>> GetPersonAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Person>>> GetPersonAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -108,7 +108,7 @@ internal class SearchClient : ISearch
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<PersonResponse>>("/3/search/person", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Person>>("/3/search/person", queryParams, cancellationToken);
     }
 
     /// <summary>

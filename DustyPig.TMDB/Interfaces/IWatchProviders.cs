@@ -16,10 +16,10 @@ public interface IWatchProviders
     /// <summary>
     /// Get the list of streaming providers we have for movies.
     /// </summary>
-    public Task<Response<ListResult<ProvidersResponse>>> GetMovieProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default);
+    public Task<Response<ListResult<Provider>>> GetMovieProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for TV shows.
     /// </summary>
-    public Task<Response<ListResult<ProvidersResponse>>> GetTvProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default);
+    public Task<Response<ListResult<Provider>>> GetTvProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default);
 }

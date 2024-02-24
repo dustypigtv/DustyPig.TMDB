@@ -46,24 +46,24 @@ internal class TvEpisodeClient : ITvEpisode
     /// <summary>
     /// Get the recent changes for a TV episode.
     /// </summary>
-    public Task<Response<ChangesResponse>> GetChangesAsync(int episodeId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ChangesResponse>($"/3/tv/episode/{episodeId}/changes", null, cancellationToken);
+    public Task<Response<ChangeList>> GetChangesAsync(int episodeId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ChangeList>($"/3/tv/episode/{episodeId}/changes", null, cancellationToken);
 
-    public Task<Response<CreditsResponse>> GetCreditsAsync(int episodeNumber, int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Credits>> GetCreditsAsync(int episodeNumber, int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<CreditsResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/credits", queryParams, cancellationToken);
+        return _client.GetAsync<Credits>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/credits", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Query the details of a TV episode.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int episodeNumber, int seasonNumber, int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Details>> GetDetailsAsync(int episodeNumber, int seasonNumber, int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -71,20 +71,20 @@ internal class TvEpisodeClient : ITvEpisode
             { "language", language }
         };
 
-        return _client.GetAsync<DetailsResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}", queryParams, cancellationToken);
+        return _client.GetAsync<Details>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of external IDs that have been added to a TV episode.
     /// </summary>
-    public Task<Response<ExternalIdsResponse>> GetExternalIdsAsync(string episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ExternalIdsResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/external_ids", null, cancellationToken);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(string episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ExternalIds>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the images that belong to a TV episode.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<ImagesResponse>> GetImagesAsync(int episodeNumber, int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Images>> GetImagesAsync(int episodeNumber, int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -92,7 +92,7 @@ internal class TvEpisodeClient : ITvEpisode
             { "language", language }
         };
 
-        return _client.GetAsync<ImagesResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/images", queryParams, cancellationToken);
+        return _client.GetAsync<Images>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/images", queryParams, cancellationToken);
     }
 
     /// <summary>

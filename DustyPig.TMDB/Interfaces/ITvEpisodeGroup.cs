@@ -10,5 +10,5 @@ public interface ITvEpisodeGroup
     /// <summary>
     /// Get the details of a TV episode group.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(string tvEpisodeGroupId, CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(string tvEpisodeGroupId, CancellationToken cancellationToken = default);
 }

@@ -47,14 +47,14 @@ internal class TrendingClient : ITrending
     /// Get the trending people on TMDB.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<PeopleResponse>>> GetPeopleAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Person>>> GetPeopleAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<PeopleResponse>>($"/3/trending/person/{timeWindow}", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Person>>($"/3/trending/person/{timeWindow}", queryParams, cancellationToken);
     }
 
     /// <summary>

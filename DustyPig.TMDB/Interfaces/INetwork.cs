@@ -13,7 +13,7 @@ public interface INetwork
     /// </summary>
     public Task<Response<ListResultWithId<CommonAlternativeName>>> GetAlternativeNamesAsync(int networkId, CancellationToken cancellationToken = default);
 
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int networkId, CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(int networkId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the TV network logos by id.

@@ -11,7 +11,7 @@ public interface ISearch
     /// <summary>
     /// Search for collections by their original, translated and alternative names.
     /// </summary>
-    public Task<Response<PagedResult<CollectionResponse>>> GetCollectionAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Collection>>> GetCollectionAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for companies by their original and alternative names.
@@ -31,12 +31,12 @@ public interface ISearch
     /// <summary>
     /// Use multi search when you want to search for movies, TV shows and people in a single request.
     /// </summary>
-    public Task<Response<PagedResult<MultiResponse>>> GetMultiAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<MultiObject>>> GetMultiAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for people by their name and also known as names.
     /// </summary>
-    public Task<Response<PagedResult<PersonResponse>>> GetPersonAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Person>>> GetPersonAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for TV shows by their original, translated and also known as names.

@@ -18,21 +18,21 @@ internal class CollectionClient : ICollection
     /// <summary>
     /// Get collection details by ID.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int collectionId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Details>> GetDetailsAsync(int collectionId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<DetailsResponse>($"/3/collection/{collectionId}", queryParams, cancellationToken);
+        return _client.GetAsync<Details>($"/3/collection/{collectionId}", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the images that belong to a collection.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<ImagesResponse>> GetImagesAsync(int collectionId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Images>> GetImagesAsync(int collectionId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -40,9 +40,9 @@ internal class CollectionClient : ICollection
             { "language", language }
         };
 
-        return _client.GetAsync<ImagesResponse>($"/3/collection/{collectionId}/images", queryParams, cancellationToken);
+        return _client.GetAsync<Images>($"/3/collection/{collectionId}/images", queryParams, cancellationToken);
     }
 
-    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<TranslationData>>($"/3/collection/{collectionId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<Translation>>($"/3/collection/{collectionId}/translations", null, cancellationToken);
 }

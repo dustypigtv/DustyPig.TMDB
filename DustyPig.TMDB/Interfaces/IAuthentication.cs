@@ -7,7 +7,7 @@ namespace DustyPig.TMDB.Interfaces;
 
 public interface IAuthentication
 {
-    public Task<Response<CreateGuestSessionResponse>> GetCreateGuestSessionAsync(CancellationToken cancellationToken = default);
+    public Task<Response<GuestSession>> GetCreateGuestSessionAsync(CancellationToken cancellationToken = default);
 
     public Task<Response<TokenResponse>> GetCreateRequestTokenAsync(CancellationToken cancellationToken = default);
 
@@ -25,5 +25,5 @@ public interface IAuthentication
     /// <summary>
     /// Test your API Key to see if it&#39;s valid.
     /// </summary>
-    public Task<Response<ValidateKeyResponse>> GetValidateKeyAsync(CancellationToken cancellationToken = default);
+    public Task<Response<ValidateKey>> GetValidateKeyAsync(CancellationToken cancellationToken = default);
 }

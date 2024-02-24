@@ -31,8 +31,8 @@ internal class ConfigurationClient : IConfiguration
     /// <summary>
     /// Query the API configuration details.
     /// </summary>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<DetailsResponse>("/3/configuration", null, cancellationToken);
+    public Task<Response<Details>> GetDetailsAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Details>("/3/configuration", null, cancellationToken);
 
     /// <summary>
     /// Get the list of the jobs and departments we use on TMDB.
@@ -55,6 +55,6 @@ internal class ConfigurationClient : IConfiguration
     /// <summary>
     /// Get the list of timezones used throughout TMDB.
     /// </summary>
-    public Task<Response<List<TimezonesResponse>>> GetTimezonesAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<List<TimezonesResponse>>("/3/configuration/timezones", null, cancellationToken);
+    public Task<Response<List<TimeZones>>> GetTimezonesAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<List<TimeZones>>("/3/configuration/timezones", null, cancellationToken);
 }

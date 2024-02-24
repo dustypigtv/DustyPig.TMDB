@@ -22,7 +22,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
     /// </summary>
-    public Task<Response<AggregateCreditsResponse>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows airing today.
@@ -42,28 +42,28 @@ public interface ITvSeries
     /// <summary>
     /// Get the content ratings that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<ContentRatingsResponse>>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<ContentRating>>> GetContentRatingsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the latest season credits of a TV show.
     /// </summary>
-    public Task<Response<CreditsResponse>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Credits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the details of a TV show.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the episode groups that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<EpisodeGroupsResponse>>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<EpisodeGroup>>> GetEpisodeGroupsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of external IDs that have been added to a TV show.
     /// </summary>
-    public Task<Response<ExternalIdsResponse>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a TV series.
@@ -79,12 +79,12 @@ public interface ITvSeries
     /// <summary>
     /// Get the newest TV show ID.
     /// </summary>
-    public Task<Response<LatestResponse>> GetLatestAsync(CancellationToken cancellationToken = default);
+    public Task<Response<Latest>> GetLatestAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the lists that a TV series has been added to.
     /// </summary>
-    public Task<Response<PagedResultWithId<ListsResponse>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<Lists>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
@@ -101,12 +101,12 @@ public interface ITvSeries
     /// <summary>
     /// Get the reviews that have been added to a TV show.
     /// </summary>
-    public Task<Response<PagedResultWithId<ReviewsResponse>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<Review>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the seasons and episodes that have screened theatrically.
     /// </summary>
-    public Task<Response<ListResultWithId<ScreenedTheatricallyResponse>>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<ScreenedTheatrically>>> GetScreenedTheatricallyAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the similar TV shows.
@@ -121,7 +121,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the translations that have been added to a TV show.
     /// </summary>
-    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV show.

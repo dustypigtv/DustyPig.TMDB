@@ -17,26 +17,26 @@ internal class GenreClient : IGenre
     /// <summary>
     /// Get the list of official genres for movies.
     /// </summary>
-    public Task<Response<GenresResponse>> GetMovieListAsync(string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<GenreList>> GetMovieListAsync(string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<GenresResponse>("/3/genre/movie/list", queryParams, cancellationToken);
+        return _client.GetAsync<GenreList>("/3/genre/movie/list", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the list of official genres for TV shows.
     /// </summary>
-    public Task<Response<GenresResponse>> GetTvListAsync(string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<GenreList>> GetTvListAsync(string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<GenresResponse>("/3/genre/tv/list", queryParams, cancellationToken);
+        return _client.GetAsync<GenreList>("/3/genre/tv/list", queryParams, cancellationToken);
     }
 }

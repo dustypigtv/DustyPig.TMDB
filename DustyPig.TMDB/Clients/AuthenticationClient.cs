@@ -13,8 +13,8 @@ internal class AuthenticationClient : IAuthentication
     internal AuthenticationClient(Client client) => _client = client;
 
 
-    public Task<Response<CreateGuestSessionResponse>> GetCreateGuestSessionAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CreateGuestSessionResponse>("/3/authentication/guest_session/new", null, cancellationToken);
+    public Task<Response<GuestSession>> GetCreateGuestSessionAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<GuestSession>("/3/authentication/guest_session/new", null, cancellationToken);
 
     public Task<Response<TokenResponse>> GetCreateRequestTokenAsync(CancellationToken cancellationToken = default) =>
         _client.GetAsync<TokenResponse>("/3/authentication/token/new", null, cancellationToken);
@@ -37,6 +37,6 @@ internal class AuthenticationClient : IAuthentication
     /// <summary>
     /// Test your API Key to see if it&#39;s valid.
     /// </summary>
-    public Task<Response<ValidateKeyResponse>> GetValidateKeyAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ValidateKeyResponse>("/3/authentication", null, cancellationToken);
+    public Task<Response<ValidateKey>> GetValidateKeyAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ValidateKey>("/3/authentication", null, cancellationToken);
 }
