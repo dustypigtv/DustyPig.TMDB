@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace DustyPig.TMDB.Models.Discover;
 
-public enum Sortby
+public enum SortMoviesBy
 {
     [Description("original_title.asc")]
     OriginalTitleAsc,

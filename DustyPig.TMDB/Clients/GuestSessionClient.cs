@@ -1,7 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.GuestSession;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +17,7 @@ internal class GuestSessionClient : IGuestSession
     /// <summary>
     /// Get the rated movies for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedMovie>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonRatedMovie>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -33,7 +32,7 @@ internal class GuestSessionClient : IGuestSession
     /// <summary>
     /// Get the rated TV shows for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedTvSeries>>> GetRatedTvAsync(string guestSessionId, int page = 1, string language = "en-US", Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonRatedTvSeries>>> GetRatedTvAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -48,7 +47,7 @@ internal class GuestSessionClient : IGuestSession
     /// <summary>
     /// Get the rated TV episodes for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedTvEpisode>>> GetRatedTvEpisodesAsync(string guestSessionId, int page = 1, string language = "en-US", Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonRatedTvEpisode>>> GetRatedTvEpisodesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

@@ -1,6 +1,5 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.GuestSession;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,15 +10,15 @@ public interface IGuestSession
     /// <summary>
     /// Get the rated movies for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedMovie>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonRatedMovie>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the rated TV shows for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedTvSeries>>> GetRatedTvAsync(string guestSessionId, int page = 1, string language = "en-US", Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonRatedTvSeries>>> GetRatedTvAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the rated TV episodes for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedTvEpisode>>> GetRatedTvEpisodesAsync(string guestSessionId, int page = 1, string language = "en-US", Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonRatedTvEpisode>>> GetRatedTvEpisodesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default);
 }

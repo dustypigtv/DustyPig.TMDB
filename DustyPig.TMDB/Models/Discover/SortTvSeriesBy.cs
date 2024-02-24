@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace DustyPig.TMDB.Models.Discover;
 
-public enum Sortby2
+public enum SortTvSeriesBy
 {
     [Description("first_air_date.asc")]
     FirstAirDateAsc,

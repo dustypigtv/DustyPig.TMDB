@@ -1,8 +1,8 @@
 using System.ComponentModel;
 
-namespace DustyPig.TMDB.Models.GuestSession;
+namespace DustyPig.TMDB.Models.Common;
 
-public enum Sortby
+public enum CommonSortByCreated
 {
     [Description("created_at.asc")]
     CreatedAtAsc,
