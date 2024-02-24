@@ -14,6 +14,7 @@ public interface ICollections
 
     /// <summary>
     /// Get the images that belong to a collection.
+    /// If you have a language specified, it will act as a filter on the returned items. You can use the include_image_language param to query additional languages.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
     public Task<Response<Images>> GetImagesAsync(int collectionId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
