@@ -62,5 +62,5 @@ public class Cast1
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public MediaTypes MediaType { get; set; }
+    public CommonMediaTypes MediaType { get; set; }
 }

@@ -33,7 +33,7 @@ public class CommonTvSeries3
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public MediaTypes MediaType { get; set; }
+    public CommonMediaTypes MediaType { get; set; }
 
     [JsonPropertyName("genre_ids")]
     public List<int> GenreIds { get; set; } = [];

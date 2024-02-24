@@ -37,7 +37,7 @@ public class Details
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public MediaTypes MediaType { get; set; }
+    public CommonMediaTypes MediaType { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonConverter(typeof(StringToDateTimeConverter))]

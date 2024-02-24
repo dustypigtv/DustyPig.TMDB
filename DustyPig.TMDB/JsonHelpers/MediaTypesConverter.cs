@@ -5,26 +5,26 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.JsonHelpers;
 
-internal class MediaTypesConverter : JsonConverter<MediaTypes>
+internal class MediaTypesConverter : JsonConverter<CommonMediaTypes>
 {
-    public override MediaTypes Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override CommonMediaTypes Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         return reader.GetString() switch
         {
-            "movie" => MediaTypes.Movie,
-            "tv" => MediaTypes.TvSeries,
-            "person" => MediaTypes.Person,
-            _ => MediaTypes.Unknown,
+            "movie" => CommonMediaTypes.Movie,
+            "tv" => CommonMediaTypes.TvSeries,
+            "person" => CommonMediaTypes.Person,
+            _ => CommonMediaTypes.Unknown,
         };
     }
 
-    public override void Write(Utf8JsonWriter writer, MediaTypes value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, CommonMediaTypes value, JsonSerializerOptions options)
     {
         string str = value switch
         {
-            MediaTypes.Movie => "movie",
-            MediaTypes.TvSeries => "tv",
-            MediaTypes.Person => "person",
+            CommonMediaTypes.Movie => "movie",
+            CommonMediaTypes.TvSeries => "tv",
+            CommonMediaTypes.Person => "person",
             _ => string.Empty
         };
 

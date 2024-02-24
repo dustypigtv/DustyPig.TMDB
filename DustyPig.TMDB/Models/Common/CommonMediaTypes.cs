@@ -1,6 +1,6 @@
 ﻿namespace DustyPig.TMDB.Models.Common;
 
-public enum MediaTypes
+public enum CommonMediaTypes
 {
     Unknown,
     Movie,

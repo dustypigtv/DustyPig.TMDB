@@ -20,7 +20,7 @@ public class Person
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public MediaTypes MediaType { get; set; }
+    public CommonMediaTypes MediaType { get; set; }
 
     [JsonPropertyName("popularity")]
     public float Popularity { get; set; }

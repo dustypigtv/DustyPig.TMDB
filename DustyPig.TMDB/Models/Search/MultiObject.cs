@@ -35,7 +35,7 @@ public class MultiObject
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public MediaTypes MediaType { get; set; }
+    public CommonMediaTypes MediaType { get; set; }
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
