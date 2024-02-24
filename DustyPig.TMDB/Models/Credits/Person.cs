@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Credits;
 
@@ -17,7 +19,8 @@ public class Person
     public string OriginalName { get; set; }
 
     [JsonPropertyName("media_type")]
-    public string MediaType { get; set; }
+    [JsonConverter(typeof(MediaTypesConverter))]
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("popularity")]
     public float Popularity { get; set; }

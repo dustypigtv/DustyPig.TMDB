@@ -34,7 +34,8 @@ public class MultiObject
     public string KnownForDepartment { get; set; }
 
     [JsonPropertyName("media_type")]
-    public string MediaType { get; set; }
+    [JsonConverter(typeof(MediaTypesConverter))]
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("name")]
     public string Name { get; set; }

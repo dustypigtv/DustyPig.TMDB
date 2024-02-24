@@ -32,7 +32,8 @@ public class CommonTvSeries3
     public string PosterPath { get; set; }
 
     [JsonPropertyName("media_type")]
-    public string MediaType { get; set; }
+    [JsonConverter(typeof(MediaTypesConverter))]
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("genre_ids")]
     public List<int> GenreIds { get; set; } = [];

@@ -36,7 +36,8 @@ public class Details
     public string MediaTitle { get; set; }
 
     [JsonPropertyName("media_type")]
-    public string MediaType { get; set; }
+    [JsonConverter(typeof(MediaTypesConverter))]
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonConverter(typeof(StringToDateTimeConverter))]

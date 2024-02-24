@@ -1,3 +1,5 @@
+using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Credits;
@@ -17,7 +19,8 @@ public class Details
     public Media Media { get; set; }
 
     [JsonPropertyName("media_type")]
-    public string MediaType { get; set; }
+    [JsonConverter(typeof(MediaTypesConverter))]
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("id")]
     public string Id { get; set; }
