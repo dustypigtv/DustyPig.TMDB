@@ -1,6 +1,6 @@
 ﻿namespace DustyPig.TMDB.Models.Common;
 
-public enum ReleaseTypes
+public enum CommonReleaseTypes
 {
     Premier = 1,
     TheatricalLimited = 2,

@@ -24,5 +24,5 @@ public class Release
     public DateOnly? ReleaseDate { get; set; }
 
     [JsonPropertyName("type")]
-    public ReleaseTypes Type { get; set; }
+    public CommonReleaseTypes Type { get; set; }
 }
