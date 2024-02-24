@@ -43,5 +43,5 @@ public interface ISearch
     /// </summary>
     /// <param name="firstAirDateYear">Search only the first air date. Valid values are: 1000..9999</param>
     /// <param name="year">Search the first air date and all episode air dates. Valid values are: 1000..9999</param>
-    public Task<Response<PagedResult<Models.Common.CommonTvSeries>>> GetTvAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonTvSeries1>>> GetTvAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default);
 }

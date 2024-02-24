@@ -17,8 +17,8 @@ internal class NetworkClient : INetwork
     /// <summary>
     /// Get the alternative names of a network.
     /// </summary>
-    public Task<Response<ListResultWithId<AlternativeNamesResponse>>> GetAlternativeNamesAsync(int networkId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<AlternativeNamesResponse>>($"/3/network/{networkId}/alternative_names", null, cancellationToken);
+    public Task<Response<ListResultWithId<CommonAlternativeName>>> GetAlternativeNamesAsync(int networkId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<CommonAlternativeName>>($"/3/network/{networkId}/alternative_names", null, cancellationToken);
 
     public Task<Response<DetailsResponse>> GetDetailsAsync(int networkId, CancellationToken cancellationToken = default) =>
         _client.GetAsync<DetailsResponse>($"/3/network/{networkId}", null, cancellationToken);
@@ -26,6 +26,6 @@ internal class NetworkClient : INetwork
     /// <summary>
     /// Get the TV network logos by id.
     /// </summary>
-    public Task<Response<ImagesResponse>> GetImagesAsync(int networkId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ImagesResponse>($"/3/network/{networkId}/images", null, cancellationToken);
+    public Task<Response<CommonImages1>> GetImagesAsync(int networkId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonImages1>($"/3/network/{networkId}/images", null, cancellationToken);
 }

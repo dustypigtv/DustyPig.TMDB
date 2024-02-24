@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeason;
@@ -27,7 +28,7 @@ public class CrewObject
     public float Popularity { get; set; }
 
     [JsonPropertyName("jobs")]
-    public List<JobsObject> Jobs { get; set; } = [];
+    public List<CommonJob> Jobs { get; set; } = [];
 
     [JsonPropertyName("department")]
     public string Department { get; set; }

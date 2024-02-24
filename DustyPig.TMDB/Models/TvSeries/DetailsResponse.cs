@@ -80,13 +80,13 @@ public class DetailsResponse
     public List<CommonCompany> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
-    public List<ProductionCountriesObject> ProductionCountries { get; set; } = [];
+    public List<CommonCountry2> ProductionCountries { get; set; } = [];
 
     [JsonPropertyName("seasons")]
     public List<SeasonsObject> Seasons { get; set; } = [];
 
     [JsonPropertyName("spoken_languages")]
-    public List<SpokenLanguagesObject> SpokenLanguages { get; set; } = [];
+    public List<CommonLanguage> SpokenLanguages { get; set; } = [];
 
     [JsonPropertyName("status")]
     public string Status { get; set; }
@@ -104,16 +104,16 @@ public class DetailsResponse
     public int VoteCount { get; set; }
 
     [JsonPropertyName("account_states")]
-    public AccountStatesResponse AccountStates { get; set; }
+    public CommonAccountState AccountStates { get; set; }
 
     [JsonPropertyName("aggregate_credits")]
     public AggregateCreditsResponse AggregateCredits { get; set; }
 
     [JsonPropertyName("alternative_titles")]
-    public ListResultWithId<AlternativeTitlesResponse> AlternativeTitles { get; set; }
+    public ListResultWithId<CommonTitle> AlternativeTitles { get; set; }
 
     [JsonPropertyName("changes")]
-    public ChangesResponse Changes { get; set; }
+    public CommonChanges Changes { get; set; }
 
     [JsonPropertyName("content_ratings")]
     public ListResultWithId<ContentRatingsResponse> ContentRatings { get; set; }
@@ -128,7 +128,7 @@ public class DetailsResponse
     public ExternalIdsResponse ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public ImagesResponse Images { get; set; }
+    public CommonImages2 Images { get; set; }
 
     [JsonPropertyName("keywords")]
     public ListResultWithId<CommonName> Keywords { get; set; }
@@ -137,7 +137,7 @@ public class DetailsResponse
     public PagedResultWithId<ListsResponse> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<RecommendationsResponse> Recommendations { get; set; }
+    public PagedResult<CommonTvSeries3> Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
     public PagedResultWithId<ReviewsResponse> Reviews { get; set; }
@@ -146,7 +146,7 @@ public class DetailsResponse
     public ListResultWithId<ScreenedTheatricallyResponse> ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<Models.Common.CommonTvSeries> Similar { get; set; }
+    public PagedResult<CommonTvSeries1> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }

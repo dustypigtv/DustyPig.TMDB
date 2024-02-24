@@ -13,5 +13,5 @@ public class ImagesResponse
     public List<CommonBackdrop> Backdrops { get; set; } = [];
 
     [JsonPropertyName("posters")]
-    public List<CommonPoster> Posters { get; set; } = [];
+    public List<CommonPoster1> Posters { get; set; } = [];
 }

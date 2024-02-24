@@ -1,3 +1,4 @@
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -30,5 +31,5 @@ public class PersonResponse
     public string ProfilePath { get; set; }
 
     [JsonPropertyName("known_for")]
-    public List<KnownForObject> KnownFor { get; set; } = [];
+    public List<CommonMedia> KnownFor { get; set; } = [];
 }

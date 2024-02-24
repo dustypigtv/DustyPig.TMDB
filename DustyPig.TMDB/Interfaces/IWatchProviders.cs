@@ -11,7 +11,7 @@ public interface IWatchProviders
     /// <summary>
     /// Get the list of the countries we have watch provider (OTT/streaming) data for.
     /// </summary>
-    public Task<Response<ListResult<AvailableRegionsResponse>>> GetAvailableRegionsAsync(string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResult<CommonCountry1>>> GetAvailableRegionsAsync(string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for movies.

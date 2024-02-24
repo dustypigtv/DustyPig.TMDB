@@ -1,4 +1,5 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
@@ -10,7 +11,7 @@ public class ReviewsResponse
     public string Author { get; set; }
 
     [JsonPropertyName("author_details")]
-    public AuthorDetailsObject AuthorDetails { get; set; }
+    public CommonAuthorDetails AuthorDetails { get; set; }
 
     [JsonPropertyName("content")]
     public string Content { get; set; }

@@ -11,7 +11,7 @@ public interface ICompany
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<ListResultWithId<AlternativeNamesResponse>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<CommonAlternativeName>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the company details by ID.
@@ -21,5 +21,5 @@ public interface ICompany
     /// <summary>
     /// Get the company logos by id.
     /// </summary>
-    public Task<Response<ImagesResponse>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonImages1>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default);
 }

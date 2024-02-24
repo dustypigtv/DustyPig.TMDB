@@ -58,7 +58,7 @@ internal class AccountClient : IAccount
         return _client.GetAsync<PagedResult<CommonMovie>>($"/3/account/{accountId}/favorite/movies", queryParams, cancellationToken);
     }
 
-    public Task<Response<PagedResult<Models.Common.CommonTvSeries>>> GetFavoriteTvAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonTvSeries1>>> GetFavoriteTvAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -68,10 +68,10 @@ internal class AccountClient : IAccount
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<Models.Common.CommonTvSeries>>($"/3/account/{accountId}/favorite/tv", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonTvSeries1>>($"/3/account/{accountId}/favorite/tv", queryParams, cancellationToken);
     }
 
-    public Task<Response<PagedResult<ListsResponse>>> GetListsAsync(int accountId, int page = 1, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonList>>> GetListsAsync(int accountId, int page = 1, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -79,7 +79,7 @@ internal class AccountClient : IAccount
             { "session_id", sessionId }
         };
 
-        return _client.GetAsync<PagedResult<ListsResponse>>($"/3/account/{accountId}/lists", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonList>>($"/3/account/{accountId}/lists", queryParams, cancellationToken);
     }
 
     public Task<Response<PagedResult<RatedMoviesResponse>>> GetRatedMoviesAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
@@ -134,7 +134,7 @@ internal class AccountClient : IAccount
         return _client.GetAsync<PagedResult<CommonMovie>>($"/3/account/{accountId}/watchlist/movies", queryParams, cancellationToken);
     }
 
-    public Task<Response<PagedResult<Models.Common.CommonTvSeries>>> GetWatchlistTvAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonTvSeries1>>> GetWatchlistTvAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -144,6 +144,6 @@ internal class AccountClient : IAccount
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<Models.Common.CommonTvSeries>>($"/3/account/{accountId}/watchlist/tv", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonTvSeries1>>($"/3/account/{accountId}/watchlist/tv", queryParams, cancellationToken);
     }
 }

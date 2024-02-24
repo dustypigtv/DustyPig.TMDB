@@ -18,14 +18,14 @@ internal class WatchProvidersClient : IWatchProviders
     /// <summary>
     /// Get the list of the countries we have watch provider (OTT/streaming) data for.
     /// </summary>
-    public Task<Response<ListResult<AvailableRegionsResponse>>> GetAvailableRegionsAsync(string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResult<CommonCountry1>>> GetAvailableRegionsAsync(string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<ListResult<AvailableRegionsResponse>>("/3/watch/providers/regions", queryParams, cancellationToken);
+        return _client.GetAsync<ListResult<CommonCountry1>>("/3/watch/providers/regions", queryParams, cancellationToken);
     }
 
     /// <summary>

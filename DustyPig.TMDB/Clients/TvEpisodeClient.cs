@@ -18,7 +18,7 @@ internal class TvEpisodeClient : ITvEpisode
     /// <summary>
     /// Get the rating, watchlist and favourite status.
     /// </summary>
-    public Task<Response<AccountStatesResponse>> GetAccountStatesAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonAccountState>> GetAccountStatesAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -26,13 +26,13 @@ internal class TvEpisodeClient : ITvEpisode
             { "session_id", sessionId }
         };
 
-        return _client.GetAsync<AccountStatesResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/account_states", queryParams, cancellationToken);
+        return _client.GetAsync<CommonAccountState>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/account_states", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Rate a TV episode and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(AddRatingRequest postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> AddRatingAsync(CommonValue1 postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

@@ -48,7 +48,7 @@ public class DetailsResponse
     public List<CommonCompany> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
-    public List<ProductionCountriesObject> ProductionCountries { get; set; } = [];
+    public List<CommonCountry2> ProductionCountries { get; set; } = [];
 
     [JsonPropertyName("release_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
@@ -61,7 +61,7 @@ public class DetailsResponse
     public int Runtime { get; set; }
 
     [JsonPropertyName("spoken_languages")]
-    public List<SpokenLanguagesObject> SpokenLanguages { get; set; } = [];
+    public List<CommonLanguage> SpokenLanguages { get; set; } = [];
 
     [JsonPropertyName("status")]
     public string Status { get; set; }
@@ -82,13 +82,13 @@ public class DetailsResponse
     public int VoteCount { get; set; }
 
     [JsonPropertyName("account_states")]
-    public AccountStatesResponse AccountStates { get; set; }
+    public CommonAccountState AccountStates { get; set; }
 
     [JsonPropertyName("alternative_titles")]
     public AlternativeTitlesResponse AlternativeTitles { get; set; }
 
     [JsonPropertyName("changes")]
-    public ChangesResponse Changes { get; set; }
+    public CommonChanges Changes { get; set; }
 
     [JsonPropertyName("credits")]
     public CreditsResponse Credits { get; set; }
@@ -97,13 +97,13 @@ public class DetailsResponse
     public ExternalIdsResponse ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public ImagesResponse Images { get; set; }
+    public CommonImages2 Images { get; set; }
 
     [JsonPropertyName("keywords")]
     public KeywordsResponse Keywords { get; set; }
 
     [JsonPropertyName("lists")]
-    public PagedResultWithId<ListsResponse> Lists { get; set; }
+    public PagedResultWithId<CommonList> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
     public PagedResult<CommonMedia> Recommendations { get; set; }

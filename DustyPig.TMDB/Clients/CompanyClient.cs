@@ -17,8 +17,8 @@ internal class CompanyClient : ICompany
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<ListResultWithId<AlternativeNamesResponse>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<AlternativeNamesResponse>>($"/3/company/{companyId}/alternative_names", null, cancellationToken);
+    public Task<Response<ListResultWithId<CommonAlternativeName>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<CommonAlternativeName>>($"/3/company/{companyId}/alternative_names", null, cancellationToken);
 
     /// <summary>
     /// Get the company details by ID.
@@ -29,6 +29,6 @@ internal class CompanyClient : ICompany
     /// <summary>
     /// Get the company logos by id.
     /// </summary>
-    public Task<Response<ImagesResponse>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ImagesResponse>($"/3/company/{companyId}/images", null, cancellationToken);
+    public Task<Response<CommonImages1>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonImages1>($"/3/company/{companyId}/images", null, cancellationToken);
 }

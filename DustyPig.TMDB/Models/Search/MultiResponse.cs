@@ -1,4 +1,5 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -27,7 +28,7 @@ public class MultiResponse
     public int Id { get; set; }
 
     [JsonPropertyName("known_for")]
-    public List<KnownForObject> KnownFor { get; set; } = [];
+    public List<CommonMedia> KnownFor { get; set; } = [];
 
     [JsonPropertyName("known_for_department")]
     public string KnownForDepartment { get; set; }

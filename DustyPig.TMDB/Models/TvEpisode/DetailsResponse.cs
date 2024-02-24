@@ -13,13 +13,13 @@ public class DetailsResponse
     public DateOnly? AirDate { get; set; }
 
     [JsonPropertyName("crew")]
-    public List<CrewObject> Crew { get; set; } = [];
+    public List<CommonCrew> Crew { get; set; } = [];
 
     [JsonPropertyName("episode_number")]
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<CommonCast> GuestStars { get; set; } = [];
+    public List<CommonCast1> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
@@ -49,7 +49,7 @@ public class DetailsResponse
     public int VoteCount { get; set; }
 
     [JsonPropertyName("account_states")]
-    public AccountStatesResponse AccountStates { get; set; }
+    public CommonAccountState AccountStates { get; set; }
 
     [JsonPropertyName("credits")]
     public CreditsResponse Credits { get; set; }
