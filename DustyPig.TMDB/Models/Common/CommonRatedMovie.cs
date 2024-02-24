@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.GuestSession;
+namespace DustyPig.TMDB.Models.Common;
 
-public class RatedTvResponse
+public class CommonRatedMovie
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
@@ -19,14 +19,11 @@ public class RatedTvResponse
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
-    [JsonPropertyName("origin_country")]
-    public List<string> OriginCountry { get; set; } = [];
-
     [JsonPropertyName("original_language")]
     public string OriginalLanguage { get; set; }
 
-    [JsonPropertyName("original_name")]
-    public string OriginalName { get; set; }
+    [JsonPropertyName("original_title")]
+    public string OriginalTitle { get; set; }
 
     [JsonPropertyName("overview")]
     public string Overview { get; set; }
@@ -37,12 +34,15 @@ public class RatedTvResponse
     [JsonPropertyName("poster_path")]
     public string PosterPath { get; set; }
 
-    [JsonPropertyName("first_air_date")]
+    [JsonPropertyName("release_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
-    public DateOnly? FirstAirDate { get; set; }
+    public DateOnly? ReleaseDate { get; set; }
 
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
+    [JsonPropertyName("title")]
+    public string Title { get; set; }
+
+    [JsonPropertyName("video")]
+    public bool Video { get; set; }
 
     [JsonPropertyName("vote_average")]
     public float VoteAverage { get; set; }

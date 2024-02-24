@@ -2,9 +2,9 @@ using DustyPig.TMDB.JsonHelpers;
 using System;
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.Account;
+namespace DustyPig.TMDB.Models.Common;
 
-public class RatedTvEpisode
+public class CommonRatedTvEpisode
 {
     [JsonPropertyName("air_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
@@ -44,5 +44,5 @@ public class RatedTvEpisode
     public int VoteCount { get; set; }
 
     [JsonPropertyName("rating")]
-    public int Rating { get; set; }
+    public float Rating { get; set; }
 }
