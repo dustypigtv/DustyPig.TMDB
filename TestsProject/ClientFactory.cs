@@ -14,7 +14,7 @@ static class ClientFactory
             if (_client == null)
                 _client = new(Client.AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"))
                 {
-                    RetryCount = 10,
+                    RetryCount = 100,
                     RetryDelay = 250,
                     AutoThrowIfError = true,
                     IncludeRawContentInResponse = true
