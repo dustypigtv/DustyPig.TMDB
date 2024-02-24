@@ -25,11 +25,6 @@ public interface ITvSeries
     public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get a list of TV shows airing today.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get the alternative titles that have been added to a TV show.
     /// </summary>
     public Task<Response<ListResultWithId<CommonTitle>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default);
@@ -86,16 +81,6 @@ public interface ITvSeries
     /// </summary>
     public Task<Response<PagedResultWithId<Lists>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
-    /// <summary>
-    /// Get a list of TV shows that air in the next 7 days.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get a list of TV shows ordered by popularity.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
-
     public Task<Response<PagedResult<CommonTvSeries3>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -112,11 +97,6 @@ public interface ITvSeries
     /// Get the similar TV shows.
     /// </summary>
     public Task<Response<PagedResult<CommonTvSeries1>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get a list of TV shows ordered by rating.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that have been added to a TV show.

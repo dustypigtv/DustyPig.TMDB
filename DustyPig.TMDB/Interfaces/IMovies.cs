@@ -65,18 +65,6 @@ public interface IMovies
     /// </summary>
     public Task<Response<PagedResultWithId<CommonList>>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
-    /// <summary>
-    /// Get a list of movies that are currently in theatres.
-    /// </summary>
-    /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<CommonMovie>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get a list of movies ordered by popularity.
-    /// </summary>
-    /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<CommonMovie>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
-
     public Task<Response<PagedResult<CommonMedia>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -95,21 +83,9 @@ public interface IMovies
     public Task<Response<PagedResult<CommonMovie>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get a list of movies ordered by rating.
-    /// </summary>
-    /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<CommonMovie>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get the translations for a movie.
     /// </summary>
     public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get a list of movies that are being released soon.
-    /// </summary>
-    /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<CommonMovie>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
 

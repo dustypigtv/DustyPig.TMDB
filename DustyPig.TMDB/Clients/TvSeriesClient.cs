@@ -58,21 +58,6 @@ internal class TvSeriesClient : ITvSeries
     }
 
     /// <summary>
-    /// Get a list of TV shows airing today.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
-    {
-        var queryParams = new Dictionary<string, object>
-        {
-            { "page", page },
-            { "language", language },
-            { "timezone", timezone }
-        };
-
-        return _client.GetAsync<PagedResult<CommonTvSeries2>>("/3/tv/airing_today", queryParams, cancellationToken);
-    }
-
-    /// <summary>
     /// Get the alternative titles that have been added to a TV show.
     /// </summary>
     public Task<Response<ListResultWithId<CommonTitle>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default) =>
@@ -180,35 +165,6 @@ internal class TvSeriesClient : ITvSeries
         return _client.GetAsync<PagedResultWithId<Lists>>($"/3/tv/{seriesId}/lists", queryParams, cancellationToken);
     }
 
-    /// <summary>
-    /// Get a list of TV shows that air in the next 7 days.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
-    {
-        var queryParams = new Dictionary<string, object>
-        {
-            { "page", page },
-            { "language", language },
-            { "timezone", timezone }
-        };
-
-        return _client.GetAsync<PagedResult<CommonTvSeries2>>("/3/tv/on_the_air", queryParams, cancellationToken);
-    }
-
-    /// <summary>
-    /// Get a list of TV shows ordered by popularity.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
-    {
-        var queryParams = new Dictionary<string, object>
-        {
-            { "page", page },
-            { "language", language }
-        };
-
-        return _client.GetAsync<PagedResult<CommonTvSeries2>>("/3/tv/popular", queryParams, cancellationToken);
-    }
-
     public Task<Response<PagedResult<CommonTvSeries3>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
@@ -252,20 +208,6 @@ internal class TvSeriesClient : ITvSeries
         };
 
         return _client.GetAsync<PagedResult<CommonTvSeries1>>($"/3/tv/{seriesId}/similar", queryParams, cancellationToken);
-    }
-
-    /// <summary>
-    /// Get a list of TV shows ordered by rating.
-    /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries2>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
-    {
-        var queryParams = new Dictionary<string, object>
-        {
-            { "page", page },
-            { "language", language }
-        };
-
-        return _client.GetAsync<PagedResult<CommonTvSeries2>>("/3/tv/top_rated", queryParams, cancellationToken);
     }
 
     /// <summary>

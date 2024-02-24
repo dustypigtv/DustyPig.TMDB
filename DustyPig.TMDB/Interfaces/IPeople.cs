@@ -46,11 +46,6 @@ public interface IPeople
     public Task<Response<MovieCredits>> GetMovieCreditsAsync(int personId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get a list of people ordered by popularity.
-    /// </summary>
-    public Task<Response<PagedResult<Popular>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
     public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default);
