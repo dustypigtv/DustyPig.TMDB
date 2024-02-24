@@ -95,7 +95,8 @@ public class Details
     public string Tagline { get; set; }
 
     [JsonPropertyName("type")]
-    public string Type { get; set; }
+    [JsonConverter(typeof(TvSeriesTypeConverter))]
+    public CommonTvSeriesTypes? Type { get; set; }
 
     [JsonPropertyName("vote_average")]
     public float VoteAverage { get; set; }
