@@ -44,14 +44,7 @@ public interface IMovies
     /// Get the images that belong to a movie.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-
-    /* Unmerged change from project 'DustyPig.TMDB (net7.0)'
-    Before:
-        public Task<Response<Models.Movie.CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
-    After:
-        public Task<Response<CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
-    */
-    public Task<Response<Models.Common.CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     public Task<Response<KeywordsList>> GetKeywordsAsync(string movieId, CancellationToken cancellationToken = default);
 

@@ -105,14 +105,7 @@ internal class MoviesClient : IMovies
     /// Get the images that belong to a movie.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-
-    /* Unmerged change from project 'DustyPig.TMDB (net7.0)'
-    Before:
-        public Task<Response<Models.Movie.CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
-    After:
-        public Task<Response<CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
-    */
-    public Task<Response<Models.Common.CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -120,14 +113,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-
-        /* Unmerged change from project 'DustyPig.TMDB (net7.0)'
-        Before:
-                return _client.GetAsync<Models.Movie.CommonImages2>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
-        After:
-                return _client.GetAsync<CommonImages2>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
-        */
-        return _client.GetAsync<Models.Common.CommonImages2>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
+        return _client.GetAsync<CommonImages2>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
     }
 
     public Task<Response<KeywordsList>> GetKeywordsAsync(string movieId, CancellationToken cancellationToken = default) =>
