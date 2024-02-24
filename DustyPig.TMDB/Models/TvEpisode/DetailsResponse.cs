@@ -61,7 +61,7 @@ public class DetailsResponse
     public ImagesResponse Images { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslations<CommonTranslation> Translations { get; set; }
+    public CommonTranslationList<CommonTranslationData> Translations { get; set; }
 
     [JsonPropertyName("videos")]
     public ListResultWithId<CommonVideo> Videos { get; set; }

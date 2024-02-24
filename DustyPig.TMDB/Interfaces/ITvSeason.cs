@@ -46,7 +46,7 @@ public interface ITvSeason
     /// <summary>
     /// Get the translations for a TV season.
     /// </summary>
-    public Task<Response<TranslationsResponse>> GetTranslationsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV season.

@@ -1,6 +1,7 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Collection;
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,6 +43,6 @@ internal class CollectionClient : ICollection
         return _client.GetAsync<ImagesResponse>($"/3/collection/{collectionId}/images", queryParams, cancellationToken);
     }
 
-    public Task<Response<TranslationsResponse>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<TranslationsResponse>($"/3/collection/{collectionId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<TranslationData>>($"/3/collection/{collectionId}/translations", null, cancellationToken);
 }

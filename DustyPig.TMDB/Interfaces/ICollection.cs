@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Models.Collection;
+using DustyPig.TMDB.Models.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,5 +19,5 @@ public interface ICollection
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
     public Task<Response<ImagesResponse>> GetImagesAsync(int collectionId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<TranslationsResponse>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default);
 }

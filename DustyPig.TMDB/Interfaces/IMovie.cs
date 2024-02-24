@@ -103,7 +103,7 @@ public interface IMovie
     /// <summary>
     /// Get the translations for a movie.
     /// </summary>
-    public Task<Response<TranslationsResponse>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of movies that are being released soon.

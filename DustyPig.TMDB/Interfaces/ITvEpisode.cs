@@ -45,7 +45,7 @@ public interface ITvEpisode
     /// <summary>
     /// Get the translations that have been added to a TV episode.
     /// </summary>
-    public Task<Response<CommonTranslations<CommonTranslation>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV episode.

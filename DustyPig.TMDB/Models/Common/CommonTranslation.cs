@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonTranslation
+public class CommonTranslation<T>
 {
     /// <summary>
     /// ISO-3166-1 2 letter country code. E.g. &quot;US&quot;
@@ -23,5 +23,5 @@ public class CommonTranslation
     public string EnglishName { get; set; }
 
     [JsonPropertyName("data")]
-    public CommonTranslationData Data { get; set; }
+    public CommonTranslation<T> Data { get; set; }
 }

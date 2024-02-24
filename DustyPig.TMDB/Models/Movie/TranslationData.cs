@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Movie;
 
-public class DataObject
+public class TranslationData
 {
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }

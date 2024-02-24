@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Person;
 
-public class DataObject
+public class TranslationData
 {
     [JsonPropertyName("biography")]
     public string Biography { get; set; }

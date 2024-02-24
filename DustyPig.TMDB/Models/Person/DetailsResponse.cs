@@ -61,7 +61,7 @@ public class DetailsResponse
     public MovieCreditsResponse MovieCredits { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslations<CommonTranslation> Translations { get; set; }
+    public CommonTranslationList<CommonTranslationData> Translations { get; set; }
 
     [JsonPropertyName("tv_credits")]
     public TvCreditsResponse TvCredits { get; set; }

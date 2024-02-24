@@ -121,7 +121,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the translations that have been added to a TV show.
     /// </summary>
-    public Task<Response<TranslationsResponse>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<TranslationData>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV show.
