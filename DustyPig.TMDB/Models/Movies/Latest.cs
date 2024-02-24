@@ -28,7 +28,7 @@ public class Latest
     public string Overview { get; set; }
 
     [JsonPropertyName("popularity")]
-    public int Popularity { get; set; }
+    public float Popularity { get; set; }
 
     [JsonPropertyName("release_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]

@@ -20,5 +20,5 @@ public class Latest
     public string Name { get; set; }
 
     [JsonPropertyName("popularity")]
-    public int Popularity { get; set; }
+    public float Popularity { get; set; }
 }
