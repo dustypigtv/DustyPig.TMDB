@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class ProductionCompaniesObject
+public class CompanyObject
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

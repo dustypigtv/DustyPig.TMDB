@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.WatchProviders;
 
-public class TvProvidersResponse
+public class ProvidersResponse
 {
     [JsonPropertyName("display_priorities")]
     public Dictionary<string, int> DisplayPriorities { get; set; } = [];

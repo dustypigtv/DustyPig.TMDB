@@ -33,5 +33,5 @@ public class PeopleResponse
     public string ProfilePath { get; set; }
 
     [JsonPropertyName("known_for")]
-    public List<KnownForObject> KnownFor { get; set; } = [];
+    public List<MoviesResponse> KnownFor { get; set; } = [];
 }

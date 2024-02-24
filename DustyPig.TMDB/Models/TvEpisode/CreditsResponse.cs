@@ -12,7 +12,7 @@ public class CreditsResponse
     public List<CrewObject> Crew { get; set; } = [];
 
     [JsonPropertyName("guest_stars")]
-    public List<GuestStarsObject> GuestStars { get; set; } = [];
+    public List<CastObject> GuestStars { get; set; } = [];
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

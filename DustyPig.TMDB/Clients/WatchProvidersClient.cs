@@ -31,7 +31,7 @@ internal class WatchProvidersClient : IWatchProviders
     /// <summary>
     /// Get the list of streaming providers we have for movies.
     /// </summary>
-    public Task<Response<ListResult<MovieProvidersResponse>>> GetMovieProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default)
+    public Task<Response<ListResult<ProvidersResponse>>> GetMovieProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -39,13 +39,13 @@ internal class WatchProvidersClient : IWatchProviders
             { "watch_region", watchRegion }
         };
 
-        return _client.GetAsync<ListResult<MovieProvidersResponse>>("/3/watch/providers/movie", queryParams, cancellationToken);
+        return _client.GetAsync<ListResult<ProvidersResponse>>("/3/watch/providers/movie", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the list of streaming providers we have for TV shows.
     /// </summary>
-    public Task<Response<ListResult<TvProvidersResponse>>> GetTvProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default)
+    public Task<Response<ListResult<ProvidersResponse>>> GetTvProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -53,6 +53,6 @@ internal class WatchProvidersClient : IWatchProviders
             { "watch_region", watchRegion }
         };
 
-        return _client.GetAsync<ListResult<TvProvidersResponse>>("/3/watch/providers/tv", queryParams, cancellationToken);
+        return _client.GetAsync<ListResult<ProvidersResponse>>("/3/watch/providers/tv", queryParams, cancellationToken);
     }
 }

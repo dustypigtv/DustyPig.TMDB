@@ -19,14 +19,14 @@ internal class TrendingClient : ITrending
     /// Get the trending movies, TV shows and people.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<AllResponse>>> GetAllAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MoviesResponse>>> GetAllAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<AllResponse>>($"/3/trending/all/{timeWindow}", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MoviesResponse>>($"/3/trending/all/{timeWindow}", queryParams, cancellationToken);
     }
 
     /// <summary>

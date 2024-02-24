@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.TvSeries;
+namespace DustyPig.TMDB.Models.Movie;
 
-public class GenresObject
+public class NameObject
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.TvSeries;
+namespace DustyPig.TMDB.Models.Movie;
 
-public class LogosObject
+public class PosterObject2
 {
     [JsonPropertyName("aspect_ratio")]
     public float AspectRatio { get; set; }

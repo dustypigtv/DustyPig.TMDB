@@ -17,7 +17,7 @@ public class DetailsResponse
     public int Budget { get; set; }
 
     [JsonPropertyName("genres")]
-    public List<GenresObject> Genres { get; set; } = [];
+    public List<NameObject> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -114,7 +114,7 @@ public class DetailsResponse
     public PagedResultWithId<ReviewsResponse> Reviews { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<SimilarResponse> Similar { get; set; }
+    public PagedResult<MovieResponse> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }

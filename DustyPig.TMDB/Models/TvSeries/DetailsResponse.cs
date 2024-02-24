@@ -24,7 +24,7 @@ public class DetailsResponse
     public DateOnly? FirstAirDate { get; set; }
 
     [JsonPropertyName("genres")]
-    public List<GenresObject> Genres { get; set; } = [];
+    public List<NameObject> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -49,7 +49,7 @@ public class DetailsResponse
     public string Name { get; set; }
 
     [JsonPropertyName("networks")]
-    public List<NetworksObject> Networks { get; set; } = [];
+    public List<CompanyObject> Networks { get; set; } = [];
 
     [JsonPropertyName("number_of_episodes")]
     public int NumberOfEpisodes { get; set; }
@@ -76,7 +76,7 @@ public class DetailsResponse
     public string PosterPath { get; set; }
 
     [JsonPropertyName("production_companies")]
-    public List<ProductionCompaniesObject> ProductionCompanies { get; set; } = [];
+    public List<CompanyObject> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
     public List<ProductionCountriesObject> ProductionCountries { get; set; } = [];
@@ -130,7 +130,7 @@ public class DetailsResponse
     public ImagesResponse Images { get; set; }
 
     [JsonPropertyName("keywords")]
-    public ListResultWithId<KeywordsResponse> Keywords { get; set; }
+    public ListResultWithId<NameObject> Keywords { get; set; }
 
     [JsonPropertyName("lists")]
     public PagedResultWithId<ListsResponse> Lists { get; set; }

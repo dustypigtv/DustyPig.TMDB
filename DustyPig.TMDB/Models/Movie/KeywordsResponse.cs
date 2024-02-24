@@ -9,5 +9,5 @@ public class KeywordsResponse
     public int Id { get; set; }
 
     [JsonPropertyName("keywords")]
-    public List<KeywordsObject> Keywords { get; set; } = [];
+    public List<NameObject> Keywords { get; set; } = [];
 }

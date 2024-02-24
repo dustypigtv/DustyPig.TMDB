@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class TopRatedResponse
+public class TvSeriesResponse
 {
     [JsonPropertyName("backdrop_path")]
     public string BackdropPath { get; set; }

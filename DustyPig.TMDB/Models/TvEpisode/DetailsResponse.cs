@@ -12,13 +12,13 @@ public class DetailsResponse
     public DateOnly? AirDate { get; set; }
 
     [JsonPropertyName("crew")]
-    public List<CrewObject2> Crew { get; set; } = [];
+    public List<CrewObject> Crew { get; set; } = [];
 
     [JsonPropertyName("episode_number")]
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<GuestStarsObject2> GuestStars { get; set; } = [];
+    public List<CastObject> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }

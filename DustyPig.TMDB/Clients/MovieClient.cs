@@ -143,7 +143,7 @@ internal class MovieClient : IMovie
     /// Get a list of movies that are currently in theatres.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<NowPlayingResponse>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithDateRange<MovieResponse>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -152,14 +152,14 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResultWithDateRange<NowPlayingResponse>>("/3/movie/now_playing", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithDateRange<MovieResponse>>("/3/movie/now_playing", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of movies ordered by popularity.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<PopularResponse>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MovieResponse>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -168,7 +168,7 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResult<PopularResponse>>("/3/movie/popular", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MovieResponse>>("/3/movie/popular", queryParams, cancellationToken);
     }
 
     public Task<Response<PagedResult<RecommendationsResponse>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
@@ -205,7 +205,7 @@ internal class MovieClient : IMovie
     /// <summary>
     /// Get the similar movies based on genres and keywords.
     /// </summary>
-    public Task<Response<PagedResult<SimilarResponse>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MovieResponse>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -213,14 +213,14 @@ internal class MovieClient : IMovie
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<SimilarResponse>>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MovieResponse>>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of movies ordered by rating.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<TopRatedResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MovieResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -229,7 +229,7 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResult<TopRatedResponse>>("/3/movie/top_rated", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MovieResponse>>("/3/movie/top_rated", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -242,7 +242,7 @@ internal class MovieClient : IMovie
     /// Get a list of movies that are being released soon.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<UpcomingResponse>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithDateRange<MovieResponse>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -251,7 +251,7 @@ internal class MovieClient : IMovie
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResultWithDateRange<UpcomingResponse>>("/3/movie/upcoming", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithDateRange<MovieResponse>>("/3/movie/upcoming", queryParams, cancellationToken);
     }
 
     public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)

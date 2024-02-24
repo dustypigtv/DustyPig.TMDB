@@ -12,7 +12,7 @@ public interface ITrending
     /// Get the trending movies, TV shows and people.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<AllResponse>>> GetAllAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<MoviesResponse>>> GetAllAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the trending movies on TMDB.
