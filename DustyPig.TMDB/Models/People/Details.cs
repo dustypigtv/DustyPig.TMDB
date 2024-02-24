@@ -52,7 +52,7 @@ public class Details
     public CombinedCredits CombinedCredits { get; set; }
 
     [JsonPropertyName("external_ids")]
-    public ExternalIds ExternalIds { get; set; }
+    public CommonExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
     public Images Images { get; set; }

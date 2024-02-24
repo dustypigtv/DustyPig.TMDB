@@ -97,8 +97,8 @@ internal class MoviesClient : IMovies
         return _client.GetAsync<Details>($"/3/movie/{movieId}", queryParams, cancellationToken);
     }
 
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ExternalIds>($"/3/movie/{movieId}/external_ids", null, cancellationToken);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonExternalIds>($"/3/movie/{movieId}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the images that belong to a movie.

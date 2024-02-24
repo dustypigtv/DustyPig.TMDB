@@ -33,7 +33,7 @@ public interface ITvEpisodes
     /// <summary>
     /// Get a list of external IDs that have been added to a TV episode.
     /// </summary>
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(string episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(string episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a TV episode.

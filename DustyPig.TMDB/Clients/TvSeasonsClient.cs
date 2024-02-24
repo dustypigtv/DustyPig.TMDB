@@ -85,8 +85,8 @@ internal class TvSeasonsClient : ITvSeasons
     /// <summary>
     /// Get a list of external IDs that have been added to a TV season.
     /// </summary>
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ExternalIds>($"/3/tv/{seriesId}/season/{seasonNumber}/external_ids", null, cancellationToken);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonExternalIds>($"/3/tv/{seriesId}/season/{seasonNumber}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the images that belong to a TV season.

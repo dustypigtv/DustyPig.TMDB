@@ -27,7 +27,7 @@ public interface IPeople
     /// <summary>
     /// Get the external ID&#39;s that belong to a person.
     /// </summary>
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the profile images that belong to a person.

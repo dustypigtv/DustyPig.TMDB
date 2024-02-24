@@ -34,7 +34,7 @@ public interface ITvSeasons
     /// <summary>
     /// Get a list of external IDs that have been added to a TV season.
     /// </summary>
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a TV season.

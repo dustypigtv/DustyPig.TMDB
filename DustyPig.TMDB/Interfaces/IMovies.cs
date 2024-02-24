@@ -37,7 +37,7 @@ public interface IMovies
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
     public Task<Response<Details>> GetDetailsAsync(int movieId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a movie.

@@ -125,7 +125,7 @@ public class Details
     public ListResultWithId<EpisodeGroup> EpisodeGroups { get; set; }
 
     [JsonPropertyName("external_ids")]
-    public ExternalIds ExternalIds { get; set; }
+    public CommonExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
     public CommonImages2 Images { get; set; }

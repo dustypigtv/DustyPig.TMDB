@@ -57,7 +57,7 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of external IDs that have been added to a TV show.
     /// </summary>
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a TV series.

@@ -61,8 +61,8 @@ internal class PeopleClient : IPeople
     /// <summary>
     /// Get the external ID&#39;s that belong to a person.
     /// </summary>
-    public Task<Response<ExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ExternalIds>($"/3/person/{personId}/external_ids", null, cancellationToken);
+    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonExternalIds>($"/3/person/{personId}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the profile images that belong to a person.
