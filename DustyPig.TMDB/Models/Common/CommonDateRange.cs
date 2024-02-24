@@ -1,12 +1,16 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.JsonHelpers;
+using System;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
 public class CommonDateRange
 {
     [JsonPropertyName("maximum")]
-    public string Maximum { get; set; }
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? Maximum { get; set; }
 
     [JsonPropertyName("minimum")]
-    public string Minimum { get; set; }
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? Minimum { get; set; }
 }
