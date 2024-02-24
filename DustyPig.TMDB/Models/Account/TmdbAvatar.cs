@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class TmdbObject
+public class TmdbAvatar
 {
     [JsonPropertyName("avatar_path")]
     public string AvatarPath { get; set; }

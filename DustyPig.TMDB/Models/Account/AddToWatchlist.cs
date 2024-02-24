@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class AddToWatchlistRequest
+public class AddToWatchlist
 {
     [JsonPropertyName("media_type")]
     public string MediaType { get; set; }

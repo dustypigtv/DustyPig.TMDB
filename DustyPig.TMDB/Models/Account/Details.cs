@@ -2,10 +2,10 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class DetailsResponse
+public class Details
 {
     [JsonPropertyName("avatar")]
-    public AvatarObject Avatar { get; set; }
+    public Avatar Avatar { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

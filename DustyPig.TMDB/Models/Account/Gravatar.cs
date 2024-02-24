@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class GravatarObject
+public class Gravatar
 {
     [JsonPropertyName("hash")]
     public string Hash { get; set; }

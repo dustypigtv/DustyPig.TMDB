@@ -2,11 +2,11 @@
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class AvatarObject
+public class Avatar
 {
     [JsonPropertyName("gravatar")]
-    public GravatarObject Gravatar { get; set; }
+    public Gravatar Gravatar { get; set; }
 
     [JsonPropertyName("tmdb")]
-    public TmdbObject Tmdb { get; set; }
+    public TmdbAvatar Tmdb { get; set; }
 }
