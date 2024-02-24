@@ -19,7 +19,7 @@ public class DetailsResponse
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<CastObject4> GuestStars { get; set; } = [];
+    public List<CastObject> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }

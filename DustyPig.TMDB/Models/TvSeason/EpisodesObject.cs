@@ -49,5 +49,5 @@ public class EpisodesObject
     public List<CrewObject> Crew { get; set; } = [];
 
     [JsonPropertyName("guest_stars")]
-    public List<GuestStarsObject> GuestStars { get; set; } = [];
+    public List<Models.Common.CastObject> GuestStars { get; set; } = [];
 }

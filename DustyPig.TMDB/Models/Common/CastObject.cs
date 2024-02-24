@@ -1,18 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.TvSeason;
+namespace DustyPig.TMDB.Models.Common;
 
-public class GuestStarsObject
+public class CastObject
 {
-    [JsonPropertyName("character")]
-    public string Character { get; set; }
-
-    [JsonPropertyName("credit_id")]
-    public string CreditId { get; set; }
-
-    [JsonPropertyName("order")]
-    public int Order { get; set; }
-
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
 
@@ -36,4 +27,13 @@ public class GuestStarsObject
 
     [JsonPropertyName("profile_path")]
     public string ProfilePath { get; set; }
+
+    [JsonPropertyName("character")]
+    public string Character { get; set; }
+
+    [JsonPropertyName("credit_id")]
+    public string CreditId { get; set; }
+
+    [JsonPropertyName("order")]
+    public int Order { get; set; }
 }
