@@ -1,6 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Account;
 using System.Collections.Generic;
 using System.Threading;
@@ -45,7 +45,7 @@ internal class AccountClient : IAccount
         return _client.GetAsync<DetailsResponse>($"/3/account/{accountId}", queryParams, cancellationToken);
     }
 
-    public Task<Response<PagedResult<MoviesResponse>>> GetFavoriteMoviesAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MovieObject>>> GetFavoriteMoviesAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -55,7 +55,7 @@ internal class AccountClient : IAccount
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<MoviesResponse>>($"/3/account/{accountId}/favorite/movies", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MovieObject>>($"/3/account/{accountId}/favorite/movies", queryParams, cancellationToken);
     }
 
     public Task<Response<PagedResult<TvSeriesResponse>>> GetFavoriteTvAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
@@ -121,7 +121,7 @@ internal class AccountClient : IAccount
         return _client.GetAsync<PagedResult<RatedTvEpisodesResponse>>($"/3/account/{accountId}/rated/tv/episodes", queryParams, cancellationToken);
     }
 
-    public Task<Response<PagedResult<MoviesResponse>>> GetWatchlistMoviesAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MovieObject>>> GetWatchlistMoviesAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -131,7 +131,7 @@ internal class AccountClient : IAccount
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<MoviesResponse>>($"/3/account/{accountId}/watchlist/movies", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MovieObject>>($"/3/account/{accountId}/watchlist/movies", queryParams, cancellationToken);
     }
 
     public Task<Response<PagedResult<TvSeriesResponse>>> GetWatchlistTvAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, Sortby sortBy = Sortby.CreatedAtAsc, CancellationToken cancellationToken = default)

@@ -1,3 +1,4 @@
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -9,5 +10,5 @@ public class TranslationsResponse
     public int Id { get; set; }
 
     [JsonPropertyName("translations")]
-    public List<TranslationsObject> Translations { get; set; } = [];
+    public List<CommonTranslationsObject> Translations { get; set; } = [];
 }

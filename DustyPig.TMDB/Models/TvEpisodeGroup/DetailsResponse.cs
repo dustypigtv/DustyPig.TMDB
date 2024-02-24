@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using DustyPig.TMDB.Models.Common;
 
 namespace DustyPig.TMDB.Models.TvEpisodeGroup;
 
@@ -24,7 +25,7 @@ public class DetailsResponse
     public string Name { get; set; }
 
     [JsonPropertyName("network")]
-    public NetworkObject Network { get; set; }
+    public CompanyObject Network { get; set; }
 
     [JsonPropertyName("type")]
     public int Type { get; set; }

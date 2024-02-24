@@ -1,5 +1,5 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Models.Keyword;
+using DustyPig.TMDB.Models.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -7,5 +7,5 @@ namespace DustyPig.TMDB.Interfaces;
 
 public interface IKeyword
 {
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default);
+    public Task<Response<NameObject>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default);
 }

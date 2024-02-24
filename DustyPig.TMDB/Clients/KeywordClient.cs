@@ -1,7 +1,7 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models;
-using DustyPig.TMDB.Models.Keyword;
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,6 +15,6 @@ internal class KeywordClient : IKeyword
     internal KeywordClient(Client client) => _client = client;
 
 
-    public Task<Response<DetailsResponse>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<DetailsResponse>($"/3/keyword/{keywordId}", null, cancellationToken);
+    public Task<Response<NameObject>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<NameObject>($"/3/keyword/{keywordId}", null, cancellationToken);
 }

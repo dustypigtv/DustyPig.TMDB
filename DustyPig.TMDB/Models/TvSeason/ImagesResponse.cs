@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using DustyPig.TMDB.Models.Common;
 
 namespace DustyPig.TMDB.Models.TvSeason;
 
@@ -9,5 +10,5 @@ public class ImagesResponse
     public int Id { get; set; }
 
     [JsonPropertyName("posters")]
-    public List<PostersObject> Posters { get; set; } = [];
+    public List<PosterObject> Posters { get; set; } = [];
 }

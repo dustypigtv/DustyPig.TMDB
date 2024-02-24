@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System;
+using DustyPig.TMDB.Models.Common;
 
 namespace DustyPig.TMDB.Models.TvSeason;
 
@@ -45,7 +46,7 @@ public class EpisodesObject
     public int VoteCount { get; set; }
 
     [JsonPropertyName("crew")]
-    public List<CrewObject3> Crew { get; set; } = [];
+    public List<CrewObject> Crew { get; set; } = [];
 
     [JsonPropertyName("guest_stars")]
     public List<GuestStarsObject> GuestStars { get; set; } = [];

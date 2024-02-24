@@ -1,6 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Search;
 using System.Collections.Generic;
 using System.Threading;
@@ -35,7 +35,7 @@ internal class SearchClient : ISearch
     /// <summary>
     /// Search for companies by their original and alternative names.
     /// </summary>
-    public Task<Response<PagedResult<CompanyResponse>>> GetCompanyAsync(string query, int page = 1, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CompanyObject>>> GetCompanyAsync(string query, int page = 1, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -43,13 +43,13 @@ internal class SearchClient : ISearch
             { "page", page }
         };
 
-        return _client.GetAsync<PagedResult<CompanyResponse>>("/3/search/company", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CompanyObject>>("/3/search/company", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Search for keywords by their name.
     /// </summary>
-    public Task<Response<PagedResult<KeywordResponse>>> GetKeywordAsync(string query, int page = 1, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<NameObject>>> GetKeywordAsync(string query, int page = 1, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -57,13 +57,13 @@ internal class SearchClient : ISearch
             { "page", page }
         };
 
-        return _client.GetAsync<PagedResult<KeywordResponse>>("/3/search/keyword", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<NameObject>>("/3/search/keyword", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Search for movies by their original, translated and alternative titles.
     /// </summary>
-    public Task<Response<PagedResult<MovieResponse>>> GetMovieAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<MovieObject>>> GetMovieAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -76,7 +76,7 @@ internal class SearchClient : ISearch
             { "year", year }
         };
 
-        return _client.GetAsync<PagedResult<MovieResponse>>("/3/search/movie", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<MovieObject>>("/3/search/movie", queryParams, cancellationToken);
     }
 
     /// <summary>

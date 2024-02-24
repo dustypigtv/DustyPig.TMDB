@@ -1,5 +1,5 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Movie;
 using System;
 using System.Threading;
@@ -17,7 +17,7 @@ public interface IMovie
     /// <summary>
     /// Rate a movie and save it to your rated list.
     /// </summary>
-    public Task<Response<AddRatingResponse>> AddRatingAsync(AddRatingRequest postData, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<StatusResponse>> AddRatingAsync(AddRatingRequest postData, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the alternative titles for a movie.
@@ -62,15 +62,15 @@ public interface IMovie
     /// Get a list of movies that are currently in theatres.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<MovieResponse>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithDateRange<MovieObject>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of movies ordered by popularity.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<MovieResponse>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<MovieObject>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<PagedResult<RecommendationsResponse>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<MediaObject>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the release dates and certifications for a movie.
@@ -85,13 +85,13 @@ public interface IMovie
     /// <summary>
     /// Get the similar movies based on genres and keywords.
     /// </summary>
-    public Task<Response<PagedResult<MovieResponse>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<MovieObject>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of movies ordered by rating.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<MovieResponse>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<MovieObject>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations for a movie.
@@ -102,7 +102,7 @@ public interface IMovie
     /// Get a list of movies that are being released soon.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<MovieResponse>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithDateRange<MovieObject>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default);
 
     public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
 

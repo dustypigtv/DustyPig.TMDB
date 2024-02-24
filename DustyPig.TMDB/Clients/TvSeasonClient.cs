@@ -1,6 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.TvSeason;
 using System;
 using System.Collections.Generic;

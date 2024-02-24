@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using DustyPig.TMDB.Models.Common;
 
 namespace DustyPig.TMDB.Models.Collection;
 
@@ -21,5 +22,5 @@ public class DetailsResponse
     public string BackdropPath { get; set; }
 
     [JsonPropertyName("parts")]
-    public List<PartsObject> Parts { get; set; } = [];
+    public List<MediaObject> Parts { get; set; } = [];
 }

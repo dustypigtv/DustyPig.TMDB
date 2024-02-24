@@ -1,6 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.TvSeries;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Rate a TV show and save it to your rated list.
     /// </summary>
-    public Task<Response<AddRatingResponse>> AddRatingAsync(AddRatingRequest postData, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> AddRatingAsync(AddRatingRequest postData, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -41,7 +41,7 @@ internal class TvSeriesClient : ITvSeries
             { "session_id", sessionId }
         };
 
-        return _client.PostAsync<AddRatingResponse>($"/3/tv/{seriesId}/rating", queryParams, postData, cancellationToken);
+        return _client.PostAsync<StatusResponse>($"/3/tv/{seriesId}/rating", queryParams, postData, cancellationToken);
     }
 
     /// <summary>

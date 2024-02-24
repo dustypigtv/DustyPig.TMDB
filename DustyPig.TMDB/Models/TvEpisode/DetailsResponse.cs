@@ -1,4 +1,5 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -18,7 +19,7 @@ public class DetailsResponse
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<CastObject> GuestStars { get; set; } = [];
+    public List<CastObject4> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
@@ -60,7 +61,7 @@ public class DetailsResponse
     public ImagesResponse Images { get; set; }
 
     [JsonPropertyName("translations")]
-    public TranslationsResponse Translations { get; set; }
+    public TranslationsResponse<CommonTranslationsObject> Translations { get; set; }
 
     [JsonPropertyName("videos")]
     public ListResultWithId<VideosResponse> Videos { get; set; }

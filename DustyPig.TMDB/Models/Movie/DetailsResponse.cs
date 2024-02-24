@@ -1,4 +1,5 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -44,7 +45,7 @@ public class DetailsResponse
     public string PosterPath { get; set; }
 
     [JsonPropertyName("production_companies")]
-    public List<ProductionCompaniesObject> ProductionCompanies { get; set; } = [];
+    public List<CompanyObject> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
     public List<ProductionCountriesObject> ProductionCountries { get; set; } = [];
@@ -105,7 +106,7 @@ public class DetailsResponse
     public PagedResultWithId<ListsResponse> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<RecommendationsResponse> Recommendations { get; set; }
+    public PagedResult<MediaObject> Recommendations { get; set; }
 
     [JsonPropertyName("release_dates")]
     public ListResultWithId<ReleaseDatesResponse> ReleaseDates { get; set; }
@@ -114,7 +115,7 @@ public class DetailsResponse
     public PagedResultWithId<ReviewsResponse> Reviews { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<MovieResponse> Similar { get; set; }
+    public PagedResult<MovieObject> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }

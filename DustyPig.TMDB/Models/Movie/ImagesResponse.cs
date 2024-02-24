@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using DustyPig.TMDB.Models.Common;
 
 namespace DustyPig.TMDB.Models.Movie;
 
 public class ImagesResponse
 {
     [JsonPropertyName("backdrops")]
-    public List<BackdropsObject> Backdrops { get; set; } = [];
+    public List<BackdropObject> Backdrops { get; set; } = [];
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
     [JsonPropertyName("logos")]
-    public List<PosterObject2> Logos { get; set; } = [];
+    public List<PosterObject> Logos { get; set; } = [];
 
     [JsonPropertyName("posters")]
-    public List<PosterObject2> Posters { get; set; } = [];
+    public List<PosterObject> Posters { get; set; } = [];
 }

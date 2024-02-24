@@ -1,6 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.TvEpisode;
 using System.Collections.Generic;
 using System.Threading;
@@ -32,7 +32,7 @@ internal class TvEpisodeClient : ITvEpisode
     /// <summary>
     /// Rate a TV episode and save it to your rated list.
     /// </summary>
-    public Task<Response<AddRatingResponse>> AddRatingAsync(AddRatingRequest postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> AddRatingAsync(AddRatingRequest postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -40,7 +40,7 @@ internal class TvEpisodeClient : ITvEpisode
             { "session_id", sessionId }
         };
 
-        return _client.PostAsync<AddRatingResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, postData, cancellationToken);
+        return _client.PostAsync<StatusResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, postData, cancellationToken);
     }
 
     /// <summary>
@@ -98,8 +98,8 @@ internal class TvEpisodeClient : ITvEpisode
     /// <summary>
     /// Get the translations that have been added to a TV episode.
     /// </summary>
-    public Task<Response<TranslationsResponse>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<TranslationsResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/translations", null, cancellationToken);
+    public Task<Response<TranslationsResponse<CommonTranslationsObject>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<TranslationsResponse<CommonTranslationsObject>>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the videos that belong to a TV episode.

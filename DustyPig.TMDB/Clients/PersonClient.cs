@@ -1,6 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Person;
 using System;
 using System.Collections.Generic;
@@ -107,8 +107,8 @@ internal class PersonClient : IPerson
     /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
-    public Task<Response<TranslationsResponse>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<TranslationsResponse>($"/3/person/{personId}/translations", null, cancellationToken);
+    public Task<Response<TranslationsResponse<CommonTranslationsObject>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<TranslationsResponse<CommonTranslationsObject>>($"/3/person/{personId}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the TV credits that belong to a person.

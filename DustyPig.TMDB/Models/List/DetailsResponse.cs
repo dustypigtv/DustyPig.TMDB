@@ -1,4 +1,5 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -20,7 +21,7 @@ public class DetailsResponse
     public string Id { get; set; }
 
     [JsonPropertyName("items")]
-    public List<ItemsObject> Items { get; set; } = [];
+    public List<MediaObject> Items { get; set; } = [];
 
     [JsonPropertyName("item_count")]
     public int ItemCount { get; set; }

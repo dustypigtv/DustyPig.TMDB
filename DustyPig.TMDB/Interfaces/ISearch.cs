@@ -1,5 +1,5 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Models;
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Search;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,17 +16,17 @@ public interface ISearch
     /// <summary>
     /// Search for companies by their original and alternative names.
     /// </summary>
-    public Task<Response<PagedResult<CompanyResponse>>> GetCompanyAsync(string query, int page = 1, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CompanyObject>>> GetCompanyAsync(string query, int page = 1, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for keywords by their name.
     /// </summary>
-    public Task<Response<PagedResult<KeywordResponse>>> GetKeywordAsync(string query, int page = 1, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<NameObject>>> GetKeywordAsync(string query, int page = 1, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for movies by their original, translated and alternative titles.
     /// </summary>
-    public Task<Response<PagedResult<MovieResponse>>> GetMovieAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<MovieObject>>> GetMovieAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Use multi search when you want to search for movies, TV shows and people in a single request.
