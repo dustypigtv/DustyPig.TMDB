@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace DustyPig.TMDB.Models.Discover;
 
 [Flags]
-public enum ReleaseTypes
+public enum MovieReleaseTypes
 {
     [Description("1")]
     Premier = 1,
