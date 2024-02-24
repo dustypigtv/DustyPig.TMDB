@@ -1,6 +1,6 @@
+using DustyPig.TMDB.Models.People;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using DustyPig.TMDB.Models.People;
 
 namespace DustyPig.TMDB.Models.PeopleLists;
 
