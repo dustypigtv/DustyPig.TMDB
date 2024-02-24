@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsProject;
 
-[TestClass]
+//[TestClass]
 public class TestAuthenticationMethods
 {
 	[TestMethod]

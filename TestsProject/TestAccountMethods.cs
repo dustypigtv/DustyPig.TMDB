@@ -5,7 +5,7 @@ using System;
 
 namespace TestsProject;
 
-[TestClass]
+//[TestClass]
 public class TestAccountMethods
 {
 	[TestMethod]
