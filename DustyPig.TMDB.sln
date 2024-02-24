@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsProject", "TestsProject\TestsProject.csproj", "{4654A571-E906-4298-A8E6-FA0F4FAAFBAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +30,10 @@ Global
 		{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AF24687-FA35-4D08-AFAE-C39FDBD839F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95946CDE-B33C-4B29-A31A-08D319BE9C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4654A571-E906-4298-A8E6-FA0F4FAAFBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4654A571-E906-4298-A8E6-FA0F4FAAFBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4654A571-E906-4298-A8E6-FA0F4FAAFBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4654A571-E906-4298-A8E6-FA0F4FAAFBAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
