@@ -22,5 +22,5 @@ static class ClientFactory
         }
         return _client;
     }
-   
+
 }

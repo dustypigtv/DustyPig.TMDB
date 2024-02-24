@@ -1,42 +1,43 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace TestsProject;
 
 [TestClass]
 public class TestCollectionsMethods
 {
-	[TestMethod]
-	[DoNotParallelize]
-	public async Task GetDetailsAsync()
-	{
-		//int collectionId = ;
-		string language = "en-US";
-
-		//await ClientFactory.GetClient().Endpoints.Collections.GetDetailsAsync(collectionId, language);
-	}
 
 
+    [TestMethod]
+    [DoNotParallelize]
+    public async Task GetDetailsAsync()
+    {
+        int collectionId = Constants.COLLECTION_ID;
+        string language = "en-US";
 
-	[TestMethod]
-	[DoNotParallelize]
-	public async Task GetImagesAsync()
-	{
-		//int collectionId = ;
-		string includeImageLanguage = null;
-		string language = "en-US";
-
-		//await ClientFactory.GetClient().Endpoints.Collections.GetImagesAsync(collectionId, includeImageLanguage, language);
-	}
+        await ClientFactory.GetClient().Endpoints.Collections.GetDetailsAsync(collectionId, language);
+    }
 
 
 
-	[TestMethod]
-	[DoNotParallelize]
-	public async Task GetTranslationsAsync()
-	{
-		//int collectionId = ;
+    [TestMethod]
+    [DoNotParallelize]
+    public async Task GetImagesAsync()
+    {
+        int collectionId = Constants.COLLECTION_ID;
+        string includeImageLanguage = null;
+        string language = "en-US";
 
-		//await ClientFactory.GetClient().Endpoints.Collections.GetTranslationsAsync(collectionId);
-	}
+        await ClientFactory.GetClient().Endpoints.Collections.GetImagesAsync(collectionId, includeImageLanguage, language);
+    }
+
+
+
+    [TestMethod]
+    [DoNotParallelize]
+    public async Task GetTranslationsAsync()
+    {
+        int collectionId = Constants.COLLECTION_ID;
+
+        await ClientFactory.GetClient().Endpoints.Collections.GetTranslationsAsync(collectionId);
+    }
 }
