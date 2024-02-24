@@ -1,4 +1,5 @@
 ﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
@@ -23,5 +24,5 @@ public class Release
     public DateOnly? ReleaseDate { get; set; }
 
     [JsonPropertyName("type")]
-    public int Type { get; set; }
+    public ReleaseTypes Type { get; set; }
 }
