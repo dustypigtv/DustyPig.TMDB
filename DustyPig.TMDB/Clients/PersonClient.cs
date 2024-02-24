@@ -107,8 +107,8 @@ internal class PersonClient : IPerson
     /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
-    public Task<Response<TranslationsResponse<CommonTranslationsObject>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<TranslationsResponse<CommonTranslationsObject>>($"/3/person/{personId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslations<CommonTranslation>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslations<CommonTranslation>>($"/3/person/{personId}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the TV credits that belong to a person.

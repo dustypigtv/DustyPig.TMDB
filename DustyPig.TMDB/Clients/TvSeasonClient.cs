@@ -114,7 +114,7 @@ internal class TvSeasonClient : ITvSeason
     /// Get the videos that belong to a TV season.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -122,7 +122,7 @@ internal class TvSeasonClient : ITvSeason
             { "language", language }
         };
 
-        return _client.GetAsync<ListResultWithId<VideosResponse>>($"/3/tv/{seriesId}/season/{seasonNumber}/videos", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<CommonVideo>>($"/3/tv/{seriesId}/season/{seasonNumber}/videos", queryParams, cancellationToken);
     }
 
     /// <summary>

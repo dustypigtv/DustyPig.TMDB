@@ -16,7 +16,7 @@ public interface ITvEpisode
     /// <summary>
     /// Rate a TV episode and save it to your rated list.
     /// </summary>
-    public Task<Response<StatusResponse>> AddRatingAsync(AddRatingRequest postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddRatingAsync(AddRatingRequest postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the recent changes for a TV episode.
@@ -45,11 +45,11 @@ public interface ITvEpisode
     /// <summary>
     /// Get the translations that have been added to a TV episode.
     /// </summary>
-    public Task<Response<TranslationsResponse<CommonTranslationsObject>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslations<CommonTranslation>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV episode.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 }

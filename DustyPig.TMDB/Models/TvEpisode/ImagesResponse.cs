@@ -10,5 +10,5 @@ public class ImagesResponse
     public int Id { get; set; }
 
     [JsonPropertyName("stills")]
-    public List<BackdropObject> Stills { get; set; } = [];
+    public List<CommonBackdrop> Stills { get; set; } = [];
 }

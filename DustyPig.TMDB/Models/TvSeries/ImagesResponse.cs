@@ -7,7 +7,7 @@ namespace DustyPig.TMDB.Models.TvSeries;
 public class ImagesResponse
 {
     [JsonPropertyName("backdrops")]
-    public List<BackdropObject> Backdrops { get; set; } = [];
+    public List<CommonBackdrop> Backdrops { get; set; } = [];
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

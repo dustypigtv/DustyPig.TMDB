@@ -7,5 +7,5 @@ namespace DustyPig.TMDB.Models.Find;
 public class ByIdResponse
 {
     [JsonPropertyName("movie_results")]
-    public List<MediaObject> MovieResults { get; set; } = [];
+    public List<CommonMedia> MovieResults { get; set; } = [];
 }

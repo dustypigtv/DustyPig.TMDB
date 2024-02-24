@@ -10,5 +10,5 @@ public class KeywordsResponse
     public int Id { get; set; }
 
     [JsonPropertyName("keywords")]
-    public List<NameObject> Keywords { get; set; } = [];
+    public List<CommonName> Keywords { get; set; } = [];
 }

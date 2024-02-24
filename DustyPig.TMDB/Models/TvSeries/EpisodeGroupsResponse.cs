@@ -21,7 +21,7 @@ public class EpisodeGroupsResponse
     public string Name { get; set; }
 
     [JsonPropertyName("network")]
-    public CompanyObject Network { get; set; }
+    public CommonCompany Network { get; set; }
 
     [JsonPropertyName("type")]
     public int Type { get; set; }

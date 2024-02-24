@@ -7,5 +7,5 @@ namespace DustyPig.TMDB.Models.Genre;
 public class GenresResponse
 {
     [JsonPropertyName("genres")]
-    public List<NameObject> Genres { get; set; } = [];
+    public List<CommonName> Genres { get; set; } = [];
 }

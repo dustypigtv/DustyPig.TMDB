@@ -19,7 +19,7 @@ public class DetailsResponse
     public string Id { get; set; }
 
     [JsonPropertyName("items")]
-    public List<MediaObject> Items { get; set; } = [];
+    public List<CommonMedia> Items { get; set; } = [];
 
     [JsonPropertyName("item_count")]
     public int ItemCount { get; set; }

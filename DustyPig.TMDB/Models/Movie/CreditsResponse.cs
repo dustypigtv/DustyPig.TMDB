@@ -13,5 +13,5 @@ public class CreditsResponse
     public List<CastObject> Cast { get; set; } = [];
 
     [JsonPropertyName("crew")]
-    public List<CrewObject> Crew { get; set; } = [];
+    public List<CommonCrew> Crew { get; set; } = [];
 }

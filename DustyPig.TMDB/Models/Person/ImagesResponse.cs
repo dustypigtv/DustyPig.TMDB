@@ -10,5 +10,5 @@ public class ImagesResponse
     public int Id { get; set; }
 
     [JsonPropertyName("profiles")]
-    public List<PosterObject> Profiles { get; set; } = [];
+    public List<CommonPoster> Profiles { get; set; } = [];
 }

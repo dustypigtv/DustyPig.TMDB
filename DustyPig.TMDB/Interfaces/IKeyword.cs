@@ -7,5 +7,5 @@ namespace DustyPig.TMDB.Interfaces;
 
 public interface IKeyword
 {
-    public Task<Response<NameObject>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonName>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default);
 }

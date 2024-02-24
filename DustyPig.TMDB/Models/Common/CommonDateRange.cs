@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class DateRange
+public class CommonDateRange
 {
     [JsonPropertyName("maximum")]
     public string Maximum { get; set; }

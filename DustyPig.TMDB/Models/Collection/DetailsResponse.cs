@@ -22,5 +22,5 @@ public class DetailsResponse
     public string BackdropPath { get; set; }
 
     [JsonPropertyName("parts")]
-    public List<MediaObject> Parts { get; set; } = [];
+    public List<CommonMedia> Parts { get; set; } = [];
 }

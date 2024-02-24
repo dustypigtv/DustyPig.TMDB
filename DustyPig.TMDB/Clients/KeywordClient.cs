@@ -13,6 +13,6 @@ internal class KeywordClient : IKeyword
     internal KeywordClient(Client client) => _client = client;
 
 
-    public Task<Response<NameObject>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<NameObject>($"/3/keyword/{keywordId}", null, cancellationToken);
+    public Task<Response<CommonName>> GetDetailsAsync(int keywordId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonName>($"/3/keyword/{keywordId}", null, cancellationToken);
 }

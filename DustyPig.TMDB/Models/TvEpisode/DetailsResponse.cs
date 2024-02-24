@@ -19,7 +19,7 @@ public class DetailsResponse
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<CastObject> GuestStars { get; set; } = [];
+    public List<CommonCast> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
@@ -61,8 +61,8 @@ public class DetailsResponse
     public ImagesResponse Images { get; set; }
 
     [JsonPropertyName("translations")]
-    public TranslationsResponse<CommonTranslationsObject> Translations { get; set; }
+    public CommonTranslations<CommonTranslation> Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public ListResultWithId<VideosResponse> Videos { get; set; }
+    public ListResultWithId<CommonVideo> Videos { get; set; }
 }

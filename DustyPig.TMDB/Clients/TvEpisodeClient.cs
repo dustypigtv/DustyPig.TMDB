@@ -32,7 +32,7 @@ internal class TvEpisodeClient : ITvEpisode
     /// <summary>
     /// Rate a TV episode and save it to your rated list.
     /// </summary>
-    public Task<Response<StatusResponse>> AddRatingAsync(AddRatingRequest postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> AddRatingAsync(AddRatingRequest postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -40,7 +40,7 @@ internal class TvEpisodeClient : ITvEpisode
             { "session_id", sessionId }
         };
 
-        return _client.PostAsync<StatusResponse>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, postData, cancellationToken);
+        return _client.PostAsync<CommonStatus>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, postData, cancellationToken);
     }
 
     /// <summary>
@@ -98,14 +98,14 @@ internal class TvEpisodeClient : ITvEpisode
     /// <summary>
     /// Get the translations that have been added to a TV episode.
     /// </summary>
-    public Task<Response<TranslationsResponse<CommonTranslationsObject>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<TranslationsResponse<CommonTranslationsObject>>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslations<CommonTranslation>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslations<CommonTranslation>>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the videos that belong to a TV episode.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -113,6 +113,6 @@ internal class TvEpisodeClient : ITvEpisode
             { "language", language }
         };
 
-        return _client.GetAsync<ListResultWithId<VideosResponse>>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/videos", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<CommonVideo>>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/videos", queryParams, cancellationToken);
     }
 }

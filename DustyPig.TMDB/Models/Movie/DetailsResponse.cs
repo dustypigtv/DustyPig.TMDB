@@ -18,7 +18,7 @@ public class DetailsResponse
     public int Budget { get; set; }
 
     [JsonPropertyName("genres")]
-    public List<NameObject> Genres { get; set; } = [];
+    public List<CommonName> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -45,7 +45,7 @@ public class DetailsResponse
     public string PosterPath { get; set; }
 
     [JsonPropertyName("production_companies")]
-    public List<CompanyObject> ProductionCompanies { get; set; } = [];
+    public List<CommonCompany> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
     public List<ProductionCountriesObject> ProductionCountries { get; set; } = [];
@@ -106,7 +106,7 @@ public class DetailsResponse
     public PagedResultWithId<ListsResponse> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<MediaObject> Recommendations { get; set; }
+    public PagedResult<CommonMedia> Recommendations { get; set; }
 
     [JsonPropertyName("release_dates")]
     public ListResultWithId<ReleaseDatesResponse> ReleaseDates { get; set; }
@@ -115,11 +115,11 @@ public class DetailsResponse
     public PagedResultWithId<ReviewsResponse> Reviews { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<MovieObject> Similar { get; set; }
+    public PagedResult<CommonMovie> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public ListResultWithId<VideosResponse> Videos { get; set; }
+    public ListResultWithId<CommonVideo> Videos { get; set; }
 }

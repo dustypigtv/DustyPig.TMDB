@@ -52,7 +52,7 @@ public interface ITvSeason
     /// Get the videos that belong to a TV season.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV season.

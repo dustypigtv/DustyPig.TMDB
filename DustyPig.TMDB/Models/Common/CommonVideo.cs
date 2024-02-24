@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class VideosResponse
+public class CommonVideo
 {
     /// <summary>
     /// ISO-639-1 2 letter language code. E.g. &quot;en&quot;

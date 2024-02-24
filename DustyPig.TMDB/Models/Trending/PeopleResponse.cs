@@ -34,5 +34,5 @@ public class PeopleResponse
     public string ProfilePath { get; set; }
 
     [JsonPropertyName("known_for")]
-    public List<MediaObject> KnownFor { get; set; } = [];
+    public List<CommonMedia> KnownFor { get; set; } = [];
 }

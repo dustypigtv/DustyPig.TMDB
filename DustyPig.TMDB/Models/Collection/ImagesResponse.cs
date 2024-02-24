@@ -10,8 +10,8 @@ public class ImagesResponse
     public int Id { get; set; }
 
     [JsonPropertyName("backdrops")]
-    public List<BackdropObject> Backdrops { get; set; } = [];
+    public List<CommonBackdrop> Backdrops { get; set; } = [];
 
     [JsonPropertyName("posters")]
-    public List<PosterObject> Posters { get; set; } = [];
+    public List<CommonPoster> Posters { get; set; } = [];
 }

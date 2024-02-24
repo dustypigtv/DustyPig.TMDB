@@ -2,11 +2,11 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class DataObject
+public class CommonName
 {
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+
     [JsonPropertyName("name")]
     public string Name { get; set; }
-
-    [JsonPropertyName("overview")]
-    public string Overview { get; set; }
 }

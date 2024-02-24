@@ -10,5 +10,5 @@ public class TranslationsResponse
     public int Id { get; set; }
 
     [JsonPropertyName("translations")]
-    public List<CommonTranslationsObject> Translations { get; set; } = [];
+    public List<CommonTranslation> Translations { get; set; } = [];
 }

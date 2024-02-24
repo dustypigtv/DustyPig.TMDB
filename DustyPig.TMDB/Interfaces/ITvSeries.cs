@@ -17,7 +17,7 @@ public interface ITvSeries
     /// <summary>
     /// Rate a TV show and save it to your rated list.
     /// </summary>
-    public Task<Response<StatusResponse>> AddRatingAsync(AddRatingRequest postData, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddRatingAsync(AddRatingRequest postData, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
@@ -74,7 +74,7 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of keywords that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<NameObject>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<CommonName>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the newest TV show ID.
@@ -111,7 +111,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<PagedResult<Models.Common.TvSeriesResponse>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Models.Common.CommonTvSeries>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by rating.
@@ -127,7 +127,7 @@ public interface ITvSeries
     /// Get the videos that belong to a TV show.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<VideosResponse>>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV show.

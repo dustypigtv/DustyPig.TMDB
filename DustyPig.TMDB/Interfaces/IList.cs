@@ -11,7 +11,7 @@ public interface IList
     /// <summary>
     /// Add a movie to a list.
     /// </summary>
-    public Task<Response<StatusResponse>> AddMovieAsync(MediaIdRequest postData, int listId, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddMovieAsync(MediaIdRequest postData, int listId, string sessionId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Use this method to check if an item has already been added to the list.
@@ -21,7 +21,7 @@ public interface IList
     /// <summary>
     /// Clear all items from a list.
     /// </summary>
-    public Task<Response<StatusResponse>> ClearAsync(int listId, bool confirm, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> ClearAsync(int listId, bool confirm, string sessionId, CancellationToken cancellationToken = default);
 
     public Task<Response<CreateResponse>> CreateAsync(CreateRequest postData, string sessionId, CancellationToken cancellationToken = default);
 
@@ -30,5 +30,5 @@ public interface IList
     /// <summary>
     /// Remove a movie from a list.
     /// </summary>
-    public Task<Response<StatusResponse>> RemoveMovieAsync(MediaIdRequest postData, int listId, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> RemoveMovieAsync(MediaIdRequest postData, int listId, string sessionId, CancellationToken cancellationToken = default);
 }

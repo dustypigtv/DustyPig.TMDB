@@ -25,7 +25,7 @@ public class DetailsResponse
     public DateOnly? FirstAirDate { get; set; }
 
     [JsonPropertyName("genres")]
-    public List<NameObject> Genres { get; set; } = [];
+    public List<CommonName> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -50,7 +50,7 @@ public class DetailsResponse
     public string Name { get; set; }
 
     [JsonPropertyName("networks")]
-    public List<CompanyObject> Networks { get; set; } = [];
+    public List<CommonCompany> Networks { get; set; } = [];
 
     [JsonPropertyName("number_of_episodes")]
     public int NumberOfEpisodes { get; set; }
@@ -77,7 +77,7 @@ public class DetailsResponse
     public string PosterPath { get; set; }
 
     [JsonPropertyName("production_companies")]
-    public List<CompanyObject> ProductionCompanies { get; set; } = [];
+    public List<CommonCompany> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
     public List<ProductionCountriesObject> ProductionCountries { get; set; } = [];
@@ -131,7 +131,7 @@ public class DetailsResponse
     public ImagesResponse Images { get; set; }
 
     [JsonPropertyName("keywords")]
-    public ListResultWithId<NameObject> Keywords { get; set; }
+    public ListResultWithId<CommonName> Keywords { get; set; }
 
     [JsonPropertyName("lists")]
     public PagedResultWithId<ListsResponse> Lists { get; set; }
@@ -146,11 +146,11 @@ public class DetailsResponse
     public ListResultWithId<ScreenedTheatricallyResponse> ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<Models.Common.TvSeriesResponse> Similar { get; set; }
+    public PagedResult<Models.Common.CommonTvSeries> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public TranslationsResponse Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public ListResultWithId<VideosResponse> Videos { get; set; }
+    public ListResultWithId<CommonVideo> Videos { get; set; }
 }
