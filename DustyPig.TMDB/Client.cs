@@ -1,4 +1,3 @@
-using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -26,7 +25,14 @@ public class Client : IDisposable
     private static readonly JsonSerializerOptions _jsonSerializerOptions = new(JsonSerializerDefaults.Web);
 
 
-    private readonly REST.Client _restClient = new(new Uri(API_BASE_ADDRESS))
+
+    /* Unmerged change from project 'DustyPig.TMDB (net8.0)'
+    Before:
+        private readonly REST.RestClient _restClient = new(new Uri(API_BASE_ADDRESS))
+    After:
+        private readonly RestClient _restClient = new(new Uri(API_BASE_ADDRESS))
+    */
+    private readonly TMDB.RestClient _restClient = new(new Uri(API_BASE_ADDRESS))
     {
         RetryCount = 9,
         RetryDelay = 100

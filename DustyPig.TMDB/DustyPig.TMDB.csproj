@@ -17,15 +17,5 @@
 		<Version>3.3.0.0</Version>
 
 	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="DustyPig.REST" Version="3.3.0.18" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="tmdb_v3.yaml">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-
+	
 </Project>

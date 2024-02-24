@@ -1,4 +1,3 @@
-using DustyPig.REST;
 using DustyPig.TMDB.Models.Changes;
 using DustyPig.TMDB.Models.Common;
 using System;

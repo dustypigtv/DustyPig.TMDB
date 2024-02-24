@@ -1,4 +1,3 @@
-using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.TvEpisodeGroups;
 using System.Threading;
