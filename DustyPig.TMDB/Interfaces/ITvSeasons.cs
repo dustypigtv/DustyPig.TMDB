@@ -56,5 +56,5 @@ public interface ITvSeasons
     /// <summary>
     /// Get the list of streaming providers we have for a TV season.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonProvider>>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 }

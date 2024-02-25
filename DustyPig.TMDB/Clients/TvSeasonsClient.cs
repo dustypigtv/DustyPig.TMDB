@@ -127,13 +127,13 @@ internal class TvSeasonsClient : ITvSeasons
     /// <summary>
     /// Get the list of streaming providers we have for a TV season.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonProvider>>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<ListResultWithId<CommonProvider>>($"/3/tv/{seriesId}/season/{seasonNumber}/watch/providers", queryParams, cancellationToken);
+        return _client.GetAsync<CommonWatchProviderDictionary>($"/3/tv/{seriesId}/season/{seasonNumber}/watch/providers", queryParams, cancellationToken);
     }
 }
