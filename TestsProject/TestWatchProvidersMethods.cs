@@ -11,7 +11,7 @@ public class TestWatchProvidersMethods
     {
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.WatchProviders.GetAvailableRegionsAsync(language);
+        await ClientFactory.GetClient().Endpoints.WatchProviders.GetAvailableRegionsAsync(language);
     }
 
 
@@ -23,7 +23,7 @@ public class TestWatchProvidersMethods
         string language = "en-US";
         string watchRegion = null;
 
-        //await ClientFactory.GetClient().Endpoints.WatchProviders.GetMovieProvidersAsync(language, watchRegion);
+        await ClientFactory.GetClient().Endpoints.WatchProviders.GetMovieProvidersAsync(language, watchRegion);
     }
 
 
@@ -35,6 +35,6 @@ public class TestWatchProvidersMethods
         string language = "en-US";
         string watchRegion = null;
 
-        //await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvProvidersAsync(language, watchRegion);
+        await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvProvidersAsync(language, watchRegion);
     }
 }

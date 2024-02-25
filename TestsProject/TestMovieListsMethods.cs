@@ -13,7 +13,7 @@ public class TestMovieListsMethods
         string language = "en-US";
         string region = null;
 
-        //await ClientFactory.GetClient().Endpoints.MovieLists.GetNowPlayingAsync(page, language, region);
+        await ClientFactory.GetClient().Endpoints.MovieLists.GetNowPlayingAsync(page, language, region);
     }
 
 
@@ -26,7 +26,7 @@ public class TestMovieListsMethods
         string language = "en-US";
         string region = null;
 
-        //await ClientFactory.GetClient().Endpoints.MovieLists.GetPopularAsync(page, language, region);
+        await ClientFactory.GetClient().Endpoints.MovieLists.GetPopularAsync(page, language, region);
     }
 
 
@@ -39,7 +39,7 @@ public class TestMovieListsMethods
         string language = "en-US";
         string region = null;
 
-        //await ClientFactory.GetClient().Endpoints.MovieLists.GetTopRatedAsync(page, language, region);
+        await ClientFactory.GetClient().Endpoints.MovieLists.GetTopRatedAsync(page, language, region);
     }
 
 
@@ -52,6 +52,6 @@ public class TestMovieListsMethods
         string language = "en-US";
         string region = null;
 
-        //await ClientFactory.GetClient().Endpoints.MovieLists.GetUpcomingAsync(page, language, region);
+        await ClientFactory.GetClient().Endpoints.MovieLists.GetUpcomingAsync(page, language, region);
     }
 }

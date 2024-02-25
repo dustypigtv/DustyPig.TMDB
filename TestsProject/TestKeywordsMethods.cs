@@ -9,8 +9,8 @@ public class TestKeywordsMethods
     [DoNotParallelize]
     public async Task GetDetailsAsync()
     {
-        //int keywordId = ;
+        int keywordId = Constants.KEYWORK_ID;
 
-        //await ClientFactory.GetClient().Endpoints.Keywords.GetDetailsAsync(keywordId);
+        await ClientFactory.GetClient().Endpoints.Keywords.GetDetailsAsync(keywordId);
     }
 }

@@ -13,7 +13,7 @@ public class TestTvSeriesListsMethods
         string language = "en-US";
         string timezone = null;
 
-        //await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetAiringTodayAsync(page, language, timezone);
+        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetAiringTodayAsync(page, language, timezone);
     }
 
 
@@ -26,7 +26,7 @@ public class TestTvSeriesListsMethods
         string language = "en-US";
         string timezone = null;
 
-        //await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetOnTheAirAsync(page, language, timezone);
+        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetOnTheAirAsync(page, language, timezone);
     }
 
 
@@ -38,7 +38,7 @@ public class TestTvSeriesListsMethods
         int page = 1;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetPopularAsync(page, language);
+        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetPopularAsync(page, language);
     }
 
 
@@ -50,6 +50,6 @@ public class TestTvSeriesListsMethods
         int page = 1;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetTopRatedAsync(page, language);
+        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetTopRatedAsync(page, language);
     }
 }

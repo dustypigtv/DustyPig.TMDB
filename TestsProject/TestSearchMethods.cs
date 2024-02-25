@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace TestsProject;
 
@@ -48,15 +49,16 @@ public class TestSearchMethods
     [DoNotParallelize]
     public async Task GetMovieAsync()
     {
-        //string query = ;
+        string query = "The Avengers";
         int page = 1;
         bool? includeAdult = null;
         string language = "en-US";
         int? primaryReleaseYear = null;
         string region = null;
-        int? year = null;
+        int? year = 2012;
 
-        //await ClientFactory.GetClient().Endpoints.Search.GetMovieAsync(query, page, includeAdult, language, primaryReleaseYear, region, year);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.GetMovieAsync(query, page, includeAdult, language, primaryReleaseYear, region, year);
+        Debug.Assert(ret.Data.Results[0].Id == Constants.MOVIE_ID);
     }
 
 
@@ -91,15 +93,16 @@ public class TestSearchMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvAsync()
+    public async Task GetTvSeriesAsync()
     {
-        //string query = ;
+        string query = "Buffy the Vampire Slayer";
         int page = 1;
         int? firstAirDateYear = null;
         bool? includeAdult = null;
         string language = "en-US";
         int? year = null;
 
-        //await ClientFactory.GetClient().Endpoints.Search.GetTvAsync(query, page, firstAirDateYear, includeAdult, language, year);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.GetTvSeriesAsync(query, page, firstAirDateYear, includeAdult, language, year);
+        Debug.Assert(ret.Data.Results.Any(item => item.Id == Constants.TV_SERIES_ID));
     }
 }

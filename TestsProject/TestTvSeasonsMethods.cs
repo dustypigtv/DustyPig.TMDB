@@ -6,16 +6,16 @@ namespace TestsProject;
 [TestClass]
 public class TestTvSeasonsMethods
 {
-    [TestMethod]
+    //[TestMethod]
     [DoNotParallelize]
     public async Task GetAccountStatesAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
         string guestSessionId = null;
         string sessionId = null;
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetAccountStatesAsync(seasonNumber, seriesId, guestSessionId, sessionId);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetAccountStatesAsync(seasonNumber, seriesId, guestSessionId, sessionId);
     }
 
 
@@ -24,11 +24,11 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetAggregateCreditsAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetAggregateCreditsAsync(seasonNumber, seriesId, language);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetAggregateCreditsAsync(seasonNumber, seriesId, language);
     }
 
 
@@ -37,7 +37,7 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetChangesAsync()
     {
-        //int seasonId = ;
+        //int seasonId = 5;
         int page = 1;
         DateOnly? endDate = null;
         DateOnly? startDate = null;
@@ -51,11 +51,11 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetCreditsAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetCreditsAsync(seasonNumber, seriesId, language);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetCreditsAsync(seasonNumber, seriesId, language);
     }
 
 
@@ -64,12 +64,12 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetDetailsAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
         AppendToResponse? appendToResponse = null;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetDetailsAsync(seasonNumber, seriesId, appendToResponse, language);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetDetailsAsync(seasonNumber, seriesId, appendToResponse, language);
     }
 
 
@@ -78,10 +78,10 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetExternalIdsAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetExternalIdsAsync(seasonNumber, seriesId);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetExternalIdsAsync(seasonNumber, seriesId);
     }
 
 
@@ -90,12 +90,12 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetImagesAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
         string includeImageLanguage = null;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetImagesAsync(seasonNumber, seriesId, includeImageLanguage, language);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetImagesAsync(seasonNumber, seriesId, includeImageLanguage, language);
     }
 
 
@@ -104,10 +104,10 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetTranslationsAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetTranslationsAsync(seasonNumber, seriesId);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetTranslationsAsync(seasonNumber, seriesId);
     }
 
 
@@ -116,12 +116,12 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetVideosAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
         string includeVideoLanguage = null;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetVideosAsync(seasonNumber, seriesId, includeVideoLanguage, language);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetVideosAsync(seasonNumber, seriesId, includeVideoLanguage, language);
     }
 
 
@@ -130,10 +130,10 @@ public class TestTvSeasonsMethods
     [DoNotParallelize]
     public async Task GetWatchProvidersAsync()
     {
-        //int seasonNumber = ;
-        //int seriesId = ;
+        int seasonNumber = 5;
+        int seriesId = Constants.TV_SERIES_ID;
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetWatchProvidersAsync(seasonNumber, seriesId, language);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetWatchProvidersAsync(seasonNumber, seriesId, language);
     }
 }

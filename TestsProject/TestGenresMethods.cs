@@ -11,7 +11,7 @@ public class TestGenresMethods
     {
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.Genres.GetMovieListAsync(language);
+        await ClientFactory.GetClient().Endpoints.Genres.GetMovieListAsync(language);
     }
 
 
@@ -22,6 +22,6 @@ public class TestGenresMethods
     {
         string language = "en-US";
 
-        //await ClientFactory.GetClient().Endpoints.Genres.GetTvListAsync(language);
+        await ClientFactory.GetClient().Endpoints.Genres.GetTvListAsync(language);
     }
 }
