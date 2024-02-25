@@ -19,7 +19,7 @@ public interface IAuthentication
     /// </summary>
     public Task<Response<TokenResponse>> CreateSessionWithLoginAsync(CreateSessionWithLoginRequest postData, CancellationToken cancellationToken = default);
 
-    public Task<Response<DeleteSessionResponse>> DeleteDeleteSessionAsync(CancellationToken cancellationToken = default);
+    public Task<Response<DeleteSessionResponse>> DeleteSessionAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Test your API Key to see if it&#39;s valid.
