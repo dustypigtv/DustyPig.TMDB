@@ -202,6 +202,6 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the list of streaming providers we have for a movie.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonWatchProvider>>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<CommonWatchProvider>>($"/3/movie/{movieId}/watch/providers", null, cancellationToken);
+    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonWatchProviderDictionary>($"/3/movie/{movieId}/watch/providers", null, cancellationToken);
 }

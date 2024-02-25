@@ -84,5 +84,5 @@ public interface IMovies
     /// <summary>
     /// Get the list of streaming providers we have for a movie.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonWatchProvider>>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default);
 }
