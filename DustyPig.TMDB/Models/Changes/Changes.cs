@@ -8,5 +8,5 @@ public class Changes
     public int Id { get; set; }
 
     [JsonPropertyName("adult")]
-    public bool Adult { get; set; }
+    public bool? Adult { get; set; }
 }
