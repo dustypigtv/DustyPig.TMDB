@@ -25,7 +25,7 @@ internal class TrendingClient : ITrending
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/trending/all/{timeWindow}", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/trending/all/{timeWindow.GetEnumDescription()}", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ internal class TrendingClient : ITrending
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/trending/movie/{timeWindow}", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/trending/movie/{timeWindow.GetEnumDescription()}", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ internal class TrendingClient : ITrending
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<Person>>($"/3/trending/person/{timeWindow}", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Person>>($"/3/trending/person/{timeWindow.GetEnumDescription()}", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -67,6 +67,6 @@ internal class TrendingClient : ITrending
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonTvSeries3>>($"/3/trending/tv/{timeWindow}", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonTvSeries3>>($"/3/trending/tv/{timeWindow.GetEnumDescription()}", queryParams, cancellationToken);
     }
 }
