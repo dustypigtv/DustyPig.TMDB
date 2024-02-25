@@ -115,7 +115,7 @@ internal class MoviesClient : IMovies
         return _client.GetAsync<CommonImages2>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
     }
 
-    public Task<Response<KeywordsList>> GetKeywordsAsync(string movieId, CancellationToken cancellationToken = default) =>
+    public Task<Response<KeywordsList>> GetKeywordsAsync(int movieId, CancellationToken cancellationToken = default) =>
         _client.GetAsync<KeywordsList>($"/3/movie/{movieId}/keywords", null, cancellationToken);
 
     /// <summary>
