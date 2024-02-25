@@ -198,7 +198,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries1>>> GetSimilarAsync(string seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonTvSeries1>>> GetSimilarAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -233,6 +233,6 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the list of streaming providers we have for a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonProvider>>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<CommonProvider>>($"/3/tv/{seriesId}/watch/providers", null, cancellationToken);
+    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonWatchProviderDictionary>($"/3/tv/{seriesId}/watch/providers", null, cancellationToken);
 }
