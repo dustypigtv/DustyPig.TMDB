@@ -21,12 +21,9 @@ public enum AppendToResponse
     [Description("movie_credits")]
     MovieCredits = 16,
 
-    [Description("tagged_images")]
-    TaggedImages = 32,
-
     [Description("translations")]
-    Translations = 64,
+    Translations = 32,
 
     [Description("tv_credits")]
-    TvCredits = 128
+    TvCredits = 64
 }
