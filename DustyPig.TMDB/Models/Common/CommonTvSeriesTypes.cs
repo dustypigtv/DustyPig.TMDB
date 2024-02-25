@@ -7,20 +7,23 @@ namespace DustyPig.TMDB.Models.Common;
 public enum CommonTvSeriesTypes
 {
     [Description("0")]
-    ReturningSeries = 1,
+    Documentary = 1,
 
     [Description("1")]
-    Planned = 2,
+    News = 2,
 
     [Description("2")]
-    InProduction = 4,
+    Miniseries = 4,
 
     [Description("3")]
-    Ended = 8,
+    Reality = 8,
 
     [Description("4")]
-    Cancelled = 16,
+    Scripted = 16,
 
     [Description("5")]
-    Pilot = 32
+    TalkShow = 32,
+
+    [Description("6")]
+    Video = 64
 }
