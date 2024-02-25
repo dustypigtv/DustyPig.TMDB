@@ -16,7 +16,7 @@ public interface IPeople
     /// <summary>
     /// Get the combined movie and TV credits that belong to a person.
     /// </summary>
-    public Task<Response<CombinedCredits>> GetCombinedCreditsAsync(string personId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CombinedCredits>> GetCombinedCreditsAsync(int personId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Query the top level details of a person.
