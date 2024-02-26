@@ -35,4 +35,16 @@ public class TestTvSeriesMethods
 
         await ClientFactory.GetClient().Endpoints.TvSeries.AddRatingAsync(postData, seriesId, guestSessionId, sessionId);
     }
+
+    [TestMethod]
+    [DoNotParallelize]
+    public async Task DeleteRating()
+    {
+        string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
+
+        int seriesId = Constants.TV_SERIES_ID;
+        string guestSessionId = null;
+
+        await ClientFactory.GetClient().Endpoints.TvSeries.DeleteRatingAsync(seriesId, guestSessionId, sessionId);
+    }
 }

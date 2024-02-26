@@ -43,6 +43,17 @@ internal class TvSeriesClient : ITvSeries
         return _client.PostAsync<CommonStatus>($"/3/tv/{seriesId}/rating", queryParams, postData, cancellationToken);
     }
 
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    {
+        var queryParams = new Dictionary<string, object>
+        {
+            { "guest_session_id", guestSessionId },
+            { "session_id", sessionId }
+        };
+
+        return _client.DeleteAsync<CommonStatus>($"/3/tv/{seriesId}/rating", queryParams, cancellationToken);
+    }
+
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
     /// </summary>

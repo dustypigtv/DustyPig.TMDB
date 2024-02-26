@@ -18,6 +18,8 @@ public interface ITvSeries
     /// </summary>
     public Task<Response<CommonStatus>> AddRatingAsync(CommonValue1 postData, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
     /// </summary>
