@@ -3,10 +3,6 @@ on:
   workflow_dispatch:
     branches: [ master ]
 
-env:
-    TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-
-
 jobs:
   build:
     runs-on: ubuntu-latest
