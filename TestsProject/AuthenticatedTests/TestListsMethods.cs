@@ -34,5 +34,6 @@ public class TestListsMethods
         await client.Endpoints.Lists.GetDetailsAsync(listId, 1, Constants.Language);
         await client.Endpoints.Lists.RemoveMovieAsync(mediaObjectId, listId, sessionId);
         await client.Endpoints.Lists.ClearAsync(listId, true, sessionId);
+        await client.Endpoints.Lists.DeleteAsync(listId, sessionId);
     }
 }

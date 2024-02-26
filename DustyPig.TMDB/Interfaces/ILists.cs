@@ -22,6 +22,11 @@ public interface ILists
     /// </summary>
     public Task<Response<CommonStatus>> ClearAsync(int listId, bool confirm, string sessionId, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Delete a list.
+    /// </summary>
+    public Task<Response<CommonStatus>> DeleteAsync(int listId, string sessionId, CancellationToken cancellationToken = default);
+
     public Task<Response<CreateResponse>> CreateAsync(CreateRequest postData, string sessionId, CancellationToken cancellationToken = default);
 
     public Task<Response<Details>> GetDetailsAsync(int listId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);

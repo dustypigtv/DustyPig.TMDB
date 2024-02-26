@@ -55,6 +55,19 @@ internal class ListsClient : ILists
         return _client.PostAsync<CommonStatus>($"/3/list/{listId}/clear", queryParams, null, cancellationToken);
     }
 
+    /// <summary>
+    /// Delete a list.
+    /// </summary>
+    public Task<Response<CommonStatus>> DeleteAsync(int listId, string sessionId, CancellationToken cancellationToken = default)
+    {
+        var queryParams = new Dictionary<string, object>
+        {
+            { "session_id", sessionId }
+        };
+
+        return _client.DeleteAsync<CommonStatus>($"/3/list/{listId}", queryParams, cancellationToken);
+    }
+
     public Task<Response<CreateResponse>> CreateAsync(CreateRequest postData, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
