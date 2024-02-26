@@ -1,15 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestGenresMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMovieListAsync()
+    public async Task GetMovieList()
     {
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Genres.GetMovieListAsync(language);
     }
@@ -18,9 +18,9 @@ public class TestGenresMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvListAsync()
+    public async Task GetTvList()
     {
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Genres.GetTvListAsync(language);
     }

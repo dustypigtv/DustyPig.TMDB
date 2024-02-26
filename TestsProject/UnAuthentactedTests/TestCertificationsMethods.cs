@@ -1,13 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestCertificationsMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMovieCertificationsAsync()
+    public async Task GetMovieCertifications()
     {
         await ClientFactory.GetClient().Endpoints.Certifications.GetMovieCertificationsAsync();
     }
@@ -16,7 +16,7 @@ public class TestCertificationsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvCertificationsAsync()
+    public async Task GetTvCertifications()
     {
         await ClientFactory.GetClient().Endpoints.Certifications.GetTvCertificationsAsync();
     }

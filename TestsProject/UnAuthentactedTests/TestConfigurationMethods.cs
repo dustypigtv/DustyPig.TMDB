@@ -1,15 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestConfigurationMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetCountriesAsync()
+    public async Task GetCountries()
     {
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Configuration.GetCountriesAsync(language);
     }
@@ -18,7 +18,7 @@ public class TestConfigurationMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetDetailsAsync()
+    public async Task GetDetails()
     {
         await ClientFactory.GetClient().Endpoints.Configuration.GetDetailsAsync();
     }
@@ -27,7 +27,7 @@ public class TestConfigurationMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetJobsAsync()
+    public async Task GetJobs()
     {
         await ClientFactory.GetClient().Endpoints.Configuration.GetJobsAsync();
     }
@@ -36,7 +36,7 @@ public class TestConfigurationMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetLanguagesAsync()
+    public async Task GetLanguages()
     {
         await ClientFactory.GetClient().Endpoints.Configuration.GetLanguagesAsync();
     }
@@ -45,7 +45,7 @@ public class TestConfigurationMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetPrimaryTranslationsAsync()
+    public async Task GetPrimaryTranslations()
     {
         await ClientFactory.GetClient().Endpoints.Configuration.GetPrimaryTranslationsAsync();
     }
@@ -54,7 +54,7 @@ public class TestConfigurationMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTimezonesAsync()
+    public async Task GetTimezones()
     {
         await ClientFactory.GetClient().Endpoints.Configuration.GetTimezonesAsync();
     }

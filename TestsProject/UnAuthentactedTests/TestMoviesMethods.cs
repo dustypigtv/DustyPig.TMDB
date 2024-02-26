@@ -1,41 +1,14 @@
 using DustyPig.TMDB.Models.Movies;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestMoviesMethods
 {
-    //[TestMethod]
-    [DoNotParallelize]
-    public async Task GetAccountStatesAsync()
-    {
-        int movieId = Constants.MOVIE_ID;
-        string guestSessionId = null;
-        string sessionId = null;
-
-        await ClientFactory.GetClient().Endpoints.Movies.GetAccountStatesAsync(movieId, guestSessionId, sessionId);
-    }
-
-
-
     [TestMethod]
     [DoNotParallelize]
-    public async Task AddRatingAsync()
-    {
-        //CommonValue1 postData = ;
-        int movieId = Constants.MOVIE_ID;
-        string guestSessionId = null;
-        string sessionId = null;
-
-        //await ClientFactory.GetClient().Endpoints.Movies.AddRatingAsync(postData, movieId, guestSessionId, sessionId);
-    }
-
-
-
-    [TestMethod]
-    [DoNotParallelize]
-    public async Task GetAlternativeTitlesAsync()
+    public async Task GetAlternativeTitles()
     {
         int movieId = Constants.MOVIE_ID;
         string country = null;
@@ -47,7 +20,7 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetChangesAsync()
+    public async Task GetChanges()
     {
         int movieId = Constants.MOVIE_ID;
         int page = 1;
@@ -61,10 +34,10 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetCreditsAsync()
+    public async Task GetCredits()
     {
         int movieId = Constants.MOVIE_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetCreditsAsync(movieId, language);
     }
@@ -73,11 +46,25 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetDetailsAsync()
+    public async Task GetDetails()
     {
         int movieId = Constants.MOVIE_ID;
-        AppendToResponse? appendToResponse = null;
-        string language = "en-US";
+        AppendToResponse? appendToResponse =
+            AppendToResponse.AlternativeTitles |
+            AppendToResponse.Changes |
+            AppendToResponse.Credits |
+            AppendToResponse.ExternalIds |
+            AppendToResponse.Images |
+            AppendToResponse.Keywords |
+            AppendToResponse.Lists |
+            AppendToResponse.Recommendations |
+            AppendToResponse.ReleaseDates |
+            AppendToResponse.Reviews |
+            AppendToResponse.Similar |
+            AppendToResponse.Translations |
+            AppendToResponse.Videos;
+
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetDetailsAsync(movieId, appendToResponse, language);
     }
@@ -86,7 +73,7 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetExternalIdsAsync()
+    public async Task GetExternalIds()
     {
         int movieId = Constants.MOVIE_ID;
 
@@ -97,11 +84,11 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetImagesAsync()
+    public async Task GetImages()
     {
         int movieId = Constants.MOVIE_ID;
         string includeImageLanguage = null;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetImagesAsync(movieId, includeImageLanguage, language);
     }
@@ -110,18 +97,18 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetKeywordsAsync()
+    public async Task GetKeywords()
     {
-        //string movieId = ;
+        int movieId = Constants.MOVIE_ID;
 
-        //await ClientFactory.GetClient().Endpoints.Movies.GetKeywordsAsync(movieId);
+        await ClientFactory.GetClient().Endpoints.Movies.GetKeywordsAsync(movieId);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetLatestAsync()
+    public async Task GetLatest()
     {
         await ClientFactory.GetClient().Endpoints.Movies.GetLatestAsync();
     }
@@ -130,11 +117,11 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetListsAsync()
+    public async Task GetLists()
     {
         int movieId = Constants.MOVIE_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetListsAsync(movieId, page, language);
     }
@@ -143,11 +130,11 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetRecommendationsAsync()
+    public async Task GetRecommendations()
     {
         int movieId = Constants.MOVIE_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetRecommendationsAsync(movieId, page, language);
     }
@@ -156,7 +143,7 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetReleaseDatesAsync()
+    public async Task GetReleaseDates()
     {
         int movieId = Constants.MOVIE_ID;
 
@@ -167,11 +154,11 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetReviewsAsync()
+    public async Task GetReviews()
     {
         int movieId = Constants.MOVIE_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetReviewsAsync(movieId, page, language);
     }
@@ -180,11 +167,11 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetSimilarAsync()
+    public async Task GetSimilar()
     {
         int movieId = Constants.MOVIE_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetSimilarAsync(movieId, page, language);
     }
@@ -193,7 +180,7 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTranslationsAsync()
+    public async Task GetTranslations()
     {
         int movieId = Constants.MOVIE_ID;
 
@@ -204,10 +191,10 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetVideosAsync()
+    public async Task GetVideos()
     {
         int movieId = Constants.MOVIE_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Movies.GetVideosAsync(movieId, language);
     }
@@ -216,10 +203,10 @@ public class TestMoviesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetWatchProvidersAsync()
+    public async Task GetWatchProviders()
     {
         int movieId = Constants.MOVIE_ID;
 
-        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetWatchProvidersAsync(movieId);
+        await ClientFactory.GetClient().Endpoints.Movies.GetWatchProvidersAsync(movieId);
     }
 }

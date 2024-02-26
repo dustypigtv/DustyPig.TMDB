@@ -1,13 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestKeywordsMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetDetailsAsync()
+    public async Task GetDetails()
     {
         int keywordId = Constants.KEYWORK_ID;
 

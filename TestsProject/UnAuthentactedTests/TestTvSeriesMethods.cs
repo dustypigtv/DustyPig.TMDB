@@ -1,44 +1,17 @@
 using DustyPig.TMDB.Models.TvSeries;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestTvSeriesMethods
 {
-    //[TestMethod]
-    [DoNotParallelize]
-    public async Task GetAccountStatesAsync()
-    {
-        int seriesId = Constants.TV_SERIES_ID;
-        string guestSessionId = null;
-        string sessionId = null;
-
-        await ClientFactory.GetClient().Endpoints.TvSeries.GetAccountStatesAsync(seriesId, guestSessionId, sessionId);
-    }
-
-
-
     [TestMethod]
     [DoNotParallelize]
-    public async Task AddRatingAsync()
-    {
-        //CommonValue1 postData = ;
-        int seriesId = Constants.TV_SERIES_ID;
-        string guestSessionId = null;
-        string sessionId = null;
-
-        //await ClientFactory.GetClient().Endpoints.TvSeries.AddRatingAsync(postData, seriesId, guestSessionId, sessionId);
-    }
-
-
-
-    [TestMethod]
-    [DoNotParallelize]
-    public async Task GetAggregateCreditsAsync()
+    public async Task GetAggregateCredits()
     {
         int seriesId = Constants.TV_SERIES_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetAggregateCreditsAsync(seriesId, language);
     }
@@ -47,7 +20,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetAlternativeTitlesAsync()
+    public async Task GetAlternativeTitles()
     {
         int seriesId = Constants.TV_SERIES_ID;
 
@@ -58,7 +31,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetChangesAsync()
+    public async Task GetChanges()
     {
         int seriesId = Constants.TV_SERIES_ID;
         int page = 1;
@@ -72,7 +45,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetContentRatingsAsync()
+    public async Task GetContentRatings()
     {
         int seriesId = Constants.TV_SERIES_ID;
 
@@ -83,10 +56,10 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetCreditsAsync()
+    public async Task GetCredits()
     {
         int seriesId = Constants.TV_SERIES_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetCreditsAsync(seriesId, language);
     }
@@ -95,11 +68,28 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetDetailsAsync()
+    public async Task GetDetails()
     {
         int seriesId = Constants.TV_SERIES_ID;
-        AppendToResponse? appendToResponse = null;
-        string language = "en-US";
+        AppendToResponse? appendToResponse =
+            AppendToResponse.AccountStates |
+            AppendToResponse.AggregateCredits |
+            AppendToResponse.AlternativeTitles |
+            AppendToResponse.Changes |
+            AppendToResponse.ContentRatings |
+            AppendToResponse.Credits |
+            AppendToResponse.EpisodeGroups |
+            AppendToResponse.ExternalIds |
+            AppendToResponse.Images |
+            AppendToResponse.Keywords |
+            AppendToResponse.Lists |
+            AppendToResponse.Recommendations |
+            AppendToResponse.Reviews |
+            AppendToResponse.ScreenedTheatrically |
+            AppendToResponse.Similar |
+            AppendToResponse.Translations |
+            AppendToResponse.Videos;
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetDetailsAsync(seriesId, appendToResponse, language);
     }
@@ -108,7 +98,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetEpisodeGroupsAsync()
+    public async Task GetEpisodeGroups()
     {
         int seriesId = Constants.TV_SERIES_ID;
 
@@ -119,7 +109,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetExternalIdsAsync()
+    public async Task GetExternalIds()
     {
         int seriesId = Constants.TV_SERIES_ID;
 
@@ -130,11 +120,11 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetImagesAsync()
+    public async Task GetImages()
     {
         int seriesId = Constants.TV_SERIES_ID;
         string includeImageLanguage = null;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetImagesAsync(seriesId, includeImageLanguage, language);
     }
@@ -143,7 +133,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetKeywordsAsync()
+    public async Task GetKeywords()
     {
         int seriesId = Constants.TV_SERIES_ID;
 
@@ -154,7 +144,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetLatestAsync()
+    public async Task GetLatest()
     {
         await ClientFactory.GetClient().Endpoints.TvSeries.GetLatestAsync();
     }
@@ -163,11 +153,11 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetListsAsync()
+    public async Task GetLists()
     {
         int seriesId = Constants.TV_SERIES_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetListsAsync(seriesId, page, language);
     }
@@ -176,11 +166,11 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetRecommendationsAsync()
+    public async Task GetRecommendations()
     {
         int seriesId = Constants.TV_SERIES_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetRecommendationsAsync(seriesId, page, language);
     }
@@ -189,11 +179,11 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetReviewsAsync()
+    public async Task GetReviews()
     {
         int seriesId = Constants.TV_SERIES_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetReviewsAsync(seriesId, page, language);
     }
@@ -202,7 +192,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetScreenedTheatricallyAsync()
+    public async Task GetScreenedTheatrically()
     {
         int seriesId = Constants.TV_SERIES_ID;
 
@@ -213,11 +203,11 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetSimilarAsync()
+    public async Task GetSimilar()
     {
         int seriesId = Constants.TV_SERIES_ID;
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetSimilarAsync(seriesId, page, language);
     }
@@ -226,7 +216,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTranslationsAsync()
+    public async Task GetTranslations()
     {
         int seriesId = Constants.TV_SERIES_ID;
 
@@ -237,11 +227,11 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetVideosAsync()
+    public async Task GetVideos()
     {
         int seriesId = Constants.TV_SERIES_ID;
         string includeVideoLanguage = null;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeries.GetVideosAsync(seriesId, includeVideoLanguage, language);
     }
@@ -250,7 +240,7 @@ public class TestTvSeriesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetWatchProvidersAsync()
+    public async Task GetWatchProviders()
     {
         int seriesId = Constants.TV_SERIES_ID;
 

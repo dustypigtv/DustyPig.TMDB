@@ -10,7 +10,13 @@ public static class Constants
 
     public const int PRODUCTION_COMPANY = 420; //Marvel Studios
 
+    public const int NETWORK_ID = 21;// The WB
+
     public const string CREDIT_ID = "52fe4495c3a368484e02b251"; //RDJ
 
     public const int KEYWORK_ID = 9715; //superhero
+
+    public const string Language = "en-US";
+
+    public const int PERSON_ID = 3; //Harrison Ford
 }

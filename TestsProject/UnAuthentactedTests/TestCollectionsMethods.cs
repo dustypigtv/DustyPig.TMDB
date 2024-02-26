@@ -1,18 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestCollectionsMethods
 {
-
-
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetDetailsAsync()
+    public async Task GetDetails()
     {
         int collectionId = Constants.COLLECTION_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Collections.GetDetailsAsync(collectionId, language);
     }
@@ -21,11 +19,11 @@ public class TestCollectionsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetImagesAsync()
+    public async Task GetImages()
     {
         int collectionId = Constants.COLLECTION_ID;
         string includeImageLanguage = null;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.Collections.GetImagesAsync(collectionId, includeImageLanguage, language);
     }
@@ -34,7 +32,7 @@ public class TestCollectionsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTranslationsAsync()
+    public async Task GetTranslations()
     {
         int collectionId = Constants.COLLECTION_ID;
 

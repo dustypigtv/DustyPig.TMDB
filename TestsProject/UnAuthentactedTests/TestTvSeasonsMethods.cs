@@ -1,32 +1,18 @@
 using DustyPig.TMDB.Models.TvSeasons;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestTvSeasonsMethods
 {
-    //[TestMethod]
-    [DoNotParallelize]
-    public async Task GetAccountStatesAsync()
-    {
-        int seasonNumber = 5;
-        int seriesId = Constants.TV_SERIES_ID;
-        string guestSessionId = null;
-        string sessionId = null;
-
-        await ClientFactory.GetClient().Endpoints.TvSeasons.GetAccountStatesAsync(seasonNumber, seriesId, guestSessionId, sessionId);
-    }
-
-
-
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetAggregateCreditsAsync()
+    public async Task GetAggregateCredits()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeasons.GetAggregateCreditsAsync(seasonNumber, seriesId, language);
     }
@@ -35,25 +21,25 @@ public class TestTvSeasonsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetChangesAsync()
+    public async Task GetChanges()
     {
-        //int seasonId = 5;
+        int seasonId = 59469;
         int page = 1;
         DateOnly? endDate = null;
         DateOnly? startDate = null;
 
-        //await ClientFactory.GetClient().Endpoints.TvSeasons.GetChangesAsync(seasonId, page, endDate, startDate);
+        await ClientFactory.GetClient().Endpoints.TvSeasons.GetChangesAsync(seasonId, page, endDate, startDate);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetCreditsAsync()
+    public async Task GetCredits()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeasons.GetCreditsAsync(seasonNumber, seriesId, language);
     }
@@ -62,12 +48,12 @@ public class TestTvSeasonsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetDetailsAsync()
+    public async Task GetDetails()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
         AppendToResponse? appendToResponse = null;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeasons.GetDetailsAsync(seasonNumber, seriesId, appendToResponse, language);
     }
@@ -76,7 +62,7 @@ public class TestTvSeasonsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetExternalIdsAsync()
+    public async Task GetExternalIds()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
@@ -88,12 +74,12 @@ public class TestTvSeasonsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetImagesAsync()
+    public async Task GetImages()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
         string includeImageLanguage = null;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeasons.GetImagesAsync(seasonNumber, seriesId, includeImageLanguage, language);
     }
@@ -102,7 +88,7 @@ public class TestTvSeasonsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTranslationsAsync()
+    public async Task GetTranslations()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
@@ -114,12 +100,12 @@ public class TestTvSeasonsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetVideosAsync()
+    public async Task GetVideos()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
         string includeVideoLanguage = null;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeasons.GetVideosAsync(seasonNumber, seriesId, includeVideoLanguage, language);
     }
@@ -128,11 +114,11 @@ public class TestTvSeasonsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetWatchProvidersAsync()
+    public async Task GetWatchProviders()
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeasons.GetWatchProvidersAsync(seasonNumber, seriesId, language);
     }

@@ -1,13 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestCompaniesMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetAlternativeNamesAsync()
+    public async Task GetAlternativeNames()
     {
         int companyId = Constants.PRODUCTION_COMPANY;
 
@@ -18,7 +18,7 @@ public class TestCompaniesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetDetailsAsync()
+    public async Task GetDetails()
     {
         int companyId = Constants.PRODUCTION_COMPANY;
 
@@ -29,7 +29,7 @@ public class TestCompaniesMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetImagesAsync()
+    public async Task GetImages()
     {
         int companyId = Constants.PRODUCTION_COMPANY;
 

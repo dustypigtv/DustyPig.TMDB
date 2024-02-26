@@ -1,16 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestMovieListsMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetNowPlayingAsync()
+    public async Task GetNowPlaying()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
         string region = null;
 
         await ClientFactory.GetClient().Endpoints.MovieLists.GetNowPlayingAsync(page, language, region);
@@ -20,10 +20,10 @@ public class TestMovieListsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetPopularAsync()
+    public async Task GetPopular()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
         string region = null;
 
         await ClientFactory.GetClient().Endpoints.MovieLists.GetPopularAsync(page, language, region);
@@ -33,10 +33,10 @@ public class TestMovieListsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTopRatedAsync()
+    public async Task GetTopRated()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
         string region = null;
 
         await ClientFactory.GetClient().Endpoints.MovieLists.GetTopRatedAsync(page, language, region);
@@ -46,10 +46,10 @@ public class TestMovieListsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetUpcomingAsync()
+    public async Task GetUpcoming()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
         string region = null;
 
         await ClientFactory.GetClient().Endpoints.MovieLists.GetUpcomingAsync(page, language, region);

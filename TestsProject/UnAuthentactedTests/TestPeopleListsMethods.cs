@@ -1,16 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestPeopleListsMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetPopularAsync()
+    public async Task GetPopular()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.PeopleLists.GetPopularAsync(page, language);
     }

@@ -11,16 +11,14 @@ static class ClientFactory
     {
         lock (_locker)
         {
-            if (_client == null)
-                _client = new(Client.AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"))
+            _client ??= new(Client.AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"))
                 {
-                    RetryCount = 100,
-                    RetryDelay = 250,
                     AutoThrowIfError = true,
-                    IncludeRawContentInResponse = true
+                    IncludeRawContentInResponse = true,
+                    RetryCount = 100,
+                    RetryDelay = 1
                 };
         }
         return _client;
     }
-
 }

@@ -1,15 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestWatchProvidersMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetAvailableRegionsAsync()
+    public async Task GetAvailableRegions()
     {
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.WatchProviders.GetAvailableRegionsAsync(language);
     }
@@ -18,9 +18,9 @@ public class TestWatchProvidersMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMovieProvidersAsync()
+    public async Task GetMovieProviders()
     {
-        string language = "en-US";
+        string language = Constants.Language;
         string watchRegion = null;
 
         await ClientFactory.GetClient().Endpoints.WatchProviders.GetMovieProvidersAsync(language, watchRegion);
@@ -30,9 +30,9 @@ public class TestWatchProvidersMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvProvidersAsync()
+    public async Task GetTvProviders()
     {
-        string language = "en-US";
+        string language = Constants.Language;
         string watchRegion = null;
 
         await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvProvidersAsync(language, watchRegion);

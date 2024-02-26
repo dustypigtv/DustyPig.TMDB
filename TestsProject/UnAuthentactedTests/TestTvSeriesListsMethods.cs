@@ -1,16 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestsProject;
+namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
 public class TestTvSeriesListsMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetAiringTodayAsync()
+    public async Task GetAiringToday()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
         string timezone = null;
 
         await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetAiringTodayAsync(page, language, timezone);
@@ -20,10 +20,10 @@ public class TestTvSeriesListsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetOnTheAirAsync()
+    public async Task GetOnTheAir()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
         string timezone = null;
 
         await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetOnTheAirAsync(page, language, timezone);
@@ -33,10 +33,10 @@ public class TestTvSeriesListsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetPopularAsync()
+    public async Task GetPopular()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetPopularAsync(page, language);
     }
@@ -45,10 +45,10 @@ public class TestTvSeriesListsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTopRatedAsync()
+    public async Task GetTopRated()
     {
         int page = 1;
-        string language = "en-US";
+        string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetTopRatedAsync(page, language);
     }
