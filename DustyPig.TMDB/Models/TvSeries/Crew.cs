@@ -30,8 +30,8 @@ public class Crew
     [JsonPropertyName("profile_path")]
     public string ProfilePath { get; set; }
 
-    [JsonPropertyName("jobs")]
-    public List<CommonJob> Jobs { get; set; } = [];
+    [JsonPropertyName("job")]
+    public string Job { get; set; }
 
     [JsonPropertyName("department")]
     public string Department { get; set; }
