@@ -21,6 +21,10 @@ public class Details
     [JsonConverter(typeof(StringToDateOnlyConverter))]
     public DateOnly? Birthday { get; set; }
 
+    [JsonPropertyName("deathday")]
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? Deathday { get; set; }
+
     [JsonPropertyName("gender")]
     public int Gender { get; set; }
 
