@@ -7,7 +7,7 @@ public class TestSearchMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetCollection()
+    public async Task Collections()
     {
         string query = "The Avengers";
         int page = 1;
@@ -15,38 +15,38 @@ public class TestSearchMethods
         string language = Constants.Language;
         string region = null;
 
-        await ClientFactory.GetClient().Endpoints.Search.GetCollectionAsync(query, page, includeAdult, language, region);
+        await ClientFactory.GetClient().Endpoints.Search.CollectionsAsync(query, page, includeAdult, language, region);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetCompany()
+    public async Task Companies()
     {
         string query = "Marvel Studios";
         int page = 1;
 
-        await ClientFactory.GetClient().Endpoints.Search.GetCompanyAsync(query, page);
+        await ClientFactory.GetClient().Endpoints.Search.CompaniesAsync(query, page);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetKeyword()
+    public async Task Keywords()
     {
         string query = "superhero";
         int page = 1;
 
-        await ClientFactory.GetClient().Endpoints.Search.GetKeywordAsync(query, page);
+        await ClientFactory.GetClient().Endpoints.Search.KeywordsAsync(query, page);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMovie()
+    public async Task Movies()
     {
         string query = "The Avengers";
         int page = 1;
@@ -56,42 +56,42 @@ public class TestSearchMethods
         string region = null;
         int? year = 2012;
 
-        await ClientFactory.GetClient().Endpoints.Search.GetMovieAsync(query, page, includeAdult, language, primaryReleaseYear, region, year);
+        await ClientFactory.GetClient().Endpoints.Search.MoviesAsync(query, page, includeAdult, language, primaryReleaseYear, region, year);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMulti()
+    public async Task Multi()
     {
         string query = "The Avengers";
         int page = 1;
         bool? includeAdult = null;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Search.GetMultiAsync(query, page, includeAdult, language);
+        await ClientFactory.GetClient().Endpoints.Search.MultiAsync(query, page, includeAdult, language);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetPerson()
+    public async Task People()
     {
         string query = "Harrison Ford";
         int page = 1;
         bool? includeAdult = null;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Search.GetPersonAsync(query, page, includeAdult, language);
+        await ClientFactory.GetClient().Endpoints.Search.PeopleAsync(query, page, includeAdult, language);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvSeries()
+    public async Task TvSeries()
     {
         string query = "Buffy the Vampire Slayer";
         int page = 1;
@@ -100,6 +100,6 @@ public class TestSearchMethods
         string language = Constants.Language;
         int? year = null;
 
-        await ClientFactory.GetClient().Endpoints.Search.GetTvSeriesAsync(query, page, firstAirDateYear, includeAdult, language, year);
+        await ClientFactory.GetClient().Endpoints.Search.TvSeriesAsync(query, page, firstAirDateYear, includeAdult, language, year);
     }
 }

@@ -98,7 +98,7 @@ internal class PeopleClient : IPeople
     /// <summary>
     /// Get the TV credits that belong to a person.
     /// </summary>
-    public Task<Response<TvSeriesCredits>> GetTvCreditsAsync(int personId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<TvSeriesCredits>> GetTvSeriesCreditsAsync(int personId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

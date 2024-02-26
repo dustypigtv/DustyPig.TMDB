@@ -29,5 +29,5 @@ public interface ITrending
     /// Get the trending TV shows on TMDB.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<CommonTvSeries3>>> GetTvAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonTvSeries3>>> GetTvSeriesAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
 }

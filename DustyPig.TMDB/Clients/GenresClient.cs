@@ -16,7 +16,7 @@ internal class GenresClient : IGenres
     /// <summary>
     /// Get the list of official genres for movies.
     /// </summary>
-    public Task<Response<GenreList>> GetMovieListAsync(string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<GenreList>> GetMoviesAsync(string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -29,7 +29,7 @@ internal class GenresClient : IGenres
     /// <summary>
     /// Get the list of official genres for TV shows.
     /// </summary>
-    public Task<Response<GenreList>> GetTvListAsync(string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<GenreList>> GetTvSeriesAsync(string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

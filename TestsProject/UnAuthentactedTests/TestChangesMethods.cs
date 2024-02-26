@@ -7,38 +7,38 @@ public class TestChangesMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMovieList()
+    public async Task GetMovies()
     {
         int page = 1;
         DateOnly? startDate = DateOnly.FromDateTime(DateTime.Today.AddMonths(-1));
         DateOnly? endDate = null;
 
-        await ClientFactory.GetClient().Endpoints.Changes.GetMovieListAsync(page, endDate, startDate);
+        await ClientFactory.GetClient().Endpoints.Changes.GetMoviesAsync(page, endDate, startDate);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetPeopleList()
+    public async Task GetPeople()
     {
         int page = 1;
         DateOnly? startDate = DateOnly.FromDateTime(DateTime.Today.AddMonths(-1));
         DateOnly? endDate = null;
 
-        await ClientFactory.GetClient().Endpoints.Changes.GetPeopleListAsync(page, endDate, startDate);
+        await ClientFactory.GetClient().Endpoints.Changes.GetPeopleAsync(page, endDate, startDate);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvSeriesList()
+    public async Task GetTvSeries()
     {
         int page = 1;
         DateOnly? startDate = DateOnly.FromDateTime(DateTime.Today.AddMonths(-1));
         DateOnly? endDate = null;
 
-        await ClientFactory.GetClient().Endpoints.Changes.GetTvListAsync(page, endDate, startDate);
+        await ClientFactory.GetClient().Endpoints.Changes.GetTvSeriesAsync(page, endDate, startDate);
     }
 }

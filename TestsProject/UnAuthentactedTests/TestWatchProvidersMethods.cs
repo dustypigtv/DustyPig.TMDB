@@ -30,11 +30,11 @@ public class TestWatchProvidersMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvProviders()
+    public async Task GetTvSeriesProviders()
     {
         string language = Constants.Language;
         string watchRegion = null;
 
-        await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvProvidersAsync(language, watchRegion);
+        await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvSeriesProvidersAsync(language, watchRegion);
     }
 }

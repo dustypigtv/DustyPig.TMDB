@@ -60,7 +60,7 @@ public class TestGuestSessionsMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await client.Endpoints.GuestSessions.GetRatedTvAsync(guestSessionId, page, language, sortBy);
+        await client.Endpoints.GuestSessions.GetRatedTvSeriesAsync(guestSessionId, page, language, sortBy);
     }
 
 

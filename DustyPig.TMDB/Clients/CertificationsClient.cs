@@ -18,6 +18,6 @@ internal class CertificationsClient : ICertifications
     public Task<Response<CertificationsList>> GetMovieCertificationsAsync(CancellationToken cancellationToken = default) =>
         _client.GetAsync<CertificationsList>("/3/certification/movie/list", null, cancellationToken);
 
-    public Task<Response<CertificationsList>> GetTvCertificationsAsync(CancellationToken cancellationToken = default) =>
+    public Task<Response<CertificationsList>> GetTvSeriesCertificationsAsync(CancellationToken cancellationToken = default) =>
         _client.GetAsync<CertificationsList>("/3/certification/tv/list", null, cancellationToken);
 }

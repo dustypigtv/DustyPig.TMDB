@@ -30,7 +30,7 @@ public class TestListsMethods
         };
 
         await client.Endpoints.Lists.AddMovieAsync(mediaObjectId, listId, sessionId);
-        await client.Endpoints.Lists.GetCheckItemStatusAsync(listId, Constants.Language, Constants.MOVIE_ID);
+        await client.Endpoints.Lists.CheckItemStatusAsync(listId, Constants.Language, Constants.MOVIE_ID);
         await client.Endpoints.Lists.GetDetailsAsync(listId, 1, Constants.Language);
         await client.Endpoints.Lists.RemoveMovieAsync(mediaObjectId, listId, sessionId);
         await client.Endpoints.Lists.ClearAsync(listId, true, sessionId);

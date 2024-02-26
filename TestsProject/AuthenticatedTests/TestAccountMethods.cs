@@ -78,7 +78,7 @@ public class TestAccountMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetFavoriteTv()
+    public async Task GetFavoriteTvSeries()
     {
         int accountId = int.Parse(Environment.GetEnvironmentVariable("TMDB_API_ACCOUNT_ID"));
         string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
@@ -87,7 +87,7 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetFavoriteTvAsync(accountId, page, language, sessionId, sortBy);
+        await ClientFactory.GetClient().Endpoints.Account.GetFavoriteTvSeriesAsync(accountId, page, language, sessionId, sortBy);
     }
 
 
@@ -123,7 +123,7 @@ public class TestAccountMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetRatedTv()
+    public async Task GetRatedTvSeries()
     {
         int accountId = int.Parse(Environment.GetEnvironmentVariable("TMDB_API_ACCOUNT_ID"));
         string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
@@ -132,7 +132,7 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetRatedTvAsync(accountId, page, language, sessionId, sortBy);
+        await ClientFactory.GetClient().Endpoints.Account.GetRatedTvSeriesAsync(accountId, page, language, sessionId, sortBy);
     }
 
 
@@ -171,7 +171,7 @@ public class TestAccountMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetWatchlistTv()
+    public async Task GetWatchlistTvSeries()
     {
         int accountId = int.Parse(Environment.GetEnvironmentVariable("TMDB_API_ACCOUNT_ID"));
         string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
@@ -180,6 +180,6 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetWatchlistTvAsync(accountId, page, language, sessionId, sortBy);
+        await ClientFactory.GetClient().Endpoints.Account.GetWatchlistTvSeriesAsync(accountId, page, language, sessionId, sortBy);
     }
 }

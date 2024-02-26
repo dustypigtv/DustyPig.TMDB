@@ -8,12 +8,12 @@ public class TestFindMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetById()
+    public async Task ById()
     {
         string externalId = "tt0848228";
         Externalsource externalSource = Externalsource.ImdbId;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Find.GetByIdAsync(externalId, externalSource, language);
+        await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
     }
 }

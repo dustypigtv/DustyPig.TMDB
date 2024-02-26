@@ -109,11 +109,11 @@ public class TestPeopleMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvCredits()
+    public async Task GetTvSeriesCredits()
     {
         int personId = Constants.PERSON_ID;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.People.GetTvCreditsAsync(personId, language);
+        await ClientFactory.GetClient().Endpoints.People.GetTvSeriesCreditsAsync(personId, language);
     }
 }

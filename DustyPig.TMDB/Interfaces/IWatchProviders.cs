@@ -20,5 +20,5 @@ public interface IWatchProviders
     /// <summary>
     /// Get the list of streaming providers we have for TV shows.
     /// </summary>
-    public Task<Response<ListResult<Provider>>> GetTvProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default);
+    public Task<Response<ListResult<Provider>>> GetTvSeriesProvidersAsync(string language = "en-US", string watchRegion = null, CancellationToken cancellationToken = default);
 }

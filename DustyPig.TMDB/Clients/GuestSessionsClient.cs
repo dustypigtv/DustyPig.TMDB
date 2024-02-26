@@ -31,7 +31,7 @@ internal class GuestSessionsClient : IGuestSessions
     /// <summary>
     /// Get the rated TV shows for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedTvSeries>>> GetRatedTvAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonRatedTvSeries>>> GetRatedTvSeriesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

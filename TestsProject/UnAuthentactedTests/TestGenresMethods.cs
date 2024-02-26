@@ -7,21 +7,21 @@ public class TestGenresMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMovieList()
+    public async Task GetMovies()
     {
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Genres.GetMovieListAsync(language);
+        await ClientFactory.GetClient().Endpoints.Genres.GetMoviesAsync(language);
     }
 
 
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvList()
+    public async Task GetTvSeries()
     {
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Genres.GetTvListAsync(language);
+        await ClientFactory.GetClient().Endpoints.Genres.GetTvSeriesAsync(language);
     }
 }

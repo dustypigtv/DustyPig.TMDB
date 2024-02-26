@@ -9,7 +9,7 @@ public class TestDiscoverMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetMovie()
+    public async Task Movies()
     {
         int page = 1;
         string certification = null;
@@ -56,7 +56,7 @@ public class TestDiscoverMethods
             MovieReleaseTypes? withReleaseORType = null;
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
-            await ClientFactory.GetClient().Endpoints.Discover.GetMovieAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
+            await ClientFactory.GetClient().Endpoints.Discover.MoviesAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
         }
 
         foreach (var withReleaseORType in movieReleaseTypes)
@@ -64,7 +64,7 @@ public class TestDiscoverMethods
             MovieReleaseTypes? withReleaseANDType = null;
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
-            await ClientFactory.GetClient().Endpoints.Discover.GetMovieAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
+            await ClientFactory.GetClient().Endpoints.Discover.MoviesAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
         }
 
         foreach (var withWatchMonetizationANDTypes in watchMonetizationTypes)
@@ -72,7 +72,7 @@ public class TestDiscoverMethods
             MovieReleaseTypes? withReleaseANDType = null;
             MovieReleaseTypes? withReleaseORType = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
-            await ClientFactory.GetClient().Endpoints.Discover.GetMovieAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
+            await ClientFactory.GetClient().Endpoints.Discover.MoviesAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
         }
 
         foreach (var withWatchMonetizationORTypes in watchMonetizationTypes)
@@ -80,7 +80,7 @@ public class TestDiscoverMethods
             MovieReleaseTypes? withReleaseANDType = null;
             MovieReleaseTypes? withReleaseORType = null;
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
-            await ClientFactory.GetClient().Endpoints.Discover.GetMovieAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
+            await ClientFactory.GetClient().Endpoints.Discover.MoviesAsync(page, certification, certificationCountry, certificationGte, certificationLte, includeAdult, includeVideo, language, primaryReleaseDateGte, primaryReleaseDateLte, primaryReleaseYear, region, releaseDateGte, releaseDateLte, sortBy, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCast, withCompanies, withCrew, withGenres, withKeywords, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withPeople, withReleaseANDType, withReleaseORType, withRuntimeGte, withRuntimeLte, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders, year);
         }
     }
 
@@ -88,7 +88,7 @@ public class TestDiscoverMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvSeries()
+    public async Task TvSeries()
     {
         int page = 1;
         DateOnly? airDateGte = null;
@@ -133,7 +133,7 @@ public class TestDiscoverMethods
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
-            await ClientFactory.GetClient().Endpoints.Discover.GetTvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
+            await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
         }
 
         foreach (var withORStatus in tvSeriesStatuses)
@@ -144,7 +144,7 @@ public class TestDiscoverMethods
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
-            await ClientFactory.GetClient().Endpoints.Discover.GetTvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
+            await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
         }
 
         foreach (var withANDType in tvSeriesTypes)
@@ -155,7 +155,7 @@ public class TestDiscoverMethods
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
-            await ClientFactory.GetClient().Endpoints.Discover.GetTvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
+            await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
         }
 
         foreach (var withORType in tvSeriesTypes)
@@ -166,7 +166,7 @@ public class TestDiscoverMethods
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
-            await ClientFactory.GetClient().Endpoints.Discover.GetTvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
+            await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
         }
 
         foreach (var withWatchMonetizationANDTypes in watchMonetizationTypes)
@@ -177,7 +177,7 @@ public class TestDiscoverMethods
             CommonTvSeriesTypes? withORType = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
-            await ClientFactory.GetClient().Endpoints.Discover.GetTvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
+            await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
         }
 
         foreach (var withWatchMonetizationANDTypes in watchMonetizationTypes)
@@ -188,7 +188,7 @@ public class TestDiscoverMethods
             CommonTvSeriesTypes? withORType = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
-            await ClientFactory.GetClient().Endpoints.Discover.GetTvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
+            await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
         }
     }
 }

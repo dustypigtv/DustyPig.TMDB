@@ -30,7 +30,7 @@ internal class ListsClient : ILists
     /// <summary>
     /// Use this method to check if an item has already been added to the list.
     /// </summary>
-    public Task<Response<ItemStatus>> GetCheckItemStatusAsync(int listId, string language = "en-US", int? movieId = null, CancellationToken cancellationToken = default)
+    public Task<Response<ItemStatus>> CheckItemStatusAsync(int listId, string language = "en-US", int? movieId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

@@ -16,8 +16,8 @@ public class TestCertificationsMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTvCertifications()
+    public async Task GetTvSeriesCertifications()
     {
-        await ClientFactory.GetClient().Endpoints.Certifications.GetTvCertificationsAsync();
+        await ClientFactory.GetClient().Endpoints.Certifications.GetTvSeriesCertificationsAsync();
     }
 }

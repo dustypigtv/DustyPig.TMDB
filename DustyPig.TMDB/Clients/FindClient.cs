@@ -16,7 +16,7 @@ internal class FindClient : IFind
     /// <summary>
     /// Find data by external ID&#39;s.
     /// </summary>
-    public Task<Response<MovieList>> GetByIdAsync(string externalId, Externalsource externalSource, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<MovieList>> ByIdAsync(string externalId, Externalsource externalSource, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

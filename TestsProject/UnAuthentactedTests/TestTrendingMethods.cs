@@ -44,11 +44,11 @@ public class TestTrendingMethods
 
     [TestMethod]
     [DoNotParallelize]
-    public async Task GetTv()
+    public async Task GetTvSeries()
     {
         Timewindow timeWindow = Timewindow.Day;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Trending.GetTvAsync(timeWindow, language);
+        await ClientFactory.GetClient().Endpoints.Trending.GetTvSeriesAsync(timeWindow, language);
     }
 }

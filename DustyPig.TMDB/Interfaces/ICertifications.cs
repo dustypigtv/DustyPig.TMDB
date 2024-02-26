@@ -11,5 +11,5 @@ public interface ICertifications
     /// </summary>
     public Task<Response<CertificationsList>> GetMovieCertificationsAsync(CancellationToken cancellationToken = default);
 
-    public Task<Response<CertificationsList>> GetTvCertificationsAsync(CancellationToken cancellationToken = default);
+    public Task<Response<CertificationsList>> GetTvSeriesCertificationsAsync(CancellationToken cancellationToken = default);
 }
