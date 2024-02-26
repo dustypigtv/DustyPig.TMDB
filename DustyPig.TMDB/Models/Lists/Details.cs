@@ -16,7 +16,7 @@ public class Details
     public int FavoriteCount { get; set; }
 
     [JsonPropertyName("id")]
-    public string Id { get; set; }
+    public int Id { get; set; }
 
     [JsonPropertyName("items")]
     public List<CommonMedia> Items { get; set; } = [];
