@@ -43,6 +43,20 @@ internal class TvEpisodesClient : ITvEpisodes
     }
 
     /// <summary>
+    /// Delete your rating on a TV episode.
+    /// </summary>
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    {
+        var queryParams = new Dictionary<string, object>
+        {
+            { "guest_session_id", guestSessionId },
+            { "session_id", sessionId }
+        };
+
+        return _client.DeleteAsync<CommonStatus>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, cancellationToken);
+    }
+
+    /// <summary>
     /// Get the recent changes for a TV episode.
     /// </summary>
     public Task<Response<ChangeList>> GetChangesAsync(int episodeId, CancellationToken cancellationToken = default) =>

@@ -18,6 +18,11 @@ public interface ITvEpisodes
     public Task<Response<CommonStatus>> AddRatingAsync(CommonValue1 postData, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
+    /// Delete your rating on a TV episode.
+    /// </summary>
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// Get the recent changes for a TV episode.
     /// </summary>
     public Task<Response<ChangeList>> GetChangesAsync(int episodeId, CancellationToken cancellationToken = default);
