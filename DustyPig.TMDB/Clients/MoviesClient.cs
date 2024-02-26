@@ -44,6 +44,21 @@ internal class MoviesClient : IMovies
     }
 
     /// <summary>
+    /// Delete a user rating.
+    /// </summary>
+    /// <returns></returns>
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    {
+        var queryParams = new Dictionary<string, object>
+        {
+            { "guest_session_id", guestSessionId },
+            { "session_id", sessionId }
+        };
+
+        return _client.DeleteAsync<CommonStatus>($"/3/movie/{movieId}/rating", queryParams, cancellationToken);
+    }
+
+    /// <summary>
     /// Get the alternative titles for a movie.
     /// </summary>
     /// <param name="country">specify a ISO-3166-1 value to filter the results</param>

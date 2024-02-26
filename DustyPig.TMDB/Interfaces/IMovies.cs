@@ -19,6 +19,12 @@ public interface IMovies
     public Task<Response<CommonStatus>> AddRatingAsync(CommonValue1 postData, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
+    /// Delete a user rating.
+    /// </summary>
+    /// <returns></returns>
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// Get the alternative titles for a movie.
     /// </summary>
     /// <param name="country">specify a ISO-3166-1 value to filter the results</param>
