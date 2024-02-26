@@ -22,17 +22,12 @@ public class TestListsMethods
         };
         var createListResponse = await client.Endpoints.Lists.CreateAsync(createRequest, sessionId);
         var listId = createListResponse.Data.ListId;
+        var movieId = Constants.MOVIE_ID;
 
-
-        var mediaObjectId = new MediaIdObject
-        {
-            MediaId = Constants.MOVIE_ID
-        };
-
-        await client.Endpoints.Lists.AddMovieAsync(mediaObjectId, listId, sessionId);
+        await client.Endpoints.Lists.AddMovieAsync(movieId, listId, sessionId);
         await client.Endpoints.Lists.CheckItemStatusAsync(listId, Constants.Language, Constants.MOVIE_ID);
         await client.Endpoints.Lists.GetDetailsAsync(listId, 1, Constants.Language);
-        await client.Endpoints.Lists.RemoveMovieAsync(mediaObjectId, listId, sessionId);
+        await client.Endpoints.Lists.RemoveMovieAsync(movieId, listId, sessionId);
         await client.Endpoints.Lists.ClearAsync(listId, true, sessionId);
         await client.Endpoints.Lists.DeleteAsync(listId, sessionId);
     }

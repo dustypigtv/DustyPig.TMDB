@@ -17,12 +17,14 @@ internal class ListsClient : ILists
     /// <summary>
     /// Add a movie to a list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddMovieAsync(MediaIdObject postData, int listId, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> AddMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "session_id", sessionId }
         };
+
+        var postData = new MediaIdObject(movieId);
 
         return _client.PostAsync<CommonStatus>($"/3/list/{listId}/add_item", queryParams, postData, cancellationToken);
     }
@@ -92,12 +94,14 @@ internal class ListsClient : ILists
     /// <summary>
     /// Remove a movie from a list.
     /// </summary>
-    public Task<Response<CommonStatus>> RemoveMovieAsync(MediaIdObject postData, int listId, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> RemoveMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "session_id", sessionId }
         };
+
+        var postData = new MediaIdObject(movieId);
 
         return _client.PostAsync<CommonStatus>($"/3/list/{listId}/remove_item", queryParams, postData, cancellationToken);
     }

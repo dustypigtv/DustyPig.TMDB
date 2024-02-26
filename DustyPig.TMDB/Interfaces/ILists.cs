@@ -10,7 +10,7 @@ public interface ILists
     /// <summary>
     /// Add a movie to a list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddMovieAsync(MediaIdObject postData, int listId, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Use this method to check if an item has already been added to the list.
@@ -34,5 +34,5 @@ public interface ILists
     /// <summary>
     /// Remove a movie from a list.
     /// </summary>
-    public Task<Response<CommonStatus>> RemoveMovieAsync(MediaIdObject postData, int listId, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> RemoveMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default);
 }
