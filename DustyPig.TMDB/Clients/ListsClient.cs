@@ -48,7 +48,7 @@ internal class ListsClient : ILists
     {
         var queryParams = new Dictionary<string, object>
         {
-            { "confirm", confirm },
+            { "confirm", confirm.ToString().ToLower() },
             { "session_id", sessionId }
         };
 
