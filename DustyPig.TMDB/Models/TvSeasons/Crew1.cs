@@ -10,7 +10,7 @@ public class Crew1
     public bool Adult { get; set; }
 
     [JsonPropertyName("gender")]
-    public int Gender { get; set; }
+    public CommonGender Gender { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

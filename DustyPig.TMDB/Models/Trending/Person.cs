@@ -27,7 +27,7 @@ public class Person
     public float Popularity { get; set; }
 
     [JsonPropertyName("gender")]
-    public int Gender { get; set; }
+    public CommonGender Gender { get; set; }
 
     [JsonPropertyName("known_for_department")]
     public string KnownForDepartment { get; set; }

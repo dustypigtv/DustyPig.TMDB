@@ -1,3 +1,4 @@
+using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
@@ -11,7 +12,7 @@ public class Latest
     public string Biography { get; set; }
 
     [JsonPropertyName("gender")]
-    public int Gender { get; set; }
+    public CommonGender Gender { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

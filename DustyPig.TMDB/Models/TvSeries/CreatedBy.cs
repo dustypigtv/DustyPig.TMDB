@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
@@ -14,7 +15,7 @@ public class CreatedBy
     public string Name { get; set; }
 
     [JsonPropertyName("gender")]
-    public int Gender { get; set; }
+    public CommonGender Gender { get; set; }
 
     [JsonPropertyName("profile_path")]
     public string ProfilePath { get; set; }

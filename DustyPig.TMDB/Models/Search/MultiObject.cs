@@ -19,7 +19,7 @@ public class MultiObject
     public DateOnly? FirstAirDate { get; set; }
 
     [JsonPropertyName("gender")]
-    public int Gender { get; set; }
+    public CommonGender Gender { get; set; }
 
     [JsonPropertyName("genre_ids")]
     public List<int> GenreIds { get; set; } = [];

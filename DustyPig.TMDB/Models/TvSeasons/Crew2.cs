@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeasons;
 
@@ -8,7 +9,7 @@ public class Crew2
     public bool Adult { get; set; }
 
     [JsonPropertyName("gender")]
-    public int Gender { get; set; }
+    public CommonGender Gender { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
