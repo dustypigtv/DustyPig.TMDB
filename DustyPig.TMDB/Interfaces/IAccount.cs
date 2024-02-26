@@ -11,7 +11,7 @@ public interface IAccount
 
     public Task<Response<CommonStatus>> AddToWatchlistAsync(AddToWatchlist postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<Details>> GetDetailsAsync(int accountId, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetDetailsAsync(string sessionId = null, CancellationToken cancellationToken = default);
 
     public Task<Response<PagedResult<CommonMovie>>> GetFavoriteMoviesAsync(int accountId, int page = 1, string language = "en-US", string sessionId = null, CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default);
 

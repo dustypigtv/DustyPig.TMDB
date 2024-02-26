@@ -30,8 +30,8 @@ internal class AuthenticationClient : IAuthentication
     public Task<Response<TokenResponse>> CreateSessionWithLoginAsync(CreateSessionWithLoginRequest postData, CancellationToken cancellationToken = default) =>
         _client.PostAsync<TokenResponse>("/3/authentication/token/validate_with_login", null, postData, cancellationToken);
 
-    public Task<Response<DeleteSessionResponse>> DeleteSessionAsync(CancellationToken cancellationToken = default) =>
-        _client.DeleteAsync<DeleteSessionResponse>("/3/authentication/session", null, cancellationToken);
+    public Task<Response<DeleteSessionResponse>> DeleteSessionAsync(DeleteSessionRequest deleteSessionRequest, CancellationToken cancellationToken = default) =>
+        _client.DeleteAsync<DeleteSessionResponse>("/3/authentication/session", null, deleteSessionRequest, cancellationToken);
 
     /// <summary>
     /// Test your API Key to see if it&#39;s valid.
