@@ -2,8 +2,12 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonValue1
+internal class FloatValueWrapper
 {
+    public FloatValueWrapper() { }
+
+    public FloatValueWrapper(float value) => Value = value;
+
     [JsonPropertyName("value")]
     public float Value { get; set; }
 }

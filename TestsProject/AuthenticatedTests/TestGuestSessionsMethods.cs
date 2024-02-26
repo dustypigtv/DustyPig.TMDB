@@ -18,14 +18,11 @@ public class TestGuestSessionsMethods
         var createSessionResponse = await client.Endpoints.Authentication.GetCreateGuestSessionAsync();
         var guestSessionId = createSessionResponse.Data.GuestSessionId;
 
-        CommonValue1 postData = new()
-        {
-            Value = 10
-        };
+        float rating = 10;
         int movieId = Constants.MOVIE_ID;
         string sessionId = null;
 
-        await client.Endpoints.Movies.AddRatingAsync(postData, movieId, guestSessionId, sessionId);
+        await client.Endpoints.Movies.AddRatingAsync(rating, movieId, guestSessionId, sessionId);
         await Task.Delay(10_000); //These take a while to propegate for guest sessions
 
         int page = 1;
@@ -44,15 +41,12 @@ public class TestGuestSessionsMethods
         var client = ClientFactory.GetClient();
         var createSessionResponse = await client.Endpoints.Authentication.GetCreateGuestSessionAsync();
         var guestSessionId = createSessionResponse.Data.GuestSessionId;
-        
-        CommonValue1 postData = new()
-        {
-            Value = 10
-        };
+
+        float rating = 10;
         int seriesId = Constants.TV_SERIES_ID;
         string sessionId = null;
 
-        await client.Endpoints.TvSeries.AddRatingAsync(postData, seriesId, guestSessionId, sessionId);
+        await client.Endpoints.TvSeries.AddRatingAsync(rating, seriesId, guestSessionId, sessionId);
         await Task.Delay(10_000); //These take a while to propegate for guest sessions
 
 
@@ -72,17 +66,14 @@ public class TestGuestSessionsMethods
         var client = ClientFactory.GetClient();
         var createSessionResponse = await client.Endpoints.Authentication.GetCreateGuestSessionAsync();
         var guestSessionId = createSessionResponse.Data.GuestSessionId;
-        
-        CommonValue1 postData = new()
-        {
-            Value = 10
-        };
+
+        float rating = 10;
         int episodeNumber = 1;
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
         string sessionId = null;
 
-        await client.Endpoints.TvEpisodes.AddRatingAsync(postData, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
+        await client.Endpoints.TvEpisodes.AddRatingAsync(rating, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
         await Task.Delay(10_000); //These take a while to propegate for guest sessions
 
 

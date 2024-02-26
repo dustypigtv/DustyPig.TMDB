@@ -26,16 +26,13 @@ public class TestTvEpisodesMethods
     {
         string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
 
-        CommonValue1 postData = new()
-        {
-            Value = 10
-        };
+        float rating = 10;
         int episodeNumber = 1;
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.AddRatingAsync(postData, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
+        await ClientFactory.GetClient().Endpoints.TvEpisodes.AddRatingAsync(rating, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
     }
 
     [TestMethod]

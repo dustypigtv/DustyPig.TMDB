@@ -26,14 +26,11 @@ public class TestMoviesMethods
     {
         string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
 
-        CommonValue1 postData = new()
-        {
-            Value = 10
-        };
+        float rating = 10;
         int movieId = Constants.MOVIE_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.Movies.AddRatingAsync(postData, movieId, guestSessionId, sessionId);
+        await ClientFactory.GetClient().Endpoints.Movies.AddRatingAsync(rating, movieId, guestSessionId, sessionId);
     }
 
 

@@ -16,7 +16,7 @@ public interface ITvSeries
     /// <summary>
     /// Rate a TV show and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(CommonValue1 postData, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     public Task<Response<CommonStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 

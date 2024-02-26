@@ -16,7 +16,7 @@ public interface IMovies
     /// <summary>
     /// Rate a movie and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(CommonValue1 postData, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Delete a user rating.
