@@ -29,7 +29,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DustyPig.REST" Version="3.4.0.27" />
+		<PackageReference Include="DustyPig.REST" Version="3.4.0.28" />
 	</ItemGroup>
 	
 </Project>
