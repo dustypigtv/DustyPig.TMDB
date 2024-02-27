@@ -21,17 +21,16 @@ public class Client : IDisposable
     public const string VERSION = "v3";
     public const string VERSION_AS_OF_DATE = "2024-02-17";
     private const string API_BASE_ADDRESS = "https://api.themoviedb.org";
-
+    
+    
+    private const string AUTHORIZATION_HEADER = "Authorization";
+    private const string BEARER_PREFIX = "Bearer ";
+    private const string API_KEY_QUERY_PARAM = "api_key";
 
     private static readonly JsonSerializerOptions _jsonSerializerOptions = new(JsonSerializerDefaults.Web);
 
+    private readonly REST.Client _restClient = new(API_BASE_ADDRESS);
 
-
-    private readonly REST.Client _restClient = new(new Uri(API_BASE_ADDRESS))
-    {
-        RetryCount = 9,
-        RetryDelay = 100
-    };
 
     private AuthTypes _authType = AuthTypes.None;
     private string _authKey = null;
@@ -63,17 +62,33 @@ public class Client : IDisposable
         set => _restClient.IncludeRawContentInResponse = value;
     }
 
+    /// <summary>
+    /// Use in environments witch high call counts
+    /// </summary>
     public int RetryCount
     {
         get => _restClient.RetryCount;
         set => _restClient.RetryCount = value;
     }
 
+    /// <summary>
+    /// Use in environments witch high call counts
+    /// </summary>
     public int RetryDelay
     {
         get => _restClient.RetryDelay;
         set => _restClient.RetryDelay = value;
     }
+
+    /// <summary>
+    /// Use in environments witch high call counts
+    /// </summary>
+    public int Throttle
+    {
+        get => _restClient.Throttle;
+        set => _restClient.Throttle = value;
+    }
+
 
     public AuthTypes AuthType => _authType;
 
@@ -111,9 +126,9 @@ public class Client : IDisposable
     {
         Dictionary<string, string> headers = [];
         if (_authType == AuthTypes.BearerToken)
-            headers.Add("Authorization", "Bearer " + _authKey);
+            headers.Add(AUTHORIZATION_HEADER, BEARER_PREFIX + _authKey);
         else
-            subUrl = AddQueryParameter(subUrl, "api_key", _authKey);
+            subUrl = AddQueryParameter(subUrl, API_KEY_QUERY_PARAM, _authKey);
         return _restClient.GetAsync<T>(AddQueryParameters(subUrl, queryParams), headers, cancellationToken);
     }
 
@@ -121,9 +136,9 @@ public class Client : IDisposable
     {
         Dictionary<string, string> headers = [];
         if (_authType == AuthTypes.BearerToken)
-            headers.Add("Authorization", "Bearer " + _authKey);
+            headers.Add(AUTHORIZATION_HEADER, BEARER_PREFIX + _authKey);
         else
-            subUrl = AddQueryParameter(subUrl, "api_key", _authKey);
+            subUrl = AddQueryParameter(subUrl, API_KEY_QUERY_PARAM, _authKey);
         return _restClient.PostAsync<T>(AddQueryParameters(subUrl, queryParams), data, headers, cancellationToken);
     }
 
@@ -131,9 +146,9 @@ public class Client : IDisposable
     {
         Dictionary<string, string> headers = [];
         if (_authType == AuthTypes.BearerToken)
-            headers.Add("Authorization", "Bearer " + _authKey);
+            headers.Add(AUTHORIZATION_HEADER, BEARER_PREFIX + _authKey);
         else
-            subUrl = AddQueryParameter(subUrl, "api_key", _authKey);
+            subUrl = AddQueryParameter(subUrl, API_KEY_QUERY_PARAM, _authKey);
         return _restClient.DeleteAsync<T>(AddQueryParameters(subUrl, queryParams), headers, data, cancellationToken);
     }
 
