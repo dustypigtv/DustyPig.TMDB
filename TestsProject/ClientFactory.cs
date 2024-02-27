@@ -15,6 +15,9 @@ static class ClientFactory
                 {
                     AutoThrowIfError = true,
                     IncludeRawContentInResponse = true,
+
+                    //My dev machine is behind a crappy proxy with connectivity issues.
+                    //This fixes it
                     RetryCount = 100,
                     RetryDelay = 1
                 };
