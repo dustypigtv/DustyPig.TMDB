@@ -13,7 +13,7 @@
 	<PropertyGroup>
 		<Authors>DustyPig.tv</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Description>TMDB apis used by DustyPig clients.</Description>
+		<Description>TMDB API Library</Description>
 		<Copyright>DustyPig.tv</Copyright>
 		<PackageProjectUrl>https://github.com/dustypigtv/DustyPig.TMDB</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/dustypigtv/DustyPig.TMDB.git</RepositoryUrl>
@@ -29,7 +29,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
+	
+	<ItemGroup>
 		<PackageReference Include="DustyPig.REST" Version="3.4.0.28" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	</ItemGroup>
 	
 </Project>
