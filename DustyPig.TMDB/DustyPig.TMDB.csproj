@@ -10,7 +10,7 @@
 
 	</PropertyGroup>
 
-	<PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
 		<Authors>DustyPig.tv</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Description>TMDB API Library</Description>
