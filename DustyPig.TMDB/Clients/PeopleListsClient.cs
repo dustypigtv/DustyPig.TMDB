@@ -1,4 +1,5 @@
-﻿using DustyPig.TMDB.Interfaces;
+﻿using DustyPig.REST;
+using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.PeopleLists;
 using System.Collections.Generic;

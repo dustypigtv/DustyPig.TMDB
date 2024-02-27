@@ -1,3 +1,4 @@
+using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ public class Client : IDisposable
 
 
 
-    private readonly RestClient _restClient = new(new Uri(API_BASE_ADDRESS))
+    private readonly REST.Client _restClient = new(new Uri(API_BASE_ADDRESS))
     {
         RetryCount = 9,
         RetryDelay = 100

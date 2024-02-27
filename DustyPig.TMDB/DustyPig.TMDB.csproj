@@ -17,5 +17,9 @@
 		<Version>3.3.0.0</Version>
 
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="DustyPig.REST" Version="3.3.0.21" />
+	</ItemGroup>
 	
 </Project>

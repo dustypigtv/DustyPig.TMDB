@@ -1,3 +1,4 @@
+using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Account;
 using DustyPig.TMDB.Models.Common;

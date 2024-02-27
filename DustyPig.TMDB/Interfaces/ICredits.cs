@@ -1,3 +1,4 @@
+using DustyPig.REST;
 using DustyPig.TMDB.Models.Credits;
 using System.Threading;
 using System.Threading.Tasks;

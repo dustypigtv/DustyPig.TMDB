@@ -1,3 +1,4 @@
+using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Genres;
 using System.Collections.Generic;
