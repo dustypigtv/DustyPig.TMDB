@@ -3,14 +3,6 @@
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<LangVersion>12</LangVersion>
-		<Authors>DustyPig.tv</Authors>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Description>TMDB apis used by DustyPig clients.</Description>
-		<Copyright>DustyPig.tv</Copyright>
-		<PackageProjectUrl>https://github.com/dustypigtv/DustyPig.TMDB</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/dustypigtv/DustyPig.TMDB.git</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>$(NoWarn);1591,1573</NoWarn>
 
 		<!-- Leave the revision zero, it will be updated by github actions -->
@@ -18,8 +10,26 @@
 
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<Authors>DustyPig.tv</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Description>TMDB apis used by DustyPig clients.</Description>
+		<Copyright>DustyPig.tv</Copyright>
+		<PackageProjectUrl>https://github.com/dustypigtv/DustyPig.TMDB</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/dustypigtv/DustyPig.TMDB.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+	</PropertyGroup>
+
 	<ItemGroup>
-	  <PackageReference Include="DustyPig.REST" Version="3.3.0.21" />
+		<PackageReference Include="DustyPig.REST" Version="3.4.0.27" />
 	</ItemGroup>
 	
 </Project>
