@@ -35,7 +35,7 @@ public class Latest
     public DateOnly? ReleaseDate { get; set; }
 
     [JsonPropertyName("revenue")]
-    public int Revenue { get; set; }
+    public long Revenue { get; set; }
 
     [JsonPropertyName("runtime")]
     public int Runtime { get; set; }
