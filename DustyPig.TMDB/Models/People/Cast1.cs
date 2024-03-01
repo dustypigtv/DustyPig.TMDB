@@ -23,8 +23,6 @@ public class Cast1
     [JsonPropertyName("original_language")]
     public string OriginalLanguage { get; set; }
 
-    [JsonPropertyName("original_title")]
-    public string OriginalTitle { get; set; }
 
     [JsonPropertyName("overview")]
     public string Overview { get; set; }
@@ -34,16 +32,6 @@ public class Cast1
 
     [JsonPropertyName("poster_path")]
     public string PosterPath { get; set; }
-
-    [JsonPropertyName("release_date")]
-    [JsonConverter(typeof(StringToDateOnlyConverter))]
-    public DateOnly? ReleaseDate { get; set; }
-
-    [JsonPropertyName("title")]
-    public string Title { get; set; }
-
-    [JsonPropertyName("video")]
-    public bool Video { get; set; }
 
     [JsonPropertyName("vote_average")]
     public float VoteAverage { get; set; }
@@ -57,10 +45,83 @@ public class Cast1
     [JsonPropertyName("credit_id")]
     public string CreditId { get; set; }
 
-    [JsonPropertyName("order")]
-    public int Order { get; set; }
-
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
     public CommonMediaTypes MediaType { get; set; }
+
+
+
+    #region Movie
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// </summary>
+    [JsonPropertyName("original_title")]
+    public string OriginalTitle { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// </summary>
+    [JsonPropertyName("order")]
+    public int? Order { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// </summary>
+    [JsonPropertyName("release_date")]
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? ReleaseDate { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// </summary>
+    [JsonPropertyName("title")]
+    public string Title { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// </summary>
+    [JsonPropertyName("video")]
+    public bool? Video { get; set; }
+
+    #endregion
+
+
+
+
+    #region TvSeries
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// </summary>
+    [JsonPropertyName("episode_count")]
+    public int? EpisodeCount { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// </summary>
+    [JsonPropertyName("first_air_date")]
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? FirstAirDate { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// </summary>
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// </summary>
+    [JsonPropertyName("origin_country")]
+    public List<string> OriginCountry { get; set; } = [];
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// </summary>
+    [JsonPropertyName("original_name")]
+    public string OriginalName { get; set; }
+
+    #endregion
+
 }
