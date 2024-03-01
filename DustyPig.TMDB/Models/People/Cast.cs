@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class Crew1
+public class Cast
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
@@ -38,18 +38,16 @@ public class Crew1
     [JsonPropertyName("vote_count")]
     public int VoteCount { get; set; }
 
+    [JsonPropertyName("character")]
+    public string Character { get; set; }
+
     [JsonPropertyName("credit_id")]
     public string CreditId { get; set; }
-
-    [JsonPropertyName("department")]
-    public string Department { get; set; }
-
-    [JsonPropertyName("job")]
-    public string Job { get; set; }
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
     public CommonMediaTypes MediaType { get; set; }
+
 
 
     #region Movie
@@ -59,6 +57,12 @@ public class Crew1
     /// </summary>
     [JsonPropertyName("original_title")]
     public string OriginalTitle { get; set; }
+
+    /// <summary>
+    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// </summary>
+    [JsonPropertyName("order")]
+    public int? Order { get; set; }
 
     /// <summary>
     /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
@@ -80,6 +84,7 @@ public class Crew1
     public bool? Video { get; set; }
 
     #endregion
+
 
 
 
@@ -117,4 +122,5 @@ public class Crew1
     public string OriginalName { get; set; }
 
     #endregion
+
 }
