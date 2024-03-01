@@ -14,12 +14,7 @@ static class ClientFactory
             _client ??= new(Client.AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"))
                 {
                     AutoThrowIfError = true,
-                    IncludeRawContentInResponse = true,
-
-                    //My dev machine is behind a crappy proxy with connectivity issues.
-                    //This fixes it
-                    RetryCount = 100,
-                    RetryDelay = 1
+                    IncludeRawContentInResponse = true
                 };
         }
         return _client;
