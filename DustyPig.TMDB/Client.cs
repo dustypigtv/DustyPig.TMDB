@@ -2,6 +2,7 @@ using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ public class Client : IDisposable
 
     private static readonly JsonSerializerOptions _jsonSerializerOptions = new(JsonSerializerDefaults.Web);
 
-    private readonly REST.Client _restClient = new(API_BASE_ADDRESS);
+    private readonly REST.Client _restClient;
 
 
     private AuthTypes _authType = AuthTypes.None;
@@ -37,9 +38,35 @@ public class Client : IDisposable
 
 
 
-    public Client() { }
+    /// <summary>
+    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. When using this constructor, <see cref="Dispose"/> should be called.
+    /// </summary>
+    public Client() 
+    {
+        _restClient = new() { BaseAddress = new(API_BASE_ADDRESS) };
+    }
 
-    public Client(AuthTypes authType, string authKey) => SetAuth(authType, authKey);
+    /// <summary>
+    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. When using this constructor, <see cref="Dispose"/> should be called.
+    /// </summary>
+    public Client(AuthTypes authType, string authKey) : this() => SetAuth(authType, authKey);
+
+
+    /// <summary
+    /// Creates a configurtion that uses a shared <see cref="HttpClient"/>
+    /// </summary
+    /// <param name="httpClient">The shared <see cref="HttpClient"/> this REST configuration should use</param>
+    public Client(HttpClient httpClient) => _restClient = new(httpClient) { BaseAddress = new(API_BASE_ADDRESS) };
+
+
+    /// <summary
+    /// Creates a configurtion that uses a shared <see cref="HttpClient"/>
+    /// </summary
+    /// <param name="httpClient">The shared <see cref="HttpClient"/> this REST configuration should use</param>
+    public Client(HttpClient httpClient, AuthTypes authType, string authKey) : this(httpClient) => SetAuth(authType, authKey);
+
+
+
 
 
     public void Dispose()
