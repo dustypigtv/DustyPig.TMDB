@@ -28,8 +28,6 @@ public class Client : IDisposable
     private const string BEARER_PREFIX = "Bearer ";
     private const string API_KEY_QUERY_PARAM = "api_key";
 
-    private static readonly JsonSerializerOptions _jsonSerializerOptions = new(JsonSerializerDefaults.Web);
-
     private readonly REST.Client _restClient;
 
 
