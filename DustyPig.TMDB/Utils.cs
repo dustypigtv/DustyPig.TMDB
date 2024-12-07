@@ -72,6 +72,8 @@ public static class Utils
     {
         if (DateTime.TryParse(self, out DateTime dateTime))
             return dateTime;
+        if(DateTime.TryParse(self.Replace("UTC", "-00:00"), out dateTime))
+            return dateTime;
         return null;
     }
 
