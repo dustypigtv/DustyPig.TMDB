@@ -93,6 +93,16 @@ public class TestAccountMethods
 
     [TestMethod]
     [DoNotParallelize]
+    public async Task GetDetails()
+    {
+        string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
+        await ClientFactory.GetClient().Endpoints.Account.GetDetailsAsync(sessionId);
+    }
+
+
+
+    [TestMethod]
+    [DoNotParallelize]
     public async Task GetLists()
     {
         int accountId = int.Parse(Environment.GetEnvironmentVariable("TMDB_API_ACCOUNT_ID"));
