@@ -63,7 +63,7 @@ public class TestAuthenticationMethods
 
 
 
-    //Test this maually
+    ////Test this maually
     //[TestMethod]
     //[DoNotParallelize]
     //public async Task CreateSessionWithLogin()
@@ -105,6 +105,6 @@ public class TestAuthenticationMethods
     [DoNotParallelize]
     public async Task ValidateKey()
     {
-        await ClientFactory.GetClient().Endpoints.Authentication.GetValidateKeyAsync();
+        await ClientFactory.GetClient().Endpoints.Authentication.ValidateKeyAsync();
     }
 }

@@ -147,6 +147,16 @@ public class Client : IDisposable
         return subUrl;
     }
 
+    internal Task<Response> GetAsync(string subUrl, IReadOnlyDictionary<string, object> queryParams, CancellationToken cancellationToken)
+    {
+        Dictionary<string, string> headers = [];
+        if (_authType == AuthTypes.BearerToken)
+            headers.Add(AUTHORIZATION_HEADER, BEARER_PREFIX + _authKey);
+        else
+            subUrl = AddQueryParameter(subUrl, API_KEY_QUERY_PARAM, _authKey);
+        return _restClient.GetAsync(AddQueryParameters(subUrl, queryParams), headers, cancellationToken);
+    }
+
     internal Task<Response<T>> GetAsync<T>(string subUrl, IReadOnlyDictionary<string, object> queryParams, CancellationToken cancellationToken)
     {
         Dictionary<string, string> headers = [];

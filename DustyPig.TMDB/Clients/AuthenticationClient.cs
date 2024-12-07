@@ -37,6 +37,6 @@ internal class AuthenticationClient : IAuthentication
     /// <summary>
     /// Test your API Key to see if it&#39;s valid.
     /// </summary>
-    public Task<Response<ValidateKey>> GetValidateKeyAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ValidateKey>("/3/authentication", null, cancellationToken);
+    public Task<Response> ValidateKeyAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync("/3/authentication", null, cancellationToken);
 }
