@@ -29,8 +29,8 @@ public class CommonItem
     public string CountryCode { get; set; }
 
     [JsonPropertyName("value")]
-    public CommonPoster2Wrapper Value { get; set; }
+    public System.Text.Json.JsonElement Value { get; set; }
 
     [JsonPropertyName("original_value")]
-    public CommonPoster2Wrapper OriginalValue { get; set; }
+    public System.Text.Json.JsonElement OriginalValue { get; set; }
 }
