@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Find;
 
-public class EpisodeResult
+public class FindEpisodeResult
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
