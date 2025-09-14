@@ -8,12 +8,38 @@ public class TestFindMethods
 {
     [TestMethod]
     [DoNotParallelize]
-    public async Task ById()
+    public async Task ByMovieImdbId()
     {
-        string externalId = "tt0848228";
+        string externalId = Constants.IMDB_MOVIE_ID;
         Externalsource externalSource = Externalsource.ImdbId;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(response.Data.MovieResults.Any(_ => _.Id == Constants.MOVIE_ID));
+    }
+
+    [TestMethod]
+    [DoNotParallelize]
+    public async Task BySeriesTvdbId()
+    {
+        string externalId = Constants.TVDB_TV_SERIES_ID.ToString();
+        Externalsource externalSource = Externalsource.TvdbId;
+        string language = Constants.Language;
+
+        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(response.Data.TvResults.Any(_ => _.Id == Constants.TV_SERIES_ID));
+    }
+
+
+    [TestMethod]
+    [DoNotParallelize]
+    public async Task ByPersonImdbId()
+    {
+        string externalId = Constants.IMDB_CREDIT_ID;
+        Externalsource externalSource = Externalsource.ImdbId;
+        string language = Constants.Language;
+
+        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(response.Data.TvResults.Any(_ => _.Id == Constants.TV_SERIES_ID));
     }
 }
