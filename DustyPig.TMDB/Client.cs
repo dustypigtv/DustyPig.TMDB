@@ -19,7 +19,7 @@ public class Client : IDisposable
 
 
     public const string VERSION = "v3";
-    public const string VERSION_AS_OF_DATE = "2024-02-17";
+    public const string VERSION_AS_OF_DATE = "2025-09-13";
     private const string API_BASE_ADDRESS = "https://api.themoviedb.org";
     
     
