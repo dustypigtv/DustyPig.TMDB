@@ -61,6 +61,10 @@ public static class Utils
     {
         if (DateOnly.TryParse(self, out DateOnly dateOnly))
             return dateOnly;
+
+        if(DateTime.TryParse(self, out DateTime dateTime))
+            return DateOnly.FromDateTime(dateTime);
+
         return null;
     }
 

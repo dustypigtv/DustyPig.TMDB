@@ -3,6 +3,6 @@
 
 Nuget: https://www.nuget.org/packages/DustyPig.TMDB
 
-TMDB API library. Currently supports v3 as of 2024-02-17
+TMDB API library. Currently supports v3 as of 2024-09-13
 
 This is in BETA
