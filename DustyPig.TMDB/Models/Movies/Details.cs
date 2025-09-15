@@ -118,7 +118,8 @@ public class Details
     public PagedResult<CommonMovie> Similar { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<Translation> Translations { get; set; }
+    public CommonTranslationList<CommonTranslation<Translation>> Translations { get; set; }
+
 
     [JsonPropertyName("videos")]
     public ListResultWithId<CommonVideo> Videos { get; set; }

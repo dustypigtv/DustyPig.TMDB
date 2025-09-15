@@ -11,7 +11,7 @@ public class Translation
     public string Overview { get; set; }
 
     [JsonPropertyName("runtime")]
-    public int Runtime { get; set; }
+    public long Runtime { get; set; }
 
     [JsonPropertyName("tagline")]
     public string Tagline { get; set; }

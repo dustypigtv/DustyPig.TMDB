@@ -23,5 +23,5 @@ public class CommonTranslation<T>
     public string EnglishName { get; set; }
 
     [JsonPropertyName("data")]
-    public CommonTranslation<T> Data { get; set; }
+    public T Data { get; set; }
 }

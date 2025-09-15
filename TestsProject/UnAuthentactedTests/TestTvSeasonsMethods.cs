@@ -52,7 +52,13 @@ public class TestTvSeasonsMethods
     {
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
-        AppendToResponse? appendToResponse = null;
+        AppendToResponse? appendToResponse =
+            AppendToResponse.AggregateCredits |
+            AppendToResponse.Credits |
+            AppendToResponse.ExternalIds |
+            AppendToResponse.Images |
+            AppendToResponse.Translations |
+            AppendToResponse.Videos;
         string language = Constants.Language;
 
         await ClientFactory.GetClient().Endpoints.TvSeasons.GetDetailsAsync(seasonNumber, seriesId, appendToResponse, language);
