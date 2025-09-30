@@ -36,7 +36,7 @@ public class Client
 
 
     /// <summary>
-    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. When using this constructor, <see cref="Dispose"/> should be called.
+    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. 
     /// </summary>
     public Client() 
     {
@@ -44,7 +44,7 @@ public class Client
     }
 
     /// <summary>
-    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. When using this constructor, <see cref="Dispose"/> should be called.
+    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. 
     /// </summary>
     public Client(AuthTypes authType, string authKey) : this() => SetAuth(authType, authKey);
 
