@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB;
 
-public class Client : IDisposable
+public class Client
 {
     public enum AuthTypes
     {
@@ -40,7 +40,7 @@ public class Client : IDisposable
     /// </summary>
     public Client() 
     {
-        _restClient = new() { BaseAddress = new(API_BASE_ADDRESS) };
+        _restClient = new(new()) { BaseAddress = new(API_BASE_ADDRESS) };
     }
 
     /// <summary>
@@ -66,14 +66,6 @@ public class Client : IDisposable
 
 
 
-    public void Dispose()
-    {
-        _restClient.Dispose();
-        GC.SuppressFinalize(this);
-    }
-
-
-
     public bool AutoThrowIfError
     {
         get => _restClient.AutoThrowIfError;
@@ -89,30 +81,13 @@ public class Client : IDisposable
     /// <summary>
     /// Use in environments witch high call counts
     /// </summary>
-    public int RetryCount
+    public ushort RetryCount
     {
         get => _restClient.RetryCount;
         set => _restClient.RetryCount = value;
     }
 
-    /// <summary>
-    /// Use in environments witch high call counts
-    /// </summary>
-    public int RetryDelay
-    {
-        get => _restClient.RetryDelay;
-        set => _restClient.RetryDelay = value;
-    }
-
-    /// <summary>
-    /// Use in environments witch high call counts
-    /// </summary>
-    public int Throttle
-    {
-        get => _restClient.Throttle;
-        set => _restClient.Throttle = value;
-    }
-
+    
 
     public AuthTypes AuthType => _authType;
 
