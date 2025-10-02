@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -35,33 +36,14 @@ public class Client
 
 
 
-    /// <summary>
-    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. 
-    /// </summary>
-    public Client() 
+    public Client(HttpClient httpClient = null, AuthTypes authType = AuthTypes.None, string authKey = null, ILogger<Client> logger = null)
     {
-        _restClient = new(new()) { BaseAddress = new(API_BASE_ADDRESS) };
+        _restClient = new(httpClient ?? new(), logger)
+        {
+            BaseAddress = new Uri(API_BASE_ADDRESS)
+        };
+        SetAuth(authType, authKey);
     }
-
-    /// <summary>
-    /// Creates a configuration that uses its own internal <see cref="HttpClient"/>. 
-    /// </summary>
-    public Client(AuthTypes authType, string authKey) : this() => SetAuth(authType, authKey);
-
-
-    /// <summary
-    /// Creates a configurtion that uses a shared <see cref="HttpClient"/>
-    /// </summary
-    /// <param name="httpClient">The shared <see cref="HttpClient"/> this REST configuration should use</param>
-    public Client(HttpClient httpClient) => _restClient = new(httpClient) { BaseAddress = new(API_BASE_ADDRESS) };
-
-
-    /// <summary
-    /// Creates a configurtion that uses a shared <see cref="HttpClient"/>
-    /// </summary
-    /// <param name="httpClient">The shared <see cref="HttpClient"/> this REST configuration should use</param>
-    public Client(HttpClient httpClient, AuthTypes authType, string authKey) : this(httpClient) => SetAuth(authType, authKey);
-
 
 
 
@@ -78,9 +60,6 @@ public class Client
         set => _restClient.IncludeRawContentInResponse = value;
     }
 
-    /// <summary>
-    /// Use in environments witch high call counts
-    /// </summary>
     public ushort RetryCount
     {
         get => _restClient.RetryCount;

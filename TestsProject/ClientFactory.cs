@@ -11,11 +11,11 @@ static class ClientFactory
     {
         lock (_locker)
         {
-            _client ??= new(Client.AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"))
-                {
-                    AutoThrowIfError = true,
-                    IncludeRawContentInResponse = true
-                };
+            _client ??= new(new HttpClient(new DustyPig.REST.SlidingRateThrottle(10, TimeSpan.FromSeconds(1))), Client.AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"))
+            {
+                AutoThrowIfError = true,
+                IncludeRawContentInResponse = true
+            };
         }
         return _client;
     }
