@@ -28,6 +28,8 @@ public class Client
     private const string BEARER_PREFIX = "Bearer ";
     private const string API_KEY_QUERY_PARAM = "api_key";
 
+    private static readonly HttpClient _internalHttpClient = new();
+
     private readonly REST.Client _restClient;
 
 
@@ -36,13 +38,18 @@ public class Client
 
 
 
-    public Client(HttpClient httpClient = null, AuthTypes authType = AuthTypes.None, string authKey = null, ILogger<Client> logger = null)
+    public Client() : this(null, null) { }
+
+    public Client(HttpClient httpClient) : this(httpClient, null) { }
+
+    public Client(ILogger<Client> logger) : this(null, logger) { }
+
+    public Client(HttpClient httpClient, ILogger<Client> logger)
     {
-        _restClient = new(httpClient ?? new(), logger)
+        _restClient = new(httpClient ?? _internalHttpClient, logger)
         {
             BaseAddress = new Uri(API_BASE_ADDRESS)
         };
-        SetAuth(authType, authKey);
     }
 
 
