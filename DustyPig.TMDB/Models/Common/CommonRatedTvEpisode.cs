@@ -26,7 +26,7 @@ public class CommonRatedTvEpisode
     public string ProductionCode { get; set; }
 
     [JsonPropertyName("runtime")]
-    public int Runtime { get; set; }
+    public int? Runtime { get; set; }
 
     [JsonPropertyName("season_number")]
     public int SeasonNumber { get; set; }

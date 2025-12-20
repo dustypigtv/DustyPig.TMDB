@@ -40,7 +40,7 @@ public class FindEpisodeResult
     public string ProductionCode { get; set; }
 
     [JsonPropertyName("runtime")]
-    public int Runtime { get; set; }
+    public int? Runtime { get; set; }
 
     [JsonPropertyName("show_id")]
     public int ShowId { get; set; }

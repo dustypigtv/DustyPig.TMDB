@@ -58,7 +58,7 @@ public class Details
     public long Revenue { get; set; }
 
     [JsonPropertyName("runtime")]
-    public int Runtime { get; set; }
+    public int? Runtime { get; set; }
 
     [JsonPropertyName("spoken_languages")]
     public List<CommonLanguage> SpokenLanguages { get; set; } = [];

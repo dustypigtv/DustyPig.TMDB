@@ -38,7 +38,7 @@ public class Latest
     public long Revenue { get; set; }
 
     [JsonPropertyName("runtime")]
-    public int Runtime { get; set; }
+    public int? Runtime { get; set; }
 
     [JsonPropertyName("status")]
     public string Status { get; set; }
