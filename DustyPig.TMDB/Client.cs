@@ -44,6 +44,8 @@ public class Client
 
     public Client(ILogger<Client> logger) : this(null, logger) { }
 
+    public Client(ILogger logger) : this(null, logger) { }
+
     public Client(HttpClient httpClient, ILogger<Client> logger)
     {
         _restClient = new(httpClient ?? _internalHttpClient, logger)
@@ -52,7 +54,13 @@ public class Client
         };
     }
 
-
+    public Client(HttpClient httpClient, ILogger logger)
+    {
+        _restClient = new(httpClient ?? _internalHttpClient, logger)
+        {
+            BaseAddress = new Uri(API_BASE_ADDRESS)
+        };
+    }
 
 
     public bool AutoThrowIfError
