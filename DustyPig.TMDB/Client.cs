@@ -22,8 +22,8 @@ public class Client
     public const string VERSION = "v3";
     public const string VERSION_AS_OF_DATE = "2025-09-13";
     private const string API_BASE_ADDRESS = "https://api.themoviedb.org";
-    
-    
+
+
     private const string AUTHORIZATION_HEADER = "Authorization";
     private const string BEARER_PREFIX = "Bearer ";
     private const string API_KEY_QUERY_PARAM = "api_key";
@@ -81,7 +81,7 @@ public class Client
         set => _restClient.RetryCount = value;
     }
 
-    
+
 
     public AuthTypes AuthType => _authType;
 

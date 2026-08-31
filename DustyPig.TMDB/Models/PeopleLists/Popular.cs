@@ -1,5 +1,4 @@
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.People;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -17,7 +16,7 @@ public class Popular : ModelBase
     public int Id { get; set; }
 
     [JsonPropertyName("known_for")]
-    public List<KnownFor> KnownFor { get; set; } = [];
+    public List<CommonMedia> KnownFor { get; set; } = [];
 
     [JsonPropertyName("known_for_department")]
     public string KnownForDepartment { get; set; }

@@ -12,6 +12,12 @@ public class Details : ModelBase
     [JsonPropertyName("name")]
     public string Name { get; set; }
 
+    [JsonPropertyName("original_language")]
+    public string OriginalLanguage { get; set; }
+
+    [JsonPropertyName("original_name")]
+    public string OriginalName { get; set; }
+
     [JsonPropertyName("overview")]
     public string Overview { get; set; }
 

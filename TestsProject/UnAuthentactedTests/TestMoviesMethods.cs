@@ -66,7 +66,7 @@ public class TestMoviesMethods
 
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetDetailsAsync(movieId, appendToResponse, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetDetailsAsync(movieId, appendToResponse, language);
     }
 
 

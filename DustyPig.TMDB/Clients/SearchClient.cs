@@ -63,7 +63,7 @@ internal class SearchClient : ISearch
     /// <summary>
     /// Search for movies by their original, translated and alternative titles.
     /// </summary>
-    public Task<Response<PagedResult<CommonMovie>>> MoviesAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonMedia>>> MoviesAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -76,7 +76,7 @@ internal class SearchClient : ISearch
             { "year", year }
         };
 
-        return _client.GetAsync<PagedResult<CommonMovie>>("/3/search/movie", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonMedia>>("/3/search/movie", queryParams, cancellationToken);
     }
 
     /// <summary>

@@ -11,6 +11,22 @@ public class AccountState : ModelBase
     [JsonPropertyName("episode_number")]
     public int EpisodeNumber { get; set; }
 
-    [JsonPropertyName("rated")]
-    public CommonRated Rated { get; set; }
+    //[JsonPropertyName("rated")]
+    //public CommonRated Rated { get; set; }
+
+    public float? Rated
+    {
+        get
+        {
+            if (AdditionalProperties.TryGetValue("rated", out var je))
+            {
+                if (je.ValueKind == System.Text.Json.JsonValueKind.Number)
+                {
+                    return je.GetSingle();
+                }
+            }
+
+            return null;
+        }
+    }
 }

@@ -15,7 +15,7 @@ public class TestMoviesMethods
         int movieId = Constants.MOVIE_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetAccountStatesAsync(movieId, guestSessionId, sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetAccountStatesAsync(movieId, guestSessionId, sessionId);
     }
 
 

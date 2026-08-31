@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 
 namespace DustyPig.TMDB;
@@ -59,10 +60,13 @@ public static class Utils
 
     internal static DateOnly? TmdbToDateOnly(this string self)
     {
+        if (string.IsNullOrWhiteSpace(self))
+            return null;
+
         if (DateOnly.TryParse(self, out DateOnly dateOnly))
             return dateOnly;
 
-        if(DateTime.TryParse(self, out DateTime dateTime))
+        if (DateTime.TryParse(self, out DateTime dateTime))
             return DateOnly.FromDateTime(dateTime);
 
         return null;
@@ -76,7 +80,7 @@ public static class Utils
     {
         if (DateTime.TryParse(self, out DateTime dateTime))
             return dateTime;
-        if(DateTime.TryParse(self.Replace("UTC", "-00:00"), out dateTime))
+        if (DateTime.TryParse(self.Replace("UTC", "-00:00"), out dateTime))
             return dateTime;
         return null;
     }
@@ -84,6 +88,15 @@ public static class Utils
     internal static string DateTimeToTmdb(this DateTime? self) => self?.ToUniversalTime().ToString("yyyy-MM-dd hh\\:mm\\:ss UTC");
 
 
+    internal static string Coalesce(params string[] values)
+    {
+        return values.FirstOrDefault(_ => !string.IsNullOrWhiteSpace(_));
+    }
+
+    internal static DateOnly? Coalesce(params DateOnly?[] values)
+    {
+        return values.FirstOrDefault(_ => _ != null);
+    }
 
     public static string GetFullImageUrl(string path, string size)
     {

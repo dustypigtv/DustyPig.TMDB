@@ -6,13 +6,12 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class Details : ModelBase
+public class Details : CommonMedia
 {
-    [JsonPropertyName("adult")]
-    public bool Adult { get; set; }
-
-    [JsonPropertyName("backdrop_path")]
-    public string BackdropPath { get; set; }
+    public Details()
+    {
+        MediaType = CommonMediaTypes.TvSeries;
+    }
 
     [JsonPropertyName("created_by")]
     public List<CreatedBy> CreatedBy { get; set; } = [];
@@ -30,9 +29,6 @@ public class Details : ModelBase
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
 
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
-
     [JsonPropertyName("in_production")]
     public bool InProduction { get; set; }
 
@@ -46,9 +42,6 @@ public class Details : ModelBase
     [JsonPropertyName("last_episode_to_air")]
     public LastEpisodeToAir1 LastEpisodeToAir { get; set; }
 
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
-
     [JsonPropertyName("networks")]
     public List<CommonCompany> Networks { get; set; } = [];
 
@@ -57,24 +50,6 @@ public class Details : ModelBase
 
     [JsonPropertyName("number_of_seasons")]
     public int NumberOfSeasons { get; set; }
-
-    [JsonPropertyName("origin_country")]
-    public List<string> OriginCountry { get; set; } = [];
-
-    [JsonPropertyName("original_language")]
-    public string OriginalLanguage { get; set; }
-
-    [JsonPropertyName("original_name")]
-    public string OriginalName { get; set; }
-
-    [JsonPropertyName("overview")]
-    public string Overview { get; set; }
-
-    [JsonPropertyName("popularity")]
-    public float Popularity { get; set; }
-
-    [JsonPropertyName("poster_path")]
-    public string PosterPath { get; set; }
 
     [JsonPropertyName("production_companies")]
     public List<CommonCompany> ProductionCompanies { get; set; } = [];
@@ -97,12 +72,6 @@ public class Details : ModelBase
     [JsonPropertyName("type")]
     [JsonConverter(typeof(TvSeriesTypeConverter))]
     public CommonTvSeriesTypes? Type { get; set; }
-
-    [JsonPropertyName("vote_average")]
-    public float VoteAverage { get; set; }
-
-    [JsonPropertyName("vote_count")]
-    public int VoteCount { get; set; }
 
     [JsonPropertyName("account_states")]
     public CommonAccountState AccountStates { get; set; }

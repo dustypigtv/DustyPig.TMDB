@@ -2,7 +2,7 @@
 
 public enum CommonMediaTypes
 {
-    Unknown,
+    NotSpecified,
     Movie,
     TvSeries,
     Person

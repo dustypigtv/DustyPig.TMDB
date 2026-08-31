@@ -1,6 +1,6 @@
 ﻿using DustyPig.TMDB.Models.Common;
-using System.Text.Json;
 using System;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.JsonHelpers;
@@ -14,7 +14,7 @@ internal class MediaTypesConverter : JsonConverter<CommonMediaTypes>
             "movie" => CommonMediaTypes.Movie,
             "tv" => CommonMediaTypes.TvSeries,
             "person" => CommonMediaTypes.Person,
-            _ => CommonMediaTypes.Unknown,
+            _ => CommonMediaTypes.NotSpecified,
         };
     }
 

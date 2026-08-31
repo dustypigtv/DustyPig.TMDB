@@ -190,7 +190,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the similar movies based on genres and keywords.
     /// </summary>
-    public Task<Response<PagedResult<CommonMovie>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<CommonMedia>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -198,7 +198,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonMovie>>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
     }
 
     /// <summary>

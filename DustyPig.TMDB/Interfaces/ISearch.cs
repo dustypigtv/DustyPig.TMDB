@@ -26,7 +26,7 @@ public interface ISearch
     /// <summary>
     /// Search for movies by their original, translated and alternative titles.
     /// </summary>
-    public Task<Response<PagedResult<CommonMovie>>> MoviesAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonMedia>>> MoviesAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Use multi search when you want to search for movies, TV shows and people in a single request.

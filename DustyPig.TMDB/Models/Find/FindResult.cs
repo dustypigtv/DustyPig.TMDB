@@ -8,10 +8,10 @@ namespace DustyPig.TMDB.Models.Find;
 public class FindResult : ModelBase
 {
     [JsonPropertyName("movie_results")]
-    public List<FindMovieResult> MovieResults { get; set; } = [];
+    public List<CommonMedia> MovieResults { get; set; } = [];
 
     [JsonPropertyName("tv_results")]
-    public List<FindTvResult> TvResults { get; set; } = [];
+    public List<CommonMedia> TvResults { get; set; } = [];
 
     [JsonPropertyName("tv_season_results")]
     public List<FindSeasonResult> TvSeasonResults { get; set; } = [];

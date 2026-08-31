@@ -15,6 +15,6 @@ public class TestTvSeasonsMethods
         int seriesId = Constants.TV_SERIES_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.TvSeasons.GetAccountStatesAsync(seasonNumber, seriesId, guestSessionId, sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.TvSeasons.GetAccountStatesAsync(seasonNumber, seriesId, guestSessionId, sessionId);
     }
 }
