@@ -19,10 +19,6 @@ public class Details : CommonMedia
     [JsonPropertyName("episode_run_time")]
     public List<int> EpisodeRunTime { get; set; } = [];
 
-    [JsonPropertyName("first_air_date")]
-    [JsonConverter(typeof(StringToDateOnlyConverter))]
-    public DateOnly? FirstAirDate { get; set; }
-
     [JsonPropertyName("genres")]
     public List<CommonName> Genres { get; set; } = [];
 
