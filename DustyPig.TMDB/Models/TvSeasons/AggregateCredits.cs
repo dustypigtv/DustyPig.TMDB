@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeasons;
 
-public class AggregateCredits
+public class AggregateCredits : ModelBase
 {
     [JsonPropertyName("cast")]
     public List<CommonCast2> Cast { get; set; } = [];

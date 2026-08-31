@@ -1,9 +1,10 @@
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Configuration;
 
-public class TimeZones
+public class TimeZones : ModelBase
 {
     /// <summary>
     /// ISO-3166-1 2 letter country code. E.g. &quot;US&quot;

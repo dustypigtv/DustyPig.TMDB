@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Credits;
 
-public class Details
+public class Details : ModelBase
 {
     [JsonPropertyName("credit_type")]
     public string CreditType { get; set; }

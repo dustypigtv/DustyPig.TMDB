@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Lists;
 
-public class Details
+public class Details : ModelBase
 {
     [JsonPropertyName("created_by")]
     public string CreatedBy { get; set; }

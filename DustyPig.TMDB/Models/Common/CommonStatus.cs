@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonStatus
+public class CommonStatus : ModelBase
 {
     [JsonPropertyName("status_code")]
     public int StatusCode { get; set; }

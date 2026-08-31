@@ -1,8 +1,9 @@
+using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class ScreenedTheatrically
+public class ScreenedTheatrically : ModelBase
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

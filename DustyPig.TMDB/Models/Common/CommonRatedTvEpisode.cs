@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonRatedTvEpisode
+public class CommonRatedTvEpisode : ModelBase
 {
     [JsonPropertyName("air_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]

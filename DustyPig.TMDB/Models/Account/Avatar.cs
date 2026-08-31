@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class Avatar
+public class Avatar : ModelBase
 {
     [JsonPropertyName("gravatar")]
     public Gravatar Gravatar { get; set; }

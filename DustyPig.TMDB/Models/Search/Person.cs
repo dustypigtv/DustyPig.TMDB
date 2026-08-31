@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Search;
 
-public class Person
+public class Person : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

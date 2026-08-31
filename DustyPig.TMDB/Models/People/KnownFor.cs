@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class KnownFor
+public class KnownFor : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

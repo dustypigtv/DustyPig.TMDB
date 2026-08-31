@@ -1,9 +1,10 @@
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Configuration;
 
-public class JobsResponse
+public class JobsResponse : ModelBase
 {
     [JsonPropertyName("department")]
     public string Department { get; set; }

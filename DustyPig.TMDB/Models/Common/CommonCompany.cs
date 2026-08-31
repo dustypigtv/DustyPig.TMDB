@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonCompany
+public class CommonCompany : ModelBase
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

@@ -1,9 +1,10 @@
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class MovieCredits
+public class MovieCredits : ModelBase
 {
     [JsonPropertyName("cast")]
     public List<Cast> Cast { get; set; } = [];

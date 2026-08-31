@@ -1,10 +1,11 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movies;
 
-public class Reviews
+public class Reviews : ModelBase
 {
     [JsonPropertyName("author")]
     public string Author { get; set; }

@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movies;
 
-public class Cast
+public class Cast : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

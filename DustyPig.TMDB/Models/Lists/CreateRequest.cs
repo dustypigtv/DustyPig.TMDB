@@ -1,8 +1,9 @@
+using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Lists;
 
-public class CreateRequest
+public class CreateRequest : ModelBase
 {
     [JsonPropertyName("name")]
     public string Name { get; set; }

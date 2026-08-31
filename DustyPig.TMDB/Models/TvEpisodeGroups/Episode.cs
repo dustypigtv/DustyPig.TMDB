@@ -1,10 +1,11 @@
 ﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvEpisodeGroups;
 
-public class Episode
+public class Episode : ModelBase
 {
     [JsonPropertyName("air_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]

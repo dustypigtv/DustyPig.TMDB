@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonChange
+public class CommonChange : ModelBase
 {
     [JsonPropertyName("key")]
     public string Key { get; set; }

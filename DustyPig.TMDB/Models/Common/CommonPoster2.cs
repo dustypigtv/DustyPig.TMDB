@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonPoster2
+public class CommonPoster2 : ModelBase
 {
     [JsonPropertyName("file_path")]
     public string FilePath { get; set; }

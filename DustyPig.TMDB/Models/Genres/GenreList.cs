@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Genres;
 
-public class GenreList
+public class GenreList : ModelBase
 {
     [JsonPropertyName("genres")]
     public List<CommonName> Genres { get; set; } = [];

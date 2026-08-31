@@ -1,8 +1,9 @@
+using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Lists;
 
-public class CreateResponse
+public class CreateResponse : ModelBase
 {
     [JsonPropertyName("status_message")]
     public string StatusMessage { get; set; }

@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonProvider
+public class CommonProvider : ModelBase
 {
     [JsonPropertyName("logo_path")]
     public string LogoPath { get; set; }

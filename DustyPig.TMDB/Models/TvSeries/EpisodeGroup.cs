@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class EpisodeGroup
+public class EpisodeGroup : ModelBase
 {
     [JsonPropertyName("description")]
     public string Description { get; set; }

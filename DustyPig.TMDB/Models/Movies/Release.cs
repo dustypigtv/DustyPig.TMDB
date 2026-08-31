@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movies;
 
-public class Release
+public class Release : ModelBase
 {
     [JsonPropertyName("certification")]
     public string Certification { get; set; }

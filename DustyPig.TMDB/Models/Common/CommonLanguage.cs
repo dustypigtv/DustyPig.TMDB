@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonLanguage
+public class CommonLanguage : ModelBase
 {
     /// <summary>
     /// ISO-639-1 2 letter language code. E.g. &quot;en&quot;

@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class Seasons2
+public class Seasons2 : ModelBase
 {
     [JsonPropertyName("episode_count")]
     public int EpisodeCount { get; set; }

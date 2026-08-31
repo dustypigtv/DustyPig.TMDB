@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonBackdrop
+public class CommonBackdrop : ModelBase
 {
     [JsonPropertyName("aspect_ratio")]
     public float AspectRatio { get; set; }

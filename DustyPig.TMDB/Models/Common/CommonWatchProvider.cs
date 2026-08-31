@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonWatchProvider
+public class CommonWatchProvider : ModelBase
 {
     [JsonPropertyName("ads")]
     public List<CommonProvider> Ads { get; set; } = [];

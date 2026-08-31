@@ -1,10 +1,11 @@
 ﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Credits;
 
-public class Season
+public class Season : ModelBase
 {
     [JsonPropertyName("air_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]

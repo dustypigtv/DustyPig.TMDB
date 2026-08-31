@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class Change
+public class Change : ModelBase
 {
     [JsonPropertyName("key")]
     public string Key { get; set; }

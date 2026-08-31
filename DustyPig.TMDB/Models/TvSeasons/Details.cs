@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeasons;
 
-public class Details
+public class Details : ModelBase
 {
     [JsonPropertyName("_id")]
     public string _Id { get; set; }

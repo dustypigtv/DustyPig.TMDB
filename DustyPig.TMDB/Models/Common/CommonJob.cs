@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonJob
+public class CommonJob : ModelBase
 {
     [JsonPropertyName("credit_id")]
     public string CreditId { get; set; }

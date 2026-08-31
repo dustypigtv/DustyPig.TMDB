@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonCrew
+public class CommonCrew : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

@@ -1,10 +1,11 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Authentication;
 
-public class TokenResponse
+public class TokenResponse : ModelBase
 {
     [JsonPropertyName("success")]
     public bool Success { get; set; }

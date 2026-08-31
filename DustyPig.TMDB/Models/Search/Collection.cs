@@ -1,8 +1,9 @@
+using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Search;
 
-public class Collection
+public class Collection : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

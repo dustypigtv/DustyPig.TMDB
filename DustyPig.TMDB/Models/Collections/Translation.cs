@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Collections;
 
-public class Translation
+public class Translation : ModelBase
 {
     [JsonPropertyName("title")]
     public string Title { get; set; }

@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Credits;
 
-public class Media
+public class Media : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

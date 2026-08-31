@@ -1,10 +1,11 @@
 using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movies;
 
-public class Latest
+public class Latest : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvEpisodeGroups;
 
-public class Group
+public class Group : ModelBase
 {
     [JsonPropertyName("id")]
     public string Id { get; set; }

@@ -1,10 +1,11 @@
 ﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvEpisodes;
 
-public class Item
+public class Item : ModelBase
 {
     [JsonPropertyName("id")]
     public string Id { get; set; }

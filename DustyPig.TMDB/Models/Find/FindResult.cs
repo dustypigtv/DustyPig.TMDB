@@ -1,10 +1,11 @@
+using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.TvEpisodeGroups;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Find;
 
-public class FindResult
+public class FindResult : ModelBase
 {
     [JsonPropertyName("movie_results")]
     public List<FindMovieResult> MovieResults { get; set; } = [];

@@ -1,9 +1,10 @@
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Configuration;
 
-public class Details
+public class Details : ModelBase
 {
     [JsonPropertyName("images")]
     public Images Images { get; set; }

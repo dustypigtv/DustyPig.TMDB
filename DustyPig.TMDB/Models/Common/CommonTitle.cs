@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonTitle
+public class CommonTitle : ModelBase
 {
     /// <summary>
     /// ISO-3166-1 2 letter country code. E.g. &quot;US&quot;

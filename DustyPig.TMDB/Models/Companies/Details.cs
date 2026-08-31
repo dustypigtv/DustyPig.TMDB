@@ -1,8 +1,9 @@
+using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Companies;
 
-public class Details
+public class Details : ModelBase
 {
     [JsonPropertyName("description")]
     public string Description { get; set; }

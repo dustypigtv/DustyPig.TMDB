@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.Models.Common;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Certifications;
 
-public class CertificationObject
+public class CertificationObject : ModelBase
 {
     [JsonPropertyName("certification")]
     public string Certification { get; set; }

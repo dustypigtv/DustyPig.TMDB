@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class Latest
+public class Latest : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

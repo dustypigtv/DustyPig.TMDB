@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonTvSeries2
+public class CommonTvSeries2 : ModelBase
 {
     [JsonPropertyName("backdrop_path")]
     public string BackdropPath { get; set; }

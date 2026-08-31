@@ -2,7 +2,7 @@
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonTranslationData
+public class CommonTranslationData : ModelBase
 {
     [JsonPropertyName("name")]
     public string Name { get; set; }

@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class Review
+public class Review : ModelBase
 {
     [JsonPropertyName("author")]
     public string Author { get; set; }

@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonAlternativeName
+public class CommonAlternativeName : ModelBase
 {
     [JsonPropertyName("name")]
     public string Name { get; set; }

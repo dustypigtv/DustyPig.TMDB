@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Account;
 
-public class AddFavorite
+public class AddFavorite : ModelBase
 {
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]

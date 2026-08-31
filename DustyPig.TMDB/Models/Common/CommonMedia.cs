@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonMedia
+public class CommonMedia : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }

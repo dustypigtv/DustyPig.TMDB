@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonDateRange
+public class CommonDateRange : ModelBase
 {
     [JsonPropertyName("maximum")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
