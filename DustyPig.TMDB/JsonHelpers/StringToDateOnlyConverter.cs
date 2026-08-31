@@ -4,6 +4,10 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.JsonHelpers;
 
+/// <summary>
+/// Dotnet can handle DateOnly?, but not if passed an empty string, which TMDB uses.
+/// So this converter is still required.
+/// </summary>
 internal class StringToDateOnlyConverter : JsonConverter<DateOnly?>
 {
     public override DateOnly? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
