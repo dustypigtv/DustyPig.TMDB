@@ -155,7 +155,7 @@ public class TestDiscoverMethods
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
-            await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
+            var ret = await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
         }
 
         foreach (var withORType in tvSeriesTypes)

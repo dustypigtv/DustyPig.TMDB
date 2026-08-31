@@ -37,9 +37,11 @@ public class CommonMedia : ModelBase
 
 
     [JsonPropertyName("release_date")]
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
     public DateOnly? ObjectReleaseDate { get; set; }
 
     [JsonPropertyName("first_air_date")]
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
     public DateOnly? ObjectFirstAirDate { get; set; }
 
     /// <summary>

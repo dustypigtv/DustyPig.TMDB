@@ -83,7 +83,7 @@ public interface ITvSeries
     /// </summary>
     public Task<Response<PagedResultWithId<Lists>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<PagedResult<CommonTvSeries3>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonMedia>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the reviews that have been added to a TV show.
@@ -98,7 +98,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<PagedResult<CommonTvSeries1>>> GetSimilarAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<CommonMedia>>> GetSimilarAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that have been added to a TV show.

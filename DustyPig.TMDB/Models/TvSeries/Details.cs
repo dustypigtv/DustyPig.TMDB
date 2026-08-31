@@ -107,7 +107,7 @@ public class Details : CommonMedia
     public PagedResultWithId<Lists> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<CommonTvSeries3> Recommendations { get; set; }
+    public PagedResult<CommonMedia> Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
     public PagedResultWithId<Review> Reviews { get; set; }
@@ -116,7 +116,7 @@ public class Details : CommonMedia
     public ListResultWithId<ScreenedTheatrically> ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<CommonTvSeries1> Similar { get; set; }
+    public PagedResult<CommonMedia> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public CommonTranslationList<CommonTranslation<Translation>> Translations { get; set; }
