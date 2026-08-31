@@ -10,5 +10,5 @@ public class Images : ModelBase
     public int Id { get; set; }
 
     [JsonPropertyName("posters")]
-    public List<CommonPoster1> Posters { get; set; } = [];
+    public List<CommonImage> Posters { get; set; } = [];
 }

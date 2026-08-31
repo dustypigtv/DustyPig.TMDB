@@ -6,14 +6,14 @@ namespace DustyPig.TMDB.Models.Common;
 public class CommonImages2 : ModelBase
 {
     [JsonPropertyName("backdrops")]
-    public List<CommonBackdrop> Backdrops { get; set; } = [];
+    public List<CommonImage> Backdrops { get; set; } = [];
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
     [JsonPropertyName("logos")]
-    public List<CommonPoster2> Logos { get; set; } = [];
+    public List<CommonImage> Logos { get; set; } = [];
 
     [JsonPropertyName("posters")]
-    public List<CommonPoster2> Posters { get; set; } = [];
+    public List<CommonImage> Posters { get; set; } = [];
 }
