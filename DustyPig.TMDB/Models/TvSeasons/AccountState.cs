@@ -1,4 +1,3 @@
-using DustyPig.TMDB.JsonHelpers;
 using DustyPig.TMDB.Models.Common;
 using System.Text.Json.Serialization;
 
@@ -13,6 +12,5 @@ public class AccountState : ModelBase
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("rated")]
-    [JsonConverter(typeof(RatedConverter))]
-    public float? Rated { get; set; }
+    public CommonRated Rated { get; set; }
 }

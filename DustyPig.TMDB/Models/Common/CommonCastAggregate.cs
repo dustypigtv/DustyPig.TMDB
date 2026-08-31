@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonCast1 : ModelBase
+public class CommonCastAggregate : ModelBase
 {
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
@@ -28,11 +29,11 @@ public class CommonCast1 : ModelBase
     [JsonPropertyName("profile_path")]
     public string ProfilePath { get; set; }
 
-    [JsonPropertyName("character")]
-    public string Character { get; set; }
+    [JsonPropertyName("roles")]
+    public List<CommonRole> Roles { get; set; } = [];
 
-    [JsonPropertyName("credit_id")]
-    public string CreditId { get; set; }
+    [JsonPropertyName("total_episode_count")]
+    public int TotalEpisodeCount { get; set; }
 
     [JsonPropertyName("order")]
     public int Order { get; set; }

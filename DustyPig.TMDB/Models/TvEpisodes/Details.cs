@@ -19,7 +19,7 @@ public class Details : ModelBase
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<CommonCast1> GuestStars { get; set; } = [];
+    public List<CommonCast> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
