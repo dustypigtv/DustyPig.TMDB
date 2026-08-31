@@ -29,6 +29,6 @@ internal class CompaniesClient : ICompanies
     /// <summary>
     /// Get the company logos by id.
     /// </summary>
-    public Task<Response<CommonImages1>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonImages1>($"/3/company/{companyId}/images", null, cancellationToken);
+    public Task<Response<CommonLogos>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonLogos>($"/3/company/{companyId}/images", null, cancellationToken);
 }

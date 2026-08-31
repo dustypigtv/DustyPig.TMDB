@@ -97,7 +97,7 @@ public class Details : ModelBase
     public CommonExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public CommonImages2 Images { get; set; }
+    public CommonImages Images { get; set; }
 
     [JsonPropertyName("keywords")]
     public KeywordsList Keywords { get; set; }

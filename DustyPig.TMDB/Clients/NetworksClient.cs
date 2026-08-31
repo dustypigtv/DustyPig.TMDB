@@ -26,6 +26,6 @@ internal class NetworksClient : INetworks
     /// <summary>
     /// Get the TV network logos by id.
     /// </summary>
-    public Task<Response<CommonImages1>> GetImagesAsync(int networkId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonImages1>($"/3/network/{networkId}/images", null, cancellationToken);
+    public Task<Response<CommonLogos>> GetImagesAsync(int networkId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonLogos>($"/3/network/{networkId}/images", null, cancellationToken);
 }

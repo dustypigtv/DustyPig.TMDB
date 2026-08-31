@@ -122,7 +122,7 @@ internal class MoviesClient : IMovies
     /// Get the images that belong to a movie.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<CommonImages2>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonImages>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -130,7 +130,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<CommonImages2>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
+        return _client.GetAsync<CommonImages>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
     }
 
     public Task<Response<KeywordsList>> GetKeywordsAsync(int movieId, CancellationToken cancellationToken = default) =>

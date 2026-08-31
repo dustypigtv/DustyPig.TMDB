@@ -21,5 +21,5 @@ public interface ICompanies
     /// <summary>
     /// Get the company logos by id.
     /// </summary>
-    public Task<Response<CommonImages1>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonLogos>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default);
 }

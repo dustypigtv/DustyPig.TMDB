@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonImages2 : ModelBase
+public class CommonImages : ModelBase
 {
     [JsonPropertyName("backdrops")]
     public List<CommonImage> Backdrops { get; set; } = [];

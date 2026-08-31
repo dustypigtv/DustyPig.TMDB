@@ -18,5 +18,5 @@ public interface INetworks
     /// <summary>
     /// Get the TV network logos by id.
     /// </summary>
-    public Task<Response<CommonImages1>> GetImagesAsync(int networkId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonLogos>> GetImagesAsync(int networkId, CancellationToken cancellationToken = default);
 }
