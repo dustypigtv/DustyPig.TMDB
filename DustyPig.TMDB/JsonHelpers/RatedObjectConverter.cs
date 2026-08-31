@@ -1,5 +1,4 @@
-﻿using DustyPig.TMDB.Models.Common;
-using System;
+﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -10,7 +9,7 @@ internal class RatedObjectConverter : JsonConverter<float?>
     public override float? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         //TMDB will return 'false' instead of an object, so ignore non-objects
-        if(reader.TokenType != JsonTokenType.StartObject)
+        if (reader.TokenType != JsonTokenType.StartObject)
             return null;
 
         float? ret = null;
@@ -34,13 +33,13 @@ internal class RatedObjectConverter : JsonConverter<float?>
                 }
             }
         }
-        
+
         return ret;
     }
 
     public override void Write(Utf8JsonWriter writer, float? value, JsonSerializerOptions options)
     {
-        if(value == null)
+        if (value == null)
         {
             writer.WriteNullValue();
             return;

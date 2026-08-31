@@ -23,7 +23,7 @@ public class CommonMedia : ModelBase
 
     [JsonPropertyName("original_title")]
     public string ObjectOriginalTitle { get; set; }
-        
+
     [JsonPropertyName("original_name")]
     public string ObjectOriginalName { get; set; }
 
@@ -78,9 +78,9 @@ public class CommonMedia : ModelBase
 
 
 
-    
 
-    
+
+
     [JsonPropertyName("overview")]
     public string Overview { get; set; }
 
@@ -97,7 +97,7 @@ public class CommonMedia : ModelBase
     [JsonPropertyName("popularity")]
     public float Popularity { get; set; }
 
-    
+
     [JsonPropertyName("video")]
     public bool? Video { get; set; }
 

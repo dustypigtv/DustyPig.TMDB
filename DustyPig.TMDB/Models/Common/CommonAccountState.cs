@@ -15,7 +15,7 @@ public class CommonAccountState : ModelBase
     [JsonPropertyName("rated")]
     [JsonConverter(typeof(RatedObjectConverter))]
     public float? Rated { get; set; }
-    
+
     [JsonPropertyName("watchlist")]
     public bool Watchlist { get; set; }
 }
