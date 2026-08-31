@@ -1,5 +1,6 @@
 ﻿using DustyPig.TMDB.JsonHelpers;
 using System;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
@@ -51,8 +52,8 @@ public class CommonItem : ModelBase
     }
 
     [JsonPropertyName("value")]
-    public System.Text.Json.JsonElement Value { get; set; }
+    public JsonElement Value { get; set; }
 
     [JsonPropertyName("original_value")]
-    public System.Text.Json.JsonElement OriginalValue { get; set; }
+    public JsonElement OriginalValue { get; set; }
 }
