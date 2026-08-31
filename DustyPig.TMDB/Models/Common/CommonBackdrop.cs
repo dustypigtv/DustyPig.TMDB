@@ -10,6 +10,9 @@ public class CommonBackdrop
     [JsonPropertyName("height")]
     public int Height { get; set; }
 
+    [JsonPropertyName("iso_639_1")]
+    public string Iso639_1 { get; set; }
+
     [JsonPropertyName("file_path")]
     public string FilePath { get; set; }
 
