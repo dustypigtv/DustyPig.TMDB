@@ -93,11 +93,6 @@ public static class Utils
         return values.FirstOrDefault(_ => !string.IsNullOrWhiteSpace(_));
     }
 
-    internal static DateOnly? Coalesce(params DateOnly?[] values)
-    {
-        return values.FirstOrDefault(_ => _ != null);
-    }
-
     public static string GetFullImageUrl(string path, string size)
     {
         if (string.IsNullOrWhiteSpace(path))
