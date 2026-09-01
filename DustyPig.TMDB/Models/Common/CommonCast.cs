@@ -36,4 +36,7 @@ public class CommonCast : ModelBase
 
     [JsonPropertyName("order")]
     public int Order { get; set; }
+
+    [JsonPropertyName("cast_id")]
+    public int CastId { get; set; }
 }
