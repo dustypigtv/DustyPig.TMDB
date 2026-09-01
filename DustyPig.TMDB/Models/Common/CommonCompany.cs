@@ -15,4 +15,16 @@ public class CommonCompany : ModelBase
 
     [JsonPropertyName("origin_country")]
     public string OriginCountry { get; set; }
+
+    [JsonPropertyName("headquarters")]
+    public string Headquarters { get; set; }
+
+    [JsonPropertyName("homepage")]
+    public string Homepage { get; set; }
+
+    [JsonPropertyName("description")]
+    public string Description { get; set; }
+
+    [JsonPropertyName("parent_company")]
+    public string ParentCompany { get; set; }
 }

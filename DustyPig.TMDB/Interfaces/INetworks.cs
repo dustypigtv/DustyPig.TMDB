@@ -1,6 +1,5 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.Networks;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,7 +12,7 @@ public interface INetworks
     /// </summary>
     public Task<Response<ListResultWithId<CommonAlternativeName>>> GetAlternativeNamesAsync(int networkId, CancellationToken cancellationToken = default);
 
-    public Task<Response<Details>> GetDetailsAsync(int networkId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonCompany>> GetDetailsAsync(int networkId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the TV network logos by id.

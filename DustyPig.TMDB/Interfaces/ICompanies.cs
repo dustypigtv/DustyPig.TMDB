@@ -1,6 +1,5 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.Companies;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,7 +15,7 @@ public interface ICompanies
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<Details>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonCompany>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the company logos by id.
