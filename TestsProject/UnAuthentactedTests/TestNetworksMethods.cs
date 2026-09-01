@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -11,7 +9,10 @@ public class TestNetworksMethods
     {
         int networkId = Constants.NETWORK_ID;
 
-        await ClientFactory.GetClient().Endpoints.Networks.GetAlternativeNamesAsync(networkId);
+        var ret = await ClientFactory.GetClient().Endpoints.Networks.GetAlternativeNamesAsync(networkId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -22,7 +23,8 @@ public class TestNetworksMethods
     {
         int networkId = Constants.NETWORK_ID;
 
-        await ClientFactory.GetClient().Endpoints.Networks.GetDetailsAsync(networkId);
+        var ret = await ClientFactory.GetClient().Endpoints.Networks.GetDetailsAsync(networkId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -33,6 +35,9 @@ public class TestNetworksMethods
     {
         int networkId = Constants.NETWORK_ID;
 
-        await ClientFactory.GetClient().Endpoints.Networks.GetImagesAsync(networkId);
+        var ret = await ClientFactory.GetClient().Endpoints.Networks.GetImagesAsync(networkId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Logos)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

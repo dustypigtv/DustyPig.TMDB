@@ -1,5 +1,4 @@
 using DustyPig.TMDB.Models.TvEpisodes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -12,7 +11,14 @@ public class TestTvEpisodesMethods
     {
         int episodeId = 949491;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.GetChangesAsync(episodeId);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetChangesAsync(episodeId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Changes)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item2 in item.Items)
+                Assert.IsEmpty(item2.AdditionalProperties);
+        }
     }
 
 
@@ -26,7 +32,14 @@ public class TestTvEpisodesMethods
         int seriesId = Constants.TV_SERIES_ID;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.GetCreditsAsync(episodeNumber, seasonNumber, seriesId, language);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetCreditsAsync(episodeNumber, seasonNumber, seriesId, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Cast)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Crew)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.GuestStars)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -47,7 +60,33 @@ public class TestTvEpisodesMethods
             AppendToResponse.Videos;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.GetDetailsAsync(episodeNumber, seasonNumber, seriesId, appendToResponse, language);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetDetailsAsync(episodeNumber, seasonNumber, seriesId, appendToResponse, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.AccountStates.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Credits.AdditionalProperties);
+        foreach (var item in ret.Data.Credits.Cast)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Credits.Crew)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Credits.GuestStars)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Crew)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.ExternalIds.AdditionalProperties);
+        foreach (var item in ret.Data.GuestStars)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Images.AdditionalProperties);
+        foreach (var item in ret.Data.Images.Stills)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Translations.AdditionalProperties);
+        foreach (var item in ret.Data.Translations.Translations)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            Assert.IsEmpty(item.Data.AdditionalProperties);
+        }
+        Assert.IsEmpty(ret.Data.Videos.AdditionalProperties);
+        foreach (var item in ret.Data.Videos.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -60,7 +99,8 @@ public class TestTvEpisodesMethods
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.GetExternalIdsAsync(episodeNumber, seasonNumber, seriesId);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetExternalIdsAsync(episodeNumber, seasonNumber, seriesId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -75,7 +115,10 @@ public class TestTvEpisodesMethods
         string includeImageLanguage = null;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.GetImagesAsync(episodeNumber, seasonNumber, seriesId, includeImageLanguage, language);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetImagesAsync(episodeNumber, seasonNumber, seriesId, includeImageLanguage, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Stills)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -88,7 +131,10 @@ public class TestTvEpisodesMethods
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.GetTranslationsAsync(episodeNumber, seasonNumber, seriesId);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetTranslationsAsync(episodeNumber, seasonNumber, seriesId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Translations)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -103,6 +149,9 @@ public class TestTvEpisodesMethods
         string includeVideoLanguage = null;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.GetVideosAsync(episodeNumber, seasonNumber, seriesId, includeVideoLanguage, language);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetVideosAsync(episodeNumber, seasonNumber, seriesId, includeVideoLanguage, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

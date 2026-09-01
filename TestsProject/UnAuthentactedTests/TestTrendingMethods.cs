@@ -1,5 +1,4 @@
 using DustyPig.TMDB.Models.Trending;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -13,7 +12,10 @@ public class TestTrendingMethods
         Timewindow timeWindow = Timewindow.Day;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Trending.GetAllAsync(timeWindow, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Trending.GetAllAsync(timeWindow, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -25,7 +27,10 @@ public class TestTrendingMethods
         Timewindow timeWindow = Timewindow.Day;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Trending.GetMoviesAsync(timeWindow, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Trending.GetMoviesAsync(timeWindow, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -37,7 +42,14 @@ public class TestTrendingMethods
         Timewindow timeWindow = Timewindow.Day;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Trending.GetPeopleAsync(timeWindow, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Trending.GetPeopleAsync(timeWindow, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item2 in item.KnownFor)
+                Assert.IsEmpty(item2.AdditionalProperties);
+        }
     }
 
 
@@ -49,6 +61,9 @@ public class TestTrendingMethods
         Timewindow timeWindow = Timewindow.Day;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Trending.GetTvSeriesAsync(timeWindow, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Trending.GetTvSeriesAsync(timeWindow, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

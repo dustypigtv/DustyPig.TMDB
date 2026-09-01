@@ -1,8 +1,3 @@
-using DustyPig.TMDB.Models.Authentication;
-using DustyPig.TMDB.Models.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
-
 namespace TestsProject.AuthenticatedTests;
 
 [TestClass]
@@ -43,7 +38,8 @@ public class TestAuthenticationMethods
     [DoNotParallelize]
     public async Task GuestSession()
     {
-        await ClientFactory.GetClient().Endpoints.Authentication.GetCreateGuestSessionAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Authentication.GetCreateGuestSessionAsync();
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 

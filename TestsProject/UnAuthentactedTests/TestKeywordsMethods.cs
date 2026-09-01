@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -11,6 +9,7 @@ public class TestKeywordsMethods
     {
         int keywordId = Constants.KEYWORK_ID;
 
-        await ClientFactory.GetClient().Endpoints.Keywords.GetDetailsAsync(keywordId);
+        var ret = await ClientFactory.GetClient().Endpoints.Keywords.GetDetailsAsync(keywordId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 }

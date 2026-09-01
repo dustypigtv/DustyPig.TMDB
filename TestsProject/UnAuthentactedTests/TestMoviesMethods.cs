@@ -1,5 +1,4 @@
 using DustyPig.TMDB.Models.Movies;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -13,7 +12,10 @@ public class TestMoviesMethods
         int movieId = Constants.MOVIE_ID;
         string country = null;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetAlternativeTitlesAsync(movieId, country);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetAlternativeTitlesAsync(movieId, country);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Titles)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -27,7 +29,14 @@ public class TestMoviesMethods
         DateOnly? endDate = null;
         DateOnly? startDate = null;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetChangesAsync(movieId, page, endDate, startDate);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetChangesAsync(movieId, page, endDate, startDate);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Changes)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item2 in item.Items)
+                Assert.IsEmpty(item2.AdditionalProperties);
+        }
     }
 
 
@@ -39,7 +48,12 @@ public class TestMoviesMethods
         int movieId = Constants.MOVIE_ID;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetCreditsAsync(movieId, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetCreditsAsync(movieId, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Cast)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Crew)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -67,6 +81,70 @@ public class TestMoviesMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.Movies.GetDetailsAsync(movieId, appendToResponse, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.AccountStates.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Changes.AdditionalProperties);
+        foreach (var item in ret.Data.Changes.Changes)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item2 in item.Items)
+                Assert.IsEmpty(item2.AdditionalProperties);
+        }
+        Assert.IsEmpty(ret.Data.Credits.AdditionalProperties);
+        foreach (var item in ret.Data.Credits.Crew)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Credits.Cast)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.ExternalIds.AdditionalProperties);
+        foreach (var item in ret.Data.Genres)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Images.AdditionalProperties);
+        foreach (var item in ret.Data.Images.Posters)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Images.Backdrops)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Images.Logos)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Keywords.AdditionalProperties);
+        foreach (var item in ret.Data.Keywords.Keywords)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Lists.AdditionalProperties);
+        foreach (var item in ret.Data.Lists.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.ProductionCompanies)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.ProductionCountries)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Recommendations.AdditionalProperties);
+        foreach (var item in ret.Data.Recommendations.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.ReleaseDates.AdditionalProperties);
+        foreach (var item in ret.Data.ReleaseDates.Results)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item2 in item.ReleaseDates)
+                Assert.IsEmpty(item2.AdditionalProperties);
+        }
+        Assert.IsEmpty(ret.Data.Reviews.AdditionalProperties);
+        foreach (var item in ret.Data.Reviews.Results)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            Assert.IsEmpty(item.AuthorDetails.AdditionalProperties);
+        }
+        Assert.IsEmpty(ret.Data.Similar.AdditionalProperties);
+        foreach (var item in ret.Data.Similar.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.SpokenLanguages)
+            Assert.IsEmpty(item.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Translations.AdditionalProperties);
+        foreach (var item in ret.Data.Translations.Translations)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            Assert.IsEmpty(item.Data.AdditionalProperties);
+        }
+        Assert.IsEmpty(ret.Data.Videos.AdditionalProperties);
+        foreach (var item in ret.Data.Videos.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -77,7 +155,8 @@ public class TestMoviesMethods
     {
         int movieId = Constants.MOVIE_ID;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetExternalIdsAsync(movieId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetExternalIdsAsync(movieId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -90,7 +169,14 @@ public class TestMoviesMethods
         string includeImageLanguage = null;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetImagesAsync(movieId, includeImageLanguage, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetImagesAsync(movieId, includeImageLanguage, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Backdrops)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Logos)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.Posters)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -101,7 +187,10 @@ public class TestMoviesMethods
     {
         int movieId = Constants.MOVIE_ID;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetKeywordsAsync(movieId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetKeywordsAsync(movieId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Keywords)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -110,7 +199,8 @@ public class TestMoviesMethods
     [DoNotParallelize]
     public async Task GetLatest()
     {
-        await ClientFactory.GetClient().Endpoints.Movies.GetLatestAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetLatestAsync();
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -123,7 +213,10 @@ public class TestMoviesMethods
         int page = 1;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetListsAsync(movieId, page, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetListsAsync(movieId, page, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -136,7 +229,10 @@ public class TestMoviesMethods
         int page = 1;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetRecommendationsAsync(movieId, page, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetRecommendationsAsync(movieId, page, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -147,7 +243,14 @@ public class TestMoviesMethods
     {
         int movieId = Constants.MOVIE_ID;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetReleaseDatesAsync(movieId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetReleaseDatesAsync(movieId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item2 in item.ReleaseDates)
+                Assert.IsEmpty(item2.AdditionalProperties);
+        }
     }
 
 
@@ -160,7 +263,13 @@ public class TestMoviesMethods
         int page = 1;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetReviewsAsync(movieId, page, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetReviewsAsync(movieId, page, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            Assert.IsEmpty(item.AuthorDetails.AdditionalProperties);
+        }
     }
 
 
@@ -173,7 +282,10 @@ public class TestMoviesMethods
         int page = 1;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetSimilarAsync(movieId, page, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetSimilarAsync(movieId, page, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -184,7 +296,10 @@ public class TestMoviesMethods
     {
         int movieId = Constants.MOVIE_ID;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetTranslationsAsync(movieId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetTranslationsAsync(movieId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Translations)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -196,7 +311,10 @@ public class TestMoviesMethods
         int movieId = Constants.MOVIE_ID;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetVideosAsync(movieId, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetVideosAsync(movieId, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -207,6 +325,21 @@ public class TestMoviesMethods
     {
         int movieId = Constants.MOVIE_ID;
 
-        await ClientFactory.GetClient().Endpoints.Movies.GetWatchProvidersAsync(movieId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.GetWatchProvidersAsync(movieId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var key in ret.Data.Result.Keys)
+        {
+            Assert.IsEmpty(ret.Data.Result[key].AdditionalProperties);
+            foreach (var item in ret.Data.Result[key].Ads)
+                Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item in ret.Data.Result[key].Buy)
+                Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item in ret.Data.Result[key].Flatrate)
+                Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item in ret.Data.Result[key].Free)
+                Assert.IsEmpty(item.AdditionalProperties);
+            foreach (var item in ret.Data.Result[key].Rent)
+                Assert.IsEmpty(item.AdditionalProperties);
+        }
     }
 }

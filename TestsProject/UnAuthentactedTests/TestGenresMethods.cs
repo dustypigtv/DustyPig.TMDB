@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -11,7 +9,10 @@ public class TestGenresMethods
     {
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Genres.GetMoviesAsync(language);
+        var ret = await ClientFactory.GetClient().Endpoints.Genres.GetMoviesAsync(language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Genres)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -22,6 +23,9 @@ public class TestGenresMethods
     {
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Genres.GetTvSeriesAsync(language);
+        var ret = await ClientFactory.GetClient().Endpoints.Genres.GetTvSeriesAsync(language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Genres)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

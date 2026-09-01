@@ -1,6 +1,5 @@
 using DustyPig.TMDB.Models.Account;
 using DustyPig.TMDB.Models.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsProject.AuthenticatedTests;
 
@@ -22,7 +21,8 @@ public class TestAccountMethods
             MediaType = CommonMediaTypes.Movie
         };
 
-        await client.Endpoints.Account.AddFavoriteAsync(postData, accountId, sessionId);
+        var ret = await client.Endpoints.Account.AddFavoriteAsync(postData, accountId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
 
         postData = new AddFavorite
         {
@@ -31,7 +31,8 @@ public class TestAccountMethods
             MediaType = CommonMediaTypes.TvSeries
         };
 
-        await client.Endpoints.Account.AddFavoriteAsync(postData, accountId, sessionId);
+        ret = await client.Endpoints.Account.AddFavoriteAsync(postData, accountId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -50,7 +51,8 @@ public class TestAccountMethods
             Watchlist = true
         };
 
-        await client.Endpoints.Account.AddToWatchlistAsync(postData, accountId, sessionId);
+        var ret = await client.Endpoints.Account.AddToWatchlistAsync(postData, accountId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
 
         postData = new AddToWatchlist
         {
@@ -59,7 +61,8 @@ public class TestAccountMethods
             Watchlist = false
         };
 
-        await client.Endpoints.Account.AddToWatchlistAsync(postData, accountId, sessionId);
+        ret = await client.Endpoints.Account.AddToWatchlistAsync(postData, accountId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
     [TestMethod]
@@ -73,7 +76,10 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetFavoriteMoviesAsync(accountId, page, language, sessionId, sortBy);
+        var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteMoviesAsync(accountId, page, language, sessionId, sortBy);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
     [TestMethod]
@@ -87,7 +93,10 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetFavoriteTvSeriesAsync(accountId, page, language, sessionId, sortBy);
+        var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteTvSeriesAsync(accountId, page, language, sessionId, sortBy);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -96,7 +105,11 @@ public class TestAccountMethods
     public async Task GetDetails()
     {
         string sessionId = Environment.GetEnvironmentVariable("TMDB_API_SESSION_ID");
-        await ClientFactory.GetClient().Endpoints.Account.GetDetailsAsync(sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.Account.GetDetailsAsync(sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Avatar?.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Avatar?.Gravatar?.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Avatar?.Tmdb?.AdditionalProperties);
     }
 
 
@@ -110,7 +123,10 @@ public class TestAccountMethods
 
         int page = 1;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetListsAsync(accountId, page, sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.Account.GetListsAsync(accountId, page, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -127,6 +143,9 @@ public class TestAccountMethods
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetRatedMoviesAsync(accountId, page, language, sessionId, sortBy);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -143,6 +162,9 @@ public class TestAccountMethods
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetRatedTvSeriesAsync(accountId, page, language, sessionId, sortBy);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -158,7 +180,10 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetRatedTvEpisodesAsync(accountId, page, language, sessionId, sortBy);
+        var ret = await ClientFactory.GetClient().Endpoints.Account.GetRatedTvEpisodesAsync(accountId, page, language, sessionId, sortBy);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -174,7 +199,10 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetWatchlistMoviesAsync(accountId, page, language, sessionId, sortBy);
+        var ret = await ClientFactory.GetClient().Endpoints.Account.GetWatchlistMoviesAsync(accountId, page, language, sessionId, sortBy);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -190,6 +218,9 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
-        await ClientFactory.GetClient().Endpoints.Account.GetWatchlistTvSeriesAsync(accountId, page, language, sessionId, sortBy);
+        var ret = await ClientFactory.GetClient().Endpoints.Account.GetWatchlistTvSeriesAsync(accountId, page, language, sessionId, sortBy);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

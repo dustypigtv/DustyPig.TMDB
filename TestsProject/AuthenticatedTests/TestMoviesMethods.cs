@@ -1,7 +1,4 @@
-﻿using DustyPig.TMDB.Models.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace TestsProject.AuthenticatedTests;
+﻿namespace TestsProject.AuthenticatedTests;
 
 [TestClass]
 public class TestMoviesMethods
@@ -16,6 +13,7 @@ public class TestMoviesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.Movies.GetAccountStatesAsync(movieId, guestSessionId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -30,7 +28,8 @@ public class TestMoviesMethods
         int movieId = Constants.MOVIE_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.Movies.AddRatingAsync(rating, movieId, guestSessionId, sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.AddRatingAsync(rating, movieId, guestSessionId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -43,6 +42,7 @@ public class TestMoviesMethods
         int movieId = Constants.MOVIE_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.Movies.DeleteRatingAsync(movieId, guestSessionId, sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.Movies.DeleteRatingAsync(movieId, guestSessionId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 }

@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -11,7 +9,10 @@ public class TestWatchProvidersMethods
     {
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.WatchProviders.GetAvailableRegionsAsync(language);
+        var ret = await ClientFactory.GetClient().Endpoints.WatchProviders.GetAvailableRegionsAsync(language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -23,7 +24,10 @@ public class TestWatchProvidersMethods
         string language = Constants.Language;
         string watchRegion = null;
 
-        await ClientFactory.GetClient().Endpoints.WatchProviders.GetMovieProvidersAsync(language, watchRegion);
+        var ret = await ClientFactory.GetClient().Endpoints.WatchProviders.GetMovieProvidersAsync(language, watchRegion);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -35,6 +39,9 @@ public class TestWatchProvidersMethods
         string language = Constants.Language;
         string watchRegion = null;
 
-        await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvSeriesProvidersAsync(language, watchRegion);
+        var ret = await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvSeriesProvidersAsync(language, watchRegion);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

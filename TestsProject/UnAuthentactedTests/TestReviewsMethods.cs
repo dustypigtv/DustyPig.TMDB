@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -11,6 +9,8 @@ public class TestReviewsMethods
     {
         string reviewId = "4fce8f8819c29523880000de";
 
-        await ClientFactory.GetClient().Endpoints.Reviews.GetDetailsAsync(reviewId);
+        var ret = await ClientFactory.GetClient().Endpoints.Reviews.GetDetailsAsync(reviewId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.AuthorDetails.AdditionalProperties);
     }
 }

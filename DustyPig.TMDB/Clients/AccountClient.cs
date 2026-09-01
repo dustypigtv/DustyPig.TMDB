@@ -15,24 +15,24 @@ internal class AccountClient : IAccount
     internal AccountClient(Client client) => _client = client;
 
 
-    public Task<Response<CommonStatus>> AddFavoriteAsync(AddFavorite postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonSuccessStatus>> AddFavoriteAsync(AddFavorite postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "session_id", sessionId }
         };
 
-        return _client.PostAsync<CommonStatus>($"/3/account/{accountId}/favorite", queryParams, postData, cancellationToken);
+        return _client.PostAsync<CommonSuccessStatus>($"/3/account/{accountId}/favorite", queryParams, postData, cancellationToken);
     }
 
-    public Task<Response<CommonStatus>> AddToWatchlistAsync(AddToWatchlist postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonSuccessStatus>> AddToWatchlistAsync(AddToWatchlist postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "session_id", sessionId }
         };
 
-        return _client.PostAsync<CommonStatus>($"/3/account/{accountId}/watchlist", queryParams, postData, cancellationToken);
+        return _client.PostAsync<CommonSuccessStatus>($"/3/account/{accountId}/watchlist", queryParams, postData, cancellationToken);
     }
 
     public Task<Response<Details>> GetDetailsAsync(string sessionId = null, CancellationToken cancellationToken = default)

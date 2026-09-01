@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -13,7 +11,10 @@ public class TestTvSeriesListsMethods
         string language = Constants.Language;
         string timezone = null;
 
-        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetAiringTodayAsync(page, language, timezone);
+        var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetAiringTodayAsync(page, language, timezone);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -26,7 +27,10 @@ public class TestTvSeriesListsMethods
         string language = Constants.Language;
         string timezone = null;
 
-        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetOnTheAirAsync(page, language, timezone);
+        var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetOnTheAirAsync(page, language, timezone);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -38,7 +42,10 @@ public class TestTvSeriesListsMethods
         int page = 1;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetPopularAsync(page, language);
+        var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetPopularAsync(page, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -50,6 +57,9 @@ public class TestTvSeriesListsMethods
         int page = 1;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetTopRatedAsync(page, language);
+        var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetTopRatedAsync(page, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

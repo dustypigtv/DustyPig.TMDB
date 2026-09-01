@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -13,7 +11,10 @@ public class TestChangesMethods
         DateOnly? startDate = DateOnly.FromDateTime(DateTime.Today.AddMonths(-1));
         DateOnly? endDate = null;
 
-        await ClientFactory.GetClient().Endpoints.Changes.GetMoviesAsync(page, endDate, startDate);
+        var ret = await ClientFactory.GetClient().Endpoints.Changes.GetMoviesAsync(page, endDate, startDate);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -26,7 +27,10 @@ public class TestChangesMethods
         DateOnly? startDate = DateOnly.FromDateTime(DateTime.Today.AddMonths(-1));
         DateOnly? endDate = null;
 
-        await ClientFactory.GetClient().Endpoints.Changes.GetPeopleAsync(page, endDate, startDate);
+        var ret = await ClientFactory.GetClient().Endpoints.Changes.GetPeopleAsync(page, endDate, startDate);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -39,6 +43,9 @@ public class TestChangesMethods
         DateOnly? startDate = DateOnly.FromDateTime(DateTime.Today.AddMonths(-1));
         DateOnly? endDate = null;
 
-        await ClientFactory.GetClient().Endpoints.Changes.GetTvSeriesAsync(page, endDate, startDate);
+        var ret = await ClientFactory.GetClient().Endpoints.Changes.GetTvSeriesAsync(page, endDate, startDate);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

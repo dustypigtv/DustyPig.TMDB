@@ -1,7 +1,4 @@
-﻿using DustyPig.TMDB.Models.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace TestsProject.AuthenticatedTests;
+﻿namespace TestsProject.AuthenticatedTests;
 
 [TestClass]
 public class TestTvEpisodesMethods
@@ -18,6 +15,7 @@ public class TestTvEpisodesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetAccountStatesAsync(episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
     [TestMethod]
@@ -32,7 +30,8 @@ public class TestTvEpisodesMethods
         int seriesId = Constants.TV_SERIES_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.AddRatingAsync(rating, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.AddRatingAsync(rating, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
     [TestMethod]
@@ -46,6 +45,7 @@ public class TestTvEpisodesMethods
         int seriesId = Constants.TV_SERIES_ID;
         string guestSessionId = null;
 
-        await ClientFactory.GetClient().Endpoints.TvEpisodes.DeleteRatingAsync(episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
+        var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.DeleteRatingAsync(episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 }

@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -11,7 +9,10 @@ public class TestCompaniesMethods
     {
         int companyId = Constants.PRODUCTION_COMPANY;
 
-        await ClientFactory.GetClient().Endpoints.Companies.GetAlternativeNamesAsync(companyId);
+        var ret = await ClientFactory.GetClient().Endpoints.Companies.GetAlternativeNamesAsync(companyId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -22,7 +23,8 @@ public class TestCompaniesMethods
     {
         int companyId = Constants.PRODUCTION_COMPANY;
 
-        await ClientFactory.GetClient().Endpoints.Companies.GetDetailsAsync(companyId);
+        var ret = await ClientFactory.GetClient().Endpoints.Companies.GetDetailsAsync(companyId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
     }
 
 
@@ -33,6 +35,9 @@ public class TestCompaniesMethods
     {
         int companyId = Constants.PRODUCTION_COMPANY;
 
-        await ClientFactory.GetClient().Endpoints.Companies.GetImagesAsync(companyId);
+        var ret = await ClientFactory.GetClient().Endpoints.Companies.GetImagesAsync(companyId);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Logos)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

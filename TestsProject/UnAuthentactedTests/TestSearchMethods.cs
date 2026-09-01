@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -15,7 +13,10 @@ public class TestSearchMethods
         string language = Constants.Language;
         string region = null;
 
-        await ClientFactory.GetClient().Endpoints.Search.CollectionsAsync(query, page, includeAdult, language, region);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.CollectionsAsync(query, page, includeAdult, language, region);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -27,7 +28,10 @@ public class TestSearchMethods
         string query = "Marvel Studios";
         int page = 1;
 
-        await ClientFactory.GetClient().Endpoints.Search.CompaniesAsync(query, page);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.CompaniesAsync(query, page);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -39,7 +43,10 @@ public class TestSearchMethods
         string query = "superhero";
         int page = 1;
 
-        await ClientFactory.GetClient().Endpoints.Search.KeywordsAsync(query, page);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.KeywordsAsync(query, page);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -56,7 +63,10 @@ public class TestSearchMethods
         string region = null;
         int? year = 2012;
 
-        await ClientFactory.GetClient().Endpoints.Search.MoviesAsync(query, page, includeAdult, language, primaryReleaseYear, region, year);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.MoviesAsync(query, page, includeAdult, language, primaryReleaseYear, region, year);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -70,7 +80,10 @@ public class TestSearchMethods
         bool? includeAdult = null;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Search.MultiAsync(query, page, includeAdult, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.MultiAsync(query, page, includeAdult, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -84,7 +97,10 @@ public class TestSearchMethods
         bool? includeAdult = null;
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Search.PeopleAsync(query, page, includeAdult, language);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.PeopleAsync(query, page, includeAdult, language);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -100,6 +116,9 @@ public class TestSearchMethods
         string language = Constants.Language;
         int? year = null;
 
-        await ClientFactory.GetClient().Endpoints.Search.TvSeriesAsync(query, page, firstAirDateYear, includeAdult, language, year);
+        var ret = await ClientFactory.GetClient().Endpoints.Search.TvSeriesAsync(query, page, firstAirDateYear, includeAdult, language, year);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

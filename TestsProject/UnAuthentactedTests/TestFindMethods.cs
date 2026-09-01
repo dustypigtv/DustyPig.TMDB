@@ -1,5 +1,4 @@
 using DustyPig.TMDB.Models.Find;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -16,6 +15,17 @@ public class TestFindMethods
 
         var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
         Assert.IsTrue(response.Data.MovieResults.Any(_ => _.Id == Constants.MOVIE_ID));
+        Assert.IsEmpty(response.Data.AdditionalProperties);
+        foreach (var item in response.Data.MovieResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.PersonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvEpisodeResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvSeasonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
     [TestMethod]
@@ -28,6 +38,17 @@ public class TestFindMethods
 
         var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
         Assert.IsTrue(response.Data.TvResults.Any(_ => _.Id == Constants.TV_SERIES_ID));
+        Assert.IsEmpty(response.Data.AdditionalProperties);
+        foreach (var item in response.Data.MovieResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.PersonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvEpisodeResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvSeasonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -41,6 +62,17 @@ public class TestFindMethods
 
         var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
         Assert.IsTrue(response.Data.PersonResults.Any(_ => _.Id == Constants.PERSON_ID));
+        Assert.IsEmpty(response.Data.AdditionalProperties);
+        foreach (var item in response.Data.MovieResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.PersonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvEpisodeResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvSeasonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
     [TestMethod]
@@ -53,6 +85,17 @@ public class TestFindMethods
 
         var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
         Assert.IsTrue(response.Data.TvSeasonResults.Any(_ => _.Id == Constants.SEASON_ID));
+        Assert.IsEmpty(response.Data.AdditionalProperties);
+        foreach (var item in response.Data.MovieResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.PersonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvEpisodeResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvSeasonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
     [TestMethod]
@@ -65,5 +108,16 @@ public class TestFindMethods
 
         var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
         Assert.IsTrue(response.Data.TvEpisodeResults.Any(_ => _.Id == Constants.EPISODE_ID));
+        Assert.IsEmpty(response.Data.AdditionalProperties);
+        foreach (var item in response.Data.MovieResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.PersonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvEpisodeResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvResults)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in response.Data.TvSeasonResults)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

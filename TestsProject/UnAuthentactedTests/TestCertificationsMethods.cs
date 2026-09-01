@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -9,7 +7,11 @@ public class TestCertificationsMethods
     [DoNotParallelize]
     public async Task GetMovieCertifications()
     {
-        await ClientFactory.GetClient().Endpoints.Certifications.GetMovieCertificationsAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Certifications.GetMovieCertificationsAsync();
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var key in ret.Data.Certifications.Keys)
+            foreach (var item in ret.Data.Certifications[key])
+                Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -18,6 +20,10 @@ public class TestCertificationsMethods
     [DoNotParallelize]
     public async Task GetTvSeriesCertifications()
     {
-        await ClientFactory.GetClient().Endpoints.Certifications.GetTvSeriesCertificationsAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Certifications.GetTvSeriesCertificationsAsync();
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var key in ret.Data.Certifications.Keys)
+            foreach (var item in ret.Data.Certifications[key])
+                Assert.IsEmpty(item.AdditionalProperties);
     }
 }

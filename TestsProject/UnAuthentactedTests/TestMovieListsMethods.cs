@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -13,7 +11,10 @@ public class TestMovieListsMethods
         string language = Constants.Language;
         string region = null;
 
-        await ClientFactory.GetClient().Endpoints.MovieLists.GetNowPlayingAsync(page, language, region);
+        var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetNowPlayingAsync(page, language, region);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -26,7 +27,10 @@ public class TestMovieListsMethods
         string language = Constants.Language;
         string region = null;
 
-        await ClientFactory.GetClient().Endpoints.MovieLists.GetPopularAsync(page, language, region);
+        var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetPopularAsync(page, language, region);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -39,7 +43,10 @@ public class TestMovieListsMethods
         string language = Constants.Language;
         string region = null;
 
-        await ClientFactory.GetClient().Endpoints.MovieLists.GetTopRatedAsync(page, language, region);
+        var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetTopRatedAsync(page, language, region);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -52,6 +59,9 @@ public class TestMovieListsMethods
         string language = Constants.Language;
         string region = null;
 
-        await ClientFactory.GetClient().Endpoints.MovieLists.GetUpcomingAsync(page, language, region);
+        var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetUpcomingAsync(page, language, region);
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Results)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }

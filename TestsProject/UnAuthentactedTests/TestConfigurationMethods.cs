@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace TestsProject.UnAuthentactedTests;
 
 [TestClass]
@@ -11,7 +9,9 @@ public class TestConfigurationMethods
     {
         string language = Constants.Language;
 
-        await ClientFactory.GetClient().Endpoints.Configuration.GetCountriesAsync(language);
+        var ret = await ClientFactory.GetClient().Endpoints.Configuration.GetCountriesAsync(language);
+        foreach (var item in ret.Data)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -20,7 +20,9 @@ public class TestConfigurationMethods
     [DoNotParallelize]
     public async Task GetDetails()
     {
-        await ClientFactory.GetClient().Endpoints.Configuration.GetDetailsAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Configuration.GetDetailsAsync();
+        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        Assert.IsEmpty(ret.Data.Images.AdditionalProperties);
     }
 
 
@@ -29,7 +31,9 @@ public class TestConfigurationMethods
     [DoNotParallelize]
     public async Task GetJobs()
     {
-        await ClientFactory.GetClient().Endpoints.Configuration.GetJobsAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Configuration.GetJobsAsync();
+        foreach (var item in ret.Data)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -38,7 +42,9 @@ public class TestConfigurationMethods
     [DoNotParallelize]
     public async Task GetLanguages()
     {
-        await ClientFactory.GetClient().Endpoints.Configuration.GetLanguagesAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Configuration.GetLanguagesAsync();
+        foreach (var item in ret.Data)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 
 
@@ -56,6 +62,8 @@ public class TestConfigurationMethods
     [DoNotParallelize]
     public async Task GetTimezones()
     {
-        await ClientFactory.GetClient().Endpoints.Configuration.GetTimezonesAsync();
+        var ret = await ClientFactory.GetClient().Endpoints.Configuration.GetTimezonesAsync();
+        foreach (var item in ret.Data)
+            Assert.IsEmpty(item.AdditionalProperties);
     }
 }
