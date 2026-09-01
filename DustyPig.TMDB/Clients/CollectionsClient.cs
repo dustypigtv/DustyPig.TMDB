@@ -32,7 +32,7 @@ internal class CollectionsClient : ICollections
     /// Get the images that belong to a collection.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<Images>> GetImagesAsync(int collectionId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonImages>> GetImagesAsync(int collectionId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -40,7 +40,7 @@ internal class CollectionsClient : ICollections
             { "language", language }
         };
 
-        return _client.GetAsync<Images>($"/3/collection/{collectionId}/images", queryParams, cancellationToken);
+        return _client.GetAsync<CommonImages>($"/3/collection/{collectionId}/images", queryParams, cancellationToken);
     }
 
     public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default) =>

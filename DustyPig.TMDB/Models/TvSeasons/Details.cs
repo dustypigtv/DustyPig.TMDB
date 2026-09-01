@@ -49,7 +49,7 @@ public class Details : ModelBase
     public CommonExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public Images Images { get; set; }
+    public CommonImages Images { get; set; }
 
     [JsonPropertyName("translations")]
     public CommonTranslationList<CommonTranslation<Translation>> Translations { get; set; }

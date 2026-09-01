@@ -16,4 +16,10 @@ public class CommonImages : ModelBase
 
     [JsonPropertyName("posters")]
     public List<CommonImage> Posters { get; set; } = [];
+
+    [JsonPropertyName("profiles")]
+    public List<CommonImage> Profiles { get; set; } = [];
+
+    [JsonPropertyName("stills")]
+    public List<CommonImage> Stills { get; set; } = [];
 }

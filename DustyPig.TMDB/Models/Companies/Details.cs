@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Companies;
 
-public class Details : ModelBase
+public class Details : CommonCompany
 {
     [JsonPropertyName("description")]
     public string Description { get; set; }
@@ -13,18 +13,6 @@ public class Details : ModelBase
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
-
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
-
-    [JsonPropertyName("logo_path")]
-    public string LogoPath { get; set; }
-
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
-
-    [JsonPropertyName("origin_country")]
-    public string OriginCountry { get; set; }
 
     [JsonPropertyName("parent_company")]
     public string ParentCompany { get; set; }

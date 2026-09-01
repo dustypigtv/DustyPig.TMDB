@@ -33,7 +33,7 @@ public interface IPeople
     /// <summary>
     /// Get the profile images that belong to a person.
     /// </summary>
-    public Task<Response<Images>> GetImagesAsync(int personId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonImages>> GetImagesAsync(int personId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the newest created person. This is a live response and will continuously change.

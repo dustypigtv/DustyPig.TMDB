@@ -93,7 +93,7 @@ internal class TvSeasonsClient : ITvSeasons
     /// Get the images that belong to a TV season.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<Images>> GetImagesAsync(int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonImages>> GetImagesAsync(int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -101,7 +101,7 @@ internal class TvSeasonsClient : ITvSeasons
             { "language", language }
         };
 
-        return _client.GetAsync<Images>($"/3/tv/{seriesId}/season/{seasonNumber}/images", queryParams, cancellationToken);
+        return _client.GetAsync<CommonImages>($"/3/tv/{seriesId}/season/{seasonNumber}/images", queryParams, cancellationToken);
     }
 
     /// <summary>

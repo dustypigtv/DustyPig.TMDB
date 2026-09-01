@@ -59,7 +59,7 @@ public class Details : ModelBase
     public CommonExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public Images Images { get; set; }
+    public CommonImages Images { get; set; }
 
     [JsonPropertyName("movie_credits")]
     public MovieCredits MovieCredits { get; set; }

@@ -68,8 +68,8 @@ internal class PeopleClient : IPeople
     /// <summary>
     /// Get the profile images that belong to a person.
     /// </summary>
-    public Task<Response<Images>> GetImagesAsync(int personId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<Images>($"/3/person/{personId}/images", null, cancellationToken);
+    public Task<Response<CommonImages>> GetImagesAsync(int personId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonImages>($"/3/person/{personId}/images", null, cancellationToken);
 
     /// <summary>
     /// Get the newest created person. This is a live response and will continuously change.

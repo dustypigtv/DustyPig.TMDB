@@ -41,7 +41,7 @@ public interface ITvSeasons
     /// Get the images that belong to a TV season.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<Images>> GetImagesAsync(int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CommonImages>> GetImagesAsync(int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations for a TV season.
