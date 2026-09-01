@@ -36,7 +36,7 @@ public class Release : ModelBase
     public DateOnly? ReleaseDate { get; set; }
 
     [JsonPropertyName("type")]
-    public CommonReleaseTypes Type { get; set; }
+    public ReleaseTypes Type { get; set; }
 
     [JsonPropertyName("descriptors")]
     public List<string> Descriptors { get; set; } = [];

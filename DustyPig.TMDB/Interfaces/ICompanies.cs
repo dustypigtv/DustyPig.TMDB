@@ -10,15 +10,15 @@ public interface ICompanies
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonAlternativeName>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<AlternativeName>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<CommonCompany>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<Company>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the company logos by id.
     /// </summary>
-    public Task<Response<CommonLogos>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default);
+    public Task<Response<Logos_>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default);
 }

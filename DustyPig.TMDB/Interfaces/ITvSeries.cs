@@ -12,24 +12,24 @@ public interface ITvSeries
     /// <summary>
     /// Get the rating, watchlist and favourite status.
     /// </summary>
-    public Task<Response<CommonAccountState>> GetAccountStatesAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<AccountState>> GetAccountStatesAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Rate a TV show and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<StatusResponse>> AddRatingAsync(float rating, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<CommonStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<StatusResponse>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
     /// </summary>
-    public Task<Response<CommonAggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonTitle>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<Title_>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the recent changes for a TV show.
@@ -44,7 +44,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the latest season credits of a TV show.
     /// </summary>
-    public Task<Response<CommonTvCredits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<TvCredits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the details of a TV show.
@@ -60,18 +60,18 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of external IDs that have been added to a TV show.
     /// </summary>
-    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a TV series.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<CommonImages>> GetImagesAsync(int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Images>> GetImagesAsync(int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of keywords that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonName>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<Name_>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the newest TV show ID.
@@ -83,12 +83,12 @@ public interface ITvSeries
     /// </summary>
     public Task<Response<PagedResultWithId<Lists>>> GetListsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<PagedResult<Series>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TvSeries>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the reviews that have been added to a TV show.
     /// </summary>
-    public Task<Response<PagedResultWithId<CommonReview>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<Review>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the seasons and episodes that have screened theatrically.
@@ -98,21 +98,21 @@ public interface ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetSimilarAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TvSeries>>> GetSimilarAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that have been added to a TV show.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<TranslationList<TranslationData>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV show.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<Video>>> GetVideosAsync(int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV show.
     /// </summary>
-    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<WatchProviderDictionary>> GetWatchProvidersAsync(int seriesId, CancellationToken cancellationToken = default);
 }

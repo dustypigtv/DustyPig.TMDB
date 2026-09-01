@@ -21,25 +21,25 @@ public class KnownForResult : ModelBase
     public int Id { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.Movie"/>
     /// </summary>
     [JsonPropertyName("title")]
     public string Title { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.Movie"/>
     /// </summary>
     [JsonPropertyName("original_title")]
     public string OriginalTitle { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.TvSeries"/>
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.TvSeries"/>
     /// </summary>
     [JsonPropertyName("original_name")]
     public string OriginalName { get; set; }
@@ -56,7 +56,7 @@ public class KnownForResult : ModelBase
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; }
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("genre_ids")]
     public List<int> GenreIds { get; set; } = [];
@@ -65,14 +65,14 @@ public class KnownForResult : ModelBase
     public float Popularity { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.Movie"/>
     /// </summary>
     [JsonPropertyName("release_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
     public DateOnly? ReleaseDate { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.Movie"/>
     /// </summary>
     [JsonPropertyName("video")]
     public bool? Video { get; set; }
@@ -84,14 +84,14 @@ public class KnownForResult : ModelBase
     public int VoteCount { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.TvSeries"/>
     /// </summary>
     [JsonPropertyName("first_air_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
     public DateOnly? FirstAirDate { get; set; }
 
     /// <summary>
-    /// Populated when <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
+    /// Populated when <see cref="MediaType"/> == <see cref="MediaTypes.TvSeries"/>
     /// </summary>
     [JsonPropertyName("origin_country")]
     public List<string> OriginCountry { get; set; } = [];

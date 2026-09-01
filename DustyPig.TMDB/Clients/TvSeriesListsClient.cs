@@ -17,7 +17,7 @@ internal class TvSeriesListsClient : ITvSeriesLists
     /// <summary>
     /// Get a list of TV shows airing today.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TvSeries>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -26,13 +26,13 @@ internal class TvSeriesListsClient : ITvSeriesLists
             { "timezone", timezone }
         };
 
-        return _client.GetAsync<PagedResult<Series>>("/3/tv/airing_today", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TvSeries>>("/3/tv/airing_today", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TvSeries>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -41,13 +41,13 @@ internal class TvSeriesListsClient : ITvSeriesLists
             { "timezone", timezone }
         };
 
-        return _client.GetAsync<PagedResult<Series>>("/3/tv/on_the_air", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TvSeries>>("/3/tv/on_the_air", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of TV shows ordered by popularity.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TvSeries>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -55,13 +55,13 @@ internal class TvSeriesListsClient : ITvSeriesLists
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<Series>>("/3/tv/popular", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TvSeries>>("/3/tv/popular", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of TV shows ordered by rating.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TvSeries>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -69,7 +69,7 @@ internal class TvSeriesListsClient : ITvSeriesLists
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<Series>>("/3/tv/top_rated", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TvSeries>>("/3/tv/top_rated", queryParams, cancellationToken);
     }
 
 

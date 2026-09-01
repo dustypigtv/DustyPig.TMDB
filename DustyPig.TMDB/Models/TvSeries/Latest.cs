@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class Latest : Series
+public class Latest : Common.TvSeries
 {
     [JsonPropertyName("created_by")]
     public List<CreatedBy> CreatedBy { get; set; } = [];
@@ -16,7 +16,7 @@ public class Latest : Series
     public List<int> EpisodeRunTime { get; set; } = [];
 
     [JsonPropertyName("genres")]
-    public List<CommonName> Genres { get; set; } = [];
+    public List<Name_> Genres { get; set; } = [];
 
     [JsonPropertyName("languages")]
     public List<string> Languages { get; set; } = [];
@@ -41,7 +41,7 @@ public class Latest : Series
     public int NumberOfSeasons { get; set; }
 
     [JsonPropertyName("seasons")]
-    public List<CommonSeason> Seasons { get; set; } = [];
+    public List<TvSeason> Seasons { get; set; } = [];
 
     [JsonPropertyName("status")]
     public string Status { get; set; }
@@ -53,16 +53,16 @@ public class Latest : Series
     public string Type { get; set; }
 
     [JsonPropertyName("networks")]
-    public List<CommonCompany> Networks { get; set; } = [];
+    public List<Company> Networks { get; set; } = [];
 
     [JsonPropertyName("production_companies")]
-    public List<CommonCompany> ProductionCompanies { get; set; } = [];
+    public List<Company> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
-    public List<CommonCountry2> ProductionCountries { get; set; } = [];
+    public List<Country2> ProductionCountries { get; set; } = [];
 
     [JsonPropertyName("spoken_languages")]
-    public List<CommonLanguage> SpokenLanguages { get; set; } = [];
+    public List<Language> SpokenLanguages { get; set; } = [];
 
     /// <summary>
     /// TO DO:

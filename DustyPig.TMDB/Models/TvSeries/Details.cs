@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class Details : Series
+public class Details : Common.TvSeries
 {
     [JsonPropertyName("created_by")]
     public List<CreatedBy> CreatedBy { get; set; } = [];
@@ -16,7 +16,7 @@ public class Details : Series
     public List<int> EpisodeRunTime { get; set; } = [];
 
     [JsonPropertyName("genres")]
-    public List<CommonName> Genres { get; set; } = [];
+    public List<Name_> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -35,7 +35,7 @@ public class Details : Series
     public LastEpisodeToAir LastEpisodeToAir { get; set; }
 
     [JsonPropertyName("networks")]
-    public List<CommonCompany> Networks { get; set; } = [];
+    public List<Company> Networks { get; set; } = [];
 
     [JsonPropertyName("number_of_episodes")]
     public int NumberOfEpisodes { get; set; }
@@ -44,16 +44,16 @@ public class Details : Series
     public int NumberOfSeasons { get; set; }
 
     [JsonPropertyName("production_companies")]
-    public List<CommonCompany> ProductionCompanies { get; set; } = [];
+    public List<Company> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
-    public List<CommonCountry2> ProductionCountries { get; set; } = [];
+    public List<Country2> ProductionCountries { get; set; } = [];
 
     [JsonPropertyName("seasons")]
-    public List<CommonSeason> Seasons { get; set; } = [];
+    public List<TvSeason> Seasons { get; set; } = [];
 
     [JsonPropertyName("spoken_languages")]
-    public List<CommonLanguage> SpokenLanguages { get; set; } = [];
+    public List<Language> SpokenLanguages { get; set; } = [];
 
     [JsonPropertyName("status")]
     public string Status { get; set; }
@@ -63,16 +63,16 @@ public class Details : Series
 
     [JsonPropertyName("type")]
     [JsonConverter(typeof(TvSeriesTypeConverter))]
-    public CommonTvSeriesTypes? Type { get; set; }
+    public TvSeriesTypes? Type { get; set; }
 
     [JsonPropertyName("account_states")]
-    public CommonAccountState AccountStates { get; set; }
+    public AccountState AccountStates { get; set; }
 
     [JsonPropertyName("aggregate_credits")]
-    public CommonAggregateCredits AggregateCredits { get; set; }
+    public AggregateCredits AggregateCredits { get; set; }
 
     [JsonPropertyName("alternative_titles")]
-    public ListResultWithId<CommonTitle> AlternativeTitles { get; set; }
+    public ListResultWithId<Title_> AlternativeTitles { get; set; }
 
     [JsonPropertyName("changes")]
     public CommonChanges Changes { get; set; }
@@ -81,40 +81,40 @@ public class Details : Series
     public ListResultWithId<ContentRating> ContentRatings { get; set; }
 
     [JsonPropertyName("credits")]
-    public CommonTvCredits Credits { get; set; }
+    public TvCredits Credits { get; set; }
 
     [JsonPropertyName("episode_groups")]
     public ListResultWithId<EpisodeGroup> EpisodeGroups { get; set; }
 
     [JsonPropertyName("external_ids")]
-    public CommonExternalIds ExternalIds { get; set; }
+    public ExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public CommonImages Images { get; set; }
+    public Images Images { get; set; }
 
     [JsonPropertyName("keywords")]
-    public ListResultWithId<CommonName> Keywords { get; set; }
+    public ListResultWithId<Name_> Keywords { get; set; }
 
     [JsonPropertyName("lists")]
     public PagedResultWithId<Lists> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<Series> Recommendations { get; set; }
+    public PagedResult<Common.TvSeries> Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
-    public PagedResultWithId<CommonReview> Reviews { get; set; }
+    public PagedResultWithId<Review> Reviews { get; set; }
 
     [JsonPropertyName("screened_theatrically")]
     public ListResultWithId<ScreenedTheatrically> ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<Series> Similar { get; set; }
+    public PagedResult<Common.TvSeries> Similar { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslationData> Translations { get; set; }
+    public TranslationList<TranslationData> Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public ListResultWithId<CommonVideo> Videos { get; set; }
+    public ListResultWithId<Video> Videos { get; set; }
 
     /// <summary>
     /// TO DO:

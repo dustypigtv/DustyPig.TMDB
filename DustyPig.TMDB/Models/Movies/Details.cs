@@ -13,7 +13,7 @@ public class Details : Movie
     public int Budget { get; set; }
 
     [JsonPropertyName("genres")]
-    public List<CommonName> Genres { get; set; } = [];
+    public List<Name_> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -22,10 +22,10 @@ public class Details : Movie
     public string ImdbId { get; set; }
 
     [JsonPropertyName("production_companies")]
-    public List<CommonCompany> ProductionCompanies { get; set; } = [];
+    public List<Company> ProductionCompanies { get; set; } = [];
 
     [JsonPropertyName("production_countries")]
-    public List<CommonCountry2> ProductionCountries { get; set; } = [];
+    public List<Country2> ProductionCountries { get; set; } = [];
 
     [JsonPropertyName("revenue")]
     public long Revenue { get; set; }
@@ -34,7 +34,7 @@ public class Details : Movie
     public int? Runtime { get; set; }
 
     [JsonPropertyName("spoken_languages")]
-    public List<CommonLanguage> SpokenLanguages { get; set; } = [];
+    public List<Language> SpokenLanguages { get; set; } = [];
 
     [JsonPropertyName("status")]
     public string Status { get; set; }
@@ -43,7 +43,7 @@ public class Details : Movie
     public string Tagline { get; set; }
 
     [JsonPropertyName("account_states")]
-    public CommonAccountState AccountStates { get; set; }
+    public AccountState AccountStates { get; set; }
 
     [JsonPropertyName("alternative_titles")]
     public AlternativeTitle AlternativeTitles { get; set; }
@@ -55,16 +55,16 @@ public class Details : Movie
     public Credits Credits { get; set; }
 
     [JsonPropertyName("external_ids")]
-    public CommonExternalIds ExternalIds { get; set; }
+    public ExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public CommonImages Images { get; set; }
+    public Images Images { get; set; }
 
     [JsonPropertyName("keywords")]
     public KeywordsList Keywords { get; set; }
 
     [JsonPropertyName("lists")]
-    public PagedResultWithId<CommonList> Lists { get; set; }
+    public PagedResultWithId<MediaList> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
     public PagedResult<Movie> Recommendations { get; set; }
@@ -73,15 +73,15 @@ public class Details : Movie
     public ListResultWithId<Releases> ReleaseDates { get; set; }
 
     [JsonPropertyName("reviews")]
-    public PagedResultWithId<CommonReview> Reviews { get; set; }
+    public PagedResultWithId<Review> Reviews { get; set; }
 
     [JsonPropertyName("similar")]
     public PagedResult<Movie> Similar { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslationData> Translations { get; set; }
+    public TranslationList<TranslationData> Translations { get; set; }
 
 
     [JsonPropertyName("videos")]
-    public ListResultWithId<CommonVideo> Videos { get; set; }
+    public ListResultWithId<Video> Videos { get; set; }
 }

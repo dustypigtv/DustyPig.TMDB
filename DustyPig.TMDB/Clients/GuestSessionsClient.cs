@@ -14,7 +14,7 @@ internal class GuestSessionsClient : IGuestSessions
     internal GuestSessionsClient(Client client) => _client = client;
 
 
-    public Task<Response<PagedResult<Movie>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", SortByCreated sortBy = SortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -29,7 +29,7 @@ internal class GuestSessionsClient : IGuestSessions
     /// <summary>
     /// Get the rated TV shows for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetRatedTvSeriesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TvSeries>>> GetRatedTvSeriesAsync(string guestSessionId, int page = 1, string language = "en-US", SortByCreated sortBy = SortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -38,13 +38,13 @@ internal class GuestSessionsClient : IGuestSessions
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<Series>>($"/3/guest_session/{guestSessionId}/rated/tv", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TvSeries>>($"/3/guest_session/{guestSessionId}/rated/tv", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the rated TV episodes for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonRatedTvEpisode>>> GetRatedTvEpisodesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<RatedTvEpisode>>> GetRatedTvEpisodesAsync(string guestSessionId, int page = 1, string language = "en-US", SortByCreated sortBy = SortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -53,6 +53,6 @@ internal class GuestSessionsClient : IGuestSessions
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<CommonRatedTvEpisode>>($"/3/guest_session/{guestSessionId}/rated/tv/episodes", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<RatedTvEpisode>>($"/3/guest_session/{guestSessionId}/rated/tv/episodes", queryParams, cancellationToken);
     }
 }

@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Reviews;
 
-public class Details : CommonReview
+public class Details : Review
 {
     /// <summary>
     /// ISO-639-1 2 letter language code. E.g. &quot;en&quot;
@@ -31,5 +31,5 @@ public class Details : CommonReview
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; }
+    public MediaTypes MediaType { get; set; }
 }

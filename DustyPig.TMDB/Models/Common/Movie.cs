@@ -4,12 +4,12 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class Movie : CommonMediaBase
+public class Movie : Media
 {
     public Movie()
     {
         //Default
-        MediaType = CommonMediaTypes.Movie;
+        MediaType = MediaTypes.Movie;
     }
 
     [JsonPropertyName("title")]

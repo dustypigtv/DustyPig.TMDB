@@ -29,7 +29,7 @@ public class Latest : ModelBase
     public string Biography { get; set; }
 
     [JsonPropertyName("gender")]
-    public CommonGender Gender { get; set; }
+    public Gender Gender { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

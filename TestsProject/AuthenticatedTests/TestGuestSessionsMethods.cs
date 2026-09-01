@@ -27,7 +27,7 @@ public class TestGuestSessionsMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret2 = await client.Endpoints.GuestSessions.GetRatedMoviesAsync(guestSessionId, page, language, sortBy);
         AdditionalPropertiesChecker.Check(ret2);
@@ -54,7 +54,7 @@ public class TestGuestSessionsMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret2 = await client.Endpoints.GuestSessions.GetRatedTvSeriesAsync(guestSessionId, page, language, sortBy);
         AdditionalPropertiesChecker.Check(ret2);
@@ -83,7 +83,7 @@ public class TestGuestSessionsMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret2 = await client.Endpoints.GuestSessions.GetRatedTvEpisodesAsync(guestSessionId, page, language, sortBy);
         AdditionalPropertiesChecker.Check(ret2);

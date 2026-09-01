@@ -10,5 +10,5 @@ public class AlternativeTitle : ModelBase
     public int Id { get; set; }
 
     [JsonPropertyName("titles")]
-    public List<CommonTitle> Titles { get; set; } = [];
+    public List<Title_> Titles { get; set; } = [];
 }

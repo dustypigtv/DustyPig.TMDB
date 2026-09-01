@@ -8,7 +8,7 @@ namespace DustyPig.TMDB.Models.Lists;
 public class Details : ModelBase
 {
     private List<Movie> _movies = null;
-    private List<Series> _tv = null;
+    private List<Common.TvSeries> _tv = null;
 
     [JsonPropertyName("created_by")]
     public string CreatedBy { get; set; }
@@ -29,7 +29,7 @@ public class Details : ModelBase
     public JsonElement Items { get; set; }
 
     /// <summary>
-    /// This property will contain items from <see cref="Items"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.Movie"/>.
+    /// This property will contain items from <see cref="Items"/> where <see cref="Media.MediaType"/> == <see cref="MediaTypes.Movie"/>.
     /// </summary>
     [JsonIgnore]
     public List<Movie> Movies
@@ -58,10 +58,10 @@ public class Details : ModelBase
     }
 
     /// <summary>
-    /// This property will contain items from <see cref="Items"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>.
+    /// This property will contain items from <see cref="Items"/> where <see cref="Media.MediaType"/> == <see cref="MediaTypes.TvSeries"/>.
     /// </summary>
     [JsonIgnore]
-    public List<Series> TvSeries
+    public List<Common.TvSeries> TvSeries
     {
         get
         {
@@ -75,7 +75,7 @@ public class Details : ModelBase
                         string mediaType = mediaTypeProperty.GetString();
                         if (mediaType == "tv")
                         {
-                            var series = JsonSerializer.Deserialize<Series>(item.GetRawText());
+                            var series = JsonSerializer.Deserialize<Common.TvSeries>(item.GetRawText());
                             if (series != null)
                                 _tv.Add(series);
                         }

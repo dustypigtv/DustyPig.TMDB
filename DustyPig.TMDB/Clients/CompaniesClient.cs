@@ -16,18 +16,18 @@ internal class CompaniesClient : ICompanies
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<ListResultWithId<CommonAlternativeName>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<CommonAlternativeName>>($"/3/company/{companyId}/alternative_names", null, cancellationToken);
+    public Task<Response<ListResultWithId<AlternativeName>>> GetAlternativeNamesAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<AlternativeName>>($"/3/company/{companyId}/alternative_names", null, cancellationToken);
 
     /// <summary>
     /// Get the company details by ID.
     /// </summary>
-    public Task<Response<CommonCompany>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonCompany>($"/3/company/{companyId}", null, cancellationToken);
+    public Task<Response<Company>> GetDetailsAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Company>($"/3/company/{companyId}", null, cancellationToken);
 
     /// <summary>
     /// Get the company logos by id.
     /// </summary>
-    public Task<Response<CommonLogos>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonLogos>($"/3/company/{companyId}/images", null, cancellationToken);
+    public Task<Response<Logos_>> GetImagesAsync(int companyId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Logos_>($"/3/company/{companyId}/images", null, cancellationToken);
 }

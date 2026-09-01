@@ -9,7 +9,7 @@ public class MultiResponse : ModelBase
 {
     private List<Person> _people = null;
     private List<Movie> _movies = null;
-    private List<Series> _tv = null;
+    private List<Common.TvSeries> _tv = null;
 
     [JsonPropertyName("page")]
     public int Page { get; set; }
@@ -25,7 +25,7 @@ public class MultiResponse : ModelBase
 
 
     /// <summary>
-    /// This property will contain items from <see cref="Results"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.Movie"/>.
+    /// This property will contain items from <see cref="Results"/> where <see cref="Media.MediaType"/> == <see cref="MediaTypes.Movie"/>.
     /// </summary>
     [JsonIgnore]
     public List<Movie> Movies
@@ -54,7 +54,7 @@ public class MultiResponse : ModelBase
     }
 
     /// <summary>
-    /// This property will contain items from <see cref="Results"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.Person"/>.
+    /// This property will contain items from <see cref="Results"/> where <see cref="Media.MediaType"/> == <see cref="MediaTypes.Person"/>.
     /// </summary>
     [JsonIgnore]
     public List<Person> People
@@ -83,10 +83,10 @@ public class MultiResponse : ModelBase
     }
 
     /// <summary>
-    /// This property will contain items from <see cref="Results"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>.
+    /// This property will contain items from <see cref="Results"/> where <see cref="Media.MediaType"/> == <see cref="MediaTypes.TvSeries"/>.
     /// </summary>
     [JsonIgnore]
-    public List<Series> TvSeries
+    public List<Common.TvSeries> TvSeries
     {
         get
         {
@@ -100,7 +100,7 @@ public class MultiResponse : ModelBase
                         string mediaType = mediaTypeProperty.GetString();
                         if (mediaType == "tv")
                         {
-                            var series = JsonSerializer.Deserialize<Series>(item.GetRawText());
+                            var series = JsonSerializer.Deserialize<Common.TvSeries>(item.GetRawText());
                             if (series != null)
                                 _tv.Add(series);
                         }

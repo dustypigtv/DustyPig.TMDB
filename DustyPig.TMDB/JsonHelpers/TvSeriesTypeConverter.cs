@@ -9,9 +9,9 @@ namespace DustyPig.TMDB.JsonHelpers;
 /// <summary>
 /// This converts the sequaltal numbers used on TMDB to the flags enum used here
 /// </summary>
-internal class TvSeriesTypeConverter : JsonConverter<CommonTvSeriesTypes?>
+internal class TvSeriesTypeConverter : JsonConverter<TvSeriesTypes?>
 {
-    public override CommonTvSeriesTypes? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override TvSeriesTypes? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         string strVal = null;
         if (reader.TokenType == JsonTokenType.String)
@@ -20,14 +20,14 @@ internal class TvSeriesTypeConverter : JsonConverter<CommonTvSeriesTypes?>
             strVal = reader.GetInt32().ToString();
 
         if (strVal != null)
-            foreach (CommonTvSeriesTypes enumValue in Enum.GetValues(typeof(CommonTvSeriesTypes)))
+            foreach (TvSeriesTypes enumValue in Enum.GetValues(typeof(TvSeriesTypes)))
                 if (enumValue.GetEnumDescription() == strVal)
                     return enumValue;
 
         return null;
     }
 
-    public override void Write(Utf8JsonWriter writer, CommonTvSeriesTypes? value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, TvSeriesTypes? value, JsonSerializerOptions options)
     {
         if (value == null)
         {

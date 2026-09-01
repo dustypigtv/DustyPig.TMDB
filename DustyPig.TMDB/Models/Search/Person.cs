@@ -9,13 +9,13 @@ namespace DustyPig.TMDB.Models.Search;
 public class Person : ModelBase
 {
     private List<Movie> _knownForMovies = null;
-    private List<Series> _knownForSeries = null;
+    private List<Common.TvSeries> _knownForSeries = null;
 
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
 
     [JsonPropertyName("gender")]
-    public CommonGender Gender { get; set; }
+    public Gender Gender { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -43,7 +43,7 @@ public class Person : ModelBase
 
 
     /// <summary>
-    /// This property will contain items from <see cref="KnownFor"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.Movie"/>.
+    /// This property will contain items from <see cref="KnownFor"/> where <see cref="Media.MediaType"/> == <see cref="MediaTypes.Movie"/>.
     /// </summary>
     [JsonIgnore]
     public List<Movie> KnownForMovies
@@ -53,24 +53,24 @@ public class Person : ModelBase
             if (_knownForMovies == null)
             {
                 _knownForMovies = KnownFor.Deserialize<List<Movie>>();
-                _knownForMovies.RemoveAll(_ => _.MediaType != CommonMediaTypes.Movie);
+                _knownForMovies.RemoveAll(_ => _.MediaType != MediaTypes.Movie);
             }
             return _knownForMovies;
         }
     }
 
     /// <summary>
-    /// This property will contain items from <see cref="KnownFor"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>.
+    /// This property will contain items from <see cref="KnownFor"/> where <see cref="Media.MediaType"/> == <see cref="MediaTypes.TvSeries"/>.
     /// </summary>
     [JsonIgnore]
-    public List<Series> KnownForTv
+    public List<Common.TvSeries> KnownForTv
     {
         get
         {
             if (_knownForSeries == null)
             {
-                _knownForSeries = KnownFor.Deserialize<List<Series>>();
-                _knownForSeries.RemoveAll(_ => _.MediaType != CommonMediaTypes.TvSeries);
+                _knownForSeries = KnownFor.Deserialize<List<Common.TvSeries>>();
+                _knownForSeries.RemoveAll(_ => _.MediaType != MediaTypes.TvSeries);
             }
             return _knownForSeries;
         }
@@ -79,5 +79,5 @@ public class Person : ModelBase
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; } = CommonMediaTypes.Person;
+    public MediaTypes MediaType { get; set; } = MediaTypes.Person;
 }

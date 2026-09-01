@@ -4,13 +4,13 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Search;
 
-public class MultiObject : CommonMediaBase
+public class MultiObject : Media
 {
     [JsonPropertyName("gender")]
-    public CommonGender Gender { get; set; }
+    public Gender Gender { get; set; }
 
     [JsonPropertyName("known_for")]
-    public List<CommonMediaBase> KnownFor { get; set; } = [];
+    public List<Media> KnownFor { get; set; } = [];
 
     [JsonPropertyName("known_for_department")]
     public string KnownForDepartment { get; set; }

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class Translation : CommonTranslationData
+public class Translation : TranslationData
 {
     [JsonPropertyName("biography")]
     public string Biography { get; set; }

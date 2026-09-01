@@ -11,7 +11,7 @@ public class FindPersonResult : ModelBase
     public bool Adult { get; set; }
 
     [JsonPropertyName("gender")]
-    public CommonGender Gender { get; set; }
+    public Gender Gender { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -36,5 +36,5 @@ public class FindPersonResult : ModelBase
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; }
+    public MediaTypes MediaType { get; set; }
 }

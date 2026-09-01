@@ -18,7 +18,7 @@ internal class ListsClient : ILists
     /// <summary>
     /// Add a movie to a list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> AddMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -27,7 +27,7 @@ internal class ListsClient : ILists
 
         var postData = new MediaIdObject(movieId);
 
-        return _client.PostAsync<CommonStatus>($"/3/list/{listId}/add_item", queryParams, postData, cancellationToken);
+        return _client.PostAsync<StatusResponse>($"/3/list/{listId}/add_item", queryParams, postData, cancellationToken);
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ internal class ListsClient : ILists
     /// <summary>
     /// Clear all items from a list.
     /// </summary>
-    public Task<Response<CommonStatus>> ClearAsync(int listId, bool confirm, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> ClearAsync(int listId, bool confirm, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -55,20 +55,20 @@ internal class ListsClient : ILists
             { "session_id", sessionId }
         };
 
-        return _client.PostAsync<CommonStatus>($"/3/list/{listId}/clear", queryParams, null, cancellationToken);
+        return _client.PostAsync<StatusResponse>($"/3/list/{listId}/clear", queryParams, null, cancellationToken);
     }
 
     /// <summary>
     /// Delete a list.
     /// </summary>
-    public Task<Response<CommonStatus>> DeleteAsync(int listId, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> DeleteAsync(int listId, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "session_id", sessionId }
         };
 
-        return _client.DeleteAsync<CommonStatus>($"/3/list/{listId}", queryParams, cancellationToken);
+        return _client.DeleteAsync<StatusResponse>($"/3/list/{listId}", queryParams, cancellationToken);
     }
 
     public Task<Response<CreateResponse>> CreateAsync(CreateRequest postData, string sessionId, CancellationToken cancellationToken = default)
@@ -95,7 +95,7 @@ internal class ListsClient : ILists
     /// <summary>
     /// Remove a movie from a list.
     /// </summary>
-    public Task<Response<CommonStatus>> RemoveMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> RemoveMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -104,6 +104,6 @@ internal class ListsClient : ILists
 
         var postData = new MediaIdObject(movieId);
 
-        return _client.PostAsync<CommonStatus>($"/3/list/{listId}/remove_item", queryParams, postData, cancellationToken);
+        return _client.PostAsync<StatusResponse>($"/3/list/{listId}/remove_item", queryParams, postData, cancellationToken);
     }
 }

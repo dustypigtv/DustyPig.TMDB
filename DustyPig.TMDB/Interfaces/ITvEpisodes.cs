@@ -11,17 +11,17 @@ public interface ITvEpisodes
     /// <summary>
     /// Get the rating, watchlist and favourite status.
     /// </summary>
-    public Task<Response<CommonAccountState>> GetAccountStatesAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<AccountState>> GetAccountStatesAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Rate a TV episode and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<StatusResponse>> AddRatingAsync(float rating, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Delete your rating on a TV episode.
     /// </summary>
-    public Task<Response<CommonStatus>> DeleteRatingAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<StatusResponse>> DeleteRatingAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the recent changes for a TV episode.
@@ -39,22 +39,22 @@ public interface ITvEpisodes
     /// <summary>
     /// Get a list of external IDs that have been added to a TV episode.
     /// </summary>
-    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the images that belong to a TV episode.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<CommonImages>> GetImagesAsync(int episodeNumber, int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<Images>> GetImagesAsync(int episodeNumber, int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations that have been added to a TV episode.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<TranslationList<TranslationData>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV episode.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<Video>>> GetVideosAsync(int episodeNumber, int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 }

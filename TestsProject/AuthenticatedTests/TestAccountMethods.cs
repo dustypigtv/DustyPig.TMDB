@@ -18,7 +18,7 @@ public class TestAccountMethods
         {
             Favorite = true,
             MediaId = Constants.MOVIE_ID,
-            MediaType = CommonMediaTypes.Movie
+            MediaType = MediaTypes.Movie
         };
 
         var ret = await client.Endpoints.Account.AddFavoriteAsync(postData, accountId, sessionId);
@@ -28,7 +28,7 @@ public class TestAccountMethods
         {
             Favorite = false,
             MediaId = Constants.TV_SERIES_ID,
-            MediaType = CommonMediaTypes.TvSeries
+            MediaType = MediaTypes.TvSeries
         };
 
         ret = await client.Endpoints.Account.AddFavoriteAsync(postData, accountId, sessionId);
@@ -47,7 +47,7 @@ public class TestAccountMethods
         var postData = new AddToWatchlist
         {
             MediaId = Constants.MOVIE_ID,
-            MediaType = CommonMediaTypes.Movie,
+            MediaType = MediaTypes.Movie,
             Watchlist = true
         };
 
@@ -57,7 +57,7 @@ public class TestAccountMethods
         postData = new AddToWatchlist
         {
             MediaId = Constants.TV_SERIES_ID,
-            MediaType = CommonMediaTypes.TvSeries,
+            MediaType = MediaTypes.TvSeries,
             Watchlist = false
         };
 
@@ -74,7 +74,7 @@ public class TestAccountMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteMoviesAsync(accountId, page, language, sessionId, sortBy);
         AdditionalPropertiesChecker.Check(ret);
@@ -89,7 +89,7 @@ public class TestAccountMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteTvSeriesAsync(accountId, page, language, sessionId, sortBy);
         AdditionalPropertiesChecker.Check(ret);
@@ -131,7 +131,7 @@ public class TestAccountMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetRatedMoviesAsync(accountId, page, language, sessionId, sortBy);
         AdditionalPropertiesChecker.Check(ret);
@@ -148,7 +148,7 @@ public class TestAccountMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetRatedTvSeriesAsync(accountId, page, language, sessionId, sortBy);
         AdditionalPropertiesChecker.Check(ret);
@@ -165,7 +165,7 @@ public class TestAccountMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetRatedTvEpisodesAsync(accountId, page, language, sessionId, sortBy);
         AdditionalPropertiesChecker.Check(ret);
@@ -182,7 +182,7 @@ public class TestAccountMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetWatchlistMoviesAsync(accountId, page, language, sessionId, sortBy);
         AdditionalPropertiesChecker.Check(ret);
@@ -199,7 +199,7 @@ public class TestAccountMethods
 
         int page = 1;
         string language = Constants.Language;
-        CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
+        SortByCreated sortBy = SortByCreated.CreatedAtAsc;
 
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetWatchlistTvSeriesAsync(accountId, page, language, sessionId, sortBy);
         AdditionalPropertiesChecker.Check(ret);

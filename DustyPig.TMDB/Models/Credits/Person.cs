@@ -20,13 +20,13 @@ public class Person : ModelBase
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; }
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("popularity")]
     public float Popularity { get; set; }
 
     [JsonPropertyName("gender")]
-    public CommonGender Gender { get; set; }
+    public Gender Gender { get; set; }
 
     [JsonPropertyName("known_for_department")]
     public string KnownForDepartment { get; set; }

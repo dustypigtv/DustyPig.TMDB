@@ -10,21 +10,21 @@ public interface ITvSeriesLists
     /// <summary>
     /// Get a list of TV shows airing today.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TvSeries>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TvSeries>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by popularity.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TvSeries>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by rating.
     /// </summary>
-    public Task<Response<PagedResult<Series>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TvSeries>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
 }

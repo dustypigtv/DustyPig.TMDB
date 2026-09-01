@@ -35,7 +35,7 @@ internal class SearchClient : ISearch
     /// <summary>
     /// Search for companies by their original and alternative names.
     /// </summary>
-    public Task<Response<PagedResult<CommonCompany>>> CompaniesAsync(string query, int page = 1, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Company>>> CompaniesAsync(string query, int page = 1, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -43,13 +43,13 @@ internal class SearchClient : ISearch
             { "page", page }
         };
 
-        return _client.GetAsync<PagedResult<CommonCompany>>("/3/search/company", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Company>>("/3/search/company", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Search for keywords by their name.
     /// </summary>
-    public Task<Response<PagedResult<CommonName>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Name_>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -57,7 +57,7 @@ internal class SearchClient : ISearch
             { "page", page }
         };
 
-        return _client.GetAsync<PagedResult<CommonName>>("/3/search/keyword", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Name_>>("/3/search/keyword", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -116,7 +116,7 @@ internal class SearchClient : ISearch
     /// </summary>
     /// <param name="firstAirDateYear">Search only the first air date. Valid values are: 1000..9999</param>
     /// <param name="year">Search the first air date and all episode air dates. Valid values are: 1000..9999</param>
-    public Task<Response<PagedResult<Series>>> TvSeriesAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TvSeries>>> TvSeriesAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -128,6 +128,6 @@ internal class SearchClient : ISearch
             { "year", year }
         };
 
-        return _client.GetAsync<PagedResult<Series>>("/3/search/tv", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TvSeries>>("/3/search/tv", queryParams, cancellationToken);
     }
 }

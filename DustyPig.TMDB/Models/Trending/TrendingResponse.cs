@@ -17,7 +17,7 @@ public class TrendingResponse : ModelBase
 
     public List<Movie> Movies { get; set; } = [];
 
-    public List<Series> Series { get; set; } = [];
+    public List<Common.TvSeries> Series { get; set; } = [];
 
     public List<Person> People { get; set; } = [];
 }

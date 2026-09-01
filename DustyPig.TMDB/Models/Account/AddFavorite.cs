@@ -8,7 +8,7 @@ public class AddFavorite : ModelBase
 {
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; }
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("media_id")]
     public int MediaId { get; set; }

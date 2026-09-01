@@ -15,7 +15,7 @@ public class CreatedBy : ModelBase
     public string Name { get; set; }
 
     [JsonPropertyName("gender")]
-    public CommonGender Gender { get; set; }
+    public Gender Gender { get; set; }
 
     [JsonPropertyName("profile_path")]
     public string ProfilePath { get; set; }

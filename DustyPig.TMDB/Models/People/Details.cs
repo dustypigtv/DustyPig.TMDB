@@ -26,7 +26,7 @@ public class Details : ModelBase
     public DateOnly? Deathday { get; set; }
 
     [JsonPropertyName("gender")]
-    public CommonGender Gender { get; set; }
+    public Gender Gender { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -56,16 +56,16 @@ public class Details : ModelBase
     public CombinedCredits CombinedCredits { get; set; }
 
     [JsonPropertyName("external_ids")]
-    public CommonExternalIds ExternalIds { get; set; }
+    public ExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public CommonImages Images { get; set; }
+    public Images Images { get; set; }
 
     [JsonPropertyName("movie_credits")]
     public MovieCredits MovieCredits { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<Translation> Translations { get; set; }
+    public TranslationList<Translation> Translations { get; set; }
 
     [JsonPropertyName("tv_credits")]
     public TvSeriesCredits TvCredits { get; set; }

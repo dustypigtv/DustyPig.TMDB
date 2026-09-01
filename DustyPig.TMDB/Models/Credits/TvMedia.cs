@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Credits;
 
-public class TvMedia : Series
+public class TvMedia : Common.TvSeries
 {
     [JsonPropertyName("character")]
     public string Character { get; set; }

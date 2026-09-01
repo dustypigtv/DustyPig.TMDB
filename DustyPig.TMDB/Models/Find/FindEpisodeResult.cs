@@ -18,7 +18,7 @@ public class FindEpisodeResult : ModelBase
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; }
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("vote_average")]
     public float VoteAverage { get; set; }

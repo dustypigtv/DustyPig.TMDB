@@ -13,13 +13,13 @@ public class Details : ModelBase
     public DateOnly? AirDate { get; set; }
 
     [JsonPropertyName("crew")]
-    public List<CommonCrew> Crew { get; set; } = [];
+    public List<Crew> Crew { get; set; } = [];
 
     [JsonPropertyName("episode_number")]
     public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("guest_stars")]
-    public List<CommonCast> GuestStars { get; set; } = [];
+    public List<Cast> GuestStars { get; set; } = [];
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
@@ -49,22 +49,22 @@ public class Details : ModelBase
     public int VoteCount { get; set; }
 
     [JsonPropertyName("account_states")]
-    public CommonAccountState AccountStates { get; set; }
+    public AccountState AccountStates { get; set; }
 
     [JsonPropertyName("credits")]
     public Credits Credits { get; set; }
 
     [JsonPropertyName("external_ids")]
-    public CommonExternalIds ExternalIds { get; set; }
+    public ExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public CommonImages Images { get; set; }
+    public Images Images { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslationData> Translations { get; set; }
+    public TranslationList<TranslationData> Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public ListResultWithId<CommonVideo> Videos { get; set; }
+    public ListResultWithId<Video> Videos { get; set; }
 
 
     /// <summary>

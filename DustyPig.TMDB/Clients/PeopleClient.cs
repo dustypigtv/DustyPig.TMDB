@@ -62,14 +62,14 @@ internal class PeopleClient : IPeople
     /// <summary>
     /// Get the external ID&#39;s that belong to a person.
     /// </summary>
-    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonExternalIds>($"/3/person/{personId}/external_ids", null, cancellationToken);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ExternalIds>($"/3/person/{personId}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the profile images that belong to a person.
     /// </summary>
-    public Task<Response<CommonImages>> GetImagesAsync(int personId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonImages>($"/3/person/{personId}/images", null, cancellationToken);
+    public Task<Response<Images>> GetImagesAsync(int personId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Images>($"/3/person/{personId}/images", null, cancellationToken);
 
     /// <summary>
     /// Get the newest created person. This is a live response and will continuously change.
@@ -95,8 +95,8 @@ internal class PeopleClient : IPeople
     /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
-    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<Translation>>($"/3/person/{personId}/translations", null, cancellationToken);
+    public Task<Response<TranslationList<Translation>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<TranslationList<Translation>>($"/3/person/{personId}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the TV credits that belong to a person.

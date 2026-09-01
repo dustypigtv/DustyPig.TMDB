@@ -40,23 +40,23 @@ public class Details : ModelBase
     public ListResultWithId<AccountState> AccountStates { get; set; }
 
     [JsonPropertyName("aggregate_credits")]
-    public CommonAggregateCredits AggregateCredits { get; set; }
+    public AggregateCredits AggregateCredits { get; set; }
 
     [JsonPropertyName("credits")]
-    public CommonTvCredits Credits { get; set; }
+    public TvCredits Credits { get; set; }
 
     [JsonPropertyName("external_ids")]
-    public CommonExternalIds ExternalIds { get; set; }
+    public ExternalIds ExternalIds { get; set; }
 
     [JsonPropertyName("images")]
-    public CommonImages Images { get; set; }
+    public Images Images { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslationData> Translations { get; set; }
+    public TranslationList<TranslationData> Translations { get; set; }
 
     [JsonPropertyName("videos")]
-    public ListResultWithId<CommonVideo> Videos { get; set; }
+    public ListResultWithId<Video> Videos { get; set; }
 
     [JsonPropertyName("networks")]
-    public List<CommonCompany> Networks { get; set; } = [];
+    public List<Company> Networks { get; set; } = [];
 }

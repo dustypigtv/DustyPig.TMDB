@@ -5,5 +5,5 @@ namespace DustyPig.TMDB.Models.Common;
 public class PagedResultWithDateRange<T> : PagedResult<T>
 {
     [JsonPropertyName("dates")]
-    public CommonDateRange Dates { get; set; }
+    public DateRange Dates { get; set; }
 }

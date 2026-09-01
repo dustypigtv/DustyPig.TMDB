@@ -125,14 +125,14 @@ public class TestDiscoverMethods
         string withWatchProviders = null;
 
         TvSeriesStatus?[] tvSeriesStatuses = [null, TvSeriesStatus.Returning, TvSeriesStatus.InProduction | TvSeriesStatus.Ended];
-        CommonTvSeriesTypes?[] tvSeriesTypes = [null, CommonTvSeriesTypes.Video, CommonTvSeriesTypes.News | CommonTvSeriesTypes.Scripted];
+        TvSeriesTypes?[] tvSeriesTypes = [null, TvSeriesTypes.Video, TvSeriesTypes.News | TvSeriesTypes.Scripted];
         WatchMonetizationTypes?[] watchMonetizationTypes = [null, WatchMonetizationTypes.FlatRate, WatchMonetizationTypes.FlatRate | WatchMonetizationTypes.Buy];
 
         foreach (var withANDStatus in tvSeriesStatuses)
         {
             TvSeriesStatus? withORStatus = null;
-            CommonTvSeriesTypes? withANDType = null;
-            CommonTvSeriesTypes? withORType = null;
+            TvSeriesTypes? withANDType = null;
+            TvSeriesTypes? withORType = null;
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
@@ -143,8 +143,8 @@ public class TestDiscoverMethods
         foreach (var withORStatus in tvSeriesStatuses)
         {
             TvSeriesStatus? withANDStatus = null;
-            CommonTvSeriesTypes? withANDType = null;
-            CommonTvSeriesTypes? withORType = null;
+            TvSeriesTypes? withANDType = null;
+            TvSeriesTypes? withORType = null;
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
@@ -156,7 +156,7 @@ public class TestDiscoverMethods
         {
             TvSeriesStatus? withANDStatus = null;
             TvSeriesStatus? withORStatus = null;
-            CommonTvSeriesTypes? withORType = null;
+            TvSeriesTypes? withORType = null;
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
@@ -168,7 +168,7 @@ public class TestDiscoverMethods
         {
             TvSeriesStatus? withANDStatus = null;
             TvSeriesStatus? withORStatus = null;
-            CommonTvSeriesTypes? withANDType = null;
+            TvSeriesTypes? withANDType = null;
             WatchMonetizationTypes? withWatchMonetizationANDTypes = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
@@ -180,8 +180,8 @@ public class TestDiscoverMethods
         {
             TvSeriesStatus? withANDStatus = null;
             TvSeriesStatus? withORStatus = null;
-            CommonTvSeriesTypes? withANDType = null;
-            CommonTvSeriesTypes? withORType = null;
+            TvSeriesTypes? withANDType = null;
+            TvSeriesTypes? withORType = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
             var ret = await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);
@@ -192,8 +192,8 @@ public class TestDiscoverMethods
         {
             TvSeriesStatus? withANDStatus = null;
             TvSeriesStatus? withORStatus = null;
-            CommonTvSeriesTypes? withANDType = null;
-            CommonTvSeriesTypes? withORType = null;
+            TvSeriesTypes? withANDType = null;
+            TvSeriesTypes? withORType = null;
             WatchMonetizationTypes? withWatchMonetizationORTypes = null;
 
             var ret = await ClientFactory.GetClient().Endpoints.Discover.TvSeriesAsync(page, airDateGte, airDateLte, firstAirDateGte, firstAirDateLte, firstAirDateYear, includeAdult, includeNullFirstAirDates, language, screenedTheatrically, sortBy, timezone, voteAverageGte, voteAverageLte, voteCountGte, voteCountLte, watchRegion, withCompanies, withGenres, withKeywords, withNetworks, withOriginalLanguage, withOriginCountry, withoutCompanies, withoutGenres, withoutKeywords, withoutWatchProviders, withRuntimeGte, withRuntimeLte, withANDStatus, withORStatus, withANDType, withORType, withWatchMonetizationANDTypes, withWatchMonetizationORTypes, withWatchProviders);

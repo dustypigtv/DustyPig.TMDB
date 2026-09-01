@@ -19,7 +19,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the rating, watchlist and favourite status of an account.
     /// </summary>
-    public Task<Response<CommonAccountState>> GetAccountStatesAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<AccountState>> GetAccountStatesAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -27,13 +27,13 @@ internal class MoviesClient : IMovies
             { "session_id", sessionId }
         };
 
-        return _client.GetAsync<CommonAccountState>($"/3/movie/{movieId}/account_states", queryParams, cancellationToken);
+        return _client.GetAsync<AccountState>($"/3/movie/{movieId}/account_states", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Rate a movie and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -43,14 +43,14 @@ internal class MoviesClient : IMovies
 
         var postData = new FloatValueWrapper(rating);
 
-        return _client.PostAsync<CommonStatus>($"/3/movie/{movieId}/rating", queryParams, postData, cancellationToken);
+        return _client.PostAsync<StatusResponse>($"/3/movie/{movieId}/rating", queryParams, postData, cancellationToken);
     }
 
     /// <summary>
     /// Delete a user rating.
     /// </summary>
     /// <returns></returns>
-    public Task<Response<CommonStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<StatusResponse>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -58,7 +58,7 @@ internal class MoviesClient : IMovies
             { "session_id", sessionId }
         };
 
-        return _client.DeleteAsync<CommonStatus>($"/3/movie/{movieId}/rating", queryParams, cancellationToken);
+        return _client.DeleteAsync<StatusResponse>($"/3/movie/{movieId}/rating", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -115,14 +115,14 @@ internal class MoviesClient : IMovies
         return _client.GetAsync<Details>($"/3/movie/{movieId}", queryParams, cancellationToken);
     }
 
-    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonExternalIds>($"/3/movie/{movieId}/external_ids", null, cancellationToken);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ExternalIds>($"/3/movie/{movieId}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the images that belong to a movie.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<CommonImages>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Images>> GetImagesAsync(int movieId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -130,7 +130,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<CommonImages>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
+        return _client.GetAsync<Images>($"/3/movie/{movieId}/images", queryParams, cancellationToken);
     }
 
     public Task<Response<KeywordsList>> GetKeywordsAsync(int movieId, CancellationToken cancellationToken = default) =>
@@ -145,7 +145,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the lists that a movie has been added to.
     /// </summary>
-    public Task<Response<PagedResultWithId<CommonList>>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<MediaList>>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -153,7 +153,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<CommonList>>($"/3/movie/{movieId}/lists", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<MediaList>>($"/3/movie/{movieId}/lists", queryParams, cancellationToken);
     }
 
     public Task<Response<PagedResult<Movie>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
@@ -176,7 +176,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the user reviews for a movie.
     /// </summary>
-    public Task<Response<PagedResultWithId<CommonReview>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<Review>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -184,7 +184,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<CommonReview>>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<Review>>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -204,22 +204,22 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the translations for a movie.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<CommonTranslationData>>($"/3/movie/{movieId}/translations", null, cancellationToken);
+    public Task<Response<TranslationList<TranslationData>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<TranslationList<TranslationData>>($"/3/movie/{movieId}/translations", null, cancellationToken);
 
-    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<Video>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<ListResultWithId<CommonVideo>>($"/3/movie/{movieId}/videos", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<Video>>($"/3/movie/{movieId}/videos", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the list of streaming providers we have for a movie.
     /// </summary>
-    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonWatchProviderDictionary>($"/3/movie/{movieId}/watch/providers", null, cancellationToken);
+    public Task<Response<WatchProviderDictionary>> GetWatchProvidersAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<WatchProviderDictionary>($"/3/movie/{movieId}/watch/providers", null, cancellationToken);
 }

@@ -59,7 +59,7 @@ internal class TrendingClient : ITrending
                             ret.Data.Movies.Add(item.Deserialize<Movie>());
                             break;
                         case "tv":
-                            ret.Data.Series.Add(item.Deserialize<Series>());
+                            ret.Data.Series.Add(item.Deserialize<TvSeries>());
                             break;
                         case "person":
                             ret.Data.People.Add(item.Deserialize<Person>());
@@ -104,13 +104,13 @@ internal class TrendingClient : ITrending
     /// Get the trending TV shows on TMDB.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<Series>>> GetTvSeriesAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<TvSeries>>> GetTvSeriesAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<Series>>($"/3/trending/tv/{timeWindow.GetEnumDescription()}", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<TvSeries>>($"/3/trending/tv/{timeWindow.GetEnumDescription()}", queryParams, cancellationToken);
     }
 }

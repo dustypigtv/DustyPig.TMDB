@@ -12,7 +12,7 @@ public interface IConfiguration
     /// <summary>
     /// Get the list of countries (ISO 3166-1 tags) used throughout TMDB.
     /// </summary>
-    public Task<Response<List<CommonCountry1>>> GetCountriesAsync(string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<List<Country1>>> GetCountriesAsync(string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Query the API configuration details.
@@ -27,7 +27,7 @@ public interface IConfiguration
     /// <summary>
     /// Get the list of languages (ISO 639-1 tags) used throughout TMDB.
     /// </summary>
-    public Task<Response<List<CommonLanguage>>> GetLanguagesAsync(CancellationToken cancellationToken = default);
+    public Task<Response<List<Language>>> GetLanguagesAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of the officially supported translations on TMDB.

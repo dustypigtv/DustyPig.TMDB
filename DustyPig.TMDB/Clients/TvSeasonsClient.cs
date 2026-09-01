@@ -19,7 +19,7 @@ internal class TvSeasonsClient : ITvSeasons
     /// <summary>
     /// Get the rating, watchlist and favourite status.
     /// </summary>
-    public Task<Response<ListResultWithId<AccountState>>> GetAccountStatesAsync(int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<Models.TvSeasons.AccountState>>> GetAccountStatesAsync(int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -27,20 +27,20 @@ internal class TvSeasonsClient : ITvSeasons
             { "session_id", sessionId }
         };
 
-        return _client.GetAsync<ListResultWithId<AccountState>>($"/3/tv/{seriesId}/season/{seasonNumber}/account_states", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<Models.TvSeasons.AccountState>>($"/3/tv/{seriesId}/season/{seasonNumber}/account_states", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV season.
     /// </summary>
-    public Task<Response<CommonAggregateCredits>> GetAggregateCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<CommonAggregateCredits>($"/3/tv/{seriesId}/season/{seasonNumber}/aggregate_credits", queryParams, cancellationToken);
+        return _client.GetAsync<AggregateCredits>($"/3/tv/{seriesId}/season/{seasonNumber}/aggregate_credits", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -58,14 +58,14 @@ internal class TvSeasonsClient : ITvSeasons
         return _client.GetAsync<ChangeList>($"/3/tv/season/{seasonId}/changes", queryParams, cancellationToken);
     }
 
-    public Task<Response<CommonTvCredits>> GetCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<TvCredits>> GetCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<CommonTvCredits>($"/3/tv/{seriesId}/season/{seasonNumber}/credits", queryParams, cancellationToken);
+        return _client.GetAsync<TvCredits>($"/3/tv/{seriesId}/season/{seasonNumber}/credits", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -86,14 +86,14 @@ internal class TvSeasonsClient : ITvSeasons
     /// <summary>
     /// Get a list of external IDs that have been added to a TV season.
     /// </summary>
-    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonExternalIds>($"/3/tv/{seriesId}/season/{seasonNumber}/external_ids", null, cancellationToken);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ExternalIds>($"/3/tv/{seriesId}/season/{seasonNumber}/external_ids", null, cancellationToken);
 
     /// <summary>
     /// Get the images that belong to a TV season.
     /// </summary>
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
-    public Task<Response<CommonImages>> GetImagesAsync(int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Images>> GetImagesAsync(int seasonNumber, int seriesId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -101,20 +101,20 @@ internal class TvSeasonsClient : ITvSeasons
             { "language", language }
         };
 
-        return _client.GetAsync<CommonImages>($"/3/tv/{seriesId}/season/{seasonNumber}/images", queryParams, cancellationToken);
+        return _client.GetAsync<Images>($"/3/tv/{seriesId}/season/{seasonNumber}/images", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the translations for a TV season.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<CommonTranslationData>>($"/3/tv/{seriesId}/season/{seasonNumber}/translations", null, cancellationToken);
+    public Task<Response<TranslationList<TranslationData>>> GetTranslationsAsync(int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<TranslationList<TranslationData>>($"/3/tv/{seriesId}/season/{seasonNumber}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the videos that belong to a TV season.
     /// </summary>
     /// <param name="includeVideoLanguage">filter the list results by language, supports more than one value by using a comma</param>
-    public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<ListResultWithId<Video>>> GetVideosAsync(int seasonNumber, int seriesId, string includeVideoLanguage = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -122,19 +122,19 @@ internal class TvSeasonsClient : ITvSeasons
             { "language", language }
         };
 
-        return _client.GetAsync<ListResultWithId<CommonVideo>>($"/3/tv/{seriesId}/season/{seasonNumber}/videos", queryParams, cancellationToken);
+        return _client.GetAsync<ListResultWithId<Video>>($"/3/tv/{seriesId}/season/{seasonNumber}/videos", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the list of streaming providers we have for a TV season.
     /// </summary>
-    public Task<Response<CommonWatchProviderDictionary>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<WatchProviderDictionary>> GetWatchProvidersAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<CommonWatchProviderDictionary>($"/3/tv/{seriesId}/season/{seasonNumber}/watch/providers", queryParams, cancellationToken);
+        return _client.GetAsync<WatchProviderDictionary>($"/3/tv/{seriesId}/season/{seasonNumber}/watch/providers", queryParams, cancellationToken);
     }
 }

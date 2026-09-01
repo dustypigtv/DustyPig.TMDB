@@ -11,7 +11,7 @@ public class FindResult : ModelBase
     public List<Movie> MovieResults { get; set; } = [];
 
     [JsonPropertyName("tv_results")]
-    public List<Series> TvResults { get; set; } = [];
+    public List<Common.TvSeries> TvResults { get; set; } = [];
 
     [JsonPropertyName("tv_season_results")]
     public List<FindSeasonResult> TvSeasonResults { get; set; } = [];

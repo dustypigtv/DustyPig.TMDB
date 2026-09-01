@@ -5,12 +5,12 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class TvSeriesCrew : Series
+public class TvSeriesCrew : Common.TvSeries
 {
     public TvSeriesCrew()
     {
         //Default
-        MediaType = CommonMediaTypes.TvSeries;
+        MediaType = MediaTypes.TvSeries;
     }
 
     [JsonPropertyName("credit_id")]

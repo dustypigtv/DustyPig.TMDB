@@ -24,14 +24,14 @@ public class Details : ModelBase
     public JsonElement Media { get; set; }
 
     /// <summary>
-    /// This property will be populated if <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>. Otherwise this property will be null.
+    /// This property will be populated if <see cref="MediaType"/> == <see cref="MediaTypes.Movie"/>. Otherwise this property will be null.
     /// </summary>
     [JsonIgnore]
     public MovieMedia MovieMedia
     {
         get
         {
-            if (MediaType == CommonMediaTypes.Movie)
+            if (MediaType == MediaTypes.Movie)
                 return _movieMedia ??= Media.Deserialize<MovieMedia>();
 
             return null;
@@ -39,14 +39,14 @@ public class Details : ModelBase
     }
 
     /// <summary>
-    /// This property will be populated if <see cref="MediaType"/> == <see cref="CommonMediaTypes.Tv"/>. Otherwise, this property will be null.
+    /// This property will be populated if <see cref="MediaType"/> == <see cref="MediaTypes.Tv"/>. Otherwise, this property will be null.
     /// </summary>
     [JsonIgnore]
     public TvMedia TvMedia
     {
         get
         {
-            if (MediaType == CommonMediaTypes.TvSeries)
+            if (MediaType == MediaTypes.TvSeries)
                 return _tvMedia ??= Media.Deserialize<TvMedia>();
             return null;
         }
@@ -54,7 +54,7 @@ public class Details : ModelBase
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
-    public CommonMediaTypes MediaType { get; set; }
+    public MediaTypes MediaType { get; set; }
 
     [JsonPropertyName("id")]
     public string Id { get; set; }

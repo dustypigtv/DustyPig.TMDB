@@ -28,12 +28,12 @@ public interface IPeople
     /// <summary>
     /// Get the external ID&#39;s that belong to a person.
     /// </summary>
-    public Task<Response<CommonExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default);
+    public Task<Response<ExternalIds>> GetExternalIdsAsync(int personId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the profile images that belong to a person.
     /// </summary>
-    public Task<Response<CommonImages>> GetImagesAsync(int personId, CancellationToken cancellationToken = default);
+    public Task<Response<Images>> GetImagesAsync(int personId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the newest created person. This is a live response and will continuously change.
@@ -48,7 +48,7 @@ public interface IPeople
     /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
-    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default);
+    public Task<Response<TranslationList<Translation>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the TV credits that belong to a person.

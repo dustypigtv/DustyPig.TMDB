@@ -21,7 +21,7 @@ public class EpisodeGroup : ModelBase
     public string Name { get; set; }
 
     [JsonPropertyName("network")]
-    public CommonCompany Network { get; set; }
+    public Company Network { get; set; }
 
     [JsonPropertyName("type")]
     public int Type { get; set; }

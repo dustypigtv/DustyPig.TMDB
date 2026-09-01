@@ -16,12 +16,12 @@ public interface ISearch
     /// <summary>
     /// Search for companies by their original and alternative names.
     /// </summary>
-    public Task<Response<PagedResult<CommonCompany>>> CompaniesAsync(string query, int page = 1, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Company>>> CompaniesAsync(string query, int page = 1, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for keywords by their name.
     /// </summary>
-    public Task<Response<PagedResult<CommonName>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Name_>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for movies by their original, translated and alternative titles.
@@ -43,5 +43,5 @@ public interface ISearch
     /// </summary>
     /// <param name="firstAirDateYear">Search only the first air date. Valid values are: 1000..9999</param>
     /// <param name="year">Search the first air date and all episode air dates. Valid values are: 1000..9999</param>
-    public Task<Response<PagedResult<Series>>> TvSeriesAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<TvSeries>>> TvSeriesAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default);
 }
