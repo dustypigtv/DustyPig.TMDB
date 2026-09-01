@@ -5,24 +5,8 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Reviews;
 
-public class Details : ModelBase
+public class Details : CommonReview
 {
-    [JsonPropertyName("id")]
-    public string Id { get; set; }
-
-    [JsonPropertyName("author")]
-    public string Author { get; set; }
-
-    [JsonPropertyName("author_details")]
-    public CommonAuthorDetails AuthorDetails { get; set; }
-
-    [JsonPropertyName("content")]
-    public string Content { get; set; }
-
-    [JsonPropertyName("created_at")]
-    [JsonConverter(typeof(StringToDateTimeConverter))]
-    public DateTime? CreatedAt { get; set; }
-
     /// <summary>
     /// ISO-639-1 2 letter language code. E.g. &quot;en&quot;
     /// </summary>
@@ -49,11 +33,4 @@ public class Details : ModelBase
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
     public CommonMediaTypes MediaType { get; set; }
-
-    [JsonPropertyName("updated_at")]
-    [JsonConverter(typeof(StringToDateTimeConverter))]
-    public DateTime? UpdatedAt { get; set; }
-
-    [JsonPropertyName("url")]
-    public string Url { get; set; }
 }
