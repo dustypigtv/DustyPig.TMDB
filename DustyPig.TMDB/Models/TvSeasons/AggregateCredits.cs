@@ -10,7 +10,7 @@ public class AggregateCredits : ModelBase
     public List<CommonCastAggregate> Cast { get; set; } = [];
 
     [JsonPropertyName("crew")]
-    public List<Crew1> Crew { get; set; } = [];
+    public List<Crew> Crew { get; set; } = [];
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

@@ -46,7 +46,7 @@ public class Episode : ModelBase
     public int VoteCount { get; set; }
 
     [JsonPropertyName("crew")]
-    public List<Crew1> Crew { get; set; } = [];
+    public List<Crew> Crew { get; set; } = [];
 
     [JsonPropertyName("guest_stars")]
     public List<CommonCast> GuestStars { get; set; } = [];

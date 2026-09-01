@@ -10,7 +10,7 @@ public class Credits : ModelBase
     public List<CommonCast> Cast { get; set; } = [];
 
     [JsonPropertyName("crew")]
-    public List<Crew2> Crew { get; set; } = [];
+    public List<Crew> Crew { get; set; } = [];
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

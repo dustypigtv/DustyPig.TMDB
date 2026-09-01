@@ -45,4 +45,12 @@ public class CommonRatedTvEpisode : ModelBase
 
     [JsonPropertyName("rating")]
     public float Rating { get; set; }
+
+
+
+    /// <summary>
+    /// TO DO: Figure out the undocumented enumeration
+    /// </summary>
+    [JsonPropertyName("episode_type")]
+    public string EpisodeType { get; set; }
 }
