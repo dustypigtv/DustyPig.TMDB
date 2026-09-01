@@ -11,6 +11,9 @@ public class KnownForResult : ModelBase
     [JsonPropertyName("adult")]
     public bool Adult { get; set; }
 
+    [JsonPropertyName("softcore")]
+    public bool SoftCore { get; set; }
+
     [JsonPropertyName("backdrop_path")]
     public string BackdropPath { get; set; }
 
