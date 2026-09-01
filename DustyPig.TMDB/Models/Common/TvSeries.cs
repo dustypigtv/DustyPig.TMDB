@@ -18,5 +18,5 @@ public class TvSeries : Media
     public string OriginalName { get; set; }
 
     [JsonPropertyName("first_air_date")]
-    public string irstAirDate { get; set; }
+    public string FirstAirDate { get; set; }
 }
