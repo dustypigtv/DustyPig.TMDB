@@ -1,4 +1,5 @@
 using DustyPig.TMDB.Models.Common;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -27,9 +28,6 @@ public class ContentRating : ModelBase
     public string Rating { get; set; }
 
 
-    /// <summary>
-    /// TO DO
-    /// </summary>
     [JsonPropertyName("descriptors")]
-    public JsonElement Descriptors { get; set; }
+    public List<string> Descriptors { get; set; } = [];
 }
