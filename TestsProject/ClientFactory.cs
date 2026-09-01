@@ -1,4 +1,5 @@
 ﻿using DustyPig.TMDB;
+using DustyPig.TMDB.Enums;
 
 namespace TestsProject;
 
@@ -16,7 +17,7 @@ static class ClientFactory
                 AutoThrowIfError = true,
                 IncludeRawContentInResponse = true
             };
-            _client.SetAuth(Client.AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"));
+            _client.SetAuth(AuthTypes.APIKey, Environment.GetEnvironmentVariable("TMDB_API_KEY"));
         }
         return _client;
     }
