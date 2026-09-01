@@ -11,7 +11,7 @@ public class Reviews : ModelBase
     public string Author { get; set; }
 
     [JsonPropertyName("author_details")]
-    public AuthorDetails AuthorDetails { get; set; }
+    public CommonAuthorDetails AuthorDetails { get; set; }
 
     [JsonPropertyName("content")]
     public string Content { get; set; }
