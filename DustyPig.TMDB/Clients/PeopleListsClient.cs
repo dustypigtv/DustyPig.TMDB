@@ -1,5 +1,4 @@
 ﻿using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.PeopleLists;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class PeopleListsClient : IPeopleLists
+public class PeopleListsClient
 {
     private readonly Client _client;
 

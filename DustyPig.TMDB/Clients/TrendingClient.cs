@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Trending;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class TrendingClient : ITrending
+public class TrendingClient
 {
     private readonly Client _client;
 

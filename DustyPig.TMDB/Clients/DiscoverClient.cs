@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Discover;
 using System;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class DiscoverClient : IDiscover
+public class DiscoverClient
 {
     private readonly Client _client;
 

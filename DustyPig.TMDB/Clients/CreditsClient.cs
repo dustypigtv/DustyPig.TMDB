@@ -1,12 +1,11 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Credits;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class CreditsClient : ICredits
+public class CreditsClient
 {
     private readonly Client _client;
 

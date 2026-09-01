@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Threading;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class WatchProvidersClient : IWatchProviders
+public class WatchProvidersClient
 {
     private readonly Client _client;
 

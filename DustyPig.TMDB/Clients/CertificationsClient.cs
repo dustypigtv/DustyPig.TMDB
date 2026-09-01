@@ -1,12 +1,11 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Certifications;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class CertificationsClient : ICertifications
+public class CertificationsClient
 {
     private readonly Client _client;
 

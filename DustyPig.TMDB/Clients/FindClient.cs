@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Find;
 using System.Collections.Generic;
 using System.Threading;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class FindClient : IFind
+public class FindClient
 {
     private readonly Client _client;
 

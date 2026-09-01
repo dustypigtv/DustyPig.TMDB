@@ -1,12 +1,11 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class CompaniesClient : ICompanies
+public class CompaniesClient
 {
     private readonly Client _client;
 

@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Changes;
 using DustyPig.TMDB.Models.Common;
 using System;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class ChangesClient : IChanges
+public class ChangesClient
 {
     private readonly Client _client;
 

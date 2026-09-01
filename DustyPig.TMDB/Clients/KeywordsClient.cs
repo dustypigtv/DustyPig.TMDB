@@ -1,12 +1,11 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class KeywordsClient : IKeywords
+public class KeywordsClient
 {
     private readonly Client _client;
 

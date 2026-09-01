@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -87,7 +86,7 @@ public class Client
 
     public string AuthKey => _authKey;
 
-    public IEndpoints Endpoints => new Endpoints(this);
+    public Endpoints Endpoints => new (this);
 
 
 

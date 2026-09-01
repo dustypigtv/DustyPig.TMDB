@@ -1,12 +1,11 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class AuthenticationClient : IAuthentication
+public class AuthenticationClient
 {
     private readonly Client _client;
 

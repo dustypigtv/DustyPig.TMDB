@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.TvSeasons;
 using System;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class TvSeasonsClient : ITvSeasons
+public class TvSeasonsClient
 {
     private readonly Client _client;
 

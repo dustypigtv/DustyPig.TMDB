@@ -1,5 +1,4 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Configuration;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class ConfigurationClient : IConfiguration
+public class ConfigurationClient
 {
     private readonly Client _client;
 

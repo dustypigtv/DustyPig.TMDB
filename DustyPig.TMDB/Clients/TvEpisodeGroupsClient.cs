@@ -1,12 +1,11 @@
 using DustyPig.REST;
-using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.TvEpisodeGroups;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DustyPig.TMDB.Clients;
 
-internal class TvEpisodeGroupsClient : ITvEpisodeGroups
+public class TvEpisodeGroupsClient
 {
     private readonly Client _client;
 
