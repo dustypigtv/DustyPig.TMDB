@@ -65,4 +65,11 @@ public class Details : ModelBase
 
     [JsonPropertyName("videos")]
     public ListResultWithId<CommonVideo> Videos { get; set; }
+
+
+    /// <summary>
+    /// TO DO: Figure out the undocumented enumeration
+    /// </summary>
+    [JsonPropertyName("episode_type")]
+    public string EpisodeType { get; set; }
 }

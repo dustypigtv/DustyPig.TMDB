@@ -69,4 +69,7 @@ public class Details : ModelBase
 
     [JsonPropertyName("tv_credits")]
     public TvSeriesCredits TvCredits { get; set; }
+
+    [JsonPropertyName("homepage")]
+    public string HomePage { get; set; }
 }

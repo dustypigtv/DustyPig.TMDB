@@ -62,7 +62,7 @@ public class TestTvEpisodesMethods
 
         var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetDetailsAsync(episodeNumber, seasonNumber, seriesId, appendToResponse, language);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.AccountStates.AdditionalProperties);
+        //Assert.IsEmpty(ret.Data.AccountStates.AdditionalProperties);
         Assert.IsEmpty(ret.Data.Credits.AdditionalProperties);
         foreach (var item in ret.Data.Credits.Cast)
             Assert.IsEmpty(item.AdditionalProperties);

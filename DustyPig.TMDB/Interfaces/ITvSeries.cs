@@ -17,9 +17,9 @@ public interface ITvSeries
     /// <summary>
     /// Rate a TV show and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> AddRatingAsync(float rating, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<CommonStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
@@ -103,7 +103,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the translations that have been added to a TV show.
     /// </summary>
-    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the videos that belong to a TV show.

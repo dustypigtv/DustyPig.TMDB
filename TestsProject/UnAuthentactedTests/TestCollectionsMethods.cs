@@ -43,6 +43,8 @@ public class TestCollectionsMethods
         var ret = await ClientFactory.GetClient().Endpoints.Collections.GetTranslationsAsync(collectionId);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
         foreach (var item in ret.Data.Translations)
+        {
             Assert.IsEmpty(item.AdditionalProperties);
+        }
     }
 }

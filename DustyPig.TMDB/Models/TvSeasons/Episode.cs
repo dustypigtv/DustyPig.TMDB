@@ -50,4 +50,11 @@ public class Episode : ModelBase
 
     [JsonPropertyName("guest_stars")]
     public List<CommonCast> GuestStars { get; set; } = [];
+
+
+    /// <summary>
+    /// TO DO: Figure out the undocumented enumeration
+    /// </summary>
+    [JsonPropertyName("episode_type")]
+    public string EpisodeType { get; set; }
 }

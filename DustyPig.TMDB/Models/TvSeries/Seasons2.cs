@@ -1,10 +1,16 @@
-﻿using DustyPig.TMDB.Models.Common;
+﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
+using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
 public class Seasons2 : ModelBase
 {
+    [JsonPropertyName("air_date")]
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? AirDate { get; set; }
+
     [JsonPropertyName("episode_count")]
     public int EpisodeCount { get; set; }
 
@@ -19,4 +25,10 @@ public class Seasons2 : ModelBase
 
     [JsonPropertyName("season_number")]
     public int SeasonNumber { get; set; }
+
+    [JsonPropertyName("poster_path")]
+    public string PosterPath { get; set; }
+
+    [JsonPropertyName("vote_average")]
+    public float VoteAverage { get; set; }
 }

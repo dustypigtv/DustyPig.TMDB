@@ -1,7 +1,9 @@
 using DustyPig.TMDB.JsonHelpers;
 using DustyPig.TMDB.Models.Common;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
@@ -119,4 +121,10 @@ public class Details : CommonMedia
 
     [JsonPropertyName("videos")]
     public ListResultWithId<CommonVideo> Videos { get; set; }
+
+    /// <summary>
+    /// TO DO:
+    /// </summary>
+    [JsonPropertyName("next_episode_to_air")]
+    public JsonElement NextEpisodeToAir { get; set; }
 }

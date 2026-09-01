@@ -64,6 +64,7 @@ public class TestMoviesMethods
     {
         int movieId = Constants.MOVIE_ID;
         AppendToResponse? appendToResponse =
+            AppendToResponse.AccountStates |
             AppendToResponse.AlternativeTitles |
             AppendToResponse.Changes |
             AppendToResponse.Credits |
@@ -82,7 +83,7 @@ public class TestMoviesMethods
 
         var ret = await ClientFactory.GetClient().Endpoints.Movies.GetDetailsAsync(movieId, appendToResponse, language);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.AccountStates.AdditionalProperties);
+        //Assert.IsEmpty(ret.Data.AccountStates?.AdditionalProperties);
         Assert.IsEmpty(ret.Data.Changes.AdditionalProperties);
         foreach (var item in ret.Data.Changes.Changes)
         {

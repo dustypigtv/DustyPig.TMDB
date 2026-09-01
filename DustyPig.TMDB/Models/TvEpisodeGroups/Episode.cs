@@ -43,4 +43,17 @@ public class Episode : ModelBase
 
     [JsonPropertyName("order")]
     public int Order { get; set; }
+
+    [JsonPropertyName("media_type")]
+    [JsonConverter(typeof(MediaTypesConverter))]
+    public CommonMediaTypes MediaType { get; set; }
+
+    [JsonPropertyName("runtime")]
+    public int? Runtime { get; set; }
+
+    /// <summary>
+    /// TO DO: Figure out the undocumented enumeration
+    /// </summary>
+    [JsonPropertyName("episode_type")]
+    public string EpisodeType { get; set; }
 }

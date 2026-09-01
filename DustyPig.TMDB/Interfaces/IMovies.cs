@@ -17,13 +17,13 @@ public interface IMovies
     /// <summary>
     /// Rate a movie and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Delete a user rating.
     /// </summary>
     /// <returns></returns>
-    public Task<Response<CommonStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the alternative titles for a movie.
@@ -84,7 +84,7 @@ public interface IMovies
     /// <summary>
     /// Get the translations for a movie.
     /// </summary>
-    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
 
     public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
 

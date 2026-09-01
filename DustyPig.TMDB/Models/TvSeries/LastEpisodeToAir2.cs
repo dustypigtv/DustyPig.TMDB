@@ -37,4 +37,18 @@ public class LastEpisodeToAir2 : ModelBase
 
     [JsonPropertyName("show_id")]
     public int ShowId { get; set; }
+
+    [JsonPropertyName("runtime")]
+    public int? Runtime { get; set; }
+
+
+    [JsonPropertyName("still_path")]
+    public string StillPath { get; set; }
+
+
+    /// <summary>
+    /// TO DO: Figure out the undocumented enumeration
+    /// </summary>
+    [JsonPropertyName("episode_type")]
+    public string EpisodeType { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿using DustyPig.TMDB.Models.Common;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
@@ -37,4 +38,10 @@ public class Crew : ModelBase
 
     [JsonPropertyName("total_episode_count")]
     public int TotalEpisodeCount { get; set; }
+
+    [JsonPropertyName("credit_id")]
+    public string CreditId { get; set; }
+
+    [JsonPropertyName("jobs")]
+    public List<CommonJob> Jobs { get; set; } = [];
 }

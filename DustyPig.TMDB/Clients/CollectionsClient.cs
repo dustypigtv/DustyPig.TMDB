@@ -43,6 +43,6 @@ internal class CollectionsClient : ICollections
         return _client.GetAsync<Images>($"/3/collection/{collectionId}/images", queryParams, cancellationToken);
     }
 
-    public Task<Response<CommonTranslationList<Translation>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<Translation>>($"/3/collection/{collectionId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<CommonTranslation<CommonTranslationData>>>($"/3/collection/{collectionId}/translations", null, cancellationToken);
 }

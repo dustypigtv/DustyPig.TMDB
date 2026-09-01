@@ -13,4 +13,7 @@ public class AuthorDetails : ModelBase
 
     [JsonPropertyName("avatar_path")]
     public string AvatarPath { get; set; }
+
+    [JsonPropertyName("rating")]
+    public float? Rating { get; set; }
 }

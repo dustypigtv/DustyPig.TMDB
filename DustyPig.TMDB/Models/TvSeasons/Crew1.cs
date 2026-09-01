@@ -35,4 +35,13 @@ public class Crew1 : ModelBase
 
     [JsonPropertyName("total_episode_count")]
     public int TotalEpisodeCount { get; set; }
+
+    [JsonPropertyName("profile_path")]
+    public string ProfilePath { get; set; }
+
+    [JsonPropertyName("job")]
+    public string Job { get; set; }
+
+    [JsonPropertyName("credit_id")]
+    public string CreditId { get; set; }
 }

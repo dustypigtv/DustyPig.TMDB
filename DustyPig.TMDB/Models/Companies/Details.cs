@@ -25,4 +25,7 @@ public class Details : ModelBase
 
     [JsonPropertyName("origin_country")]
     public string OriginCountry { get; set; }
+
+    [JsonPropertyName("parent_company")]
+    public string ParentCompany { get; set; }
 }

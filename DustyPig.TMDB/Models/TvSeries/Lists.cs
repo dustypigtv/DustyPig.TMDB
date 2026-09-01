@@ -54,4 +54,7 @@ public class Lists : ModelBase
 
     [JsonPropertyName("name")]
     public string Name { get; set; }
+
+    [JsonPropertyName("poster_path")]
+    public string PosterPath { get; set; }
 }

@@ -29,4 +29,7 @@ public class Popular : ModelBase
 
     [JsonPropertyName("profile_path")]
     public string ProfilePath { get; set; }
+
+    [JsonPropertyName("original_name")]
+    public string OriginalName { get; set; }
 }

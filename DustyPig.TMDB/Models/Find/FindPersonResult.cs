@@ -1,4 +1,5 @@
-﻿using DustyPig.TMDB.Models.Common;
+﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -32,4 +33,8 @@ public class FindPersonResult : ModelBase
 
     [JsonPropertyName("known_for")]
     public List<KnownForResult> KnownFor { get; set; } = [];
+
+    [JsonPropertyName("media_type")]
+    [JsonConverter(typeof(MediaTypesConverter))]
+    public CommonMediaTypes MediaType { get; set; }
 }

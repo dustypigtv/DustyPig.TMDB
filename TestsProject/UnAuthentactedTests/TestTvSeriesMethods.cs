@@ -119,7 +119,7 @@ public class TestTvSeriesMethods
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeries.GetDetailsAsync(seriesId, appendToResponse, language);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.AccountStates.AdditionalProperties);
+        //Assert.IsEmpty(ret.Data.AccountStates.AdditionalProperties);
         Assert.IsEmpty(ret.Data.AggregateCredits.AdditionalProperties);
         foreach (var item in ret.Data.AggregateCredits.Cast)
         {

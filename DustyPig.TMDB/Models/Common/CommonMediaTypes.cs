@@ -5,5 +5,6 @@ public enum CommonMediaTypes
     NotSpecified,
     Movie,
     TvSeries,
+    TvEpisode,
     Person
 }

@@ -11,7 +11,7 @@ public interface ILists
     /// <summary>
     /// Add a movie to a list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> AddMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Use this method to check if an item has already been added to the list.
@@ -21,12 +21,12 @@ public interface ILists
     /// <summary>
     /// Clear all items from a list.
     /// </summary>
-    public Task<Response<CommonStatus>> ClearAsync(int listId, bool confirm, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> ClearAsync(int listId, bool confirm, string sessionId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Delete a list.
     /// </summary>
-    public Task<Response<CommonStatus>> DeleteAsync(int listId, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> DeleteAsync(int listId, string sessionId, CancellationToken cancellationToken = default);
 
     public Task<Response<CreateResponse>> CreateAsync(CreateRequest postData, string sessionId, CancellationToken cancellationToken = default);
 
@@ -35,5 +35,5 @@ public interface ILists
     /// <summary>
     /// Remove a movie from a list.
     /// </summary>
-    public Task<Response<CommonStatus>> RemoveMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonSuccessStatus>> RemoveMovieAsync(int movieId, int listId, string sessionId, CancellationToken cancellationToken = default);
 }

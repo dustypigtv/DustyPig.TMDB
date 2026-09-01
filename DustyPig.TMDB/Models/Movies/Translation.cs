@@ -1,22 +1,22 @@
-﻿using DustyPig.TMDB.Models.Common;
-using System.Text.Json.Serialization;
+﻿//using DustyPig.TMDB.Models.Common;
+//using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models.Movies;
+//namespace DustyPig.TMDB.Models.Movies;
 
-public class Translation : ModelBase
-{
-    [JsonPropertyName("homepage")]
-    public string Homepage { get; set; }
+//public class Translation : ModelBase
+//{
+//    [JsonPropertyName("homepage")]
+//    public string Homepage { get; set; }
 
-    [JsonPropertyName("overview")]
-    public string Overview { get; set; }
+//    [JsonPropertyName("overview")]
+//    public string Overview { get; set; }
 
-    [JsonPropertyName("runtime")]
-    public long Runtime { get; set; }
+//    [JsonPropertyName("runtime")]
+//    public long Runtime { get; set; }
 
-    [JsonPropertyName("tagline")]
-    public string Tagline { get; set; }
+//    [JsonPropertyName("tagline")]
+//    public string Tagline { get; set; }
 
-    [JsonPropertyName("title")]
-    public string Title { get; set; }
-}
+//    [JsonPropertyName("title")]
+//    public string Title { get; set; }
+//}

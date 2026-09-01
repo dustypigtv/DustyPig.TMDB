@@ -1,4 +1,6 @@
-﻿using DustyPig.TMDB.Models.Common;
+﻿using DustyPig.TMDB.JsonHelpers;
+using DustyPig.TMDB.Models.Common;
+using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
@@ -22,4 +24,8 @@ public class Cast : CommonMedia
     /// </summary>
     [JsonPropertyName("episode_count")]
     public int? EpisodeCount { get; set; }
+
+    [JsonPropertyName("first_credit_air_date")]
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? FirstCreditAirDate { get; set; }
 }

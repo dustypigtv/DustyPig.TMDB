@@ -11,6 +11,9 @@ public class Details : CommonMedia
         MediaType = CommonMediaTypes.Movie;
     }
 
+    [JsonPropertyName("belongs_to_collection")]
+    public Collections.Basic BelongsToCollection { get; set; }
+
     [JsonPropertyName("budget")]
     public int Budget { get; set; }
 
@@ -81,7 +84,7 @@ public class Details : CommonMedia
     public PagedResult<CommonMedia> Similar { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslation<Translation>> Translations { get; set; }
+    public CommonTranslationList<CommonTranslation<CommonTranslationData>> Translations { get; set; }
 
 
     [JsonPropertyName("videos")]

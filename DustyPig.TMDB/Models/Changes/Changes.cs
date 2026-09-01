@@ -10,4 +10,7 @@ public class Changes : ModelBase
 
     [JsonPropertyName("adult")]
     public bool? Adult { get; set; }
+
+    [JsonPropertyName("softcore")]
+    public bool? SoftCore { get; set; } 
 }

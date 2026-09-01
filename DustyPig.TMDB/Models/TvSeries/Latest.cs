@@ -2,12 +2,25 @@ using DustyPig.TMDB.JsonHelpers;
 using DustyPig.TMDB.Models.Common;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
 public class Latest : CommonMedia
 {
+    [JsonPropertyName("created_by")]
+    public List<CreatedBy> CreatedBy { get; set; } = [];
+
+    [JsonPropertyName("episode_run_time")]
+    public List<int> EpisodeRunTime { get; set; } = [];
+
+    [JsonPropertyName("genres")]
+    public List<CommonName> Genres { get; set; } = [];
+
+    [JsonPropertyName("languages")]
+    public List<string> Languages { get; set; } = [];
+
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
 
@@ -38,4 +51,22 @@ public class Latest : CommonMedia
 
     [JsonPropertyName("type")]
     public string Type { get; set; }
+
+    [JsonPropertyName("networks")]
+    public List<CommonCompany> Networks { get; set; } = [];
+
+    [JsonPropertyName("production_companies")]
+    public List<CommonCompany> ProductionCompanies { get; set; } = [];
+
+    [JsonPropertyName("production_countries")]
+    public List<CommonCountry2> ProductionCountries { get; set; } = [];
+
+    [JsonPropertyName("spoken_languages")]
+    public List<CommonLanguage> SpokenLanguages { get; set; } = [];
+
+    /// <summary>
+    /// TO DO:
+    /// </summary>
+    [JsonPropertyName("next_episode_to_air")]
+    public JsonElement NextEpisodeToAir { get; set; }
 }

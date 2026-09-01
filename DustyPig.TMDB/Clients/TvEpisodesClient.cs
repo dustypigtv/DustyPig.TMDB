@@ -32,7 +32,7 @@ internal class TvEpisodesClient : ITvEpisodes
     /// <summary>
     /// Rate a TV episode and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonSuccessStatus>> AddRatingAsync(float rating, int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -42,13 +42,13 @@ internal class TvEpisodesClient : ITvEpisodes
 
         var postData = new FloatValueWrapper(rating);
 
-        return _client.PostAsync<CommonStatus>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, postData, cancellationToken);
+        return _client.PostAsync<CommonSuccessStatus>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, postData, cancellationToken);
     }
 
     /// <summary>
     /// Delete your rating on a TV episode.
     /// </summary>
-    public Task<Response<CommonStatus>> DeleteRatingAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonSuccessStatus>> DeleteRatingAsync(int episodeNumber, int seasonNumber, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -56,7 +56,7 @@ internal class TvEpisodesClient : ITvEpisodes
             { "session_id", sessionId }
         };
 
-        return _client.DeleteAsync<CommonStatus>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, cancellationToken);
+        return _client.DeleteAsync<CommonSuccessStatus>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/rating", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -114,8 +114,8 @@ internal class TvEpisodesClient : ITvEpisodes
     /// <summary>
     /// Get the translations that have been added to a TV episode.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<CommonTranslationData>>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int episodeNumber, int seasonNumber, int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<CommonTranslation<CommonTranslationData>>>($"/3/tv/{seriesId}/season/{seasonNumber}/episode/{episodeNumber}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the videos that belong to a TV episode.

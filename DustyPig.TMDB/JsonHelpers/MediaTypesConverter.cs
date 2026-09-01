@@ -13,6 +13,7 @@ internal class MediaTypesConverter : JsonConverter<CommonMediaTypes>
         {
             "movie" => CommonMediaTypes.Movie,
             "tv" => CommonMediaTypes.TvSeries,
+            "tv_episode" => CommonMediaTypes.TvEpisode,
             "person" => CommonMediaTypes.Person,
             _ => CommonMediaTypes.NotSpecified,
         };
@@ -24,6 +25,7 @@ internal class MediaTypesConverter : JsonConverter<CommonMediaTypes>
         {
             CommonMediaTypes.Movie => "movie",
             CommonMediaTypes.TvSeries => "tv",
+            CommonMediaTypes.TvEpisode => "tv_episode",
             CommonMediaTypes.Person => "person",
             _ => string.Empty
         };

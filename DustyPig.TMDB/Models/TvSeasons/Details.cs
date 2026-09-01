@@ -56,4 +56,7 @@ public class Details : ModelBase
 
     [JsonPropertyName("videos")]
     public ListResultWithId<CommonVideo> Videos { get; set; }
+
+    [JsonPropertyName("networks")]
+    public List<CommonCompany> Networks { get; set; } = [];
 }

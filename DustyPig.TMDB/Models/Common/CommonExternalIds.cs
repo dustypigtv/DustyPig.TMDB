@@ -36,4 +36,7 @@ public class CommonExternalIds : ModelBase
 
     [JsonPropertyName("tiktok_id")]
     public string TiktokId { get; set; }
+
+    [JsonPropertyName("youtube_id")]
+    public string YoutubeId { get; set; }
 }

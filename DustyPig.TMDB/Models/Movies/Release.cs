@@ -1,6 +1,7 @@
 ﻿using DustyPig.TMDB.JsonHelpers;
 using DustyPig.TMDB.Models.Common;
 using System;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movies;
@@ -36,4 +37,10 @@ public class Release : ModelBase
 
     [JsonPropertyName("type")]
     public CommonReleaseTypes Type { get; set; }
+
+    /// <summary>
+    /// TO DO
+    /// </summary>
+    [JsonPropertyName("descriptors")]
+    public JsonElement Descriptors { get; set; }
 }

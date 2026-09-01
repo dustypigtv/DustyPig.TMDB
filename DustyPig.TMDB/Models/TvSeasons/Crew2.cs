@@ -34,4 +34,7 @@ public class Crew2 : ModelBase
 
     [JsonPropertyName("job")]
     public string Job { get; set; }
+
+    [JsonPropertyName("profile_path")]
+    public string ProfilePath { get; set; }
 }
