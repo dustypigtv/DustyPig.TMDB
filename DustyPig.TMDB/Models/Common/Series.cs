@@ -1,7 +1,6 @@
-﻿using DustyPig.TMDB.Models.Common;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models;
+namespace DustyPig.TMDB.Models.Common;
 
 public class Series : CommonMediaBase
 {

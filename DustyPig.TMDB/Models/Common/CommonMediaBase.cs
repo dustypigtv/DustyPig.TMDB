@@ -1,9 +1,8 @@
 ﻿using DustyPig.TMDB.JsonHelpers;
-using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace DustyPig.TMDB.Models;
+namespace DustyPig.TMDB.Models.Common;
 
 public class CommonMediaBase : ModelBase
 {
