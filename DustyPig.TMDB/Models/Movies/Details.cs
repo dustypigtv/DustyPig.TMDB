@@ -78,7 +78,7 @@ public class Details : CommonMedia
     public ListResultWithId<Releases> ReleaseDates { get; set; }
 
     [JsonPropertyName("reviews")]
-    public PagedResultWithId<Reviews> Reviews { get; set; }
+    public PagedResultWithId<CommonReview> Reviews { get; set; }
 
     [JsonPropertyName("similar")]
     public PagedResult<CommonMedia> Similar { get; set; }

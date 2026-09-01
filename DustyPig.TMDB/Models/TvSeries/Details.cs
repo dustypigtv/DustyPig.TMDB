@@ -108,7 +108,7 @@ public class Details : CommonMedia
     public PagedResult<CommonMedia> Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
-    public PagedResultWithId<Review> Reviews { get; set; }
+    public PagedResultWithId<CommonReview> Reviews { get; set; }
 
     [JsonPropertyName("screened_theatrically")]
     public ListResultWithId<ScreenedTheatrically> ScreenedTheatrically { get; set; }

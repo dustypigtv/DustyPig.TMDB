@@ -176,7 +176,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the user reviews for a movie.
     /// </summary>
-    public Task<Response<PagedResultWithId<Reviews>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<CommonReview>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -184,7 +184,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<Reviews>>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<CommonReview>>($"/3/movie/{movieId}/reviews", queryParams, cancellationToken);
     }
 
     /// <summary>

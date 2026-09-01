@@ -88,7 +88,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the reviews that have been added to a TV show.
     /// </summary>
-    public Task<Response<PagedResultWithId<Review>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<CommonReview>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the seasons and episodes that have screened theatrically.

@@ -192,7 +192,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the reviews that have been added to a TV show.
     /// </summary>
-    public Task<Response<PagedResultWithId<Review>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithId<CommonReview>>> GetReviewsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -200,7 +200,7 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResultWithId<Review>>($"/3/tv/{seriesId}/reviews", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithId<CommonReview>>($"/3/tv/{seriesId}/reviews", queryParams, cancellationToken);
     }
 
     /// <summary>

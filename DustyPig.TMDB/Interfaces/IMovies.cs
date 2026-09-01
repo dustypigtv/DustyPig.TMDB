@@ -74,7 +74,7 @@ public interface IMovies
     /// <summary>
     /// Get the user reviews for a movie.
     /// </summary>
-    public Task<Response<PagedResultWithId<Reviews>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResultWithId<CommonReview>>> GetReviewsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the similar movies based on genres and keywords.
