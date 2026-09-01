@@ -1,4 +1,6 @@
 ﻿using DustyPig.TMDB.Enums;
+using DustyPig.TMDB.JsonHelpers;
+using System;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
@@ -18,5 +20,6 @@ public class TvSeries : Media
     public string OriginalName { get; set; }
 
     [JsonPropertyName("first_air_date")]
-    public string FirstAirDate { get; set; }
+    [JsonConverter(typeof(StringToDateOnlyConverter))]
+    public DateOnly? FirstAirDate { get; set; }
 }
