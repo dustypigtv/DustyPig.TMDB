@@ -41,7 +41,7 @@ public class Latest : CommonMedia
     public int NumberOfSeasons { get; set; }
 
     [JsonPropertyName("seasons")]
-    public List<Seasons2> Seasons { get; set; } = [];
+    public List<CommonSeason> Seasons { get; set; } = [];
 
     [JsonPropertyName("status")]
     public string Status { get; set; }

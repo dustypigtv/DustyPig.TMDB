@@ -56,7 +56,7 @@ public class Details : CommonMedia
     public List<CommonCountry2> ProductionCountries { get; set; } = [];
 
     [JsonPropertyName("seasons")]
-    public List<Seasons1> Seasons { get; set; } = [];
+    public List<CommonSeason> Seasons { get; set; } = [];
 
     [JsonPropertyName("spoken_languages")]
     public List<CommonLanguage> SpokenLanguages { get; set; } = [];
