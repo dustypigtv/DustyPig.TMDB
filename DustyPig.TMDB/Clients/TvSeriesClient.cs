@@ -33,7 +33,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Rate a TV show and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonSuccessStatus>> AddRatingAsync(float rating, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -43,10 +43,10 @@ internal class TvSeriesClient : ITvSeries
 
         var postData = new FloatValueWrapper(rating);
 
-        return _client.PostAsync<CommonSuccessStatus>($"/3/tv/{seriesId}/rating", queryParams, postData, cancellationToken);
+        return _client.PostAsync<CommonStatus>($"/3/tv/{seriesId}/rating", queryParams, postData, cancellationToken);
     }
 
-    public Task<Response<CommonSuccessStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int seriesId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -54,7 +54,7 @@ internal class TvSeriesClient : ITvSeries
             { "session_id", sessionId }
         };
 
-        return _client.DeleteAsync<CommonSuccessStatus>($"/3/tv/{seriesId}/rating", queryParams, cancellationToken);
+        return _client.DeleteAsync<CommonStatus>($"/3/tv/{seriesId}/rating", queryParams, cancellationToken);
     }
 
     /// <summary>

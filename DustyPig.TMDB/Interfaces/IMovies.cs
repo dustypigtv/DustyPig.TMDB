@@ -17,13 +17,13 @@ public interface IMovies
     /// <summary>
     /// Rate a movie and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonSuccessStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Delete a user rating.
     /// </summary>
     /// <returns></returns>
-    public Task<Response<CommonSuccessStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the alternative titles for a movie.

@@ -33,7 +33,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Rate a movie and save it to your rated list.
     /// </summary>
-    public Task<Response<CommonSuccessStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> AddRatingAsync(float rating, int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -43,14 +43,14 @@ internal class MoviesClient : IMovies
 
         var postData = new FloatValueWrapper(rating);
 
-        return _client.PostAsync<CommonSuccessStatus>($"/3/movie/{movieId}/rating", queryParams, postData, cancellationToken);
+        return _client.PostAsync<CommonStatus>($"/3/movie/{movieId}/rating", queryParams, postData, cancellationToken);
     }
 
     /// <summary>
     /// Delete a user rating.
     /// </summary>
     /// <returns></returns>
-    public Task<Response<CommonSuccessStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
+    public Task<Response<CommonStatus>> DeleteRatingAsync(int movieId, string guestSessionId = null, string sessionId = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -58,7 +58,7 @@ internal class MoviesClient : IMovies
             { "session_id", sessionId }
         };
 
-        return _client.DeleteAsync<CommonSuccessStatus>($"/3/movie/{movieId}/rating", queryParams, cancellationToken);
+        return _client.DeleteAsync<CommonStatus>($"/3/movie/{movieId}/rating", queryParams, cancellationToken);
     }
 
     /// <summary>

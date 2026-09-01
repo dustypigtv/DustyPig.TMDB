@@ -8,9 +8,9 @@ namespace DustyPig.TMDB.Interfaces;
 
 public interface IAccount
 {
-    public Task<Response<CommonSuccessStatus>> AddFavoriteAsync(AddFavorite postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddFavoriteAsync(AddFavorite postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<CommonSuccessStatus>> AddToWatchlistAsync(AddToWatchlist postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default);
+    public Task<Response<CommonStatus>> AddToWatchlistAsync(AddToWatchlist postData, int accountId, string sessionId = null, CancellationToken cancellationToken = default);
 
     public Task<Response<Details>> GetDetailsAsync(string sessionId = null, CancellationToken cancellationToken = default);
 
