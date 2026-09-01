@@ -1,6 +1,6 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Enums;
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.Discover;
 using System;
 using System.Collections.Generic;
 using System.Threading;

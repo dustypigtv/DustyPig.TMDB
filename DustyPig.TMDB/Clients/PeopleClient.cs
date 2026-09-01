@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Enums;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.People;
 using System;
@@ -47,7 +48,7 @@ public class PeopleClient
     /// Query the top level details of a person.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<Details>> GetDetailsAsync(int personId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Details>> GetDetailsAsync(int personId, PersonAppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

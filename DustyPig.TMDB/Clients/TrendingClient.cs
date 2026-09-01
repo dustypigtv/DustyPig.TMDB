@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Enums;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Trending;
 using System.Collections.Generic;

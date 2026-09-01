@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace DustyPig.TMDB.Models.Discover;
+namespace DustyPig.TMDB.Enums;
 
 [Flags]
 public enum MovieReleaseTypes

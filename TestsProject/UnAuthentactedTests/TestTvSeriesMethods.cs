@@ -1,4 +1,4 @@
-using DustyPig.TMDB.Models.TvSeries;
+using DustyPig.TMDB.Enums;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -75,24 +75,24 @@ public class TestTvSeriesMethods
     public async Task GetDetails()
     {
         int seriesId = Constants.TV_SERIES_ID;
-        AppendToResponse? appendToResponse =
-            AppendToResponse.AccountStates |
-            AppendToResponse.AggregateCredits |
-            AppendToResponse.AlternativeTitles |
-            AppendToResponse.Changes |
-            AppendToResponse.ContentRatings |
-            AppendToResponse.Credits |
-            AppendToResponse.EpisodeGroups |
-            AppendToResponse.ExternalIds |
-            AppendToResponse.Images |
-            AppendToResponse.Keywords |
-            AppendToResponse.Lists |
-            AppendToResponse.Recommendations |
-            AppendToResponse.Reviews |
-            AppendToResponse.ScreenedTheatrically |
-            AppendToResponse.Similar |
-            AppendToResponse.Translations |
-            AppendToResponse.Videos;
+        TvSeriesAppendToResponse? appendToResponse =
+            TvSeriesAppendToResponse.AccountStates |
+            TvSeriesAppendToResponse.AggregateCredits |
+            TvSeriesAppendToResponse.AlternativeTitles |
+            TvSeriesAppendToResponse.Changes |
+            TvSeriesAppendToResponse.ContentRatings |
+            TvSeriesAppendToResponse.Credits |
+            TvSeriesAppendToResponse.EpisodeGroups |
+            TvSeriesAppendToResponse.ExternalIds |
+            TvSeriesAppendToResponse.Images |
+            TvSeriesAppendToResponse.Keywords |
+            TvSeriesAppendToResponse.Lists |
+            TvSeriesAppendToResponse.Recommendations |
+            TvSeriesAppendToResponse.Reviews |
+            TvSeriesAppendToResponse.ScreenedTheatrically |
+            TvSeriesAppendToResponse.Similar |
+            TvSeriesAppendToResponse.Translations |
+            TvSeriesAppendToResponse.Videos;
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeries.GetDetailsAsync(seriesId, appendToResponse, language);

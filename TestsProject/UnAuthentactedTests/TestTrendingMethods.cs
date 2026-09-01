@@ -1,4 +1,4 @@
-using DustyPig.TMDB.Models.Trending;
+using DustyPig.TMDB.Enums;
 
 namespace TestsProject.UnAuthentactedTests;
 

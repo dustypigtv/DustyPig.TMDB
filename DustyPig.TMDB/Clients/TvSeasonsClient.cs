@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Enums;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.TvSeasons;
 using System;
@@ -71,7 +72,7 @@ public class TvSeasonsClient
     /// Query the details of a TV season.
     /// </summary>
     /// <param name="appendToResponse">Info from endpoints in this namespace to add to the response. 20 values max.</param>
-    public Task<Response<Details>> GetDetailsAsync(int seasonNumber, int seriesId, AppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<Details>> GetDetailsAsync(int seasonNumber, int seriesId, TvSeasonAppendToResponse? appendToResponse = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {

@@ -1,5 +1,5 @@
+using DustyPig.TMDB.Enums;
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.Discover;
 
 namespace TestsProject.UnAuthentactedTests;
 

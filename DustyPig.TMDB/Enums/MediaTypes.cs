@@ -1,4 +1,4 @@
-﻿namespace DustyPig.TMDB.Models.Common;
+﻿namespace DustyPig.TMDB.Enums;
 
 public enum MediaTypes
 {

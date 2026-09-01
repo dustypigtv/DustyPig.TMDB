@@ -1,4 +1,4 @@
-using DustyPig.TMDB.Models.Common;
+using DustyPig.TMDB.Enums;
 
 namespace TestsProject.AuthenticatedTests;
 

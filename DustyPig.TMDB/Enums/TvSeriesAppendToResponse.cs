@@ -1,10 +1,10 @@
 using System;
 using System.ComponentModel;
 
-namespace DustyPig.TMDB.Models.TvSeries;
+namespace DustyPig.TMDB.Enums;
 
 [Flags]
-public enum AppendToResponse
+public enum TvSeriesAppendToResponse
 {
     [Description("account_states")]
     AccountStates = 1,

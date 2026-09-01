@@ -1,4 +1,4 @@
-using DustyPig.TMDB.Models.Movies;
+using DustyPig.TMDB.Enums;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -51,21 +51,21 @@ public class TestMoviesMethods
     public async Task GetDetails()
     {
         int movieId = Constants.MOVIE_ID;
-        AppendToResponse? appendToResponse =
-            AppendToResponse.AccountStates |
-            AppendToResponse.AlternativeTitles |
-            AppendToResponse.Changes |
-            AppendToResponse.Credits |
-            AppendToResponse.ExternalIds |
-            AppendToResponse.Images |
-            AppendToResponse.Keywords |
-            AppendToResponse.Lists |
-            AppendToResponse.Recommendations |
-            AppendToResponse.ReleaseDates |
-            AppendToResponse.Reviews |
-            AppendToResponse.Similar |
-            AppendToResponse.Translations |
-            AppendToResponse.Videos;
+        MovieAppendToResponse? appendToResponse =
+            MovieAppendToResponse.AccountStates |
+            MovieAppendToResponse.AlternativeTitles |
+            MovieAppendToResponse.Changes |
+            MovieAppendToResponse.Credits |
+            MovieAppendToResponse.ExternalIds |
+            MovieAppendToResponse.Images |
+            MovieAppendToResponse.Keywords |
+            MovieAppendToResponse.Lists |
+            MovieAppendToResponse.Recommendations |
+            MovieAppendToResponse.ReleaseDates |
+            MovieAppendToResponse.Reviews |
+            MovieAppendToResponse.Similar |
+            MovieAppendToResponse.Translations |
+            MovieAppendToResponse.Videos;
 
         string language = Constants.Language;
 

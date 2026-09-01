@@ -1,4 +1,4 @@
-using DustyPig.TMDB.Models.TvEpisodes;
+using DustyPig.TMDB.Enums;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -39,13 +39,13 @@ public class TestTvEpisodesMethods
         int episodeNumber = 1;
         int seasonNumber = 5;
         int seriesId = Constants.TV_SERIES_ID;
-        AppendToResponse? appendToResponse =
-            AppendToResponse.AccountStates |
-            AppendToResponse.Credits |
-            AppendToResponse.ExternalIds |
-            AppendToResponse.Images |
-            AppendToResponse.Translations |
-            AppendToResponse.Videos;
+        TvEpisodeAppendToResponse? appendToResponse =
+            TvEpisodeAppendToResponse.AccountStates |
+            TvEpisodeAppendToResponse.Credits |
+            TvEpisodeAppendToResponse.ExternalIds |
+            TvEpisodeAppendToResponse.Images |
+            TvEpisodeAppendToResponse.Translations |
+            TvEpisodeAppendToResponse.Videos;
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetDetailsAsync(episodeNumber, seasonNumber, seriesId, appendToResponse, language);

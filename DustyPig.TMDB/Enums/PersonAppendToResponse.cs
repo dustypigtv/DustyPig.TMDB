@@ -1,10 +1,10 @@
 using System;
 using System.ComponentModel;
 
-namespace DustyPig.TMDB.Models.People;
+namespace DustyPig.TMDB.Enums;
 
 [Flags]
-public enum AppendToResponse
+public enum PersonAppendToResponse
 {
     [Description("changes")]
     Changes = 1,

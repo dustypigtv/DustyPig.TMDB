@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Enums;
 using DustyPig.TMDB.Models.Account;
 using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;

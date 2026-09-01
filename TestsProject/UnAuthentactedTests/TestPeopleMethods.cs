@@ -1,4 +1,4 @@
-using DustyPig.TMDB.Models.People;
+using DustyPig.TMDB.Enums;
 
 namespace TestsProject.UnAuthentactedTests;
 
@@ -38,14 +38,14 @@ public class TestPeopleMethods
     public async Task GetDetails()
     {
         int personId = Constants.PERSON_ID;
-        AppendToResponse? appendToResponse =
-            AppendToResponse.Changes |
-            AppendToResponse.CombinedCredits |
-            AppendToResponse.ExternalIds |
-            AppendToResponse.Images |
-            AppendToResponse.MovieCredits |
-            AppendToResponse.Translations |
-            AppendToResponse.TvCredits;
+        PersonAppendToResponse? appendToResponse =
+            PersonAppendToResponse.Changes |
+            PersonAppendToResponse.CombinedCredits |
+            PersonAppendToResponse.ExternalIds |
+            PersonAppendToResponse.Images |
+            PersonAppendToResponse.MovieCredits |
+            PersonAppendToResponse.Translations |
+            PersonAppendToResponse.TvCredits;
 
         string language = Constants.Language;
 

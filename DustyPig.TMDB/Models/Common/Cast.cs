@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using DustyPig.TMDB.Enums;
+using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 

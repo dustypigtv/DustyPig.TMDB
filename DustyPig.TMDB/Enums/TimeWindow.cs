@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace DustyPig.TMDB.Models.Trending;
+namespace DustyPig.TMDB.Enums;
 
 public enum Timewindow
 {

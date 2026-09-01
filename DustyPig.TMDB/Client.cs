@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Enums;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,6 @@ namespace DustyPig.TMDB;
 
 public class Client
 {
-    public enum AuthTypes
-    {
-        None,
-        APIKey,
-        BearerToken
-    }
-
-
     public const string VERSION = "v3";
     public const string VERSION_AS_OF_DATE = "2025-09-13";
     private const string API_BASE_ADDRESS = "https://api.themoviedb.org";
