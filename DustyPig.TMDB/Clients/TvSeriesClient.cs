@@ -60,14 +60,14 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
     /// </summary>
-    public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonAggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<AggregateCredits>($"/3/tv/{seriesId}/aggregate_credits", queryParams, cancellationToken);
+        return _client.GetAsync<CommonAggregateCredits>($"/3/tv/{seriesId}/aggregate_credits", queryParams, cancellationToken);
     }
 
     /// <summary>

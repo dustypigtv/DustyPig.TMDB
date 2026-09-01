@@ -17,7 +17,7 @@ public interface ITvSeasons
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV season.
     /// </summary>
-    public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CommonAggregateCredits>> GetAggregateCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the recent changes for a TV season.

@@ -40,7 +40,7 @@ public class Details : ModelBase
     public ListResultWithId<AccountState> AccountStates { get; set; }
 
     [JsonPropertyName("aggregate_credits")]
-    public AggregateCredits AggregateCredits { get; set; }
+    public CommonAggregateCredits AggregateCredits { get; set; }
 
     [JsonPropertyName("credits")]
     public Credits Credits { get; set; }

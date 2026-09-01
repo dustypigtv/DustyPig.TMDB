@@ -24,7 +24,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the aggregate credits (cast and crew) that have been added to a TV show.
     /// </summary>
-    public Task<Response<AggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CommonAggregateCredits>> GetAggregateCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.

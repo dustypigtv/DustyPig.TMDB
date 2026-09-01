@@ -75,7 +75,7 @@ public class Details : CommonMedia
     public CommonAccountState AccountStates { get; set; }
 
     [JsonPropertyName("aggregate_credits")]
-    public AggregateCredits AggregateCredits { get; set; }
+    public CommonAggregateCredits AggregateCredits { get; set; }
 
     [JsonPropertyName("alternative_titles")]
     public ListResultWithId<CommonTitle> AlternativeTitles { get; set; }
