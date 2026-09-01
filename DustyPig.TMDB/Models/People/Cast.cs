@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
+/// <inheritdoc/>
 public class Cast : CommonMediaBase
 {
     [JsonPropertyName("character")]

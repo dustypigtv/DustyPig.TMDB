@@ -1,6 +1,5 @@
 ﻿using DustyPig.TMDB.Models.Common;
 using System.Collections;
-using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Text;
 
@@ -19,7 +18,7 @@ static class AdditionalPropertiesChecker
         StringBuilder msg = new();
         msg.AppendLine();
         msg.AppendLine("\tMissing properties:");
-        foreach(string key in missing.Keys)
+        foreach (string key in missing.Keys)
         {
             msg.AppendLine("\t\t" + key + ':');
             foreach (var prop in missing[key])
@@ -33,8 +32,8 @@ static class AdditionalPropertiesChecker
     {
         if (obj == null || !visited.Add(obj))
             return;
-        
-        if(obj is ModelBase modelBase)
+
+        if (obj is ModelBase modelBase)
         {
             if (modelBase.AdditionalProperties?.Count > 0)
             {
@@ -50,15 +49,15 @@ static class AdditionalPropertiesChecker
             var value = prop.GetValue(obj);
             if (value is not null)
             {
-                if(value.GetType() != typeof(string) && value is IEnumerable enumerable)
+                if (value.GetType() != typeof(string) && value is IEnumerable enumerable)
                 {
-                    foreach(var subValue in enumerable)
+                    foreach (var subValue in enumerable)
                     {
                         if (IsComplexType(subValue.GetType()))
-                           CheckProperties(subValue, visited, missing);
+                            CheckProperties(subValue, visited, missing);
                     }
                 }
-                else if(IsComplexType(prop.PropertyType))
+                else if (IsComplexType(prop.PropertyType))
                 {
                     CheckProperties(value, visited, missing);
                 }

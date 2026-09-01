@@ -30,7 +30,7 @@ public class CommonMediaBase : ModelBase
 
     [JsonPropertyName("poster_path")]
     public string PosterPath { get; set; }
-        
+
     [JsonPropertyName("genre_ids")]
     public List<int> GenreIds { get; set; } = [];
 

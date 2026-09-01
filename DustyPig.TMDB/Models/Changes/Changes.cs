@@ -12,5 +12,5 @@ public class Changes : ModelBase
     public bool? Adult { get; set; }
 
     [JsonPropertyName("softcore")]
-    public bool? SoftCore { get; set; } 
+    public bool? SoftCore { get; set; }
 }

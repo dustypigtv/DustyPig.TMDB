@@ -4,7 +4,6 @@ using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Trending;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,7 +29,7 @@ internal class TrendingClient : ITrending
         };
 
         var response = await _client.GetAsync<PagedResult<JsonElement>>($"/3/trending/all/{timeWindow.GetEnumDescription()}", queryParams, cancellationToken).ConfigureAwait(false);
-    
+
         var ret = new Response<TrendingResponse>
         {
             Error = response.Error,

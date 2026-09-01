@@ -3,7 +3,7 @@
 namespace DustyPig.TMDB.Models.People;
 
 public class MovieCast : Movie
-{    
+{
     [JsonPropertyName("character")]
     public string Character { get; set; }
 

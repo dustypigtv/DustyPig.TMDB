@@ -1,5 +1,4 @@
 using DustyPig.TMDB.Models.Common;
-using DustyPig.TMDB.Models.Credits;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -32,7 +31,7 @@ public class Popular : ModelBase
     {
         get
         {
-            if(_knownForMovies == null)
+            if (_knownForMovies == null)
             {
                 _knownForMovies = KnownFor.Deserialize<List<Movie>>();
                 _knownForMovies.RemoveAll(_ => _.MediaType != CommonMediaTypes.Movie);
