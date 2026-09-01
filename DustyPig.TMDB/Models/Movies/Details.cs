@@ -13,7 +13,7 @@ public class Details : Movie
     public int Budget { get; set; }
 
     [JsonPropertyName("genres")]
-    public List<Name_> Genres { get; set; } = [];
+    public List<NameObject> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -49,7 +49,7 @@ public class Details : Movie
     public AlternativeTitle AlternativeTitles { get; set; }
 
     [JsonPropertyName("changes")]
-    public CommonChanges Changes { get; set; }
+    public ChangesList Changes { get; set; }
 
     [JsonPropertyName("credits")]
     public Credits Credits { get; set; }

@@ -16,7 +16,7 @@ public class Latest : Common.TvSeries
     public List<int> EpisodeRunTime { get; set; } = [];
 
     [JsonPropertyName("genres")]
-    public List<Name_> Genres { get; set; } = [];
+    public List<NameObject> Genres { get; set; } = [];
 
     [JsonPropertyName("languages")]
     public List<string> Languages { get; set; } = [];

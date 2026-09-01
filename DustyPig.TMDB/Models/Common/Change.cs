@@ -3,11 +3,11 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonChange : ModelBase
+public class Change : ModelBase
 {
     [JsonPropertyName("key")]
     public string Key { get; set; }
 
     [JsonPropertyName("items")]
-    public List<CommonItem> Items { get; set; } = [];
+    public List<ChangeItem> Items { get; set; } = [];
 }

@@ -78,7 +78,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the recent changes for a movie.
     /// </summary>
-    public Task<Response<CommonChanges>> GetChangesAsync(int movieId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default)
+    public Task<Response<ChangesList>> GetChangesAsync(int movieId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -87,7 +87,7 @@ internal class MoviesClient : IMovies
             { "start_date", startDate.DateOnlyToTmdb() }
         };
 
-        return _client.GetAsync<CommonChanges>($"/3/movie/{movieId}/changes", queryParams, cancellationToken);
+        return _client.GetAsync<ChangesList>($"/3/movie/{movieId}/changes", queryParams, cancellationToken);
     }
 
     public Task<Response<Credits>> GetCreditsAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)

@@ -3,8 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonChanges : ModelBase
+public class ChangesList : ModelBase
 {
     [JsonPropertyName("changes")]
-    public List<CommonChange> Changes { get; set; } = [];
+    public List<Change> Changes { get; set; } = [];
 }

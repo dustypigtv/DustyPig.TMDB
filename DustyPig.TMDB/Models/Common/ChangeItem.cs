@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Common;
 
-public class CommonItem : ModelBase
+public class ChangeItem : ModelBase
 {
     [JsonPropertyName("id")]
     public string Id { get; set; }

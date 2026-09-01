@@ -73,13 +73,13 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<Title_>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<Title_>>($"/3/tv/{seriesId}/alternative_titles", null, cancellationToken);
+    public Task<Response<ListResultWithId<TitleObject>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<TitleObject>>($"/3/tv/{seriesId}/alternative_titles", null, cancellationToken);
 
     /// <summary>
     /// Get the recent changes for a TV show.
     /// </summary>
-    public Task<Response<CommonChanges>> GetChangesAsync(int seriesId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default)
+    public Task<Response<ChangesList>> GetChangesAsync(int seriesId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -88,7 +88,7 @@ internal class TvSeriesClient : ITvSeries
             { "start_date", startDate.DateOnlyToTmdb() }
         };
 
-        return _client.GetAsync<CommonChanges>($"/3/tv/{seriesId}/changes", queryParams, cancellationToken);
+        return _client.GetAsync<ChangesList>($"/3/tv/{seriesId}/changes", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -155,8 +155,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get a list of keywords that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<Name_>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<ListResultWithId<Name_>>($"/3/tv/{seriesId}/keywords", null, cancellationToken);
+    public Task<Response<ListResultWithId<NameObject>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<ListResultWithId<NameObject>>($"/3/tv/{seriesId}/keywords", null, cancellationToken);
 
     /// <summary>
     /// Get the newest TV show ID.

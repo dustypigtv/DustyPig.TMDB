@@ -21,7 +21,7 @@ public interface ISearch
     /// <summary>
     /// Search for keywords by their name.
     /// </summary>
-    public Task<Response<PagedResult<Name_>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<NameObject>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Search for movies by their original, translated and alternative titles.

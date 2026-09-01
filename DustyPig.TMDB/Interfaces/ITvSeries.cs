@@ -29,12 +29,12 @@ public interface ITvSeries
     /// <summary>
     /// Get the alternative titles that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<Title_>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<TitleObject>>> GetAlternativeTitlesAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the recent changes for a TV show.
     /// </summary>
-    public Task<Response<CommonChanges>> GetChangesAsync(int seriesId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default);
+    public Task<Response<ChangesList>> GetChangesAsync(int seriesId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the content ratings that have been added to a TV show.
@@ -71,7 +71,7 @@ public interface ITvSeries
     /// <summary>
     /// Get a list of keywords that have been added to a TV show.
     /// </summary>
-    public Task<Response<ListResultWithId<Name_>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
+    public Task<Response<ListResultWithId<NameObject>>> GetKeywordsAsync(int seriesId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the newest TV show ID.

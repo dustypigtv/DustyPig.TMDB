@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Changes;
 
-public class Changes : ModelBase
+public class ChangeId : ModelBase
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

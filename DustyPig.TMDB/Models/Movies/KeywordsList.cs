@@ -10,5 +10,5 @@ public class KeywordsList : ModelBase
     public int Id { get; set; }
 
     [JsonPropertyName("keywords")]
-    public List<Name_> Keywords { get; set; } = [];
+    public List<NameObject> Keywords { get; set; } = [];
 }

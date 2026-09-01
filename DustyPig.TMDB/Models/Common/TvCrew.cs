@@ -9,5 +9,5 @@ public class TvCrew : Crew
     public int TotalEpisodeCount { get; set; }
 
     [JsonPropertyName("jobs")]
-    public List<Job_> Jobs { get; set; } = [];
+    public List<JobObject> Jobs { get; set; } = [];
 }

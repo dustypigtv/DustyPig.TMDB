@@ -49,7 +49,7 @@ internal class SearchClient : ISearch
     /// <summary>
     /// Search for keywords by their name.
     /// </summary>
-    public Task<Response<PagedResult<Name_>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<NameObject>>> KeywordsAsync(string query, int page = 1, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -57,7 +57,7 @@ internal class SearchClient : ISearch
             { "page", page }
         };
 
-        return _client.GetAsync<PagedResult<Name_>>("/3/search/keyword", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<NameObject>>("/3/search/keyword", queryParams, cancellationToken);
     }
 
     /// <summary>

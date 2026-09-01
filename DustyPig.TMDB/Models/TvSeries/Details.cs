@@ -16,7 +16,7 @@ public class Details : Common.TvSeries
     public List<int> EpisodeRunTime { get; set; } = [];
 
     [JsonPropertyName("genres")]
-    public List<Name_> Genres { get; set; } = [];
+    public List<NameObject> Genres { get; set; } = [];
 
     [JsonPropertyName("homepage")]
     public string Homepage { get; set; }
@@ -72,10 +72,10 @@ public class Details : Common.TvSeries
     public AggregateCredits AggregateCredits { get; set; }
 
     [JsonPropertyName("alternative_titles")]
-    public ListResultWithId<Title_> AlternativeTitles { get; set; }
+    public ListResultWithId<TitleObject> AlternativeTitles { get; set; }
 
     [JsonPropertyName("changes")]
-    public CommonChanges Changes { get; set; }
+    public ChangesList Changes { get; set; }
 
     [JsonPropertyName("content_ratings")]
     public ListResultWithId<ContentRating> ContentRatings { get; set; }
@@ -93,7 +93,7 @@ public class Details : Common.TvSeries
     public Images Images { get; set; }
 
     [JsonPropertyName("keywords")]
-    public ListResultWithId<Name_> Keywords { get; set; }
+    public ListResultWithId<NameObject> Keywords { get; set; }
 
     [JsonPropertyName("lists")]
     public PagedResultWithId<Lists> Lists { get; set; }
