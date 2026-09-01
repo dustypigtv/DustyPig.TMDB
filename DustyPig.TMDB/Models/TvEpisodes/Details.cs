@@ -61,7 +61,7 @@ public class Details : ModelBase
     public CommonImages Images { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslation<Translation>> Translations { get; set; }
+    public CommonTranslationList<Translation> Translations { get; set; }
 
     [JsonPropertyName("videos")]
     public ListResultWithId<CommonVideo> Videos { get; set; }

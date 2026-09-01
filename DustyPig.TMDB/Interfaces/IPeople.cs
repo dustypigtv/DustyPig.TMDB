@@ -48,7 +48,7 @@ public interface IPeople
     /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int personId, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the TV credits that belong to a person.

@@ -226,8 +226,8 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the translations that have been added to a TV show.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<CommonTranslation<CommonTranslationData>>>($"/3/tv/{seriesId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int seriesId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<CommonTranslationData>>($"/3/tv/{seriesId}/translations", null, cancellationToken);
 
     /// <summary>
     /// Get the videos that belong to a TV show.

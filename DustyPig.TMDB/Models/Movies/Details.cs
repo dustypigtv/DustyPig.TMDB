@@ -84,7 +84,7 @@ public class Details : CommonMedia
     public PagedResult<CommonMedia> Similar { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslation<CommonTranslationData>> Translations { get; set; }
+    public CommonTranslationList<CommonTranslationData> Translations { get; set; }
 
 
     [JsonPropertyName("videos")]

@@ -204,8 +204,8 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the translations for a movie.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default) =>
-        _client.GetAsync<CommonTranslationList<CommonTranslation<CommonTranslationData>>>($"/3/movie/{movieId}/translations", null, cancellationToken);
+    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default) =>
+        _client.GetAsync<CommonTranslationList<CommonTranslationData>>($"/3/movie/{movieId}/translations", null, cancellationToken);
 
     public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default)
     {

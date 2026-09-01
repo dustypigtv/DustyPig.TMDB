@@ -65,7 +65,7 @@ public class Details : ModelBase
     public MovieCredits MovieCredits { get; set; }
 
     [JsonPropertyName("translations")]
-    public CommonTranslationList<CommonTranslation<Translation>> Translations { get; set; }
+    public CommonTranslationList<Translation> Translations { get; set; }
 
     [JsonPropertyName("tv_credits")]
     public TvSeriesCredits TvCredits { get; set; }

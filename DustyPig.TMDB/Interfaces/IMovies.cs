@@ -84,7 +84,7 @@ public interface IMovies
     /// <summary>
     /// Get the translations for a movie.
     /// </summary>
-    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int movieId, CancellationToken cancellationToken = default);
 
     public Task<Response<ListResultWithId<CommonVideo>>> GetVideosAsync(int movieId, string language = "en-US", CancellationToken cancellationToken = default);
 

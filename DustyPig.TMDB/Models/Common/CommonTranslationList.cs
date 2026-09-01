@@ -9,5 +9,5 @@ public class CommonTranslationList<T> : ModelBase
     public int Id { get; set; }
 
     [JsonPropertyName("translations")]
-    public List<T> Translations { get; set; } = [];
+    public List<CommonTranslation<T>> Translations { get; set; } = [];
 }

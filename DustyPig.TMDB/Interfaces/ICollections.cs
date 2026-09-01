@@ -20,5 +20,5 @@ public interface ICollections
     /// <param name="includeImageLanguage">specify a comma separated list of ISO-639-1 values to query, for example: `en,null`</param>
     public Task<Response<CommonImages>> GetImagesAsync(int collectionId, string includeImageLanguage = null, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<CommonTranslationList<CommonTranslation<CommonTranslationData>>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default);
+    public Task<Response<CommonTranslationList<CommonTranslationData>>> GetTranslationsAsync(int collectionId, CancellationToken cancellationToken = default);
 }
