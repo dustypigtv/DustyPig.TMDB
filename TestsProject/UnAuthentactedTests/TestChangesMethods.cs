@@ -12,9 +12,7 @@ public class TestChangesMethods
         DateOnly? endDate = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.Changes.GetMoviesAsync(page, endDate, startDate);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -28,9 +26,7 @@ public class TestChangesMethods
         DateOnly? endDate = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.Changes.GetPeopleAsync(page, endDate, startDate);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -44,8 +40,6 @@ public class TestChangesMethods
         DateOnly? endDate = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.Changes.GetTvSeriesAsync(page, endDate, startDate);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

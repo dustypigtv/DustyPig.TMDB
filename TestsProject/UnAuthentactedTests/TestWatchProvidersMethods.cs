@@ -10,9 +10,7 @@ public class TestWatchProvidersMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.WatchProviders.GetAvailableRegionsAsync(language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -25,9 +23,7 @@ public class TestWatchProvidersMethods
         string watchRegion = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.WatchProviders.GetMovieProvidersAsync(language, watchRegion);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -40,8 +36,6 @@ public class TestWatchProvidersMethods
         string watchRegion = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.WatchProviders.GetTvSeriesProvidersAsync(language, watchRegion);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

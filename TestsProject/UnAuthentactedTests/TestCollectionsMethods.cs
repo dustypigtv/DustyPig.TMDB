@@ -11,7 +11,7 @@ public class TestCollectionsMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.Collections.GetDetailsAsync(collectionId, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -25,11 +25,7 @@ public class TestCollectionsMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.Collections.GetImagesAsync(collectionId, includeImageLanguage, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Backdrops)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.Posters)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -41,10 +37,6 @@ public class TestCollectionsMethods
         int collectionId = Constants.COLLECTION_ID;
 
         var ret = await ClientFactory.GetClient().Endpoints.Collections.GetTranslationsAsync(collectionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Translations)
-        {
-            Assert.IsEmpty(item.AdditionalProperties);
-        }
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

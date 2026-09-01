@@ -12,9 +12,7 @@ public class TestMovieListsMethods
         string region = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetNowPlayingAsync(page, language, region);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -28,9 +26,7 @@ public class TestMovieListsMethods
         string region = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetPopularAsync(page, language, region);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -44,9 +40,7 @@ public class TestMovieListsMethods
         string region = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetTopRatedAsync(page, language, region);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -60,8 +54,6 @@ public class TestMovieListsMethods
         string region = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.MovieLists.GetUpcomingAsync(page, language, region);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

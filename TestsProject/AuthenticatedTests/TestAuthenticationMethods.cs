@@ -39,7 +39,7 @@ public class TestAuthenticationMethods
     public async Task GuestSession()
     {
         var ret = await ClientFactory.GetClient().Endpoints.Authentication.GetCreateGuestSessionAsync();
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 

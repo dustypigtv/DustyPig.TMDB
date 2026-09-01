@@ -12,9 +12,7 @@ public class TestTvSeriesListsMethods
         string timezone = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetAiringTodayAsync(page, language, timezone);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -28,9 +26,7 @@ public class TestTvSeriesListsMethods
         string timezone = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetOnTheAirAsync(page, language, timezone);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -43,9 +39,7 @@ public class TestTvSeriesListsMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetPopularAsync(page, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -58,8 +52,6 @@ public class TestTvSeriesListsMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeriesLists.GetTopRatedAsync(page, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

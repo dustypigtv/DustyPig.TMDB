@@ -10,9 +10,7 @@ public class TestCompaniesMethods
         int companyId = Constants.PRODUCTION_COMPANY;
 
         var ret = await ClientFactory.GetClient().Endpoints.Companies.GetAlternativeNamesAsync(companyId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -24,7 +22,7 @@ public class TestCompaniesMethods
         int companyId = Constants.PRODUCTION_COMPANY;
 
         var ret = await ClientFactory.GetClient().Endpoints.Companies.GetDetailsAsync(companyId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -36,8 +34,6 @@ public class TestCompaniesMethods
         int companyId = Constants.PRODUCTION_COMPANY;
 
         var ret = await ClientFactory.GetClient().Endpoints.Companies.GetImagesAsync(companyId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Logos)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

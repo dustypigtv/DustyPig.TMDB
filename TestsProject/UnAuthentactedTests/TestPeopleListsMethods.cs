@@ -11,14 +11,6 @@ public class TestPeopleListsMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.PeopleLists.GetPopularAsync(page, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-        {
-            Assert.IsEmpty(item.AdditionalProperties);
-            foreach (var item2 in item.KnownForMovies)
-                Assert.IsEmpty(item2.AdditionalProperties);
-            foreach (var item2 in item.KnownForTv)
-                Assert.IsEmpty(item2.AdditionalProperties);
-        }
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

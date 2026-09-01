@@ -10,6 +10,6 @@ public class TestKeywordsMethods
         int keywordId = Constants.KEYWORK_ID;
 
         var ret = await ClientFactory.GetClient().Endpoints.Keywords.GetDetailsAsync(keywordId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

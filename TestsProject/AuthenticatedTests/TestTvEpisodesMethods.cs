@@ -15,7 +15,7 @@ public class TestTvEpisodesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.GetAccountStatesAsync(episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
     [TestMethod]
@@ -31,7 +31,7 @@ public class TestTvEpisodesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.AddRatingAsync(rating, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
     [TestMethod]
@@ -46,6 +46,6 @@ public class TestTvEpisodesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvEpisodes.DeleteRatingAsync(episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

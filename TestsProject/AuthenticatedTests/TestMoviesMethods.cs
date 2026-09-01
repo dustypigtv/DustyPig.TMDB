@@ -13,7 +13,7 @@ public class TestMoviesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.Movies.GetAccountStatesAsync(movieId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -29,7 +29,7 @@ public class TestMoviesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.Movies.AddRatingAsync(rating, movieId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -43,6 +43,6 @@ public class TestMoviesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.Movies.DeleteRatingAsync(movieId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

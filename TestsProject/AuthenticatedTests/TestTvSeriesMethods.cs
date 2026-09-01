@@ -13,7 +13,7 @@ public class TestTvSeriesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeries.GetAccountStatesAsync(seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -29,7 +29,7 @@ public class TestTvSeriesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeries.AddRatingAsync(rating, seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
     [TestMethod]
@@ -42,6 +42,6 @@ public class TestTvSeriesMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeries.DeleteRatingAsync(seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

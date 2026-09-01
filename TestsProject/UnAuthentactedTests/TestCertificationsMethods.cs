@@ -8,10 +8,7 @@ public class TestCertificationsMethods
     public async Task GetMovieCertifications()
     {
         var ret = await ClientFactory.GetClient().Endpoints.Certifications.GetMovieCertificationsAsync();
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var key in ret.Data.Certifications.Keys)
-            foreach (var item in ret.Data.Certifications[key])
-                Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -21,9 +18,6 @@ public class TestCertificationsMethods
     public async Task GetTvSeriesCertifications()
     {
         var ret = await ClientFactory.GetClient().Endpoints.Certifications.GetTvSeriesCertificationsAsync();
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var key in ret.Data.Certifications.Keys)
-            foreach (var item in ret.Data.Certifications[key])
-                Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

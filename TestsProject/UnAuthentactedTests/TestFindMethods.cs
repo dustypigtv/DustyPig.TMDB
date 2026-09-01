@@ -13,19 +13,9 @@ public class TestFindMethods
         Externalsource externalSource = Externalsource.ImdbId;
         string language = Constants.Language;
 
-        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
-        Assert.IsTrue(response.Data.MovieResults.Any(_ => _.Id == Constants.MOVIE_ID));
-        Assert.IsEmpty(response.Data.AdditionalProperties);
-        foreach (var item in response.Data.MovieResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.PersonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvEpisodeResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvSeasonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
+        var ret = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(ret.Data.MovieResults.Any(_ => _.Id == Constants.MOVIE_ID));
+        AdditionalPropertiesChecker.Check(ret);
     }
 
     [TestMethod]
@@ -36,19 +26,9 @@ public class TestFindMethods
         Externalsource externalSource = Externalsource.TvdbId;
         string language = Constants.Language;
 
-        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
-        Assert.IsTrue(response.Data.TvResults.Any(_ => _.Id == Constants.TV_SERIES_ID));
-        Assert.IsEmpty(response.Data.AdditionalProperties);
-        foreach (var item in response.Data.MovieResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.PersonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvEpisodeResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvSeasonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
+        var ret = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(ret.Data.TvResults.Any(_ => _.Id == Constants.TV_SERIES_ID));
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -60,19 +40,9 @@ public class TestFindMethods
         Externalsource externalSource = Externalsource.ImdbId;
         string language = Constants.Language;
 
-        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
-        Assert.IsTrue(response.Data.PersonResults.Any(_ => _.Id == Constants.PERSON_ID));
-        Assert.IsEmpty(response.Data.AdditionalProperties);
-        foreach (var item in response.Data.MovieResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.PersonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvEpisodeResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvSeasonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
+        var ret = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(ret.Data.PersonResults.Any(_ => _.Id == Constants.PERSON_ID));
+        AdditionalPropertiesChecker.Check(ret);
     }
 
     [TestMethod]
@@ -83,19 +53,9 @@ public class TestFindMethods
         Externalsource externalSource = Externalsource.TvdbId;
         string language = Constants.Language;
 
-        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
-        Assert.IsTrue(response.Data.TvSeasonResults.Any(_ => _.Id == Constants.SEASON_ID));
-        Assert.IsEmpty(response.Data.AdditionalProperties);
-        foreach (var item in response.Data.MovieResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.PersonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvEpisodeResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvSeasonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
+        var ret = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(ret.Data.TvSeasonResults.Any(_ => _.Id == Constants.SEASON_ID));
+        AdditionalPropertiesChecker.Check(ret);
     }
 
     [TestMethod]
@@ -106,18 +66,8 @@ public class TestFindMethods
         Externalsource externalSource = Externalsource.ImdbId;
         string language = Constants.Language;
 
-        var response = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
-        Assert.IsTrue(response.Data.TvEpisodeResults.Any(_ => _.Id == Constants.EPISODE_ID));
-        Assert.IsEmpty(response.Data.AdditionalProperties);
-        foreach (var item in response.Data.MovieResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.PersonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvEpisodeResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvResults)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in response.Data.TvSeasonResults)
-            Assert.IsEmpty(item.AdditionalProperties);
+        var ret = await ClientFactory.GetClient().Endpoints.Find.ByIdAsync(externalId, externalSource, language);
+        Assert.IsTrue(ret.Data.TvEpisodeResults.Any(_ => _.Id == Constants.EPISODE_ID));
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

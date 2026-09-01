@@ -14,8 +14,6 @@ public class TestTvSeasonsMethods
         string guestSessionId = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.TvSeasons.GetAccountStatesAsync(seasonNumber, seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

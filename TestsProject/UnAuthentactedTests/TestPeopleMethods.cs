@@ -15,13 +15,7 @@ public class TestPeopleMethods
         DateOnly? startDate = null;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetChangesAsync(personId, page, endDate, startDate);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Changes)
-        {
-            Assert.IsEmpty(item.AdditionalProperties);
-            foreach (var item2 in item.Items)
-                Assert.IsEmpty(item2.AdditionalProperties);
-        }
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -34,15 +28,7 @@ public class TestPeopleMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetCombinedCreditsAsync(personId, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.MovieCast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.MovieCrew)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.TvCast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.TvCrew)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -64,43 +50,7 @@ public class TestPeopleMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetDetailsAsync(personId, appendToResponse, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.Changes.AdditionalProperties);
-        foreach (var item in ret.Data.Changes.Changes)
-        {
-            Assert.IsEmpty(item.AdditionalProperties);
-            foreach (var item2 in item.Items)
-                Assert.IsEmpty(item2.AdditionalProperties);
-        }
-        Assert.IsEmpty(ret.Data.CombinedCredits.AdditionalProperties);
-        foreach (var item in ret.Data.CombinedCredits.MovieCast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.CombinedCredits.TvCast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.CombinedCredits.MovieCrew)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.CombinedCredits.TvCrew)
-            Assert.IsEmpty(item.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.ExternalIds.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.Images.AdditionalProperties);
-        foreach (var item in ret.Data.Images.Profiles)
-            Assert.IsEmpty(item.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.MovieCredits.AdditionalProperties);
-        foreach (var item in ret.Data.MovieCredits.Cast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.MovieCredits.Crew)
-            Assert.IsEmpty(item.AdditionalProperties);
-        Assert.IsEmpty(ret.Data.Translations.AdditionalProperties);
-        foreach (var item in ret.Data.Translations.Translations)
-        {
-            Assert.IsEmpty(item.AdditionalProperties);
-            Assert.IsEmpty(item.Data.AdditionalProperties);
-        }
-        Assert.IsEmpty(ret.Data.TvCredits.AdditionalProperties);
-        foreach (var item in ret.Data.TvCredits.Cast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.TvCredits.Crew)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -112,7 +62,7 @@ public class TestPeopleMethods
         int personId = Constants.PERSON_ID;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetExternalIdsAsync(personId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -124,9 +74,7 @@ public class TestPeopleMethods
         int personId = Constants.PERSON_ID;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetImagesAsync(personId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Profiles)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -136,7 +84,7 @@ public class TestPeopleMethods
     public async Task GetLatest()
     {
         var ret = await ClientFactory.GetClient().Endpoints.People.GetLatestAsync();
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -149,11 +97,7 @@ public class TestPeopleMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetMovieCreditsAsync(personId, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Cast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.Crew)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -165,9 +109,7 @@ public class TestPeopleMethods
         int personId = Constants.PERSON_ID;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetTranslationsAsync(personId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Translations)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 
 
@@ -180,10 +122,6 @@ public class TestPeopleMethods
         string language = Constants.Language;
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetTvSeriesCreditsAsync(personId, language);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Cast)
-            Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.Crew)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
     }
 }

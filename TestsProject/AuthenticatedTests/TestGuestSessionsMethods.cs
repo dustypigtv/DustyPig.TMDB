@@ -22,7 +22,7 @@ public class TestGuestSessionsMethods
         string sessionId = null;
 
         var ret = await client.Endpoints.Movies.AddRatingAsync(rating, movieId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
         await Task.Delay(10_000); //These take a while to propegate for guest sessions
 
         int page = 1;
@@ -30,9 +30,7 @@ public class TestGuestSessionsMethods
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
         var ret2 = await client.Endpoints.GuestSessions.GetRatedMoviesAsync(guestSessionId, page, language, sortBy);
-        Assert.IsEmpty(ret2.Data.AdditionalProperties);
-        foreach (var item in ret2.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret2);
     }
 
 
@@ -50,7 +48,7 @@ public class TestGuestSessionsMethods
         string sessionId = null;
 
         var ret = await client.Endpoints.TvSeries.AddRatingAsync(rating, seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
         await Task.Delay(10_000); //These take a while to propegate for guest sessions
 
 
@@ -59,9 +57,7 @@ public class TestGuestSessionsMethods
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
         var ret2 = await client.Endpoints.GuestSessions.GetRatedTvSeriesAsync(guestSessionId, page, language, sortBy);
-        Assert.IsEmpty(ret2.Data.AdditionalProperties);
-        foreach (var item in ret2.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret2);
     }
 
 
@@ -81,7 +77,7 @@ public class TestGuestSessionsMethods
         string sessionId = null;
 
         var ret = await client.Endpoints.TvEpisodes.AddRatingAsync(rating, episodeNumber, seasonNumber, seriesId, guestSessionId, sessionId);
-        Assert.IsEmpty(ret.Data.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret);
         await Task.Delay(10_000); //These take a while to propegate for guest sessions
 
 
@@ -90,8 +86,6 @@ public class TestGuestSessionsMethods
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
         var ret2 = await client.Endpoints.GuestSessions.GetRatedTvEpisodesAsync(guestSessionId, page, language, sortBy);
-        Assert.IsEmpty(ret2.Data.AdditionalProperties);
-        foreach (var item in ret2.Data.Results)
-            Assert.IsEmpty(item.AdditionalProperties);
+        AdditionalPropertiesChecker.Check(ret2);
     }
 }
