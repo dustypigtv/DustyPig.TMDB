@@ -35,9 +35,13 @@ public class TestPeopleMethods
 
         var ret = await ClientFactory.GetClient().Endpoints.People.GetCombinedCreditsAsync(personId, language);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Crew)
+        foreach (var item in ret.Data.MovieCast)
             Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.Cast)
+        foreach (var item in ret.Data.MovieCrew)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.TvCast)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.TvCrew)
             Assert.IsEmpty(item.AdditionalProperties);
     }
 
@@ -69,9 +73,13 @@ public class TestPeopleMethods
                 Assert.IsEmpty(item2.AdditionalProperties);
         }
         Assert.IsEmpty(ret.Data.CombinedCredits.AdditionalProperties);
-        foreach (var item in ret.Data.CombinedCredits.Cast)
+        foreach (var item in ret.Data.CombinedCredits.MovieCast)
             Assert.IsEmpty(item.AdditionalProperties);
-        foreach (var item in ret.Data.CombinedCredits.Crew)
+        foreach (var item in ret.Data.CombinedCredits.TvCast)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.CombinedCredits.MovieCrew)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.CombinedCredits.TvCrew)
             Assert.IsEmpty(item.AdditionalProperties);
         Assert.IsEmpty(ret.Data.ExternalIds.AdditionalProperties);
         Assert.IsEmpty(ret.Data.Images.AdditionalProperties);

@@ -36,5 +36,5 @@ public class Person : ModelBase
     public string ProfilePath { get; set; }
 
     [JsonPropertyName("known_for")]
-    public List<CommonMedia> KnownFor { get; set; } = [];
+    public List<CommonMediaBase> KnownFor { get; set; } = [];
 }

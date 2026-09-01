@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class Latest : CommonMedia
+public class Latest : Series
 {
     [JsonPropertyName("created_by")]
     public List<CreatedBy> CreatedBy { get; set; } = [];

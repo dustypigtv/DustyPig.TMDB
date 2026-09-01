@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Movies;
 using System;
@@ -64,7 +65,7 @@ public interface IMovies
     /// </summary>
     public Task<Response<PagedResultWithId<CommonList>>> GetListsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
-    public Task<Response<PagedResult<CommonMedia>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Movie>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the release dates and certifications for a movie.
@@ -79,7 +80,7 @@ public interface IMovies
     /// <summary>
     /// Get the similar movies based on genres and keywords.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Movie>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the translations for a movie.

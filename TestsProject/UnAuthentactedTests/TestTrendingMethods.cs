@@ -14,7 +14,11 @@ public class TestTrendingMethods
 
         var ret = await ClientFactory.GetClient().Endpoints.Trending.GetAllAsync(timeWindow, language);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
+        foreach (var item in ret.Data.Movies)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.People)
+            Assert.IsEmpty(ret.Data.AdditionalProperties);
+        foreach (var item in ret.Data.Series)
             Assert.IsEmpty(item.AdditionalProperties);
     }
 

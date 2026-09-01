@@ -5,23 +5,23 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.People;
 
-public class Cast : CommonMediaBase
+public class TvSeriesCrew : Series
 {
-    [JsonPropertyName("character")]
-    public string Character { get; set; }
+    public TvSeriesCrew()
+    {
+        //Default
+        MediaType = CommonMediaTypes.TvSeries;
+    }
 
     [JsonPropertyName("credit_id")]
     public string CreditId { get; set; }
 
-    /// <summary>
-    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.Movie"/>
-    /// </summary>
-    [JsonPropertyName("order")]
-    public int? Order { get; set; }
+    [JsonPropertyName("department")]
+    public string Department { get; set; }
 
-    /// <summary>
-    /// Specific to <see cref="MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>
-    /// </summary>
+    [JsonPropertyName("job")]
+    public string Job { get; set; }
+
     [JsonPropertyName("episode_count")]
     public int? EpisodeCount { get; set; }
 

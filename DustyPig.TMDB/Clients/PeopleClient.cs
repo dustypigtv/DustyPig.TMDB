@@ -90,6 +90,8 @@ internal class PeopleClient : IPeople
         return _client.GetAsync<MovieCredits>($"/3/person/{personId}/movie_credits", queryParams, cancellationToken);
     }
 
+
+
     /// <summary>
     /// Get the translations that belong to a person.
     /// </summary>

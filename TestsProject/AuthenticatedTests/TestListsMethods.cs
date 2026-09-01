@@ -31,7 +31,9 @@ public class TestListsMethods
 
         var ret3 = await client.Endpoints.Lists.GetDetailsAsync(listId, 1, Constants.Language);
         Assert.IsEmpty(ret3.Data.AdditionalProperties);
-        foreach (var item in ret3.Data.Items)
+        foreach (var item in ret3.Data.Movies)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret3.Data.TvSeries)
             Assert.IsEmpty(item.AdditionalProperties);
 
         var ret4 = await client.Endpoints.Lists.RemoveMovieAsync(movieId, listId, sessionId);

@@ -7,13 +7,8 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class Details : CommonMedia
+public class Details : Series
 {
-    public Details()
-    {
-        MediaType = CommonMediaTypes.TvSeries;
-    }
-
     [JsonPropertyName("created_by")]
     public List<CreatedBy> CreatedBy { get; set; } = [];
 
@@ -104,7 +99,7 @@ public class Details : CommonMedia
     public PagedResultWithId<Lists> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<CommonMedia> Recommendations { get; set; }
+    public PagedResult<Series> Recommendations { get; set; }
 
     [JsonPropertyName("reviews")]
     public PagedResultWithId<CommonReview> Reviews { get; set; }
@@ -113,7 +108,7 @@ public class Details : CommonMedia
     public ListResultWithId<ScreenedTheatrically> ScreenedTheatrically { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<CommonMedia> Similar { get; set; }
+    public PagedResult<Series> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public CommonTranslationList<CommonTranslationData> Translations { get; set; }

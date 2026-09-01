@@ -5,14 +5,14 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Credits;
 
-public class Season : ModelBase
+public class Episode : ModelBase
 {
     [JsonPropertyName("air_date")]
     [JsonConverter(typeof(StringToDateOnlyConverter))]
     public DateOnly? AirDate { get; set; }
 
-    [JsonPropertyName("episode_count")]
-    public int EpisodeCount { get; set; }
+    [JsonPropertyName("episode_number")]
+    public int EpisodeNumber { get; set; }
 
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -23,8 +23,11 @@ public class Season : ModelBase
     [JsonPropertyName("overview")]
     public string Overview { get; set; }
 
-    [JsonPropertyName("poster_path")]
-    public string PosterPath { get; set; }
+    [JsonPropertyName("production_code")]
+    public string ProductionCode { get; set; }
+
+    [JsonPropertyName("runtime")]
+    public int? Runtime { get; set; }
 
     [JsonPropertyName("season_number")]
     public int SeasonNumber { get; set; }
@@ -32,19 +35,22 @@ public class Season : ModelBase
     [JsonPropertyName("show_id")]
     public int ShowId { get; set; }
 
-    /// <summary>
-    /// This is undocumented, and <see cref="VoteCount"/> is always missing, so this is probably not useful
-    /// </summary>
+    [JsonPropertyName("still_path")]
+    public string StillPath { get; set; }
+
     [JsonPropertyName("vote_average")]
     public float VoteAverage { get; set; }
 
-    /// <summary>
-    /// This seems to always be missing
-    /// </summary>
     [JsonPropertyName("vote_count")]
-    public int? VoteCount { get; set; }
+    public int VoteCount { get; set; }
 
     [JsonPropertyName("media_type")]
     [JsonConverter(typeof(MediaTypesConverter))]
     public CommonMediaTypes MediaType { get; set; }
+
+    /// <summary>
+    /// TO DO: Figure out the undocumented enumeration
+    /// </summary>
+    [JsonPropertyName("episode_type")]
+    public string EpisodeType { get; set; }
 }

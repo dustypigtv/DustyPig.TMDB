@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Threading;
@@ -14,10 +15,7 @@ internal class GuestSessionsClient : IGuestSessions
     internal GuestSessionsClient(Client client) => _client = client;
 
 
-    /// <summary>
-    /// Get the rated movies for a guest session.
-    /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> GetRatedMoviesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -26,13 +24,13 @@ internal class GuestSessionsClient : IGuestSessions
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/guest_session/{guestSessionId}/rated/movies", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Movie>>($"/3/guest_session/{guestSessionId}/rated/movies", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get the rated TV shows for a guest session.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetRatedTvSeriesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Series>>> GetRatedTvSeriesAsync(string guestSessionId, int page = 1, string language = "en-US", CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -41,7 +39,7 @@ internal class GuestSessionsClient : IGuestSessions
             { "sort_by", sortBy.GetEnumDescription() }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/guest_session/{guestSessionId}/rated/tv", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Series>>($"/3/guest_session/{guestSessionId}/rated/tv", queryParams, cancellationToken);
     }
 
     /// <summary>

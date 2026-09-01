@@ -1,16 +1,12 @@
+using DustyPig.TMDB.JsonHelpers;
 using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Movies;
 
-public class Details : CommonMedia
+public class Details : Movie
 {
-    public Details()
-    {
-        MediaType = CommonMediaTypes.Movie;
-    }
-
     [JsonPropertyName("belongs_to_collection")]
     public Collections.Basic BelongsToCollection { get; set; }
 
@@ -72,7 +68,7 @@ public class Details : CommonMedia
     public PagedResultWithId<CommonList> Lists { get; set; }
 
     [JsonPropertyName("recommendations")]
-    public PagedResult<CommonMedia> Recommendations { get; set; }
+    public PagedResult<Movie> Recommendations { get; set; }
 
     [JsonPropertyName("release_dates")]
     public ListResultWithId<Releases> ReleaseDates { get; set; }
@@ -81,7 +77,7 @@ public class Details : CommonMedia
     public PagedResultWithId<CommonReview> Reviews { get; set; }
 
     [JsonPropertyName("similar")]
-    public PagedResult<CommonMedia> Similar { get; set; }
+    public PagedResult<Movie> Similar { get; set; }
 
     [JsonPropertyName("translations")]
     public CommonTranslationList<CommonTranslationData> Translations { get; set; }

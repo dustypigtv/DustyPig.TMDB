@@ -1,4 +1,5 @@
 using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Trending;
 using System.Threading;
@@ -12,13 +13,13 @@ public interface ITrending
     /// Get the trending movies, TV shows and people.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<CommonMedia>>> GetAllAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<TrendingResponse>> GetAllAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the trending movies on TMDB.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<CommonMedia>>> GetMoviesAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Movie>>> GetMoviesAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the trending people on TMDB.
@@ -30,5 +31,5 @@ public interface ITrending
     /// Get the trending TV shows on TMDB.
     /// </summary>
     /// <param name="language">`ISO-639-1`-`ISO-3166-1` code</param>
-    public Task<Response<PagedResult<CommonMedia>>> GetTvSeriesAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Series>>> GetTvSeriesAsync(Timewindow timeWindow = Timewindow.Day, string language = "en-US", CancellationToken cancellationToken = default);
 }

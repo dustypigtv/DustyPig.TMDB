@@ -7,10 +7,10 @@ namespace DustyPig.TMDB.Models.People;
 public class TvSeriesCredits : ModelBase
 {
     [JsonPropertyName("cast")]
-    public List<Cast> Cast { get; set; } = [];
+    public List<TvSeriesCast> Cast { get; set; } = [];
 
     [JsonPropertyName("crew")]
-    public List<Crew> Crew { get; set; } = [];
+    public List<TvSeriesCrew> Crew { get; set; } = [];
 
     [JsonPropertyName("id")]
     public int Id { get; set; }

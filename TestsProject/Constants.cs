@@ -25,8 +25,8 @@ public static class Constants
     public const int NETWORK_ID = 21;// The WB
 
 
-    public const string CREDIT_ID = "52fe4495c3a368484e02b251"; //RDJ
-
+    public const string MOVIE_CREDIT_ID = "52fe4495c3a368484e02b251"; //RDJ in The Avengers 
+    public const string TV_CREDIT_ID = "5253386d19c2957940053d95"; //Sarah Michelle Gellar in Buffy the Vampire Slayer
 
 
 

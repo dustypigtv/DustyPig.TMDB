@@ -76,6 +76,7 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
+        //var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteMoviesAsync(accountId, page, language, sessionId, sortBy);
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteMoviesAsync(accountId, page, language, sessionId, sortBy);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
         foreach (var item in ret.Data.Results)
@@ -93,6 +94,7 @@ public class TestAccountMethods
         string language = Constants.Language;
         CommonSortByCreated sortBy = CommonSortByCreated.CreatedAtAsc;
 
+        //var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteTvSeriesAsync(accountId, page, language, sessionId, sortBy);
         var ret = await ClientFactory.GetClient().Endpoints.Account.GetFavoriteTvSeriesAsync(accountId, page, language, sessionId, sortBy);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
         foreach (var item in ret.Data.Results)

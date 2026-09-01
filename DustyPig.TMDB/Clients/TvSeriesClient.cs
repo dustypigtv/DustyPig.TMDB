@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.TvSeries;
 using System;
@@ -178,7 +179,7 @@ internal class TvSeriesClient : ITvSeries
         return _client.GetAsync<PagedResultWithId<Lists>>($"/3/tv/{seriesId}/lists", queryParams, cancellationToken);
     }
 
-    public Task<Response<PagedResult<CommonMedia>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Series>>> GetRecommendationsAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -186,7 +187,7 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/tv/{seriesId}/recommendations", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Series>>($"/3/tv/{seriesId}/recommendations", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -212,7 +213,7 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the similar TV shows.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetSimilarAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Series>>> GetSimilarAsync(int seriesId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -220,7 +221,7 @@ internal class TvSeriesClient : ITvSeries
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/tv/{seriesId}/similar", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Series>>($"/3/tv/{seriesId}/similar", queryParams, cancellationToken);
     }
 
     /// <summary>

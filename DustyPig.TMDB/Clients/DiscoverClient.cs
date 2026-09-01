@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Discover;
 using System;
@@ -34,7 +35,7 @@ internal class DiscoverClient : IDiscover
     /// <param name="withWatchMonetizationANDTypes">Can only be used if <paramref name="withWatchMonetizationORTypes"/> == null. Possible values are: [flatrate, free, ads, rent, buy] use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query</param>
     /// <param name="withWatchMonetizationORTypes">Can only be used if <paramref name="withWatchMonetizationANDTypes"/> == null. Possible values are: [flatrate, free, ads, rent, buy] use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query</param>
     /// <param name="withWatchProviders">use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query</param>
-    public Task<Response<PagedResult<CommonMedia>>> MoviesAsync(int page = 1, string certification = null, string certificationCountry = null, string certificationGte = null, string certificationLte = null, bool? includeAdult = null, bool? includeVideo = null, string language = "en-US", DateOnly? primaryReleaseDateGte = null, DateOnly? primaryReleaseDateLte = null, int? primaryReleaseYear = null, string region = null, DateOnly? releaseDateGte = null, DateOnly? releaseDateLte = null, SortMoviesBy sortBy = SortMoviesBy.PopularityDesc, float? voteAverageGte = null, float? voteAverageLte = null, float? voteCountGte = null, float? voteCountLte = null, string watchRegion = null, string withCast = null, string withCompanies = null, string withCrew = null, string withGenres = null, string withKeywords = null, string withOriginalLanguage = null, string withOriginCountry = null, string withoutCompanies = null, string withoutGenres = null, string withoutKeywords = null, string withoutWatchProviders = null, string withPeople = null, MovieReleaseTypes? withReleaseANDType = null, MovieReleaseTypes? withReleaseORType = null, int? withRuntimeGte = null, int? withRuntimeLte = null, WatchMonetizationTypes? withWatchMonetizationANDTypes = null, WatchMonetizationTypes? withWatchMonetizationORTypes = null, string withWatchProviders = null, int? year = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> MoviesAsync(int page = 1, string certification = null, string certificationCountry = null, string certificationGte = null, string certificationLte = null, bool? includeAdult = null, bool? includeVideo = null, string language = "en-US", DateOnly? primaryReleaseDateGte = null, DateOnly? primaryReleaseDateLte = null, int? primaryReleaseYear = null, string region = null, DateOnly? releaseDateGte = null, DateOnly? releaseDateLte = null, SortMoviesBy sortBy = SortMoviesBy.PopularityDesc, float? voteAverageGte = null, float? voteAverageLte = null, float? voteCountGte = null, float? voteCountLte = null, string watchRegion = null, string withCast = null, string withCompanies = null, string withCrew = null, string withGenres = null, string withKeywords = null, string withOriginalLanguage = null, string withOriginCountry = null, string withoutCompanies = null, string withoutGenres = null, string withoutKeywords = null, string withoutWatchProviders = null, string withPeople = null, MovieReleaseTypes? withReleaseANDType = null, MovieReleaseTypes? withReleaseORType = null, int? withRuntimeGte = null, int? withRuntimeLte = null, WatchMonetizationTypes? withWatchMonetizationANDTypes = null, WatchMonetizationTypes? withWatchMonetizationORTypes = null, string withWatchProviders = null, int? year = null, CancellationToken cancellationToken = default)
     {
         if (withWatchMonetizationANDTypes != null && withWatchMonetizationORTypes != null)
             throw new ArgumentException($"Cannot set both {nameof(withWatchMonetizationANDTypes)} and {nameof(withWatchMonetizationORTypes)}");
@@ -86,8 +87,9 @@ internal class DiscoverClient : IDiscover
             { "year", year }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>("/3/discover/movie", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Movie>>("/3/discover/movie", queryParams, cancellationToken);
     }
+
 
     /// <summary>
     /// Find TV shows using over 30 filters and sort options.
@@ -102,7 +104,7 @@ internal class DiscoverClient : IDiscover
     /// <param name="withWatchMonetizationANDTypes">Can only be used if <paramref name="withWatchMonetizationORTypes"/> == null. Possible values are: [flatrate, free, ads, rent, buy] use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query</param>
     /// <param name="withWatchMonetizationORTypes">Can only be used if <paramref name="withWatchMonetizationANDTypes"/> == null. Possible values are: [flatrate, free, ads, rent, buy] use in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query</param>
     /// <param name="withWatchProviders">CommonMedia in conjunction with `watch_region`, can be a comma (`AND`) or pipe (`OR`) separated query</param>
-    public Task<Response<PagedResult<CommonMedia>>> TvSeriesAsync(int page = 1, DateOnly? airDateGte = null, DateOnly? airDateLte = null, DateOnly? firstAirDateGte = null, DateOnly? firstAirDateLte = null, int? firstAirDateYear = null, bool? includeAdult = null, bool? includeNullFirstAirDates = null, string language = "en-US", bool? screenedTheatrically = null, SortTvSeriesBy sortBy = SortTvSeriesBy.PopularityDesc, string timezone = null, float? voteAverageGte = null, float? voteAverageLte = null, float? voteCountGte = null, float? voteCountLte = null, string watchRegion = null, string withCompanies = null, string withGenres = null, string withKeywords = null, int? withNetworks = null, string withOriginalLanguage = null, string withOriginCountry = null, string withoutCompanies = null, string withoutGenres = null, string withoutKeywords = null, string withoutWatchProviders = null, int? withRuntimeGte = null, int? withRuntimeLte = null, TvSeriesStatus? withANDStatus = null, TvSeriesStatus? withORStatus = null, CommonTvSeriesTypes? withANDType = null, CommonTvSeriesTypes? withORType = null, WatchMonetizationTypes? withWatchMonetizationANDTypes = null, WatchMonetizationTypes? withWatchMonetizationORTypes = null, string withWatchProviders = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Series>>> TvSeriesAsync(int page = 1, DateOnly? airDateGte = null, DateOnly? airDateLte = null, DateOnly? firstAirDateGte = null, DateOnly? firstAirDateLte = null, int? firstAirDateYear = null, bool? includeAdult = null, bool? includeNullFirstAirDates = null, string language = "en-US", bool? screenedTheatrically = null, SortTvSeriesBy sortBy = SortTvSeriesBy.PopularityDesc, string timezone = null, float? voteAverageGte = null, float? voteAverageLte = null, float? voteCountGte = null, float? voteCountLte = null, string watchRegion = null, string withCompanies = null, string withGenres = null, string withKeywords = null, int? withNetworks = null, string withOriginalLanguage = null, string withOriginCountry = null, string withoutCompanies = null, string withoutGenres = null, string withoutKeywords = null, string withoutWatchProviders = null, int? withRuntimeGte = null, int? withRuntimeLte = null, TvSeriesStatus? withANDStatus = null, TvSeriesStatus? withORStatus = null, CommonTvSeriesTypes? withANDType = null, CommonTvSeriesTypes? withORType = null, WatchMonetizationTypes? withWatchMonetizationANDTypes = null, WatchMonetizationTypes? withWatchMonetizationORTypes = null, string withWatchProviders = null, CancellationToken cancellationToken = default)
     {
         if (withANDStatus != null && withORStatus != null)
             throw new ArgumentException($"Cannot set both {nameof(withANDStatus)} and {nameof(withORStatus)}");
@@ -154,6 +156,6 @@ internal class DiscoverClient : IDiscover
             { "with_watch_providers", withWatchProviders }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>("/3/discover/tv", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Series>>("/3/discover/tv", queryParams, cancellationToken);
     }
 }

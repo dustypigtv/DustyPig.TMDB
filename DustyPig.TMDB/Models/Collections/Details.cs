@@ -16,5 +16,5 @@ public class Details : Basic
     public string Overview { get; set; }
 
     [JsonPropertyName("parts")]
-    public List<CommonMedia> Parts { get; set; } = [];
+    public List<CommonMediaBase> Parts { get; set; } = [];
 }

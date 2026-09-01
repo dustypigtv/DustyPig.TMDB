@@ -15,7 +15,9 @@ public class TestPeopleListsMethods
         foreach (var item in ret.Data.Results)
         {
             Assert.IsEmpty(item.AdditionalProperties);
-            foreach (var item2 in item.KnownFor)
+            foreach (var item2 in item.KnownForMovies)
+                Assert.IsEmpty(item2.AdditionalProperties);
+            foreach (var item2 in item.KnownForTv)
                 Assert.IsEmpty(item2.AdditionalProperties);
         }
     }

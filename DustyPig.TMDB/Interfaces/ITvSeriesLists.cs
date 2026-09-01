@@ -1,4 +1,5 @@
 ﻿using DustyPig.REST;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,21 +11,21 @@ public interface ITvSeriesLists
     /// <summary>
     /// Get a list of TV shows airing today.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Series>>> GetAiringTodayAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows that air in the next 7 days.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Series>>> GetOnTheAirAsync(int page = 1, string language = "en-US", string timezone = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by popularity.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Series>>> GetPopularAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get a list of TV shows ordered by rating.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<PagedResult<Series>>> GetTopRatedAsync(int page = 1, string language = "en-US", CancellationToken cancellationToken = default);
 
 }

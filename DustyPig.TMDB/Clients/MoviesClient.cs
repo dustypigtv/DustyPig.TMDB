@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Movies;
 using System;
@@ -156,7 +157,7 @@ internal class MoviesClient : IMovies
         return _client.GetAsync<PagedResultWithId<CommonList>>($"/3/movie/{movieId}/lists", queryParams, cancellationToken);
     }
 
-    public Task<Response<PagedResult<CommonMedia>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> GetRecommendationsAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -164,7 +165,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/movie/{movieId}/recommendations", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Movie>>($"/3/movie/{movieId}/recommendations", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -190,7 +191,7 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the similar movies based on genres and keywords.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> GetSimilarAsync(int movieId, int page = 1, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -198,7 +199,7 @@ internal class MoviesClient : IMovies
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Movie>>($"/3/movie/{movieId}/similar", queryParams, cancellationToken);
     }
 
     /// <summary>

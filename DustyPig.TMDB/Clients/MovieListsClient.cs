@@ -1,5 +1,6 @@
 ﻿using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
 using System.Threading;
@@ -17,7 +18,7 @@ internal class MovieListsClient : IMovieLists
     /// Get a list of movies that are currently in theatres.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<CommonMedia>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithDateRange<Movie>>> GetNowPlayingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -26,14 +27,14 @@ internal class MovieListsClient : IMovieLists
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResultWithDateRange<CommonMedia>>("/3/movie/now_playing", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithDateRange<Movie>>("/3/movie/now_playing", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of movies ordered by popularity.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<CommonMedia>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> GetPopularAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -42,14 +43,14 @@ internal class MovieListsClient : IMovieLists
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>("/3/movie/popular", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Movie>>("/3/movie/popular", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of movies ordered by rating.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResult<CommonMedia>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> GetTopRatedAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -58,14 +59,14 @@ internal class MovieListsClient : IMovieLists
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>("/3/movie/top_rated", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Movie>>("/3/movie/top_rated", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Get a list of movies that are being released soon.
     /// </summary>
     /// <param name="region">ISO-3166-1 code</param>
-    public Task<Response<PagedResultWithDateRange<CommonMedia>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResultWithDateRange<Movie>>> GetUpcomingAsync(int page = 1, string language = "en-US", string region = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -74,7 +75,7 @@ internal class MovieListsClient : IMovieLists
             { "region", region }
         };
 
-        return _client.GetAsync<PagedResultWithDateRange<CommonMedia>>("/3/movie/upcoming", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResultWithDateRange<Movie>>("/3/movie/upcoming", queryParams, cancellationToken);
     }
 
 }

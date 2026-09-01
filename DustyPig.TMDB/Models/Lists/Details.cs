@@ -1,11 +1,16 @@
+using DustyPig.TMDB.Interfaces;
 using DustyPig.TMDB.Models.Common;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.Lists;
 
 public class Details : ModelBase
 {
+    private List<Movie> _movies = null;
+    private List<Series> _tv = null;
+
     [JsonPropertyName("created_by")]
     public string CreatedBy { get; set; }
 
@@ -18,8 +23,70 @@ public class Details : ModelBase
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
+    //[JsonPropertyName("items")]
+    //public List<CommonMediaBase> Items { get; set; } = [];
+
     [JsonPropertyName("items")]
-    public List<CommonMedia> Items { get; set; } = [];
+    public JsonElement Items { get; set; }
+
+    /// <summary>
+    /// This property will contain items from <see cref="Items"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.Movie"/>.
+    /// </summary>
+    [JsonIgnore]
+    public List<Movie> Movies
+    {
+        get
+        {
+            if (_movies == null)
+            {
+                _movies = [];
+                foreach (var item in Items.EnumerateArray())
+                {
+                    if (item.TryGetProperty("media_type", out var mediaTypeProperty))
+                    {
+                        string mediaType = mediaTypeProperty.GetString();
+                        if (mediaType == "movie")
+                        {
+                            var movie = JsonSerializer.Deserialize<Movie>(item.GetRawText());
+                            if (movie != null)
+                                _movies.Add(movie);
+                        }
+                    }
+                }
+            }
+            return _movies;
+        }
+    }
+
+    /// <summary>
+    /// This property will contain items from <see cref="Items"/> where <see cref="CommonMediaBase.MediaType"/> == <see cref="CommonMediaTypes.TvSeries"/>.
+    /// </summary>
+    [JsonIgnore]
+    public List<Series> TvSeries
+    {
+        get
+        {
+            if (_tv == null)
+            {
+                _tv = [];
+                foreach (var item in Items.EnumerateArray())
+                {
+                    if (item.TryGetProperty("media_type", out var mediaTypeProperty))
+                    {
+                        string mediaType = mediaTypeProperty.GetString();
+                        if (mediaType == "tv")
+                        {
+                            var series = JsonSerializer.Deserialize<Series>(item.GetRawText());
+                            if (series != null)
+                                _tv.Add(series);
+                        }
+                    }
+                }
+            }
+            return _tv;
+        }
+    }
+
 
     [JsonPropertyName("item_count")]
     public int ItemCount { get; set; }

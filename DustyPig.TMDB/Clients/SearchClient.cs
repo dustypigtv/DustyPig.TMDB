@@ -1,5 +1,6 @@
 using DustyPig.REST;
 using DustyPig.TMDB.Interfaces;
+using DustyPig.TMDB.Models;
 using DustyPig.TMDB.Models.Common;
 using DustyPig.TMDB.Models.Search;
 using System.Collections.Generic;
@@ -63,7 +64,7 @@ internal class SearchClient : ISearch
     /// <summary>
     /// Search for movies by their original, translated and alternative titles.
     /// </summary>
-    public Task<Response<PagedResult<CommonMedia>>> MoviesAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Movie>>> MoviesAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", int? primaryReleaseYear = null, string region = null, int? year = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -76,13 +77,13 @@ internal class SearchClient : ISearch
             { "year", year }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>("/3/search/movie", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Movie>>("/3/search/movie", queryParams, cancellationToken);
     }
 
     /// <summary>
     /// Use multi search when you want to search for movies, TV shows and people in a single request.
     /// </summary>
-    public Task<Response<PagedResult<MultiObject>>> MultiAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<MultiResponse>> MultiAsync(string query, int page = 1, bool? includeAdult = null, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -92,7 +93,7 @@ internal class SearchClient : ISearch
             { "language", language }
         };
 
-        return _client.GetAsync<PagedResult<MultiObject>>("/3/search/multi", queryParams, cancellationToken);
+        return _client.GetAsync<MultiResponse>("/3/search/multi", queryParams, cancellationToken);
     }
 
     /// <summary>
@@ -116,7 +117,7 @@ internal class SearchClient : ISearch
     /// </summary>
     /// <param name="firstAirDateYear">Search only the first air date. Valid values are: 1000..9999</param>
     /// <param name="year">Search the first air date and all episode air dates. Valid values are: 1000..9999</param>
-    public Task<Response<PagedResult<CommonMedia>>> TvSeriesAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default)
+    public Task<Response<PagedResult<Series>>> TvSeriesAsync(string query, int page = 1, int? firstAirDateYear = null, bool? includeAdult = null, string language = "en-US", int? year = null, CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
@@ -128,6 +129,6 @@ internal class SearchClient : ISearch
             { "year", year }
         };
 
-        return _client.GetAsync<PagedResult<CommonMedia>>("/3/search/tv", queryParams, cancellationToken);
+        return _client.GetAsync<PagedResult<Series>>("/3/search/tv", queryParams, cancellationToken);
     }
 }

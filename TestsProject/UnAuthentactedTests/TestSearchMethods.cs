@@ -82,7 +82,17 @@ public class TestSearchMethods
 
         var ret = await ClientFactory.GetClient().Endpoints.Search.MultiAsync(query, page, includeAdult, language);
         Assert.IsEmpty(ret.Data.AdditionalProperties);
-        foreach (var item in ret.Data.Results)
+        foreach(var item in ret.Data.Movies)
+            Assert.IsEmpty(item.AdditionalProperties);
+        foreach (var item in ret.Data.People)
+        {
+            Assert.IsEmpty(item.AdditionalProperties);
+            foreach(var item2 in item.KnownForMovies)
+                Assert.IsEmpty(item2.AdditionalProperties);
+            foreach(var item3 in item.KnownForTv)
+                Assert.IsEmpty(item3.AdditionalProperties);
+        }
+        foreach(var item in ret.Data.TvSeries)
             Assert.IsEmpty(item.AdditionalProperties);
     }
 
