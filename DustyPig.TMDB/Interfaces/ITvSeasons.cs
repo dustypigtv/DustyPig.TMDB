@@ -24,7 +24,7 @@ public interface ITvSeasons
     /// </summary>
     public Task<Response<ChangeList>> GetChangesAsync(int seasonId, int page = 1, DateOnly? endDate = null, DateOnly? startDate = null, CancellationToken cancellationToken = default);
 
-    public Task<Response<Credits>> GetCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CommonTvCredits>> GetCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Query the details of a TV season.

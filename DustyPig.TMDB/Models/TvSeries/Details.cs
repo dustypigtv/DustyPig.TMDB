@@ -87,7 +87,7 @@ public class Details : CommonMedia
     public ListResultWithId<ContentRating> ContentRatings { get; set; }
 
     [JsonPropertyName("credits")]
-    public Credits Credits { get; set; }
+    public CommonTvCredits Credits { get; set; }
 
     [JsonPropertyName("episode_groups")]
     public ListResultWithId<EpisodeGroup> EpisodeGroups { get; set; }

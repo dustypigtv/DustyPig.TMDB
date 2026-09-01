@@ -58,14 +58,14 @@ internal class TvSeasonsClient : ITvSeasons
         return _client.GetAsync<ChangeList>($"/3/tv/season/{seasonId}/changes", queryParams, cancellationToken);
     }
 
-    public Task<Response<Credits>> GetCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonTvCredits>> GetCreditsAsync(int seasonNumber, int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<Credits>($"/3/tv/{seriesId}/season/{seasonNumber}/credits", queryParams, cancellationToken);
+        return _client.GetAsync<CommonTvCredits>($"/3/tv/{seriesId}/season/{seasonNumber}/credits", queryParams, cancellationToken);
     }
 
     /// <summary>

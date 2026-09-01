@@ -43,7 +43,7 @@ public class Details : ModelBase
     public CommonAggregateCredits AggregateCredits { get; set; }
 
     [JsonPropertyName("credits")]
-    public Credits Credits { get; set; }
+    public CommonTvCredits Credits { get; set; }
 
     [JsonPropertyName("external_ids")]
     public CommonExternalIds ExternalIds { get; set; }

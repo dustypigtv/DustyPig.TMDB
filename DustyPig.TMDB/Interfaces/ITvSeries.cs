@@ -44,7 +44,7 @@ public interface ITvSeries
     /// <summary>
     /// Get the latest season credits of a TV show.
     /// </summary>
-    public Task<Response<Credits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
+    public Task<Response<CommonTvCredits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the details of a TV show.

@@ -100,14 +100,14 @@ internal class TvSeriesClient : ITvSeries
     /// <summary>
     /// Get the latest season credits of a TV show.
     /// </summary>
-    public Task<Response<Credits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
+    public Task<Response<CommonTvCredits>> GetCreditsAsync(int seriesId, string language = "en-US", CancellationToken cancellationToken = default)
     {
         var queryParams = new Dictionary<string, object>
         {
             { "language", language }
         };
 
-        return _client.GetAsync<Credits>($"/3/tv/{seriesId}/credits", queryParams, cancellationToken);
+        return _client.GetAsync<CommonTvCredits>($"/3/tv/{seriesId}/credits", queryParams, cancellationToken);
     }
 
     /// <summary>
