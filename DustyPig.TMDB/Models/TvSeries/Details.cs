@@ -38,7 +38,7 @@ public class Details : CommonMedia
     public DateOnly? LastAirDate { get; set; }
 
     [JsonPropertyName("last_episode_to_air")]
-    public LastEpisodeToAir1 LastEpisodeToAir { get; set; }
+    public LastEpisodeToAir LastEpisodeToAir { get; set; }
 
     [JsonPropertyName("networks")]
     public List<CommonCompany> Networks { get; set; } = [];

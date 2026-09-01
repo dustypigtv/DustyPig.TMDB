@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace DustyPig.TMDB.Models.TvSeries;
 
-public class LastEpisodeToAir2 : ModelBase
+public class LastEpisodeToAir : ModelBase
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

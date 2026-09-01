@@ -32,7 +32,7 @@ public class Latest : CommonMedia
     public DateOnly? LastAirDate { get; set; }
 
     [JsonPropertyName("last_episode_to_air")]
-    public LastEpisodeToAir2 LastEpisodeToAir { get; set; }
+    public LastEpisodeToAir LastEpisodeToAir { get; set; }
 
     [JsonPropertyName("number_of_episodes")]
     public int NumberOfEpisodes { get; set; }

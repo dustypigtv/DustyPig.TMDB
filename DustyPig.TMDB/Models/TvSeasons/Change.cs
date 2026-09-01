@@ -10,5 +10,5 @@ public class Change : ModelBase
     public string Key { get; set; }
 
     [JsonPropertyName("items")]
-    public List<Item> Items { get; set; } = [];
+    public List<CommonItem> Items { get; set; } = [];
 }
