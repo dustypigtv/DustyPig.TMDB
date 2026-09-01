@@ -139,8 +139,8 @@ internal class MoviesClient : IMovies
     /// <summary>
     /// Get the newest movie ID.
     /// </summary>
-    public Task<Response<Latest>> GetLatestAsync(CancellationToken cancellationToken = default) =>
-        _client.GetAsync<Latest>("/3/movie/latest", null, cancellationToken);
+    public Task<Response<Details>> GetLatestAsync(CancellationToken cancellationToken = default) =>
+        _client.GetAsync<Details>("/3/movie/latest", null, cancellationToken);
 
     /// <summary>
     /// Get the lists that a movie has been added to.

@@ -57,7 +57,7 @@ public interface IMovies
     /// <summary>
     /// Get the newest movie ID.
     /// </summary>
-    public Task<Response<Latest>> GetLatestAsync(CancellationToken cancellationToken = default);
+    public Task<Response<Details>> GetLatestAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Get the lists that a movie has been added to.
