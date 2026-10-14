@@ -67,12 +67,6 @@ public class Client
         set => _restClient.IncludeRawContentInResponse = value;
     }
 
-    public ushort RetryCount
-    {
-        get => _restClient.RetryCount;
-        set => _restClient.RetryCount = value;
-    }
-
 
 
     public AuthTypes AuthType => _authType;
